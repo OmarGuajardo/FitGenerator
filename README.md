@@ -92,12 +92,11 @@ Android application that will generate and outfit for you based on your current 
 * Stream (Dirty Clothes)
     * Detail (Item Clothing)
 
-## Wireframes
 
-### [BONUS] Digital Wireframes & Mockups
-
-### [BONUS] Interactive Prototype
-
+### Digital Wireframes & Mockups
+I made a Wireframe of the application using Figma, click [here](https://www.figma.com/file/k7flYFR0zYg0Eca1OBwvSB/Fit-Generator?node-id=0%3A1) to view.
+### Interactive Prototype
+Figma based [prototype] (https://www.figma.com/proto/k7flYFR0zYg0Eca1OBwvSB/Fit-Generator?node-id=1%3A2&scaling=scale-down)
 ## Schema 
 [This section will be completed in Unit 9]
 ### Models
@@ -108,16 +107,6 @@ Android application that will generate and outfit for you based on your current 
 - [OPTIONAL: List endpoints if using existing API such as Yelp]
 
 ---
-
-# Omar's Brainstorm Space
-
-- The app will be composed of 2 Screens but will have multiple fragments similar using the [tabs](https://material.io/components/tabs) component and the Main UI will look something similar to [this](https://material.io/components/buttons-floating-action-button#behavior), I'm going to handle the adding of a new item of clothing by making the FAB button transform into a full screen form like [this](https://material.io/components/buttons-floating-action-button#types-of-transitions)
-
-## Closet Screen
-- It's going to be made up of a list
-    - [Behavior into detail view I want is similar to the pencil](https://material.io/components/lists#behavior)
-    - List item will be a one line item with a picture
-    - [Behavior for adding an item I want is simllar to the FAB one](https://material.io/components/buttons-floating-action-button#types-of-transitions)
 
 # Week by Week
 
