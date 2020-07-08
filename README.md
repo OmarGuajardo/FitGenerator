@@ -96,7 +96,7 @@ Android application that will generate and outfit for you based on your current 
 ### Digital Wireframes & Mockups
 I made a Wireframe of the application using Figma, click [here](https://www.figma.com/file/k7flYFR0zYg0Eca1OBwvSB/Fit-Generator?node-id=0%3A1) to view.
 ### Interactive Prototype
-Figma based [prototype] (https://www.figma.com/proto/k7flYFR0zYg0Eca1OBwvSB/Fit-Generator?node-id=1%3A2&scaling=scale-down)
+Figma based [prototype](https://www.figma.com/proto/k7flYFR0zYg0Eca1OBwvSB/Fit-Generator?node-id=1%3A2&scaling=scale-down)
 ## Schema 
 [This section will be completed in Unit 9]
 ### Models
