@@ -1,5 +1,4 @@
-# Original App Design Project - Omar Guajardo
-Android application that will generate and outfit for you based on your current clothing items
+Original App Design Project - Omar Guajardo
 ===
 
 # Fit Generator
@@ -92,21 +91,53 @@ Android application that will generate and outfit for you based on your current 
 * Stream (Dirty Clothes)
     * Detail (Item Clothing)
 
+## Wireframes
 
-### Digital Wireframes & Mockups
-I made a Wireframe of the application using Figma, click [here](https://www.figma.com/file/k7flYFR0zYg0Eca1OBwvSB/Fit-Generator?node-id=0%3A1) to view.
-### Interactive Prototype
-Figma based [prototype](https://www.figma.com/proto/k7flYFR0zYg0Eca1OBwvSB/Fit-Generator?node-id=1%3A2&scaling=scale-down)
+### [BONUS] Digital Wireframes & Mockups
+
+### [BONUS] Interactive Prototype
+
 ## Schema 
-[This section will be completed in Unit 9]
+
 ### Models
-[Add table of models]
+
+Item of Clothing
+| Property       | Type    | Description                                         |
+|:-------------- | ------- |:--------------------------------------------------- |
+| Class          | String  | Item of clothing can be of type Top, Bottom or Shoe |
+| Color          | String  | Main Color of the Item|
+| Fit            | String  |<ul><li>Top: Short Sleeve, Long Sleeve, Tank Top</li><li>Bottom:Straight,Skinny,Slim</li></ul>|
+| Type           | String  |<ul><li>Top: Button Up, Tee Shirt, V-Neck</li></ul>|
+| Style          |String|<ul><li>Top: Basic, Graphic, Patterned</li><li>Bottom: Jeans, Slacks, Shorts, Joggers, Chinos</li></ul>|
+| Worn           |Boolean  |Have they worn the item so that it can be washed|
+| Number of Uses | Integer | How many times the item has been worn|
+
 ### Networking
-- [Add list of network requests by screen ]
-- [Create basic snippets for each Parse network request]
-- [OPTIONAL: List endpoints if using existing API such as Yelp]
+- Login Screen
+    - (Read/GET) Is user registered and are credentials valid?
+- Register Screen
+    - (Create/POST) Generate user with given credentials?
+- Closet Screen
+    - (Read/GET) Query all items of clothing who's pointer matches the Users ID
+    - (Create/POST) Create new items of clothing that the user adds
+    - (Update/PUT) Update changes of item of clothing
+    - (Delete) Any item of clothing that the user decides to delete
+- Generator Screen
+    - 
+- Dirty Clothes Screen
+    - (Update/PUT) Update the status *Worn* on selected item of clothing
 
 ---
+
+# Omar's Brainstorm Space
+
+- The app will be composed of 2 Screens but will have multiple fragments similar using the [tabs](https://material.io/components/tabs) component and the Main UI will look something similar to [this](https://material.io/components/buttons-floating-action-button#behavior), I'm going to handle the adding of a new item of clothing by making the FAB button transform into a full screen form like [this](https://material.io/components/buttons-floating-action-button#types-of-transitions)
+
+## Closet Screen
+- It's going to be made up of a list
+    - [Behavior into detail view I want is similar to the pencil](https://material.io/components/lists#behavior)
+    - List item will be a one line item with a picture
+    - [Behavior for adding an item I want is simllar to the FAB one](https://material.io/components/buttons-floating-action-button#types-of-transitions)
 
 # Week by Week
 
@@ -185,3 +216,7 @@ Figma based [prototype](https://www.figma.com/proto/k7flYFR0zYg0Eca1OBwvSB/Fit-G
         - [ ] Have unique closets per user
         - [ ] Every outfit must be unique every generation
 
+## Material Desing Resources
+
+- https://medium.com/google-design/motion-design-doesnt-have-to-be-hard-33089196e6c2
+- https://medium.com/google-design/implementing-motion-9f2839002016 
