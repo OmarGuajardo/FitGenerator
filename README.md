@@ -108,7 +108,7 @@ Item of Clothing
 | Color          | String  | Main Color of the Item|
 | Fit            | String  |<ul><li>Top: Short Sleeve, Long Sleeve, Tank Top</li><li>Bottom:Straight,Skinny,Slim</li></ul>|
 | Type           | String  |<ul><li>Top: Button Up, Tee Shirt, V-Neck, Crop Top, Off the Sholder, Blouse</li><li>Bottom:Pristine, High Waisted, Ripped, Oversize</li></ul>|
-| Style          |String|<ul><li>Top: Basic, Graphic, Patterned,Floral,Horizontal Stripes, Vertical Stripes</li><li>Bottom: Jeans, Slacks, Shorts, Joggers, Chinos</li></ul>|
+| Style          |String|<ul><li>Top: Basic, Graphic, Patterned,Floral,Horizontal Stripes, Vertical Stripes</li><li>Bottom: Jeans, Slacks, Shorts, Joggers, Chinos, Skirt</li></ul>|
 | Worn           |Boolean  |Have they worn the item so that it can be washed|
 | Number of Uses | Integer | How many times the item has been worn|
 
