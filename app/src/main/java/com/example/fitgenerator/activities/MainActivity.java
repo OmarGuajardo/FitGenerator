@@ -1,13 +1,14 @@
-package com.example.fitgenerator;
+package com.example.fitgenerator.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
-import android.widget.TableLayout;
 
+import com.example.fitgenerator.R;
 import com.example.fitgenerator.databinding.ActivityMainBinding;
+import com.example.fitgenerator.fragments.ClosetFragment;
+import com.example.fitgenerator.fragments.FitsFragment;
+import com.example.fitgenerator.fragments.LaundryFragment;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 

@@ -1,4 +1,4 @@
-package com.example.fitgenerator;
+package com.example.fitgenerator.fragments;
 
 import android.os.Bundle;
 
@@ -8,12 +8,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.fitgenerator.R;
+
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FitsFragment#newInstance} factory method to
+ * Use the {@link ClosetFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FitsFragment extends Fragment {
+public class ClosetFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -24,7 +26,7 @@ public class FitsFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FitsFragment() {
+    public ClosetFragment() {
         // Required empty public constructor
     }
 
@@ -34,11 +36,11 @@ public class FitsFragment extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FitsFragment.
+     * @return A new instance of fragment ClosetFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FitsFragment newInstance(String param1, String param2) {
-        FitsFragment fragment = new FitsFragment();
+    public static ClosetFragment newInstance(String param1, String param2) {
+        ClosetFragment fragment = new ClosetFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -59,6 +61,6 @@ public class FitsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fits, container, false);
+        return inflater.inflate(R.layout.fragment_closet, container, false);
     }
 }

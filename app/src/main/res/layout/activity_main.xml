@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -33,14 +33,14 @@
                 android:layout_marginEnd="16dp"
                 app:borderWidth="0dp"
                 android:layout_marginBottom="16dp"
-                android:backgroundTint="@color/colorPrimary"
+                android:backgroundTint="@color/secondaryColor"
                 android:clickable="true"
                 android:scaleType="fitCenter"
                 android:src="@drawable/ic_baseline_add_24"
                 android:tint="@color/colorPrimary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:rippleColor="@color/colorPrimaryDark"
+                app:rippleColor="@color/secondaryDarkColor"
                 app:tint="@android:color/white" />
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
     </LinearLayout>

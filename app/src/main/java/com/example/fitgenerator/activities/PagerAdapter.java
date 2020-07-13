@@ -1,4 +1,4 @@
-package com.example.fitgenerator;
+package com.example.fitgenerator.activities;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
