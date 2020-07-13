@@ -2,4 +2,5 @@
 <resources>
     <dimen name="dropDownPadding">8dp</dimen>
     <dimen name="dropDownMargin">8dp</dimen>
+    <dimen name="marginLeft">16dp</dimen>
 </resources>

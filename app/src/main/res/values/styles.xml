@@ -7,4 +7,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MainButtonStyle" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="backgroundColor">@color/secondaryColor</item>
+        <item name="backgroundTint">@color/secondaryColor</item>
+        <item name="fontFamily">@font/poppins_semibold</item>
+    </style>
+
 </resources>
