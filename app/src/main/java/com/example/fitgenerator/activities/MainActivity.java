@@ -53,20 +53,7 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Defining different events depending on what tab the user is in
-                switch(binding.viewPager.getCurrentItem()){
-                    case 0:
-                        openCreateItem();
-                        return;
-                    case 1:
-                        Log.d(TAG, "Generate out fit");
-                        return;
-                    case 2:
-                        Log.d(TAG, "Wash all items");
-                        return;
-                    default:
-                        return;
-                }
+                fabListener(binding.viewPager.getCurrentItem());
             }
         });
 
@@ -91,6 +78,22 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+    public void fabListener(int position){
+        //Defining different events depending on what tab the user is in
+        switch(position){
+            case 0:
+                openCreateItem();
+                return;
+            case 1:
+                Log.d(TAG, "Generate out fit");
+                return;
+            case 2:
+                Log.d(TAG, "Wash all items");
+                return;
+            default:
+                return;
+        }
     }
     public void openCreateItem(){
         Intent intent = new Intent(MainActivity.this,CreateItemActivity.class);

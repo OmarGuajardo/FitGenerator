@@ -18,7 +18,10 @@
         app:title="Fit Generator"
        />
     <com.google.android.material.tabs.TabLayout
-        android:layout_width="409dp"
+        android:backgroundTint="@color/colorPrimary"
+        app:tabSelectedTextColor="@color/secondaryDarkColor"
+        app:tabIndicatorColor="@color/secondaryDarkColor"
+        android:layout_width="match_parent"
         android:id="@+id/tabBar"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
