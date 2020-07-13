@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "Generate out fit");
                 return;
             case 2:
+                openEditItem();
                 Log.d(TAG, "Wash all items");
                 return;
             default:
@@ -97,6 +98,10 @@ public class MainActivity extends AppCompatActivity {
     }
     public void openCreateItem(){
         Intent intent = new Intent(MainActivity.this,CreateItemActivity.class);
+        startActivity(intent);
+    }
+    public void openEditItem(){
+        Intent intent = new Intent(MainActivity.this,ItemDetailsActivity.class);
         startActivity(intent);
     }
 
