@@ -79,7 +79,6 @@ public class CreateItemActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 submitClothingItem();
-                Log.d(TAG, "onClick: " + binding.tvStyle.getText().toString());
             }
         });
 
@@ -98,7 +97,7 @@ public class CreateItemActivity extends AppCompatActivity {
         Log.d(TAG, "submitClothingItem: result = "+binding.tvName.getText().toString());
     }
     public void refreshOptions(String classItem){
-        String[] Color = new String[]{"Red", "Blue", "Green", "Purple", "Yellow", "Black", "Brown", "White", "Pink", "Tan", "Orange"};
+//        String[] Color = new String[]{"Red", "Blue", "Green", "Purple", "Yellow", "Black", "Brown", "White", "Pink", "Tan", "Orange"};
         String[] FitTop = new String[]{"Short Sleeve", "Long Sleeve", "Tank Top"};
         String[] TypeTop = new String[]{"Button Up", "Tee Shirt", "V-Neck", "Crop Top", "Off The Shoulder", "Blouse"};
         String[] StyleTop = new String[]{"Basic", "Graphic", "Patterned", "Floral", "Horizontal Stripes", "Vertical Stripes"};
@@ -110,12 +109,16 @@ public class CreateItemActivity extends AppCompatActivity {
 
         switch (classItem){
             case "Top":
-                viewList = new AutoCompleteTextView[]{binding.tvColor,binding.tvFit,binding.tvType,binding.tvStyle};
-                listOptions = new String[][]{Color,FitTop,TypeTop,StyleTop};
+//                viewList = new AutoCompleteTextView[]{binding.tvColor,binding.tvFit,binding.tvType,binding.tvStyle};
+//                listOptions = new String[][]{Color,FitTop,TypeTop,StyleTop};
+                viewList = new AutoCompleteTextView[]{binding.tvFit,binding.tvType,binding.tvStyle};
+                listOptions = new String[][]{FitTop,TypeTop,StyleTop};
                 break;
             case "Bottom":
-                viewList = new AutoCompleteTextView[]{binding.tvColor,binding.tvFit,binding.tvType,binding.tvStyle};
-                listOptions = new String[][]{Color,FitBottom,TypeBottom,StyleBottom};
+//                viewList = new AutoCompleteTextView[]{binding.tvColor,binding.tvFit,binding.tvType,binding.tvStyle};
+////                listOptions = new String[][]{Color,FitBottom,TypeBottom,StyleBottom};
+                viewList = new AutoCompleteTextView[]{binding.tvFit,binding.tvType,binding.tvStyle};
+                listOptions = new String[][]{FitBottom,TypeBottom,StyleBottom};
                 break;
             case "Shoes":
                 binding.containerType.setVisibility(View.GONE);

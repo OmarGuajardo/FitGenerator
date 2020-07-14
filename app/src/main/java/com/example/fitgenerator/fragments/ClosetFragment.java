@@ -20,6 +20,7 @@ import com.example.fitgenerator.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
+import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
@@ -58,6 +59,7 @@ public class ClosetFragment extends Fragment {
 
        Closet userCloset = (Closet)ParseUser.getCurrentUser().get("UserCloset");
        ParseRelation<ClothingItem> relation = userCloset.getRelation(Closet.KEY_TOP);
+       ParseQuery query = relation.getQuery();
        relation.getQuery().findInBackground(new FindCallback<ClothingItem>() {
            @Override
            public void done(List<ClothingItem> objects, ParseException e) {
