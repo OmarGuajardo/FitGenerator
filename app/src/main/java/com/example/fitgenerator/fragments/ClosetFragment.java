@@ -25,6 +25,9 @@ public class ClosetFragment extends Fragment {
     ClosetAdapter closetAdapter;
     List<String> closet;
 
+    public ClosetFragment(){
+    }
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
