@@ -12,6 +12,7 @@ import androidx.viewbinding.ViewBinding;
 import com.example.fitgenerator.R;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -25,6 +26,15 @@ public final class ActivityCreateItemBinding implements ViewBinding {
 
   @NonNull
   public final MaterialButton btnSubmit;
+
+  @NonNull
+  public final TextInputLayout containerFit;
+
+  @NonNull
+  public final TextInputLayout containerStyle;
+
+  @NonNull
+  public final TextInputLayout containerType;
 
   @NonNull
   public final AutoCompleteTextView tvClass;
@@ -46,12 +56,17 @@ public final class ActivityCreateItemBinding implements ViewBinding {
 
   private ActivityCreateItemBinding(@NonNull ConstraintLayout rootView,
       @NonNull MaterialButton btnPicture, @NonNull MaterialButton btnSubmit,
-      @NonNull AutoCompleteTextView tvClass, @NonNull AutoCompleteTextView tvColor,
-      @NonNull AutoCompleteTextView tvFit, @NonNull TextInputEditText tvName,
-      @NonNull AutoCompleteTextView tvStyle, @NonNull AutoCompleteTextView tvType) {
+      @NonNull TextInputLayout containerFit, @NonNull TextInputLayout containerStyle,
+      @NonNull TextInputLayout containerType, @NonNull AutoCompleteTextView tvClass,
+      @NonNull AutoCompleteTextView tvColor, @NonNull AutoCompleteTextView tvFit,
+      @NonNull TextInputEditText tvName, @NonNull AutoCompleteTextView tvStyle,
+      @NonNull AutoCompleteTextView tvType) {
     this.rootView = rootView;
     this.btnPicture = btnPicture;
     this.btnSubmit = btnSubmit;
+    this.containerFit = containerFit;
+    this.containerStyle = containerStyle;
+    this.containerType = containerType;
     this.tvClass = tvClass;
     this.tvColor = tvColor;
     this.tvFit = tvFit;
@@ -99,6 +114,24 @@ public final class ActivityCreateItemBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.containerFit;
+      TextInputLayout containerFit = rootView.findViewById(id);
+      if (containerFit == null) {
+        break missingId;
+      }
+
+      id = R.id.containerStyle;
+      TextInputLayout containerStyle = rootView.findViewById(id);
+      if (containerStyle == null) {
+        break missingId;
+      }
+
+      id = R.id.containerType;
+      TextInputLayout containerType = rootView.findViewById(id);
+      if (containerType == null) {
+        break missingId;
+      }
+
       id = R.id.tvClass;
       AutoCompleteTextView tvClass = rootView.findViewById(id);
       if (tvClass == null) {
@@ -136,7 +169,8 @@ public final class ActivityCreateItemBinding implements ViewBinding {
       }
 
       return new ActivityCreateItemBinding((ConstraintLayout) rootView, btnPicture, btnSubmit,
-          tvClass, tvColor, tvFit, tvName, tvStyle, tvType);
+          containerFit, containerStyle, containerType, tvClass, tvColor, tvFit, tvName, tvStyle,
+          tvType);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

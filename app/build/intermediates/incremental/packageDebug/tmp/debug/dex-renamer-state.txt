@@ -1,4 +1,4 @@
-#Tue Jul 14 15:33:48 PDT 2020
+#Tue Jul 14 15:49:14 PDT 2020
 base.0=/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/dex/debug/mergeExtDexDebug/classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex

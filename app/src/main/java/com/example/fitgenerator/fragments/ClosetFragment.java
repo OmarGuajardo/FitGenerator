@@ -57,11 +57,11 @@ public class ClosetFragment extends Fragment {
    public void queryTop(){
 
        Closet userCloset = (Closet)ParseUser.getCurrentUser().get("UserCloset");
-       ParseRelation<ParseObject> relation = userCloset.getRelation(Closet.KEY_TOP);
-       relation.getQuery().findInBackground(new FindCallback<ParseObject>() {
+       ParseRelation<ClothingItem> relation = userCloset.getRelation(Closet.KEY_TOP);
+       relation.getQuery().findInBackground(new FindCallback<ClothingItem>() {
            @Override
-           public void done(List<ParseObject> objects, ParseException e) {
-               items.addAll(fromRelationQuery(objects));
+           public void done(List<ClothingItem> objects, ParseException e) {
+               items.addAll(objects);
                closetAdapter.notifyDataSetChanged();
            }
        });
@@ -69,14 +69,6 @@ public class ClosetFragment extends Fragment {
 
    }
 
-    public List<ClothingItem> fromRelationQuery(List<ParseObject> objects){
-        List<ClothingItem> items = new ArrayList<>();
-        for(ParseObject object : objects){
-            ClothingItem newItem = (ClothingItem)object;
-            items.add(newItem);
-        }
-        return items;
-    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

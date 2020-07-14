@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.TextView;
 
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.databinding.ActivityCreateItemBinding;
@@ -24,12 +25,15 @@ public class CreateItemActivity extends AppCompatActivity {
     private static final String TAG = "CreateItemActivity";
     ActivityCreateItemBinding binding;
     Toolbar toolbar;
+    AutoCompleteTextView[]form;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         binding = ActivityCreateItemBinding.inflate(getLayoutInflater());
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
+        //Setting up the form
+        form = new AutoCompleteTextView[]{binding.tvClass,binding.tvColor,binding.tvFit,binding.tvType,binding.tvStyle};
 
         toolbar = findViewById(R.id.topAppBar);
         // Adding back button to the Tool Bar
@@ -40,14 +44,8 @@ public class CreateItemActivity extends AppCompatActivity {
 
         String[] Class = new String[]{"Top", "Bottom", "Shoes"};
         String[] Color = new String[]{"Red", "Blue", "Green", "Purple", "Yellow", "Black", "Brown", "White", "Pink", "Tan", "Orange"};
-        String[] FitTop = new String[]{"Short Sleeve", "Long Sleeve", "Tank Top"};
-        String[] FitBottom = new String[]{"Straight", "Skinny", "Slim", "Baggy"};
-        String[] TypeTop = new String[]{"Button Up", "Tee Shirt", "V-Neck", "Crop Top", "Off The Shoulder", "Blouse"};
-        String[] TypeBottom = new String[]{"Pristine", "High Waisted", "Ripped"};
-        String[] StyleTop = new String[]{"Basic", "Graphic", "Patterned", "Floral", "Horizontal Stripes", "Vertical Stripes"};
-        String[] StyleBottom = new String[]{"Jeans", "Slacks", "Shorts", "Joggers", "Chinos", "Skirt", "Leggings", "Sweatpants"};
 
-
+        //Setting the Options for Class and Color since they are alwasy going to be there
         ArrayAdapter<String> classAdapter = new ArrayAdapter<>(
                 getApplicationContext(),
                 R.layout.dropdown_menu_popup_item,
@@ -80,6 +78,7 @@ public class CreateItemActivity extends AppCompatActivity {
         binding.btnSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                submitClothingItem();
                 Log.d(TAG, "onClick: " + binding.tvStyle.getText().toString());
             }
         });
@@ -92,6 +91,12 @@ public class CreateItemActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void submitClothingItem(){
+        for(AutoCompleteTextView view : form){
+            Log.d(TAG, "submitClothingItem: result = "+view.getText().toString());
+        }
+        Log.d(TAG, "submitClothingItem: result = "+binding.tvName.getText().toString());
+    }
     public void refreshOptions(String classItem){
         String[] Color = new String[]{"Red", "Blue", "Green", "Purple", "Yellow", "Black", "Brown", "White", "Pink", "Tan", "Orange"};
         String[] FitTop = new String[]{"Short Sleeve", "Long Sleeve", "Tank Top"};
@@ -113,10 +118,13 @@ public class CreateItemActivity extends AppCompatActivity {
                 listOptions = new String[][]{Color,FitBottom,TypeBottom,StyleBottom};
                 break;
             case "Shoes":
-                viewList = new AutoCompleteTextView[]{binding.tvFit,binding.tvType,binding.tvStyle};
-                for(View view : viewList){
-                    view.setVisibility(View.GONE);
-                }
+                binding.containerType.setVisibility(View.GONE);
+                binding.containerStyle.setVisibility(View.GONE);
+                binding.containerFit.setVisibility(View.GONE);
+                binding.tvStyle.setText("");
+                binding.tvType.setText("");
+                binding.tvFit.setText("");
+
                 return;
             default:
 
@@ -130,6 +138,9 @@ public class CreateItemActivity extends AppCompatActivity {
             viewList[i].setAdapter(newAdapter);
             viewList[i].setText("");
         }
+        binding.containerType.setVisibility(View.VISIBLE);
+        binding.containerStyle.setVisibility(View.VISIBLE);
+        binding.containerFit.setVisibility(View.VISIBLE);
     }
 
 
