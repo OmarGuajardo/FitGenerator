@@ -21,6 +21,7 @@ import com.example.fitgenerator.fragments.LaundryFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
+import com.parse.ParseUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -87,6 +88,10 @@ public class MainActivity extends AppCompatActivity {
                 return;
             case 1:
                 Log.d(TAG, "Generate out fit");
+                ParseUser.logOut();
+                Intent i = new Intent(MainActivity.this,LoginActivity.class);
+                startActivity(i);
+                finish();
                 return;
             case 2:
 //                openEditItem();
