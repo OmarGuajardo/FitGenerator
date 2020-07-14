@@ -1,5 +1,9 @@
 apply plugin: 'com.android.application'
 
+def apikeyPropertiesFile = rootProject.file("apikey.properties")
+def apikeyProperties = new Properties()
+apikeyProperties.load(new FileInputStream(apikeyPropertiesFile))
+
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.0"
@@ -11,7 +15,12 @@ android {
         versionCode 1
         versionName "1.0"
 
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        // should correspond to key/value pairs inside the file
+        buildConfigField("String", "APP_ID", apikeyProperties['APP_ID'])
+        buildConfigField("String", "MASTER_KEY", apikeyProperties['MASTER_KEY'])
+        buildConfigField("String", "SERVER_URL", apikeyProperties['SERVER_URL'])
     }
     buildFeatures {
         viewBinding true
