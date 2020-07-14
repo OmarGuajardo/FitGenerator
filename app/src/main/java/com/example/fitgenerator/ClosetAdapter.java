@@ -19,9 +19,9 @@ import java.util.List;
 public class ClosetAdapter extends RecyclerView.Adapter<ClosetAdapter.ViewHolder> {
 
     Context context;
-    List<String> closet;
+    List<ClothingItem> closet;
 
-    public ClosetAdapter(Context context, List<String> closet) {
+    public ClosetAdapter(Context context, List<ClothingItem> closet) {
         this.context = context;
         this.closet = closet;
     }
@@ -35,8 +35,8 @@ public class ClosetAdapter extends RecyclerView.Adapter<ClosetAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String s = closet.get(position);
-        holder.bind(s);
+        ClothingItem item = closet.get(position);
+        holder.bind(item);
     }
 
     @Override
@@ -57,8 +57,8 @@ public class ClosetAdapter extends RecyclerView.Adapter<ClosetAdapter.ViewHolder
             itemCardView = itemView.findViewById(R.id.itemCardView);
         }
 
-        public void bind(String s) {
-            tvItemName.setText(s);
+        public void bind(ClothingItem item) {
+            tvItemName.setText(item.getString(ClothingItem.KEY_NAME));
             itemCardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

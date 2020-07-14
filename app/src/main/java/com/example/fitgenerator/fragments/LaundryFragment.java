@@ -42,7 +42,7 @@ public class LaundryFragment extends Fragment {
         rvLaundry = view.findViewById(R.id.rvLaundry);
 
         //Setting up the Recycler View with the Adapter
-        closetAdapter = new ClosetAdapter(getContext(),closet);
+//        closetAdapter = new ClosetAdapter(getContext(),closet);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rvLaundry.setAdapter(closetAdapter);
         rvLaundry.setLayoutManager(linearLayoutManager);
