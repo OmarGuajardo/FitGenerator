@@ -1,6 +1,7 @@
 package com.example.fitgenerator;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +9,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.fitgenerator.activities.ItemDetailsActivity;
 
 import java.util.List;
 
@@ -41,6 +45,7 @@ public class ClosetAdapter extends RecyclerView.Adapter<ClosetAdapter.ViewHolder
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        CardView itemCardView;
         ImageView ivItemIcon;
         TextView tvItemName;
         TextView tvItemClass;
@@ -49,10 +54,18 @@ public class ClosetAdapter extends RecyclerView.Adapter<ClosetAdapter.ViewHolder
             tvItemClass = itemView.findViewById(R.id.tvItemClass);
             tvItemName = itemView.findViewById(R.id.tvItemName);
             ivItemIcon = itemView.findViewById(R.id.ivItemIcon);
+            itemCardView = itemView.findViewById(R.id.itemCardView);
         }
 
         public void bind(String s) {
             tvItemName.setText(s);
+            itemCardView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(context, ItemDetailsActivity.class);
+                    context.startActivity(i);
+                }
+            });
         }
     }
 }

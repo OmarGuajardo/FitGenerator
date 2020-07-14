@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "Generate out fit");
                 return;
             case 2:
-                openEditItem();
+//                openEditItem();
                 Log.d(TAG, "Wash all items");
                 return;
             default:
