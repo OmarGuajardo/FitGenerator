@@ -3,13 +3,17 @@
     package="com.example.fitgenerator">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launching_icon_fg"
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_launching_icon_fg"
         android:supportsRtl="true"
+        android:name=".ParseApplication"
         android:theme="@style/AppTheme">
+
         <activity android:name=".activities.ItemDetailsActivity"></activity>
         <activity android:name=".activities.CreateItemActivity" />
         <activity android:name=".activities.RegisterActivity" />
