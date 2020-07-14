@@ -93,6 +93,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="634" y="291" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1594759035932">
+      <screen x="0" y="23" width="1792" height="1028" />
+    </state>
+    <state x="634" y="291" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.23.1792.1028@0.23.1792.1028" timestamp="1594759035932" />
     <state x="561" y="188" width="670" height="676" key="search.everywhere.popup" timestamp="1594758982145">
       <screen x="0" y="23" width="1792" height="1028" />
     </state>
