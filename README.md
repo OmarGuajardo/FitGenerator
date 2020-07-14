@@ -104,6 +104,7 @@ Original App Design Project - Omar Guajardo
 Item of Clothing
 | Property       | Type    | Description                                         |
 |:-------------- | ------- |:--------------------------------------------------- |
+| Name            | String | Name of the item for quick reference                 |
 | Class          | String  | Item of clothing can be of type Top, Bottom or Shoe |
 | Color          | String  | Main Color of the Item|
 | Fit            | String  |<ul><li>Top: Short Sleeve, Long Sleeve, Tank Top</li><li>Bottom: Straight, Skinny, Slim, Baggy</li></ul>|
