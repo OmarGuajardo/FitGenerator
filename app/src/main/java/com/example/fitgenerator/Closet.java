@@ -2,6 +2,7 @@ package com.example.fitgenerator;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
+import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
 @ParseClassName("Closet")
@@ -14,4 +15,7 @@ public class Closet extends ParseObject {
     public void setUser(ParseUser user){
         put(KEY_USER,user);
     }
+
+
+
 }

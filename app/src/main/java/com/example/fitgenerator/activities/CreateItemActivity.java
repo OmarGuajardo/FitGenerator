@@ -113,6 +113,10 @@ public class CreateItemActivity extends AppCompatActivity {
                 listOptions = new String[][]{Color,FitBottom,TypeBottom,StyleBottom};
                 break;
             case "Shoes":
+                viewList = new AutoCompleteTextView[]{binding.tvFit,binding.tvType,binding.tvStyle};
+                for(View view : viewList){
+                    view.setVisibility(View.GONE);
+                }
                 return;
             default:
 

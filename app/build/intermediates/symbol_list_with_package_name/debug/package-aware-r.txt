@@ -1364,6 +1364,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable fit_generator_icon
 drawable ic_baseline_add_24
+drawable ic_baseline_attach_file_24
 drawable ic_baseline_create_24
 drawable ic_baseline_restore_from_trash_24
 drawable ic_baseline_rotate_right_24
@@ -1493,6 +1494,7 @@ id btnEdit
 id btnFAB
 id btnGetStarted
 id btnLogIn
+id btnPicture
 id btnRegister
 id btnReturn
 id btnSubmit
@@ -1740,6 +1742,7 @@ id tvItemName
 id tvItemNameBottom
 id tvItemNameShoes
 id tvItemNameTop
+id tvName
 id tvPassword
 id tvStyle
 id tvType

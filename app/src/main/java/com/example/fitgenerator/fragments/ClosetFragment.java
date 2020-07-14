@@ -55,6 +55,7 @@ public class ClosetFragment extends Fragment {
     }
 
    public void queryTop(){
+
        Closet userCloset = (Closet)ParseUser.getCurrentUser().get("UserCloset");
        ParseRelation<ParseObject> relation = userCloset.getRelation(Closet.KEY_TOP);
        relation.getQuery().findInBackground(new FindCallback<ParseObject>() {
@@ -64,6 +65,8 @@ public class ClosetFragment extends Fragment {
                closetAdapter.notifyDataSetChanged();
            }
        });
+
+
    }
 
     public List<ClothingItem> fromRelationQuery(List<ParseObject> objects){
