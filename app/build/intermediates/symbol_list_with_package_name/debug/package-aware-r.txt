@@ -1367,6 +1367,7 @@ drawable ic_baseline_add_24
 drawable ic_baseline_attach_file_24
 drawable ic_baseline_check_24
 drawable ic_baseline_create_24
+drawable ic_baseline_delete_24
 drawable ic_baseline_restore_from_trash_24
 drawable ic_baseline_rotate_right_24
 drawable ic_baseline_save_24

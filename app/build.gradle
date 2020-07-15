@@ -68,4 +68,8 @@ dependencies {
     implementation 'org.parceler:parceler-api:1.1.12'
     annotationProcessor 'org.parceler:parceler:1.1.12'
 
+    //Swipe to delete library
+    implementation 'it.xabaras.android:recyclerview-swipedecorator:1.2.3'
+
+
 }

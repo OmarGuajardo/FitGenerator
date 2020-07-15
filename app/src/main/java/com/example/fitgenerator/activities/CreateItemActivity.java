@@ -99,7 +99,6 @@ public class CreateItemActivity extends AppCompatActivity {
         //Setting default options and setting up listeners
         refreshOptions("Top");
         addOnChangeListeners();
-        binding.tvClass.setText("Top");
 
         //Unwrapping data if there is any
         if(getIntent().getParcelableExtra("clothingItemEdit") != null){

@@ -11,6 +11,7 @@ MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/omarguajar
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/2fb8103c62e3ee1e6e4cc337dd696441/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.github.bumptech.glide:glide:4.11.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b05b2a738edf8b82097cbcc8ce0cfd69/jetified-glide-4.11.0/AndroidManifest.xml:2:1-12:12
 MERGED from [com.github.parse-community.Parse-SDK-Android:parse:1.24.2] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/d452394597db9368ffdb10fa971ab714/jetified-parse-1.24.2/AndroidManifest.xml:10:1-24:12
+MERGED from [it.xabaras.android:recyclerview-swipedecorator:1.2.3] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/8b1504831a6ad1cf67066578bc7c3b1e/jetified-recyclerview-swipedecorator-1.2.3/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/51c4c178afaeff173cfa265953a5c82e/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/28174e475fcfd6ae966ed5772f6694ac/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.viewpager2:viewpager2:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/9b843ef8b45a09e63c481ebf2cc33a53/jetified-viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
@@ -181,6 +182,8 @@ MERGED from [com.github.bumptech.glide:glide:4.11.0] /Users/omarguajardo/.gradle
 MERGED from [com.github.bumptech.glide:glide:4.11.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b05b2a738edf8b82097cbcc8ce0cfd69/jetified-glide-4.11.0/AndroidManifest.xml:6:5-8:41
 MERGED from [com.github.parse-community.Parse-SDK-Android:parse:1.24.2] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/d452394597db9368ffdb10fa971ab714/jetified-parse-1.24.2/AndroidManifest.xml:15:5-17:41
 MERGED from [com.github.parse-community.Parse-SDK-Android:parse:1.24.2] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/d452394597db9368ffdb10fa971ab714/jetified-parse-1.24.2/AndroidManifest.xml:15:5-17:41
+MERGED from [it.xabaras.android:recyclerview-swipedecorator:1.2.3] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/8b1504831a6ad1cf67066578bc7c3b1e/jetified-recyclerview-swipedecorator-1.2.3/AndroidManifest.xml:7:5-9:41
+MERGED from [it.xabaras.android:recyclerview-swipedecorator:1.2.3] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/8b1504831a6ad1cf67066578bc7c3b1e/jetified-recyclerview-swipedecorator-1.2.3/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/51c4c178afaeff173cfa265953a5c82e/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/51c4c178afaeff173cfa265953a5c82e/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/28174e475fcfd6ae966ed5772f6694ac/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
