@@ -28,6 +28,12 @@ public final class ActivityCreateItemBinding implements ViewBinding {
   public final MaterialButton btnSubmit;
 
   @NonNull
+  public final TextInputLayout containerClass;
+
+  @NonNull
+  public final TextInputLayout containerColor;
+
+  @NonNull
   public final TextInputLayout containerFit;
 
   @NonNull
@@ -56,6 +62,7 @@ public final class ActivityCreateItemBinding implements ViewBinding {
 
   private ActivityCreateItemBinding(@NonNull ConstraintLayout rootView,
       @NonNull MaterialButton btnPicture, @NonNull MaterialButton btnSubmit,
+      @NonNull TextInputLayout containerClass, @NonNull TextInputLayout containerColor,
       @NonNull TextInputLayout containerFit, @NonNull TextInputLayout containerStyle,
       @NonNull TextInputLayout containerType, @NonNull AutoCompleteTextView tvClass,
       @NonNull AutoCompleteTextView tvColor, @NonNull AutoCompleteTextView tvFit,
@@ -64,6 +71,8 @@ public final class ActivityCreateItemBinding implements ViewBinding {
     this.rootView = rootView;
     this.btnPicture = btnPicture;
     this.btnSubmit = btnSubmit;
+    this.containerClass = containerClass;
+    this.containerColor = containerColor;
     this.containerFit = containerFit;
     this.containerStyle = containerStyle;
     this.containerType = containerType;
@@ -111,6 +120,18 @@ public final class ActivityCreateItemBinding implements ViewBinding {
       id = R.id.btnSubmit;
       MaterialButton btnSubmit = rootView.findViewById(id);
       if (btnSubmit == null) {
+        break missingId;
+      }
+
+      id = R.id.containerClass;
+      TextInputLayout containerClass = rootView.findViewById(id);
+      if (containerClass == null) {
+        break missingId;
+      }
+
+      id = R.id.containerColor;
+      TextInputLayout containerColor = rootView.findViewById(id);
+      if (containerColor == null) {
         break missingId;
       }
 
@@ -169,8 +190,8 @@ public final class ActivityCreateItemBinding implements ViewBinding {
       }
 
       return new ActivityCreateItemBinding((ConstraintLayout) rootView, btnPicture, btnSubmit,
-          containerFit, containerStyle, containerType, tvClass, tvColor, tvFit, tvName, tvStyle,
-          tvType);
+          containerClass, containerColor, containerFit, containerStyle, containerType, tvClass,
+          tvColor, tvFit, tvName, tvStyle, tvType);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

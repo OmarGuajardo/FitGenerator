@@ -1516,6 +1516,8 @@ id clip_vertical
 id collapseActionView
 id confirm_button
 id container
+id containerClass
+id containerColor
 id containerFit
 id containerStyle
 id containerType
