@@ -1526,6 +1526,7 @@ id containerType
 id content
 id contentPanel
 id coordinator
+id coordinatorLayout
 id custom
 id customPanel
 id cut
@@ -1644,6 +1645,7 @@ id password_toggle
 id peekHeight
 id percent
 id pin
+id progressBar
 id progress_circular
 id progress_horizontal
 id radio

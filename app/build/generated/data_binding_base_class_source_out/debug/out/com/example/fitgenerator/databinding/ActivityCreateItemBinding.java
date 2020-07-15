@@ -5,9 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AutoCompleteTextView;
+import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.viewbinding.ViewBinding;
 import com.example.fitgenerator.R;
 import com.google.android.material.button.MaterialButton;
@@ -20,7 +21,7 @@ import java.lang.String;
 
 public final class ActivityCreateItemBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final CoordinatorLayout rootView;
 
   @NonNull
   public final FloatingActionButton btnFAB;
@@ -47,6 +48,12 @@ public final class ActivityCreateItemBinding implements ViewBinding {
   public final TextInputLayout containerType;
 
   @NonNull
+  public final CoordinatorLayout coordinatorLayout;
+
+  @NonNull
+  public final ProgressBar progressBar;
+
+  @NonNull
   public final AutoCompleteTextView tvClass;
 
   @NonNull
@@ -64,11 +71,12 @@ public final class ActivityCreateItemBinding implements ViewBinding {
   @NonNull
   public final AutoCompleteTextView tvType;
 
-  private ActivityCreateItemBinding(@NonNull ConstraintLayout rootView,
+  private ActivityCreateItemBinding(@NonNull CoordinatorLayout rootView,
       @NonNull FloatingActionButton btnFAB, @NonNull MaterialButton btnPicture,
       @NonNull TextInputLayout containerClass, @NonNull TextInputLayout containerColor,
       @NonNull TextInputLayout containerFit, @NonNull TextInputLayout containerName,
       @NonNull TextInputLayout containerStyle, @NonNull TextInputLayout containerType,
+      @NonNull CoordinatorLayout coordinatorLayout, @NonNull ProgressBar progressBar,
       @NonNull AutoCompleteTextView tvClass, @NonNull AutoCompleteTextView tvColor,
       @NonNull AutoCompleteTextView tvFit, @NonNull TextInputEditText tvName,
       @NonNull AutoCompleteTextView tvStyle, @NonNull AutoCompleteTextView tvType) {
@@ -81,6 +89,8 @@ public final class ActivityCreateItemBinding implements ViewBinding {
     this.containerName = containerName;
     this.containerStyle = containerStyle;
     this.containerType = containerType;
+    this.coordinatorLayout = coordinatorLayout;
+    this.progressBar = progressBar;
     this.tvClass = tvClass;
     this.tvColor = tvColor;
     this.tvFit = tvFit;
@@ -91,7 +101,7 @@ public final class ActivityCreateItemBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public CoordinatorLayout getRoot() {
     return rootView;
   }
 
@@ -164,6 +174,14 @@ public final class ActivityCreateItemBinding implements ViewBinding {
         break missingId;
       }
 
+      CoordinatorLayout coordinatorLayout = (CoordinatorLayout) rootView;
+
+      id = R.id.progressBar;
+      ProgressBar progressBar = rootView.findViewById(id);
+      if (progressBar == null) {
+        break missingId;
+      }
+
       id = R.id.tvClass;
       AutoCompleteTextView tvClass = rootView.findViewById(id);
       if (tvClass == null) {
@@ -200,9 +218,10 @@ public final class ActivityCreateItemBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityCreateItemBinding((ConstraintLayout) rootView, btnFAB, btnPicture,
+      return new ActivityCreateItemBinding((CoordinatorLayout) rootView, btnFAB, btnPicture,
           containerClass, containerColor, containerFit, containerName, containerStyle,
-          containerType, tvClass, tvColor, tvFit, tvName, tvStyle, tvType);
+          containerType, coordinatorLayout, progressBar, tvClass, tvColor, tvFit, tvName, tvStyle,
+          tvType);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

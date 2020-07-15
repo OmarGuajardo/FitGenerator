@@ -29,6 +29,7 @@ import com.example.fitgenerator.Closet;
 import com.example.fitgenerator.ClothingItem;
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.databinding.ActivityCreateItemBinding;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.parse.ParseException;
 import com.parse.ParseFile;
@@ -142,6 +143,7 @@ public class CreateItemActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String chosenClass = binding.tvClass.getText().toString();
                 checkForm(chosenClass);
+
             }
         });
 
@@ -158,19 +160,37 @@ public class CreateItemActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void autoFillName() throws JSONException {
+        String classString = form.getString("Class");
+        String color = form.getString("Color");
+        String fit = form.getString("Fit");
+        String type = form.getString("Type");
+        String style = form.getString("Style");
+        if(classString.equals("Shoes")){
+            binding.tvName.setText(color+classString);
+        }
+        else{
+            binding.tvName.setText(color+" "+fit+" "+style+" "+type);
+        }
+    }
+
     public void checkForm(String chosenClass){
         Boolean formReady = true;
+        String name = binding.tvName.getText().toString();
         if(chosenClass.equals("Top")||chosenClass.equals("Bottom")){
             for(TextInputLayout container : viewListContainer){
                 if(container.getEditText().getText().toString().isEmpty()){
                     container.setError("Missing " + container.getHint());
                     formReady = false;
                 }
+                if(name.isEmpty()){
+                    formReady = false;
+                    binding.containerName.setError("Missing Name");
+                }
             }
         }
         else if (chosenClass.equals("Shoes")){
             String color = binding.tvColor.getText().toString();
-            String name = binding.tvName.getText().toString();
             if(color.isEmpty()){
                 formReady = false;
                 binding.containerColor.setError("Missing Color");
@@ -185,13 +205,18 @@ public class CreateItemActivity extends AppCompatActivity {
             formReady = false;
         }
         if(formReady){
+           formEnable(false);
             submitClothingItem();
+            Snackbar.make(binding.coordinatorLayout, "Saving item...", Snackbar.LENGTH_LONG)
+                    .show();
         }
     }
 
     public void submitClothingItem() {
+
         try {
             form.put("Name",binding.tvName.getText().toString());
+            binding.containerName.setError(null);
             Log.d(TAG, "submitClothingItem: form = " +form.toString());
         } catch (JSONException e) {
             e.printStackTrace();
@@ -211,15 +236,50 @@ public class CreateItemActivity extends AppCompatActivity {
                     Toast.makeText(CreateItemActivity.this, "something went wrong", Toast.LENGTH_SHORT).show();
                 }
                 try {
+                    formEnable(true);
+                    resetForm();
                     String classString = form.getString("Class");
                     Closet.getUserCloset().addItem(newItem,classString);
                     Closet.getUserCloset().saveInBackground();
-                    Toast.makeText(CreateItemActivity.this, "Item added to closet!", Toast.LENGTH_SHORT).show();
+
+                    Snackbar.make(binding.coordinatorLayout, "Item Saved!", Snackbar.LENGTH_SHORT)
+                            .show();
                 } catch (JSONException ex) {
                     ex.printStackTrace();
                 }
             }
         });
+
+    }
+
+    public void formEnable(Boolean enable){
+        for(TextInputLayout container : viewListContainer){
+            container.setEnabled(enable);
+        }
+        binding.containerName.setEnabled(enable);
+        binding.containerClass.setEnabled(enable);
+        binding.btnPicture.setEnabled(enable);
+        binding.btnFAB.setEnabled(enable);
+        binding.btnFAB.setVisibility(enable? View.VISIBLE : View.GONE);
+//        binding.progressBar.setVisibility(enable? View.GONE : View.VISIBLE);
+    }
+
+    public void resetForm(){
+       refreshOptions(binding.tvClass.getText().toString());
+        binding.containerName.getEditText().setText("");
+        try {
+            form.put("Name","");
+            form.put("Color","");
+            form.put("Fit","");
+            form.put("Type","");
+            form.put("Style","");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        binding.btnPicture.setIcon(getDrawable(R.drawable.ic_baseline_attach_file_24));
+        binding.btnPicture.setText("Attach Picture");
+        photoFile = null;
+        Log.d(TAG, "resetForm: form vals " + form.toString() );
 
     }
 
@@ -285,6 +345,7 @@ public class CreateItemActivity extends AppCompatActivity {
                     viewListContainer[finalNum].setError(null);
                     try {
                         form.put(key,value);
+                        autoFillName();
                         Log.d(TAG, "key = " + key + " value = "+value);
                     } catch (JSONException e) {
                         Log.d(TAG, "error occured "+e);
@@ -343,7 +404,6 @@ public class CreateItemActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
             if (resultCode == Activity.RESULT_OK) {
-                Toast.makeText(getApplicationContext(), "Picture taken successfully", Toast.LENGTH_SHORT).show();
                 binding.btnPicture.setIcon(getDrawable(R.drawable.ic_baseline_check_24));
                 binding.btnPicture.setText("Picture Taken!");
 
