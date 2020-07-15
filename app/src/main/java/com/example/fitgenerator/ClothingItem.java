@@ -1,8 +1,10 @@
 package com.example.fitgenerator;
 
 import com.parse.ParseClassName;
+import com.parse.ParseFile;
 import com.parse.ParseObject;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,46 +18,73 @@ public class ClothingItem extends ParseObject {
     public static final String KEY_STYLE = "Style";
     public static final String KEY_WORN = "Worn";
     public static final String KEY_USES = "Uses";
+    public static final String KEY_PICTURE = "Picture";
 
 
-    public void setName(String name){
-        put(KEY_NAME,name);
-    }public void setClass(String Class){
-        put(KEY_CLASS,Class);
-    }public void setColor(String color){
-        put(KEY_COLOR,color);
-    }public void setFit(String fit){
-        put(KEY_FIT,fit);
-    }public void setType(String type){
-        put(KEY_TYPE,type);
-    }public void setStyle(String style){
-        put(KEY_STYLE,style);
-    }public void setWorn(Boolean worn){
-        put(KEY_NAME,worn);
+    //Setters
+    public void setName(String name) {
+        put(KEY_NAME, name);
     }
 
-    public String getName(){
+    public void setClass(String Class) {
+        put(KEY_CLASS, Class);
+    }
+
+    public void setColor(String color) {
+        put(KEY_COLOR, color);
+    }
+
+    public void setFit(String fit) {
+        put(KEY_FIT, fit);
+    }
+
+    public void setType(String type) {
+        put(KEY_TYPE, type);
+    }
+
+    public void setStyle(String style) {
+        put(KEY_STYLE, style);
+    }
+
+    public void setWorn(Boolean worn) {
+        put(KEY_NAME, worn);
+    }
+
+    public void setPicture(ParseFile picture) {
+        put(KEY_PICTURE, picture);
+    }
+
+
+    //Getters
+    public String getName() {
         return getString(KEY_NAME);
     }
-     public String getClassString(){
+
+    public String getClassString() {
         return getString(KEY_CLASS);
     }
-     public String getColor(){
+
+    public String getColor() {
         return getString(KEY_COLOR);
     }
-     public String getFit(){
+
+    public String getFit() {
         return getString(KEY_FIT);
     }
-     public String getType(){
+
+    public String getType() {
         return getString(KEY_TYPE);
     }
-     public String getStyle(){
+
+    public String getStyle() {
         return getString(KEY_STYLE);
     }
-     public boolean getWorn(){
+
+    public boolean getWorn() {
         return getBoolean(KEY_WORN);
     }
-    public int getUses(){
+
+    public int getUses() {
         return getInt(KEY_USES);
     }
 

@@ -14,6 +14,17 @@
         android:name=".ParseApplication"
         android:theme="@style/AppTheme">
 
+<!--        Used for taking pictures-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.codepath.fileprovider.fitgenerator"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fileprovider" />
+        </provider>
+
         <activity android:name=".activities.ItemDetailsActivity"></activity>
         <activity android:name=".activities.CreateItemActivity" />
         <activity android:name=".activities.RegisterActivity" />
