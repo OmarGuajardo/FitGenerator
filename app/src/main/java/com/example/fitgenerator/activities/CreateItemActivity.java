@@ -40,6 +40,7 @@ import com.parse.SaveCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.parceler.Parcels;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -54,6 +55,7 @@ public class CreateItemActivity extends AppCompatActivity {
     JSONObject form;
     AutoCompleteTextView[] viewList;
     TextInputLayout[] viewListContainer;
+    ClothingItem retreivedItem;
 
     //Vars for taking picture
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 42;
@@ -65,6 +67,8 @@ public class CreateItemActivity extends AppCompatActivity {
         binding = ActivityCreateItemBinding.inflate(getLayoutInflater());
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
+
+
 
         // Adding back button to the Tool Bar
         toolbar = findViewById(R.id.topAppBar);
@@ -87,11 +91,33 @@ public class CreateItemActivity extends AppCompatActivity {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        addOnChangeListeners();
 
         //Setting the Options for Class and Color since they are always going to be there
         String[] Class = new String[]{Closet.KEY_TOP, Closet.KEY_BOTTOM, Closet.KEY_SHOES};
         String[] Color = new String[]{"Red", "Blue", "Green","Grey", "Purple", "Yellow", "Black", "Brown", "White", "Pink", "Tan", "Orange"};
+
+        //Setting default options and setting up listeners
+        refreshOptions("Top");
+        addOnChangeListeners();
+        binding.tvClass.setText("Top");
+
+        //Unwrapping data if there is any
+        if(getIntent().getParcelableExtra("clothingItemEdit") != null){
+            retreivedItem = Parcels.unwrap(getIntent().getParcelableExtra("clothingItemEdit"));
+            try {
+                form.put("Name",retreivedItem.getName());
+                form.put("Class",retreivedItem.getClassString());
+                form.put("Color",retreivedItem.getColor());
+                form.put("Fit",retreivedItem.getFit());
+                form.put("Type",retreivedItem.getType());
+                form.put("Style",retreivedItem.getStyle());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            buildForm();
+        }
+
+
         ArrayAdapter<String> classAdapter = new ArrayAdapter<>(
                 getApplicationContext(),
                 R.layout.dropdown_menu_popup_item,
@@ -129,8 +155,7 @@ public class CreateItemActivity extends AppCompatActivity {
             }
         });
 
-        //Setting default options
-        refreshOptions("Top");
+
 
         binding.btnPicture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -159,6 +184,20 @@ public class CreateItemActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         finish();
         return super.onOptionsItemSelected(item);
+    }
+
+    public void buildForm(){
+        binding.tvClass.setText(retreivedItem.getClassString());
+        binding.tvColor.setText(retreivedItem.getColor());
+        binding.tvFit.setText(retreivedItem.getFit());
+        binding.tvType.setText(retreivedItem.getType());
+        binding.tvStyle.setText(retreivedItem.getStyle());
+        binding.tvName.setText(retreivedItem.getName());
+
+        binding.btnPicture.setIcon(getDrawable(R.drawable.ic_baseline_check_24));
+        binding.btnPicture.setText("Picture Received!");
+        setOptions(retreivedItem.getClassString());
+
     }
 
     public void autoFillName() throws JSONException {
@@ -217,23 +256,30 @@ public class CreateItemActivity extends AppCompatActivity {
     }
 
     public void submitClothingItem() {
+        final ClothingItem clothingItemSubmit;
 
         try {
             form.put("Name",binding.tvName.getText().toString());
             binding.containerName.setError(null);
-            Log.d(TAG, "submitClothingItem: form = " +form.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        //Filling out the item with the form information
-        final ClothingItem newItem = new ClothingItem();
-        newItem.setInfoFromJSON(form);
+        //Filling out the item with the form information if new
+
+        if(retreivedItem == null){
+            clothingItemSubmit = new ClothingItem();
+        }
+        else{
+            clothingItemSubmit = retreivedItem;
+        }
+        clothingItemSubmit.setInfoFromJSON(form);
+
 
         //Checking to see if user took a picture of the Item
         if(photoFile != null){
-            newItem.setPicture(new ParseFile(photoFile));
+            clothingItemSubmit.setPicture(new ParseFile(photoFile));
         }
-        newItem.saveInBackground(new SaveCallback() {
+        clothingItemSubmit.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
                 if(e != null){
@@ -243,7 +289,7 @@ public class CreateItemActivity extends AppCompatActivity {
                     formEnable(true);
                     resetForm();
                     String classString = form.getString("Class");
-                    Closet.getUserCloset().addItem(newItem,classString);
+                    Closet.getUserCloset().addItem(clothingItemSubmit,classString);
                     Closet.getUserCloset().saveInBackground();
 
                     Snackbar.make(binding.coordinatorLayout, "Item Saved!", Snackbar.LENGTH_SHORT)
@@ -326,6 +372,46 @@ public class CreateItemActivity extends AppCompatActivity {
             viewList[i].setText("");
         }
         binding.tvName.setText("");
+        binding.containerType.setVisibility(View.VISIBLE);
+        binding.containerStyle.setVisibility(View.VISIBLE);
+        binding.containerFit.setVisibility(View.VISIBLE);
+    }
+
+    //Method to set options in the event that we are calling the activity
+    //to EDIT rather than CREATE and item of clothing
+    public void setOptions(String classItem){
+        String[] FitTop = new String[]{"Short Sleeve", "Long Sleeve", "Tank Top"};
+        String[] Color = new String[]{"Red", "Blue", "Green","Grey", "Purple", "Yellow", "Black", "Brown", "White", "Pink", "Tan", "Orange"};
+        String[] TypeTop = new String[]{"Button Up", "Tee Shirt", "V-Neck", "Crop Top", "Off The Shoulder", "Blouse"};
+        String[] StyleTop = new String[]{"Basic", "Graphic", "Patterned", "Floral", "Horizontal Stripes", "Vertical Stripes"};
+        String[] FitBottom = new String[]{"Straight", "Skinny", "Slim", "Baggy"};
+        String[] TypeBottom = new String[]{"Pristine", "High Waisted", "Ripped"};
+        String[] StyleBottom = new String[]{"Jeans", "Slacks", "Shorts", "Joggers", "Chinos", "Skirt", "Leggings", "Sweatpants"};
+        String[][] listOptions = new String[][]{};
+
+        switch (classItem){
+            case "Top":
+                listOptions = new String[][]{Color,FitTop,TypeTop,StyleTop};
+                break;
+            case "Bottom":
+                listOptions = new String[][]{Color,FitBottom,TypeBottom,StyleBottom};
+                break;
+            case "Shoes":
+                binding.containerType.setVisibility(View.GONE);
+                binding.containerStyle.setVisibility(View.GONE);
+                binding.containerFit.setVisibility(View.GONE);
+
+                return;
+            default:
+
+        }
+        for (int i = 0; i < viewList.length; i++) {
+            ArrayAdapter<String> newAdapter = new ArrayAdapter<>(
+                    getApplicationContext(),
+                    R.layout.dropdown_menu_popup_item,
+                    listOptions[i]);
+            viewList[i].setAdapter(newAdapter);
+        }
         binding.containerType.setVisibility(View.VISIBLE);
         binding.containerStyle.setVisibility(View.VISIBLE);
         binding.containerFit.setVisibility(View.VISIBLE);

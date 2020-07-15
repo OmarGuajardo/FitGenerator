@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fitgenerator.activities.ItemDetailsActivity;
 
+import org.parceler.Parcels;
+
 import java.util.List;
 
 public class ClosetAdapter extends RecyclerView.Adapter<ClosetAdapter.ViewHolder> {
@@ -57,15 +59,27 @@ public class ClosetAdapter extends RecyclerView.Adapter<ClosetAdapter.ViewHolder
             itemCardView = itemView.findViewById(R.id.itemCardView);
         }
 
-        public void bind(ClothingItem item) {
+        public void bind(final ClothingItem item) {
             tvItemName.setText(item.getString(ClothingItem.KEY_NAME));
             itemCardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Intent i = new Intent(context, ItemDetailsActivity.class);
+                    i.putExtra("clothingItem", Parcels.wrap(item));
                     context.startActivity(i);
                 }
             });
+            tvItemClass.setText(item.getClassString());
+            if(item.getClassString().equals("Top")){
+                ivItemIcon.setImageResource(R.drawable.shirt_icon);
+            }
+            else if(item.getClassString().equals("Bottom")){
+                ivItemIcon.setImageResource(R.drawable.pants_icon);
+            }
+            else{
+                ivItemIcon.setImageResource(R.drawable.shoes_icon);
+
+            }
         }
     }
 }

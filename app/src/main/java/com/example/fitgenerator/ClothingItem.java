@@ -59,6 +59,7 @@ public class ClothingItem extends ParseObject {
     public void setPicture(ParseFile picture) {
         put(KEY_PICTURE, picture);
     }
+
     public void setInfoFromJSON(JSONObject form){
         Iterator<String> iter = form.keys();
         while (iter.hasNext()) {
@@ -82,9 +83,7 @@ public class ClothingItem extends ParseObject {
         return getString(KEY_CLASS);
     }
 
-    public String getColor() {
-        return getString(KEY_COLOR);
-    }
+    public String getColor() { return getString(KEY_COLOR); }
 
     public String getFit() {
         return getString(KEY_FIT);
@@ -96,6 +95,13 @@ public class ClothingItem extends ParseObject {
 
     public String getStyle() {
         return getString(KEY_STYLE);
+    }
+
+    public String getImageURL(){
+        if(getParseFile(KEY_PICTURE)== null){
+            return "";
+        }
+        return getParseFile(KEY_PICTURE).getUrl();
     }
 
     public boolean getWorn() {

@@ -48,8 +48,11 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
         }
 
         public void bind(String[] itemInfo) {
-            tvDescriptionTitle.setText(itemInfo[0]);
-            tvDescriptionBody.setText(itemInfo[1]);
+            if(!itemInfo[1].isEmpty()){
+                tvDescriptionTitle.setText(itemInfo[0]+":");
+                tvDescriptionBody.setText(itemInfo[1]);
+            }
+
         }
     }
 }

@@ -26,8 +26,8 @@
             <ImageView
                 android:src="@drawable/shoes_icon"
                 android:id="@+id/ivItemIcon"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
                 />
             <LinearLayout
                 android:layout_marginLeft="@dimen/marginLeft"

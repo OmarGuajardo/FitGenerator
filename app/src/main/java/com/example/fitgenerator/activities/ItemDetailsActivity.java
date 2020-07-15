@@ -13,15 +13,18 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.bumptech.glide.Glide;
+import com.example.fitgenerator.ClothingItem;
 import com.example.fitgenerator.DetailsAdapter;
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.databinding.ActivityItemDetailsBinding;
+
+import org.parceler.Parcels;
 
 public class ItemDetailsActivity extends AppCompatActivity {
     Toolbar toolbar;
     RecyclerView rvDetails;
     DetailsAdapter detailsAdapter;
-
+    ClothingItem clothingItem;
     ActivityItemDetailsBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +32,10 @@ public class ItemDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
         toolbar = findViewById(R.id.topAppBar);
+
+        //Extracting the clothingItem
+        clothingItem = Parcels.unwrap(getIntent().getParcelableExtra("clothingItem"));
+
 
         // Adding back button to the Tool Bar
         setSupportActionBar(toolbar);
@@ -40,18 +47,35 @@ public class ItemDetailsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ItemDetailsActivity.this,CreateItemActivity.class);
+                intent.putExtra("clothingItemEdit",Parcels.wrap(clothingItem));
                 startActivity(intent);
                 finish();
             }
         });
 
-        Glide.with(getApplicationContext())
-                .load("https://target.scene7.com/is/image/Target/GUEST_657addf4-97db-485e-b4b1-954ca50de598?wid=488&hei=488&fmt=pjpeg")
-                .circleCrop()
-                .into(binding.ivItemPic);
+        if(!clothingItem.getImageURL().isEmpty()){
+            Glide.with(getApplicationContext())
+                    .load(clothingItem.getImageURL())
+                    .circleCrop()
+                    .into(binding.ivItemPic);
+        }
+        else{
+            Glide.with(getApplicationContext())
+                    .load("https://cdn.iconscout.com/icon/premium/png-256-thumb/t-shir-817916.png")
+                    .circleCrop()
+                    .into(binding.ivItemPic);
+        }
+
 
         //Dummy Info
-        String[][] dummyInfo = new String[][]{{"Class","Top"},{"Color","Red"},{"Fit","Long Sleeve"},{"Type","Tee Shit"},{"Style","Vertical Stripes"}};
+        String[][] dummyInfo = new String[][]{{
+            "Class",clothingItem.getClassString()},
+                {"Color",clothingItem.getColor()},
+                {"Fit",clothingItem.getFit()},
+                {"Type",clothingItem.getType()},
+                {"Style",clothingItem.getStyle()},
+                {"Number of Wears",String.valueOf(clothingItem.getUses())},
+                {"Clean",String.valueOf(!clothingItem.getWorn())}};
         //Setting up Recycler View
         detailsAdapter = new DetailsAdapter(getApplicationContext(),dummyInfo);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
