@@ -1365,9 +1365,11 @@ drawable design_snackbar_background
 drawable fit_generator_icon
 drawable ic_baseline_add_24
 drawable ic_baseline_attach_file_24
+drawable ic_baseline_check_24
 drawable ic_baseline_create_24
 drawable ic_baseline_restore_from_trash_24
 drawable ic_baseline_rotate_right_24
+drawable ic_baseline_save_24
 drawable ic_calendar_black_24dp
 drawable ic_clear_black_24dp
 drawable ic_edit_black_24dp
@@ -1497,7 +1499,6 @@ id btnLogIn
 id btnPicture
 id btnRegister
 id btnReturn
-id btnSubmit
 id buttonPanel
 id cancel_action
 id cancel_button
@@ -1519,6 +1520,7 @@ id container
 id containerClass
 id containerColor
 id containerFit
+id containerName
 id containerStyle
 id containerType
 id content

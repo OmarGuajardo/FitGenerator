@@ -1,11 +1,15 @@
 package com.example.fitgenerator.activities;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.FileProvider;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -17,6 +21,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -107,6 +112,7 @@ public class CreateItemActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 String value = binding.tvClass.getText().toString();
+                binding.containerClass.setError(null);
                 refreshOptions(value);
                 try {
                     form.put("Class",value);
@@ -121,6 +127,8 @@ public class CreateItemActivity extends AppCompatActivity {
             }
         });
 
+        //Setting default options
+        refreshOptions("Top");
 
         binding.btnPicture.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,58 +137,19 @@ public class CreateItemActivity extends AppCompatActivity {
             }
         });
 
-        binding.btnSubmit.setOnClickListener(new View.OnClickListener() {
+        binding.btnFAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    submitClothingItem();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                String chosenClass = binding.tvClass.getText().toString();
+                checkForm(chosenClass);
             }
         });
 
 
 
-
     }
 
-    //This methods calls and intent to launch the camera, take the picture and save the picture as a file that
-    //we can then use to put in the ImageView
-    private void launchCamera() {
-        // create Intent to take a picture and return control to the calling application
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        // Create a File reference for future access
-        photoFile = getPhotoFileUri(photoFileName);
 
-        // wrap File object into a content provider
-        // required for API >= 24
-        // See https://guides.codepath.com/android/Sharing-Content-with-Intents#sharing-files-with-api-24-or-higher
-        Uri fileProvider = FileProvider.getUriForFile(getApplicationContext(), "com.codepath.fileprovider.fitgenerator", photoFile);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileProvider);
-        // If you call startActivityForResult() using an intent that no app can handle, your app will crash.
-        // So as long as the result is not null, it's safe to use the intent.
-        if (intent.resolveActivity(getApplicationContext().getPackageManager()) != null) {
-            // Start the image capture intent to take photo
-            startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
-        }
-
-    }
-    private File getPhotoFileUri(String fileName) {
-        // Get safe storage directory for photos
-        // Use `getExternalFilesDir` on Context to access package-specific directories.
-        // This way, we don't need to request external read/write runtime permissions.
-        File mediaStorageDir = new File(getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES), TAG);
-
-        // Create the storage directory if it does not exist
-        if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
-            Log.d(TAG, "failed to create directory");
-        }
-
-        // Return the file target for the photo based on filename
-        return new File(mediaStorageDir.getPath() + File.separator + fileName);
-
-    }
 
 
     @Override
@@ -189,8 +158,38 @@ public class CreateItemActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    public void checkForm(String chosenClass){
+        Boolean formReady = true;
+        if(chosenClass.equals("Top")||chosenClass.equals("Bottom")){
+            for(TextInputLayout container : viewListContainer){
+                if(container.getEditText().getText().toString().isEmpty()){
+                    container.setError("Missing " + container.getHint());
+                    formReady = false;
+                }
+            }
+        }
+        else if (chosenClass.equals("Shoes")){
+            String color = binding.tvColor.getText().toString();
+            String name = binding.tvName.getText().toString();
+            if(color.isEmpty()){
+                formReady = false;
+                binding.containerColor.setError("Missing Color");
+            }
+            if(name.isEmpty()){
+                formReady = false;
+                binding.containerName.setError("Missing Name");
+            }
+        }
+        else{
+            binding.containerClass.setError("Missing Class");
+            formReady = false;
+        }
+        if(formReady){
+            submitClothingItem();
+        }
+    }
 
-    public void submitClothingItem() throws JSONException {
+    public void submitClothingItem() {
         try {
             form.put("Name",binding.tvName.getText().toString());
             Log.d(TAG, "submitClothingItem: form = " +form.toString());
@@ -223,6 +222,7 @@ public class CreateItemActivity extends AppCompatActivity {
         });
 
     }
+
     //If the users changes Class from Top to Bottom to Shoes there should be unique options
     //per class
     public void refreshOptions(String classItem){
@@ -249,9 +249,6 @@ public class CreateItemActivity extends AppCompatActivity {
                 binding.tvStyle.setText("");
                 binding.tvType.setText("");
                 binding.tvFit.setText("");
-
-
-
                 return;
             default:
 
@@ -285,6 +282,7 @@ public class CreateItemActivity extends AppCompatActivity {
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                     String key = viewListContainer[finalNum].getHint().toString();
                     String value = viewList[finalNum].getText().toString();
+                    viewListContainer[finalNum].setError(null);
                     try {
                         form.put(key,value);
                         Log.d(TAG, "key = " + key + " value = "+value);
@@ -302,4 +300,60 @@ public class CreateItemActivity extends AppCompatActivity {
         }
     }
 
+    //This methods calls and intent to launch the camera, take the picture and save the picture as a file that
+    //we can then use to put in the ImageView
+    private void launchCamera() {
+        // create Intent to take a picture and return control to the calling application
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        // Create a File reference for future access
+        photoFile = getPhotoFileUri(photoFileName);
+
+        // wrap File object into a content provider
+        // required for API >= 24
+        // See https://guides.codepath.com/android/Sharing-Content-with-Intents#sharing-files-with-api-24-or-higher
+        Uri fileProvider = FileProvider.getUriForFile(getApplicationContext(), "com.codepath.fileprovider.fitgenerator", photoFile);
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileProvider);
+        // If you call startActivityForResult() using an intent that no app can handle, your app will crash.
+        // So as long as the result is not null, it's safe to use the intent.
+        if (intent.resolveActivity(getApplicationContext().getPackageManager()) != null) {
+            // Start the image capture intent to take photo
+            startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
+        }
+
+    }
+
+    private File getPhotoFileUri(String fileName) {
+        // Get safe storage directory for photos
+        // Use `getExternalFilesDir` on Context to access package-specific directories.
+        // This way, we don't need to request external read/write runtime permissions.
+        File mediaStorageDir = new File(getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES), TAG);
+
+        // Create the storage directory if it does not exist
+        if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
+            Log.d(TAG, "failed to create directory");
+        }
+
+        // Return the file target for the photo based on filename
+        return new File(mediaStorageDir.getPath() + File.separator + fileName);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                Toast.makeText(getApplicationContext(), "Picture taken successfully", Toast.LENGTH_SHORT).show();
+                binding.btnPicture.setIcon(getDrawable(R.drawable.ic_baseline_check_24));
+                binding.btnPicture.setText("Picture Taken!");
+
+
+            } else { // Result was a failure
+                binding.btnPicture.setIcon(getDrawable(R.drawable.ic_baseline_attach_file_24));
+                binding.btnPicture.setText("Attach Picture");
+                Toast.makeText(getApplicationContext(), "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
+
+            }
+        }
+    }
 }
