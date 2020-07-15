@@ -84,18 +84,18 @@ public class CreateItemActivity extends AppCompatActivity {
         addOnChangeListeners();
 
         //Setting the Options for Class and Color since they are always going to be there
-        String[] Class = new String[]{"Top", "Bottom", "Shoes"};
-//        String[] Color = new String[]{"Red", "Blue", "Green","Grey", "Purple", "Yellow", "Black", "Brown", "White", "Pink", "Tan", "Orange"};
+        String[] Class = new String[]{Closet.KEY_TOP, Closet.KEY_BOTTOM, Closet.KEY_SHOES};
+        String[] Color = new String[]{"Red", "Blue", "Green","Grey", "Purple", "Yellow", "Black", "Brown", "White", "Pink", "Tan", "Orange"};
         ArrayAdapter<String> classAdapter = new ArrayAdapter<>(
                 getApplicationContext(),
                 R.layout.dropdown_menu_popup_item,
                 Class);
         binding.tvClass.setAdapter(classAdapter);
-//        ArrayAdapter<String> colorAdapter = new ArrayAdapter<>(
-//                getApplicationContext(),
-//                R.layout.dropdown_menu_popup_item,
-//                Color);
-//        binding.tvColor.setAdapter(colorAdapter);
+        ArrayAdapter<String> colorAdapter = new ArrayAdapter<>(
+                getApplicationContext(),
+                R.layout.dropdown_menu_popup_item,
+                Color);
+        binding.tvColor.setAdapter(colorAdapter);
 
         //Every time the class changes there should be new options
         binding.tvClass.addTextChangedListener(new TextWatcher() {
@@ -191,7 +191,6 @@ public class CreateItemActivity extends AppCompatActivity {
 
 
     public void submitClothingItem() throws JSONException {
-        //TODO: save the clothingItem to respective relational array
         try {
             form.put("Name",binding.tvName.getText().toString());
             Log.d(TAG, "submitClothingItem: form = " +form.toString());
@@ -200,19 +199,12 @@ public class CreateItemActivity extends AppCompatActivity {
         }
         //Filling out the item with the form information
         final ClothingItem newItem = new ClothingItem();
-        Iterator<String> iter = form.keys();
-        while (iter.hasNext()) {
-            String key = iter.next();
-            try {
-                Object value = form.get(key);
-                newItem.put(key,value.toString());
-            } catch (JSONException e) {
-                Log.d(TAG, "something went wrong " + e.toString());
-                // Something went wrong!
-            }
-        }
+        newItem.setInfoFromJSON(form);
 
-        newItem.setPicture(new ParseFile(photoFile));
+        //Checking to see if user took a picture of the Item
+        if(photoFile != null){
+            newItem.setPicture(new ParseFile(photoFile));
+        }
         newItem.saveInBackground(new SaveCallback() {
             @Override
             public void done(ParseException e) {
@@ -221,9 +213,8 @@ public class CreateItemActivity extends AppCompatActivity {
                 }
                 try {
                     String classString = form.getString("Class");
-                    Closet userCloset = (Closet)ParseUser.getCurrentUser().get("UserCloset");
-                    userCloset.getRelation(classString).add(newItem);
-                    userCloset.saveInBackground();
+                    Closet.getUserCloset().addItem(newItem,classString);
+                    Closet.getUserCloset().saveInBackground();
                     Toast.makeText(CreateItemActivity.this, "Item added to closet!", Toast.LENGTH_SHORT).show();
                 } catch (JSONException ex) {
                     ex.printStackTrace();
@@ -258,7 +249,8 @@ public class CreateItemActivity extends AppCompatActivity {
                 binding.tvStyle.setText("");
                 binding.tvType.setText("");
                 binding.tvFit.setText("");
-                binding.tvColor.setText("");
+
+
 
                 return;
             default:

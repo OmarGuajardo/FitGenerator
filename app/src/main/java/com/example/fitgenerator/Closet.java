@@ -15,6 +15,15 @@ public class Closet extends ParseObject {
     public void setUser(ParseUser user){
         put(KEY_USER,user);
     }
+    public static Closet getUserCloset(){
+        return (Closet)ParseUser.getCurrentUser().get("UserCloset");
+    }
+
+    public void addItem(ClothingItem item, String key){
+        Closet userCloset = Closet.getUserCloset();
+        ParseRelation<ParseObject> relation = userCloset.getRelation(key);
+        relation.add(item);
+    }
 
 
 

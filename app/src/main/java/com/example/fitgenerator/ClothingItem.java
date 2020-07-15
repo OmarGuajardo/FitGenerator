@@ -1,11 +1,17 @@
 package com.example.fitgenerator;
 
+import android.util.Log;
+
 import com.parse.ParseClassName;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @ParseClassName("ClothingItem")
@@ -52,6 +58,18 @@ public class ClothingItem extends ParseObject {
 
     public void setPicture(ParseFile picture) {
         put(KEY_PICTURE, picture);
+    }
+    public void setInfoFromJSON(JSONObject form){
+        Iterator<String> iter = form.keys();
+        while (iter.hasNext()) {
+            String key = iter.next();
+            try {
+                Object value = form.get(key);
+                put(key,value.toString());
+            } catch (JSONException e) {
+                // Something went wrong!
+            }
+        }
     }
 
 

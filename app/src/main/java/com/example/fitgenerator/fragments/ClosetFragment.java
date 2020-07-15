@@ -63,6 +63,7 @@ public class ClosetFragment extends Fragment {
        relation.getQuery().findInBackground(new FindCallback<ClothingItem>() {
            @Override
            public void done(List<ClothingItem> objects, ParseException e) {
+               items.clear();
                items.addAll(objects);
                closetAdapter.notifyDataSetChanged();
            }
@@ -70,6 +71,12 @@ public class ClosetFragment extends Fragment {
 
 
    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        queryTop();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
