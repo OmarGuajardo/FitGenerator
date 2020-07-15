@@ -117,6 +117,7 @@ public class CreateItemActivity extends AppCompatActivity {
                 refreshOptions(value);
                 try {
                     form.put("Class",value);
+                    autoFillName();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -167,7 +168,10 @@ public class CreateItemActivity extends AppCompatActivity {
         String type = form.getString("Type");
         String style = form.getString("Style");
         if(classString.equals("Shoes")){
-            binding.tvName.setText(color+classString);
+            binding.tvName.setText(color+" "+classString);
+        }
+        else if (classString.equals("Bottom")){
+            binding.tvName.setText(type+" "+color+" "+fit+" "+style);
         }
         else{
             binding.tvName.setText(color+" "+fit+" "+style+" "+type);

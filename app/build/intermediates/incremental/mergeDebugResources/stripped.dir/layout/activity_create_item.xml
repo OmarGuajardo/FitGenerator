@@ -140,6 +140,8 @@
             android:layout_marginRight="16dp"
             android:layout_marginBottom="4dp"
             android:hint="Name"
+            app:helperTextEnabled="true"
+            app:helperText="Auto Generated">
             app:errorEnabled="true">
 
 
