@@ -46,6 +46,7 @@ public class ClosetFragment extends Fragment {
     ClosetAdapter closetAdapter;
     List<String> closet;
     List<ClothingItem> items;
+    String currentClass;
 
 
     public ClosetFragment(){
@@ -68,7 +69,7 @@ public class ClosetFragment extends Fragment {
         rvCloset.setAdapter(closetAdapter);
         rvCloset.setLayoutManager(linearLayoutManager);
 
-        queryTop();
+        queryCleanItems(Closet.KEY_TOP);
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(rvCloset);
@@ -111,28 +112,13 @@ public class ClosetFragment extends Fragment {
     };
 
 
-   public  void queryTop(){
 
-       Closet userCloset = (Closet)ParseUser.getCurrentUser().get("UserCloset");
-       ParseRelation<ClothingItem> relation = userCloset.getRelation(Closet.KEY_TOP);
-//       ParseQuery query = relation.getQuery();
-       relation.getQuery().findInBackground(new FindCallback<ClothingItem>() {
-           @Override
-           public void done(List<ClothingItem> objects, ParseException e) {
-               items.clear();
-               items.addAll(objects);
-               closetAdapter.notifyDataSetChanged();
-           }
-       });
-
-
-   }
-    public void queryBottom(){
-
-        Closet userCloset = (Closet)ParseUser.getCurrentUser().get("UserCloset");
-        ParseRelation<ClothingItem> relation = userCloset.getRelation(Closet.KEY_BOTTOM);
-//       ParseQuery query = relation.getQuery();
-        relation.getQuery().findInBackground(new FindCallback<ClothingItem>() {
+    public void queryCleanItems(String key){
+        Closet userCloset = (Closet) ParseUser.getCurrentUser().get("UserCloset");
+        ParseRelation<ClothingItem> relation = userCloset.getRelation(key);
+        ParseQuery query = relation.getQuery();
+        query.whereEqualTo(ClothingItem.KEY_WORN,false);
+        query.findInBackground(new FindCallback<ClothingItem>() {
             @Override
             public void done(List<ClothingItem> objects, ParseException e) {
                 items.clear();
@@ -141,29 +127,18 @@ public class ClosetFragment extends Fragment {
             }
         });
 
+        currentClass = key;
 
     }
-    public void queryShoes(){
-
-        Closet userCloset = (Closet)ParseUser.getCurrentUser().get("UserCloset");
-        ParseRelation<ClothingItem> relation = userCloset.getRelation(Closet.KEY_SHOES);
-//       ParseQuery query = relation.getQuery();
-        relation.getQuery().findInBackground(new FindCallback<ClothingItem>() {
-            @Override
-            public void done(List<ClothingItem> objects, ParseException e) {
-                items.clear();
-                items.addAll(objects);
-                closetAdapter.notifyDataSetChanged();
-            }
-        });
 
 
-    }
+
+
 
     @Override
     public void onStart() {
         super.onStart();
-        queryTop();
+        queryCleanItems(currentClass);
     }
 
     @Override

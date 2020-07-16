@@ -12,8 +12,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.fitgenerator.Closet;
 import com.example.fitgenerator.ClosetAdapter;
+import com.example.fitgenerator.ClothingItem;
 import com.example.fitgenerator.R;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
+import com.parse.ParseRelation;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +29,7 @@ import java.util.List;
 public class LaundryFragment extends Fragment {
 
     RecyclerView rvLaundry;
-    List<String> closet;
+    List<ClothingItem> laundryBasket;
     ClosetAdapter closetAdapter;
 
     public LaundryFragment() {
@@ -33,20 +40,37 @@ public class LaundryFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        closet = new ArrayList<>();
-        closet.add("Needs to be washed");
-        closet.add("It smells bad");
-        closet.add("Come on bro just wash it");
-        closet.add("Item is not clean need to wash");
+        laundryBasket = new ArrayList<>();
+
 
         rvLaundry = view.findViewById(R.id.rvLaundry);
 
         //Setting up the Recycler View with the Adapter
-//        closetAdapter = new ClosetAdapter(getContext(),closet);
+        closetAdapter = new ClosetAdapter(getContext(),laundryBasket);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rvLaundry.setAdapter(closetAdapter);
         rvLaundry.setLayoutManager(linearLayoutManager);
+        queryCleanItems();
+        closetAdapter.notifyDataSetChanged();
     }
+
+    public void queryCleanItems(){
+        Closet userCloset = (Closet) ParseUser.getCurrentUser().get("UserCloset");
+        ParseRelation<ClothingItem> relation = userCloset.getRelation(Closet.KEY_ALL_ITEMS);
+        ParseQuery query = relation.getQuery();
+        query.whereEqualTo(ClothingItem.KEY_WORN,true);
+        query.findInBackground(new FindCallback<ClothingItem>() {
+            @Override
+            public void done(List<ClothingItem> objects, ParseException e) {
+                laundryBasket.clear();
+                laundryBasket.addAll(objects);
+                closetAdapter.notifyDataSetChanged();
+            }
+        });
+
+
+    }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

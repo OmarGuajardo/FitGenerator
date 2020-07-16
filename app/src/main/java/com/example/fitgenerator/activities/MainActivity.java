@@ -18,6 +18,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 
+import com.example.fitgenerator.Closet;
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.ViewAnimation;
 import com.example.fitgenerator.databinding.ActivityMainBinding;
@@ -142,14 +143,14 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         //TODO: Query Top
-                        closetFragment.queryTop();
+                        closetFragment.queryCleanItems(Closet.KEY_TOP);
                     }
                 });
                 binding.fabBottom.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         //TODO: Query Bottom
-                        closetFragment.queryBottom();
+                        closetFragment.queryCleanItems(Closet.KEY_BOTTOM);
 
                     }
                 });
@@ -157,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         //TODO: Query Shoes
-                        closetFragment.queryShoes();
+                        closetFragment.queryCleanItems(Closet.KEY_SHOES);
 
                     }
                 });

@@ -9,11 +9,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ViewAnimation {
     public static boolean rotateFab(final View v, boolean rotate, FloatingActionButton fab) {
-        fab.setImageDrawable(rotate?
-                v.getResources().getDrawable(R.drawable.ic_baseline_add_24):
-                        v.getResources().getDrawable(R.drawable.ic_baseline_view_module_24)
-                )
-        ;
+//        fab.setImageDrawable(rotate?
+//                v.getResources().getDrawable(R.drawable.ic_baseline_add_24):
+//                        v.getResources().getDrawable(R.drawable.ic_baseline_view_module_24)
+//                )
+//        ;
         v.animate().setDuration(200)
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
@@ -21,7 +21,7 @@ public class ViewAnimation {
                         super.onAnimationEnd(animation);
                     }
                 })
-                .rotation(rotate ? 135 : 0f);
+                .rotation(rotate ? 90 : 0f);
         return rotate;
     }
 

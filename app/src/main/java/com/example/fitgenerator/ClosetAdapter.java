@@ -13,6 +13,11 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fitgenerator.activities.ItemDetailsActivity;
+import com.parse.FindCallback;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
+import com.parse.ParseRelation;
+import com.parse.ParseUser;
 
 import org.parceler.Parcels;
 
@@ -58,6 +63,8 @@ public class ClosetAdapter extends RecyclerView.Adapter<ClosetAdapter.ViewHolder
             ivItemIcon = itemView.findViewById(R.id.ivItemIcon);
             itemCardView = itemView.findViewById(R.id.itemCardView);
         }
+
+
 
         public void bind(final ClothingItem item) {
             tvItemName.setText(item.getString(ClothingItem.KEY_NAME));
