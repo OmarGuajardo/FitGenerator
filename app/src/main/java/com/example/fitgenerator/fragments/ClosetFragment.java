@@ -17,6 +17,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import com.example.fitgenerator.Closet;
@@ -24,6 +25,7 @@ import com.example.fitgenerator.ClosetAdapter;
 import com.example.fitgenerator.ClothingItem;
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.activities.MainActivity;
+import com.getbase.floatingactionbutton.FloatingActionButton;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
@@ -44,6 +46,7 @@ public class ClosetFragment extends Fragment {
     ClosetAdapter closetAdapter;
     List<String> closet;
     List<ClothingItem> items;
+
 
     public ClosetFragment(){
     }
@@ -70,7 +73,10 @@ public class ClosetFragment extends Fragment {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(rvCloset);
 
+
+
     }
+
 
 
     ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT) {
@@ -104,7 +110,8 @@ public class ClosetFragment extends Fragment {
         }
     };
 
-   public void queryTop(){
+
+   public  void queryTop(){
 
        Closet userCloset = (Closet)ParseUser.getCurrentUser().get("UserCloset");
        ParseRelation<ClothingItem> relation = userCloset.getRelation(Closet.KEY_TOP);
@@ -120,6 +127,38 @@ public class ClosetFragment extends Fragment {
 
 
    }
+    public void queryBottom(){
+
+        Closet userCloset = (Closet)ParseUser.getCurrentUser().get("UserCloset");
+        ParseRelation<ClothingItem> relation = userCloset.getRelation(Closet.KEY_BOTTOM);
+//       ParseQuery query = relation.getQuery();
+        relation.getQuery().findInBackground(new FindCallback<ClothingItem>() {
+            @Override
+            public void done(List<ClothingItem> objects, ParseException e) {
+                items.clear();
+                items.addAll(objects);
+                closetAdapter.notifyDataSetChanged();
+            }
+        });
+
+
+    }
+    public void queryShoes(){
+
+        Closet userCloset = (Closet)ParseUser.getCurrentUser().get("UserCloset");
+        ParseRelation<ClothingItem> relation = userCloset.getRelation(Closet.KEY_SHOES);
+//       ParseQuery query = relation.getQuery();
+        relation.getQuery().findInBackground(new FindCallback<ClothingItem>() {
+            @Override
+            public void done(List<ClothingItem> objects, ParseException e) {
+                items.clear();
+                items.addAll(objects);
+                closetAdapter.notifyDataSetChanged();
+            }
+        });
+
+
+    }
 
     @Override
     public void onStart() {
@@ -140,4 +179,6 @@ public class ClosetFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_closet, container, false);
     }
+
+
 }

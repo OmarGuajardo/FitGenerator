@@ -3,6 +3,7 @@ package com.example.fitgenerator.activities;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
@@ -39,6 +40,14 @@ public class MainActivity extends AppCompatActivity {
     //FAB Rotating
     Boolean isRotate = false;
 
+    //Global Fragments
+    ClosetFragment closetFragment;
+    FitsFragment fitsFragment;
+    LaundryFragment laundryFragment;
+
+
+
+
 
 
     @Override
@@ -60,9 +69,12 @@ public class MainActivity extends AppCompatActivity {
         final PagerAdapter pagerAdapter = new PagerAdapter(getSupportFragmentManager(),0);
 
         //Adding the Tabs
-        pagerAdapter.addFragment(new ClosetFragment(),"Closet");
-        pagerAdapter.addFragment(new FitsFragment(),"Fits");
-        pagerAdapter.addFragment(new LaundryFragment(),"Laundry");
+        closetFragment = new ClosetFragment();
+        fitsFragment = new FitsFragment();
+        laundryFragment = new LaundryFragment();
+        pagerAdapter.addFragment(closetFragment,"Closet");
+        pagerAdapter.addFragment(fitsFragment,"Fits");
+        pagerAdapter.addFragment(laundryFragment,"Laundry");
         binding.viewPager.setAdapter(pagerAdapter);
         binding.viewPager.setCurrentItem(1);
         animateFab(1);
@@ -71,6 +83,9 @@ public class MainActivity extends AppCompatActivity {
         ViewAnimation.init(binding.fabBottom);
         ViewAnimation.init(binding.fabShoes);
         ViewAnimation.init(binding.fabAdd);
+
+
+
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,6 +119,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
@@ -119,6 +136,29 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         openCreateItem();
+                    }
+                });
+                binding.fabTop.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //TODO: Query Top
+                        closetFragment.queryTop();
+                    }
+                });
+                binding.fabBottom.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //TODO: Query Bottom
+                        closetFragment.queryBottom();
+
+                    }
+                });
+                binding.fabShoes.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        //TODO: Query Shoes
+                        closetFragment.queryShoes();
+
                     }
                 });
                 isRotate = ViewAnimation.rotateFab(view,!isRotate,binding.btnFAB);
@@ -190,4 +230,9 @@ public class MainActivity extends AppCompatActivity {
         });
         fab.startAnimation(shrink);
     }
+    public interface onOptionsSelectedListener{
+        void fabQueryCloset(int position);
+    }
+
+
 }

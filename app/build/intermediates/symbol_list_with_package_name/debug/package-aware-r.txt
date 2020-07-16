@@ -1634,9 +1634,7 @@ id list_item
 id masked
 id media_actions
 id message
-id miBottom
-id miShoes
-id miTop
+id miLogout
 id middle
 id mini
 id month_grid
