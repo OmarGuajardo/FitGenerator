@@ -53,7 +53,7 @@ public class ClothingItem extends ParseObject {
     }
 
     public void setWorn(Boolean worn) {
-        put(KEY_NAME, worn);
+        put(KEY_WORN, worn);
     }
 
     public void setPicture(ParseFile picture) {

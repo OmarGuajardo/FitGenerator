@@ -29,6 +29,7 @@ import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class FitsFragment extends Fragment {
 
@@ -65,6 +66,19 @@ public class FitsFragment extends Fragment {
         rvFits.setAdapter(closetAdapter);
 
         generateOutfit();
+        btnUseFit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                btnUseFit.setVisibility(View.INVISIBLE);
+                rvFits.setVisibility(View.GONE);
+                tvInsufficientItems.setVisibility(View.VISIBLE);
+                tvInsufficientItems.setText("Enjoy your fit!");
+                for(ClothingItem fitItem : fit){
+                    fitItem.setWorn(true);
+                    fitItem.saveInBackground();
+                }
+            }
+        });
 
     }
 
@@ -86,17 +100,31 @@ public class FitsFragment extends Fragment {
     public void designOutfit(){
         //TODO: Rules of Algorithm
         //TODO: Rule #1 There must be at least one item in each category
+        //TODO: Rule #2 The Top color must not match the Bottom color
         if(!cleanTop.isEmpty()&&!cleanBottom.isEmpty()&&!cleanShoes.isEmpty()){
             fit.clear();
-            fit.add(cleanTop.get(0));
-            fit.add(cleanBottom.get(0));
-            fit.add(cleanShoes.get(0));
+            ClothingItem selectedTop = getRandomElement(cleanTop);
+            ClothingItem selectedBottom = getRandomElement(cleanBottom);
+            ClothingItem selectedShoes= getRandomElement(cleanShoes);
+            while(selectedTop.getColor().equals(selectedBottom.getColor())){
+                cleanTop.remove(selectedTop);
+                selectedTop = getRandomElement(cleanTop);
+                if(cleanTop.isEmpty()){
+                    break;
+                }
+            }
+            fit.add(selectedTop);
+            fit.add(selectedBottom);
+            fit.add(selectedShoes);
             closetAdapter.notifyDataSetChanged();
             btnUseFit.setVisibility(View.VISIBLE);
             rvFits.setVisibility(View.VISIBLE);
             tvInsufficientItems.setVisibility(View.INVISIBLE);
-            Log.d(TAG, "enough to design! ");
         }
+    }
+    public ClothingItem getRandomElement(List<ClothingItem> list){
+        Random rand = new Random();
+        return list.get(rand.nextInt(list.size()));
     }
     public void getCleanItems(String key, final List<ClothingItem> list){
         Closet userCloset = (Closet) ParseUser.getCurrentUser().get("UserCloset");
