@@ -5,6 +5,8 @@ import com.parse.ParseObject;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
+import java.util.List;
+
 @ParseClassName("Closet")
 public class Closet extends ParseObject {
     public static final String KEY_USER = "User";
@@ -27,6 +29,9 @@ public class Closet extends ParseObject {
         relation.add(item);
         relationAll.add(item);
     }
+
+
+
 
 
 

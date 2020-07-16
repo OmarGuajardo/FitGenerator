@@ -5,13 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import com.example.fitgenerator.R;
-import com.google.android.material.card.MaterialCardView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -21,61 +19,11 @@ public final class FragmentFitsBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
-  public final MaterialCardView itemCardViewBottom;
+  public final RecyclerView rvFits;
 
-  @NonNull
-  public final MaterialCardView itemCardViewShoes;
-
-  @NonNull
-  public final MaterialCardView itemCardViewTop;
-
-  @NonNull
-  public final ImageView ivItemIconBottom;
-
-  @NonNull
-  public final ImageView ivItemIconShoes;
-
-  @NonNull
-  public final ImageView ivItemIconTop;
-
-  @NonNull
-  public final TextView tvItemClassBottom;
-
-  @NonNull
-  public final TextView tvItemClassShoes;
-
-  @NonNull
-  public final TextView tvItemClassTop;
-
-  @NonNull
-  public final TextView tvItemNameBottom;
-
-  @NonNull
-  public final TextView tvItemNameShoes;
-
-  @NonNull
-  public final TextView tvItemNameTop;
-
-  private FragmentFitsBinding(@NonNull FrameLayout rootView,
-      @NonNull MaterialCardView itemCardViewBottom, @NonNull MaterialCardView itemCardViewShoes,
-      @NonNull MaterialCardView itemCardViewTop, @NonNull ImageView ivItemIconBottom,
-      @NonNull ImageView ivItemIconShoes, @NonNull ImageView ivItemIconTop,
-      @NonNull TextView tvItemClassBottom, @NonNull TextView tvItemClassShoes,
-      @NonNull TextView tvItemClassTop, @NonNull TextView tvItemNameBottom,
-      @NonNull TextView tvItemNameShoes, @NonNull TextView tvItemNameTop) {
+  private FragmentFitsBinding(@NonNull FrameLayout rootView, @NonNull RecyclerView rvFits) {
     this.rootView = rootView;
-    this.itemCardViewBottom = itemCardViewBottom;
-    this.itemCardViewShoes = itemCardViewShoes;
-    this.itemCardViewTop = itemCardViewTop;
-    this.ivItemIconBottom = ivItemIconBottom;
-    this.ivItemIconShoes = ivItemIconShoes;
-    this.ivItemIconTop = ivItemIconTop;
-    this.tvItemClassBottom = tvItemClassBottom;
-    this.tvItemClassShoes = tvItemClassShoes;
-    this.tvItemClassTop = tvItemClassTop;
-    this.tvItemNameBottom = tvItemNameBottom;
-    this.tvItemNameShoes = tvItemNameShoes;
-    this.tvItemNameTop = tvItemNameTop;
+    this.rvFits = rvFits;
   }
 
   @Override
@@ -105,81 +53,13 @@ public final class FragmentFitsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.itemCardViewBottom;
-      MaterialCardView itemCardViewBottom = rootView.findViewById(id);
-      if (itemCardViewBottom == null) {
+      id = R.id.rvFits;
+      RecyclerView rvFits = rootView.findViewById(id);
+      if (rvFits == null) {
         break missingId;
       }
 
-      id = R.id.itemCardViewShoes;
-      MaterialCardView itemCardViewShoes = rootView.findViewById(id);
-      if (itemCardViewShoes == null) {
-        break missingId;
-      }
-
-      id = R.id.itemCardViewTop;
-      MaterialCardView itemCardViewTop = rootView.findViewById(id);
-      if (itemCardViewTop == null) {
-        break missingId;
-      }
-
-      id = R.id.ivItemIconBottom;
-      ImageView ivItemIconBottom = rootView.findViewById(id);
-      if (ivItemIconBottom == null) {
-        break missingId;
-      }
-
-      id = R.id.ivItemIconShoes;
-      ImageView ivItemIconShoes = rootView.findViewById(id);
-      if (ivItemIconShoes == null) {
-        break missingId;
-      }
-
-      id = R.id.ivItemIconTop;
-      ImageView ivItemIconTop = rootView.findViewById(id);
-      if (ivItemIconTop == null) {
-        break missingId;
-      }
-
-      id = R.id.tvItemClassBottom;
-      TextView tvItemClassBottom = rootView.findViewById(id);
-      if (tvItemClassBottom == null) {
-        break missingId;
-      }
-
-      id = R.id.tvItemClassShoes;
-      TextView tvItemClassShoes = rootView.findViewById(id);
-      if (tvItemClassShoes == null) {
-        break missingId;
-      }
-
-      id = R.id.tvItemClassTop;
-      TextView tvItemClassTop = rootView.findViewById(id);
-      if (tvItemClassTop == null) {
-        break missingId;
-      }
-
-      id = R.id.tvItemNameBottom;
-      TextView tvItemNameBottom = rootView.findViewById(id);
-      if (tvItemNameBottom == null) {
-        break missingId;
-      }
-
-      id = R.id.tvItemNameShoes;
-      TextView tvItemNameShoes = rootView.findViewById(id);
-      if (tvItemNameShoes == null) {
-        break missingId;
-      }
-
-      id = R.id.tvItemNameTop;
-      TextView tvItemNameTop = rootView.findViewById(id);
-      if (tvItemNameTop == null) {
-        break missingId;
-      }
-
-      return new FragmentFitsBinding((FrameLayout) rootView, itemCardViewBottom, itemCardViewShoes,
-          itemCardViewTop, ivItemIconBottom, ivItemIconShoes, ivItemIconTop, tvItemClassBottom,
-          tvItemClassShoes, tvItemClassTop, tvItemNameBottom, tvItemNameShoes, tvItemNameTop);
+      return new FragmentFitsBinding((FrameLayout) rootView, rvFits);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

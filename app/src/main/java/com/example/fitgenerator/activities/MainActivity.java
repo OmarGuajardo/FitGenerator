@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
@@ -128,7 +129,17 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    public void fabListener(int position,View view){
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        ParseUser.logOut();
+        Intent i = new Intent(MainActivity.this,LoginActivity.class);
+        startActivity(i);
+        finish();
+        return super.onOptionsItemSelected(item);
+
+    }
+
+    public void fabListener(int position, View view){
         //Defining different events depending on what tab the user is in
         switch(position){
             case 0:
@@ -177,11 +188,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 return;
             case 1:
-                Log.d(TAG, "Generate out fit");
-                ParseUser.logOut();
-                Intent i = new Intent(MainActivity.this,LoginActivity.class);
-                startActivity(i);
-                finish();
+                fitsFragment.generateOutfit();
                 return;
             case 2:
 //                openEditItem();
@@ -231,9 +238,8 @@ public class MainActivity extends AppCompatActivity {
         });
         fab.startAnimation(shrink);
     }
-    public interface onOptionsSelectedListener{
-        void fabQueryCloset(int position);
-    }
+
+
 
 
 }
