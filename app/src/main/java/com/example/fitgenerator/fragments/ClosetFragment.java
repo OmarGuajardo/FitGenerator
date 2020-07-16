@@ -169,11 +169,11 @@ public class ClosetFragment extends Fragment {
         }
     }
 
-    @Override
-    public void onStop() {
-        super.onStop();
-        listener.disableIcons();
-    }
+//    @Override
+//    public void onStop() {
+//        super.onStop();
+//        listener.disableIcons();
+//    }
 
     @Override
     public void onPause() {

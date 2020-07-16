@@ -228,7 +228,6 @@ public class MainActivity extends AppCompatActivity implements ClosetFragment.on
 //                fab.setBackgroundTintList(getResources().getColorStateList(colorIntArray[position]));
                 fab.setImageDrawable(getResources().getDrawable(iconIntArray[position], null));
                 if((position == 1 || position == 2 )&& isRotate == true){
-                    Toast.makeText(MainActivity.this, "disable icons", Toast.LENGTH_SHORT).show();
                     disableIcons();
                 }
                 // Scale up animation
@@ -249,19 +248,15 @@ public class MainActivity extends AppCompatActivity implements ClosetFragment.on
 
     @Override
     public void disableIcons() {
-        isRotate = ViewAnimation.rotateFab(btnFABView,!isRotate,binding.btnFAB);
-        if(isRotate){
-            ViewAnimation.showIn(binding.fabTop);
-            ViewAnimation.showIn(binding.fabBottom);
-            ViewAnimation.showIn(binding.fabShoes);
-            ViewAnimation.showIn(binding.fabAdd);
 
-        }else{
+        if(isRotate) {
+            isRotate = false;
+            ViewAnimation.rotateFab(btnFABView,false,binding.btnFAB);
             ViewAnimation.showOut(binding.fabTop);
             ViewAnimation.showOut(binding.fabBottom);
             ViewAnimation.showOut(binding.fabShoes);
             ViewAnimation.showOut(binding.fabAdd);
-        }
 
+        }
     }
 }
