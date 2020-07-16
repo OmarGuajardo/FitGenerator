@@ -8,12 +8,12 @@
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/fragment_fits.xml"
     },
     {
-        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_shoes_icon.xml.flat",
-        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/shoes_icon.xml"
-    },
-    {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/font_poppins.ttf.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/font/poppins.ttf"
+    },
+    {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_shoes_icon.xml.flat",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/shoes_icon.xml"
     },
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_fit_generator_round.xml.flat",
@@ -100,16 +100,20 @@
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/font/poppins_light.ttf"
     },
     {
-        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/layout_activity_create_item.xml.flat",
-        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/activity_create_item.xml"
-    },
-    {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_ic_baseline_delete_24.xml.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/ic_baseline_delete_24.xml"
     },
     {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/layout_activity_create_item.xml.flat",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/activity_create_item.xml"
+    },
+    {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/layout_activity_toolbar.xml.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/activity_toolbar.xml"
+    },
+    {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_fab_label_background.xml.flat",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/fab_label_background.xml"
     },
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_fit_generator_round.png.flat",
@@ -192,6 +196,10 @@
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_ic_baseline_view_module_24.xml.flat",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/ic_baseline_view_module_24.xml"
+    },
+    {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_ic_baseline_restore_from_trash_24.xml.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/ic_baseline_restore_from_trash_24.xml"
     },
@@ -244,12 +252,12 @@
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/ic_baseline_check_24.xml"
     },
     {
-        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/layout_details_item.xml.flat",
-        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/details_item.xml"
-    },
-    {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_ic_baseline_save_24.xml.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/ic_baseline_save_24.xml"
+    },
+    {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/layout_details_item.xml.flat",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/details_item.xml"
     },
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_ic_baseline_rotate_right_24.xml.flat",

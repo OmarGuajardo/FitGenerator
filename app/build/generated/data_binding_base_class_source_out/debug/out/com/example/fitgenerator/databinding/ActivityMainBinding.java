@@ -23,6 +23,9 @@ public final class ActivityMainBinding implements ViewBinding {
   public final FloatingActionButton btnFAB;
 
   @NonNull
+  public final FloatingActionButton fabAdd;
+
+  @NonNull
   public final FloatingActionButton fabBottom;
 
   @NonNull
@@ -35,11 +38,12 @@ public final class ActivityMainBinding implements ViewBinding {
   public final ViewPager viewPager;
 
   private ActivityMainBinding(@NonNull ConstraintLayout rootView,
-      @NonNull FloatingActionButton btnFAB, @NonNull FloatingActionButton fabBottom,
-      @NonNull FloatingActionButton fabShoes, @NonNull FloatingActionButton fabTop,
-      @NonNull ViewPager viewPager) {
+      @NonNull FloatingActionButton btnFAB, @NonNull FloatingActionButton fabAdd,
+      @NonNull FloatingActionButton fabBottom, @NonNull FloatingActionButton fabShoes,
+      @NonNull FloatingActionButton fabTop, @NonNull ViewPager viewPager) {
     this.rootView = rootView;
     this.btnFAB = btnFAB;
+    this.fabAdd = fabAdd;
     this.fabBottom = fabBottom;
     this.fabShoes = fabShoes;
     this.fabTop = fabTop;
@@ -79,6 +83,12 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.fabAdd;
+      FloatingActionButton fabAdd = rootView.findViewById(id);
+      if (fabAdd == null) {
+        break missingId;
+      }
+
       id = R.id.fabBottom;
       FloatingActionButton fabBottom = rootView.findViewById(id);
       if (fabBottom == null) {
@@ -103,8 +113,8 @@ public final class ActivityMainBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityMainBinding((ConstraintLayout) rootView, btnFAB, fabBottom, fabShoes,
-          fabTop, viewPager);
+      return new ActivityMainBinding((ConstraintLayout) rootView, btnFAB, fabAdd, fabBottom,
+          fabShoes, fabTop, viewPager);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

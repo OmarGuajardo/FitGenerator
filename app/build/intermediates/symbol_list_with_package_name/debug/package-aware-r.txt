@@ -330,6 +330,22 @@ attr fabCradleRoundedCornerRadius
 attr fabCradleVerticalOffset
 attr fabCustomSize
 attr fabSize
+attr fab_addButtonColorNormal
+attr fab_addButtonColorPressed
+attr fab_addButtonPlusIconColor
+attr fab_addButtonSize
+attr fab_addButtonStrokeVisible
+attr fab_colorDisabled
+attr fab_colorNormal
+attr fab_colorPressed
+attr fab_expandDirection
+attr fab_icon
+attr fab_labelStyle
+attr fab_labelsPosition
+attr fab_plusIconColor
+attr fab_size
+attr fab_stroke_visible
+attr fab_title
 attr fastScrollEnabled
 attr fastScrollHorizontalThumbDrawable
 attr fastScrollHorizontalTrackDrawable
@@ -1067,6 +1083,16 @@ dimen disabled_alpha_material_dark
 dimen disabled_alpha_material_light
 dimen dropDownMargin
 dimen dropDownPadding
+dimen fab_actions_spacing
+dimen fab_icon_size
+dimen fab_labels_margin
+dimen fab_plus_icon_size
+dimen fab_plus_icon_stroke
+dimen fab_shadow_offset
+dimen fab_shadow_radius
+dimen fab_size_mini
+dimen fab_size_normal
+dimen fab_stroke_width
 dimen fastscroll_default_thickness
 dimen fastscroll_margin
 dimen fastscroll_minimum_range
@@ -1362,6 +1388,9 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable fab_bg_mini
+drawable fab_bg_normal
+drawable fab_label_background
 drawable fit_generator_icon
 drawable ic_baseline_add_24
 drawable ic_baseline_attach_file_24
@@ -1371,6 +1400,7 @@ drawable ic_baseline_delete_24
 drawable ic_baseline_restore_from_trash_24
 drawable ic_baseline_rotate_right_24
 drawable ic_baseline_save_24
+drawable ic_baseline_view_module_24
 drawable ic_calendar_black_24dp
 drawable ic_clear_black_24dp
 drawable ic_edit_black_24dp
@@ -1543,6 +1573,7 @@ id dialog_button
 id dimensions
 id direct
 id disableHome
+id down
 id dropdown_menu
 id edit_query
 id end
@@ -1552,9 +1583,12 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fabAdd
 id fabBottom
 id fabShoes
 id fabTop
+id fab_expand_menu_button
+id fab_label
 id fade
 id fill
 id fill_horizontal
@@ -2690,12 +2724,14 @@ style Widget_MaterialComponents_Toolbar_Primary
 style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_Support_CoordinatorLayout
+style customFab
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth
 styleable ActionMenuView
 styleable ActionMode background backgroundSplit closeItemLayout height subtitleTextStyle titleTextStyle
 styleable ActivityChooserView expandActivityOverflowButtonDrawable initialActivityCount
+styleable AddFloatingActionButton fab_plusIconColor
 styleable AlertDialog android_layout buttonIconDimen buttonPanelSideLayout listItemLayout listLayout multiChoiceItemLayout showTitle singleChoiceItemLayout
 styleable AnimatedStateListDrawableCompat android_dither android_visible android_variablePadding android_constantSize android_enterFadeDuration android_exitFadeDuration
 styleable AnimatedStateListDrawableItem android_id android_drawable
@@ -2728,8 +2764,9 @@ styleable CoordinatorLayout_Layout android_layout_gravity layout_anchor layout_a
 styleable DrawerArrowToggle arrowHeadLength arrowShaftLength barLength color drawableSize gapBetweenBars spinBars thickness
 styleable ExtendedFloatingActionButton elevation extendMotionSpec hideMotionSpec showMotionSpec shrinkMotionSpec
 styleable ExtendedFloatingActionButton_Behavior_Layout behavior_autoHide behavior_autoShrink
-styleable FloatingActionButton backgroundTint backgroundTintMode borderWidth elevation ensureMinTouchTargetSize fabCustomSize fabSize hideMotionSpec hoveredFocusedTranslationZ maxImageSize pressedTranslationZ rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec useCompatPadding
+styleable FloatingActionButton backgroundTint backgroundTintMode borderWidth elevation ensureMinTouchTargetSize fabCustomSize fabSize fab_colorDisabled fab_colorNormal fab_colorPressed fab_icon fab_size fab_stroke_visible fab_title hideMotionSpec hoveredFocusedTranslationZ maxImageSize pressedTranslationZ rippleColor shapeAppearance shapeAppearanceOverlay showMotionSpec useCompatPadding
 styleable FloatingActionButton_Behavior_Layout behavior_autoHide
+styleable FloatingActionsMenu fab_addButtonColorNormal fab_addButtonColorPressed fab_addButtonPlusIconColor fab_addButtonSize fab_addButtonStrokeVisible fab_expandDirection fab_labelStyle fab_labelsPosition
 styleable FlowLayout itemSpacing lineSpacing
 styleable FontFamily fontProviderAuthority fontProviderCerts fontProviderFetchStrategy fontProviderFetchTimeout fontProviderPackage fontProviderQuery
 styleable FontFamilyFont android_font android_fontWeight android_fontStyle android_ttcIndex android_fontVariationSettings font fontStyle fontVariationSettings fontWeight ttcIndex

@@ -5,6 +5,7 @@ INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/mai
 INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-45:12
 INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-45:12
 MERGED from [androidx.databinding:viewbinding:4.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/fbee8d91505582d78dab4b49b9cc403a/jetified-viewbinding-4.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.getbase:floatingactionbutton:1.10.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/acee842695cab7efef36e08f4215b328/jetified-floatingactionbutton-1.10.1/AndroidManifest.xml:2:1-14:12
 MERGED from [com.google.android.material:material:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/081958b85be993b26123dd5b1125e07f/material-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c2c5fa787d66aaf40578b3071f4d283f/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/28120aa98d624ce8fee0a8087788fd91/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
@@ -78,6 +79,8 @@ MERGED from [com.github.parse-community.Parse-SDK-Android:parse:1.24.2] /Users/o
 		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:6:22-76
 application
 ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:8:5-43:19
+MERGED from [com.getbase:floatingactionbutton:1.10.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/acee842695cab7efef36e08f4215b328/jetified-floatingactionbutton-1.10.1/AndroidManifest.xml:12:5-20
+MERGED from [com.getbase:floatingactionbutton:1.10.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/acee842695cab7efef36e08f4215b328/jetified-floatingactionbutton-1.10.1/AndroidManifest.xml:12:5-20
 MERGED from [com.google.android.material:material:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/081958b85be993b26123dd5b1125e07f/material-1.1.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/081958b85be993b26123dd5b1125e07f/material-1.1.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/28120aa98d624ce8fee0a8087788fd91/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
@@ -170,6 +173,8 @@ INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/mai
 INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml
 MERGED from [androidx.databinding:viewbinding:4.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/fbee8d91505582d78dab4b49b9cc403a/jetified-viewbinding-4.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.databinding:viewbinding:4.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/fbee8d91505582d78dab4b49b9cc403a/jetified-viewbinding-4.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.getbase:floatingactionbutton:1.10.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/acee842695cab7efef36e08f4215b328/jetified-floatingactionbutton-1.10.1/AndroidManifest.xml:8:5-10:41
+MERGED from [com.getbase:floatingactionbutton:1.10.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/acee842695cab7efef36e08f4215b328/jetified-floatingactionbutton-1.10.1/AndroidManifest.xml:8:5-10:41
 MERGED from [com.google.android.material:material:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/081958b85be993b26123dd5b1125e07f/material-1.1.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.material:material:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/081958b85be993b26123dd5b1125e07f/material-1.1.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c2c5fa787d66aaf40578b3071f4d283f/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41

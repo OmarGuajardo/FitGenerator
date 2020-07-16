@@ -70,22 +70,13 @@ public class MainActivity extends AppCompatActivity {
         ViewAnimation.init(binding.fabTop);
         ViewAnimation.init(binding.fabBottom);
         ViewAnimation.init(binding.fabShoes);
+        ViewAnimation.init(binding.fabAdd);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                fabListener(binding.viewPager.getCurrentItem());
-                isRotate = ViewAnimation.rotateFab(view,!isRotate,binding.btnFAB);
-                if(isRotate){
-                    ViewAnimation.showIn(binding.fabTop);
-                    ViewAnimation.showIn(binding.fabBottom);
-                    ViewAnimation.showIn(binding.fabShoes);
+                fabListener(binding.viewPager.getCurrentItem(),view);
 
-                }else{
-                    ViewAnimation.showOut(binding.fabTop);
-                    ViewAnimation.showOut(binding.fabBottom);
-                    ViewAnimation.showOut(binding.fabShoes);
-                }
             }
         });
 
@@ -119,11 +110,30 @@ public class MainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    public void fabListener(int position){
+    public void fabListener(int position,View view){
         //Defining different events depending on what tab the user is in
         switch(position){
             case 0:
-                openCreateItem();
+//                openCreateItem();
+                binding.fabAdd.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        openCreateItem();
+                    }
+                });
+                isRotate = ViewAnimation.rotateFab(view,!isRotate,binding.btnFAB);
+                if(isRotate){
+                    ViewAnimation.showIn(binding.fabTop);
+                    ViewAnimation.showIn(binding.fabBottom);
+                    ViewAnimation.showIn(binding.fabShoes);
+                    ViewAnimation.showIn(binding.fabAdd);
+
+                }else{
+                    ViewAnimation.showOut(binding.fabTop);
+                    ViewAnimation.showOut(binding.fabBottom);
+                    ViewAnimation.showOut(binding.fabShoes);
+                    ViewAnimation.showOut(binding.fabAdd);
+                }
                 return;
             case 1:
                 Log.d(TAG, "Generate out fit");
@@ -148,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
     //Handles the animation of the icons between tabs
     protected void animateFab(final int position) {
 //        final int[] colorIntArray = {R.color.walking,R.color.running,R.color.biking,R.color.paddling,R.color.golfing};
-        final int[] iconIntArray = {R.drawable.ic_baseline_add_24,R.drawable.ic_baseline_rotate_right_24,R.drawable.ic_baseline_restore_from_trash_24};
+        final int[] iconIntArray = {R.drawable.ic_baseline_view_module_24,R.drawable.ic_baseline_rotate_right_24,R.drawable.ic_baseline_restore_from_trash_24};
         fab.clearAnimation();
         // Scale down animation
         ScaleAnimation shrink =  new ScaleAnimation(1f, 0.2f, 1f, 0.2f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
