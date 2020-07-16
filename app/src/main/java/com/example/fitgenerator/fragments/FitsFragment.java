@@ -20,6 +20,7 @@ import com.example.fitgenerator.ClosetAdapter;
 import com.example.fitgenerator.ClothingItem;
 import com.example.fitgenerator.R;
 import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.button.MaterialButton;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -38,6 +39,8 @@ public class FitsFragment extends Fragment {
     List<ClothingItem> cleanShoes;
     ClosetAdapter closetAdapter;
     RecyclerView rvFits;
+    MaterialButton btnUseFit;
+    TextView tvInsufficientItems;
     public FitsFragment() {
         // Required empty public constructor
     }
@@ -49,6 +52,9 @@ public class FitsFragment extends Fragment {
         cleanTop = new ArrayList<>();
         cleanBottom = new ArrayList<>();
         cleanShoes = new ArrayList<>();
+        btnUseFit = view.findViewById(R.id.btnUseFit);
+        tvInsufficientItems = view.findViewById(R.id.tvInsufficientItems);
+
 
         //Setting up the recycler view
         fit = new ArrayList<>();
@@ -69,17 +75,27 @@ public class FitsFragment extends Fragment {
     }
 
     public void generateOutfit(){
+        cleanTop.clear();
+        cleanBottom.clear();
+        cleanShoes.clear();
         getCleanItems(Closet.KEY_TOP,cleanTop);
         getCleanItems(Closet.KEY_BOTTOM,cleanBottom);
         getCleanItems(Closet.KEY_SHOES,cleanShoes);
 
     }
     public void designOutfit(){
+        //TODO: Rules of Algorithm
+        //TODO: Rule #1 There must be at least one item in each category
         if(!cleanTop.isEmpty()&&!cleanBottom.isEmpty()&&!cleanShoes.isEmpty()){
+            fit.clear();
             fit.add(cleanTop.get(0));
             fit.add(cleanBottom.get(0));
             fit.add(cleanShoes.get(0));
             closetAdapter.notifyDataSetChanged();
+            btnUseFit.setVisibility(View.VISIBLE);
+            rvFits.setVisibility(View.VISIBLE);
+            tvInsufficientItems.setVisibility(View.INVISIBLE);
+            Log.d(TAG, "enough to design! ");
         }
     }
     public void getCleanItems(String key, final List<ClothingItem> list){
@@ -90,14 +106,24 @@ public class FitsFragment extends Fragment {
         query.findInBackground(new FindCallback<ClothingItem>() {
             @Override
             public void done(List<ClothingItem> objects, ParseException e) {
-                list.clear();
-                list.addAll(objects);
-                designOutfit();
+                if(!objects.isEmpty()){
+                    list.clear();
+                    list.addAll(objects);
+                    designOutfit();
+                    return;
+                }
+                handleInsufficientItems();
             }
         });
 
     }
 
+    public void handleInsufficientItems(){
+        btnUseFit.setVisibility(View.INVISIBLE);
+        rvFits.setVisibility(View.GONE);
+        tvInsufficientItems.setVisibility(View.VISIBLE);
+
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

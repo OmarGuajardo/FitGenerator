@@ -1530,6 +1530,7 @@ id btnLogIn
 id btnPicture
 id btnRegister
 id btnReturn
+id btnUseFit
 id buttonPanel
 id cancel_action
 id cancel_button
@@ -1777,6 +1778,7 @@ id tvDescriptionBody
 id tvDescriptionTitle
 id tvEmail
 id tvFit
+id tvInsufficientItems
 id tvItemClass
 id tvItemName
 id tvName

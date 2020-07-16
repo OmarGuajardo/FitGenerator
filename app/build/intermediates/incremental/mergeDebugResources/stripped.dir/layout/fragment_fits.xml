@@ -30,8 +30,17 @@
                 android:layout_height="match_parent"
                 android:id="@+id/rvFits"/>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <TextView
+            android:id="@+id/tvInsufficientItems"
+            android:fontFamily="@font/poppins_light"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Not enough clean items :("/>
         <com.google.android.material.button.MaterialButton
             style="@style/Widget.MaterialComponents.Button"
+            android:id="@+id/btnUseFit"
+            android:visibility="invisible"
             app:rippleColor="@color/secondaryDarkColor"
             android:backgroundTint="@color/secondaryColor"
             android:textColor="@color/primaryTextColor2"

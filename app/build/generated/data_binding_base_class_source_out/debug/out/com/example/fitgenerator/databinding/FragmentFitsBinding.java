@@ -5,11 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import com.example.fitgenerator.R;
+import com.google.android.material.button.MaterialButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -19,11 +21,20 @@ public final class FragmentFitsBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
+  public final MaterialButton btnUseFit;
+
+  @NonNull
   public final RecyclerView rvFits;
 
-  private FragmentFitsBinding(@NonNull FrameLayout rootView, @NonNull RecyclerView rvFits) {
+  @NonNull
+  public final TextView tvInsufficientItems;
+
+  private FragmentFitsBinding(@NonNull FrameLayout rootView, @NonNull MaterialButton btnUseFit,
+      @NonNull RecyclerView rvFits, @NonNull TextView tvInsufficientItems) {
     this.rootView = rootView;
+    this.btnUseFit = btnUseFit;
     this.rvFits = rvFits;
+    this.tvInsufficientItems = tvInsufficientItems;
   }
 
   @Override
@@ -53,13 +64,26 @@ public final class FragmentFitsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.btnUseFit;
+      MaterialButton btnUseFit = rootView.findViewById(id);
+      if (btnUseFit == null) {
+        break missingId;
+      }
+
       id = R.id.rvFits;
       RecyclerView rvFits = rootView.findViewById(id);
       if (rvFits == null) {
         break missingId;
       }
 
-      return new FragmentFitsBinding((FrameLayout) rootView, rvFits);
+      id = R.id.tvInsufficientItems;
+      TextView tvInsufficientItems = rootView.findViewById(id);
+      if (tvInsufficientItems == null) {
+        break missingId;
+      }
+
+      return new FragmentFitsBinding((FrameLayout) rootView, btnUseFit, rvFits,
+          tvInsufficientItems);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
