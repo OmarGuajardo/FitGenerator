@@ -13,8 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toolbar;
 
 import com.example.fitgenerator.Closet;
 import com.example.fitgenerator.ClosetAdapter;
@@ -45,14 +48,18 @@ public class ClosetFragment extends Fragment {
     public ClosetFragment(){
     }
 
+
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        items = new ArrayList<>();
 
-        rvCloset = view.findViewById(R.id.rvCloset);
+
+
 
         //Setting up the Recycler View with the Adapter
+        items = new ArrayList<>();
+        rvCloset = view.findViewById(R.id.rvCloset);
         closetAdapter = new ClosetAdapter(getContext(),items);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rvCloset.setAdapter(closetAdapter);
@@ -62,7 +69,9 @@ public class ClosetFragment extends Fragment {
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(rvCloset);
+
     }
+
 
     ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT) {
         @Override
@@ -87,7 +96,7 @@ public class ClosetFragment extends Fragment {
         @Override
         public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
             new RecyclerViewSwipeDecorator.Builder(getContext(),c,rvCloset,viewHolder,dX,dY,actionState,isCurrentlyActive)
-                    .addSwipeRightBackgroundColor(R.color.secondaryDarkColor)
+                    .addSwipeRightBackgroundColor(R.color.colorPrimary)
                     .addSwipeRightActionIcon(R.drawable.ic_baseline_restore_from_trash_24)
                     .create()
                     .decorate();
@@ -121,11 +130,13 @@ public class ClosetFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_closet, container, false);
     }

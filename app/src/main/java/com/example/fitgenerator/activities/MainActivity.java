@@ -1,11 +1,15 @@
 package com.example.fitgenerator.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
@@ -14,6 +18,7 @@ import android.view.animation.ScaleAnimation;
 import android.widget.Button;
 
 import com.example.fitgenerator.R;
+import com.example.fitgenerator.ViewAnimation;
 import com.example.fitgenerator.databinding.ActivityMainBinding;
 import com.example.fitgenerator.fragments.ClosetFragment;
 import com.example.fitgenerator.fragments.FitsFragment;
@@ -29,11 +34,22 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     TabLayout tabLayout;
     FloatingActionButton fab;
+    Toolbar toolbar;
+
+    //FAB Rotating
+    Boolean isRotate = false;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
+
+        //Toolbar set up
+        toolbar = findViewById(R.id.topAppBar);
+        setSupportActionBar(toolbar);
 
         //Defining Views
         tabLayout = findViewById(R.id.tabBar);
@@ -51,10 +67,25 @@ public class MainActivity extends AppCompatActivity {
         binding.viewPager.setCurrentItem(1);
         animateFab(1);
 
+        ViewAnimation.init(binding.fabTop);
+        ViewAnimation.init(binding.fabBottom);
+        ViewAnimation.init(binding.fabShoes);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                fabListener(binding.viewPager.getCurrentItem());
+//                fabListener(binding.viewPager.getCurrentItem());
+                isRotate = ViewAnimation.rotateFab(view,!isRotate,binding.btnFAB);
+                if(isRotate){
+                    ViewAnimation.showIn(binding.fabTop);
+                    ViewAnimation.showIn(binding.fabBottom);
+                    ViewAnimation.showIn(binding.fabShoes);
+
+                }else{
+                    ViewAnimation.showOut(binding.fabTop);
+                    ViewAnimation.showOut(binding.fabBottom);
+                    ViewAnimation.showOut(binding.fabShoes);
+                }
             }
         });
 
@@ -79,7 +110,15 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
     public void fabListener(int position){
         //Defining different events depending on what tab the user is in
         switch(position){
@@ -103,10 +142,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void openCreateItem(){
         Intent intent = new Intent(MainActivity.this,CreateItemActivity.class);
-        startActivity(intent);
-    }
-    public void openEditItem(){
-        Intent intent = new Intent(MainActivity.this,ItemDetailsActivity.class);
         startActivity(intent);
     }
 

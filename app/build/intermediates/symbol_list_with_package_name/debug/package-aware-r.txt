@@ -1552,6 +1552,9 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fabBottom
+id fabShoes
+id fabTop
 id fade
 id fill
 id fill_horizontal
@@ -1597,6 +1600,9 @@ id list_item
 id masked
 id media_actions
 id message
+id miBottom
+id miShoes
+id miTop
 id middle
 id mini
 id month_grid
@@ -1917,6 +1923,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu menu_main
 mipmap ic_launcher
 mipmap ic_launcher_fit_generator
 mipmap ic_launcher_fit_generator_round
