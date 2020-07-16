@@ -18,6 +18,7 @@ import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.fitgenerator.Closet;
 import com.example.fitgenerator.R;
@@ -31,7 +32,7 @@ import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 import com.parse.ParseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements ClosetFragment.onPauseListener{
 
     private static final String TAG = "MainActivity";
     ActivityMainBinding binding;
@@ -47,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
     FitsFragment fitsFragment;
     LaundryFragment laundryFragment;
 
+    View btnFABView;
 
 
 
@@ -93,9 +95,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 fabListener(binding.viewPager.getCurrentItem(),view);
+                btnFABView = view;
 
             }
         });
+
 
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
@@ -191,8 +195,7 @@ public class MainActivity extends AppCompatActivity {
                 fitsFragment.generateOutfit();
                 return;
             case 2:
-//                openEditItem();
-                Log.d(TAG, "Wash all items");
+                laundryFragment.washAllItems();
                 return;
             default:
                 return;
@@ -205,6 +208,7 @@ public class MainActivity extends AppCompatActivity {
 
     //Handles the animation of the icons between tabs
     protected void animateFab(final int position) {
+
 //        final int[] colorIntArray = {R.color.walking,R.color.running,R.color.biking,R.color.paddling,R.color.golfing};
         final int[] iconIntArray = {R.drawable.ic_baseline_view_module_24,R.drawable.ic_baseline_rotate_right_24,R.drawable.ic_baseline_restore_from_trash_24};
         fab.clearAnimation();
@@ -223,7 +227,10 @@ public class MainActivity extends AppCompatActivity {
                 // Change FAB color and icon
 //                fab.setBackgroundTintList(getResources().getColorStateList(colorIntArray[position]));
                 fab.setImageDrawable(getResources().getDrawable(iconIntArray[position], null));
-
+                if((position == 1 || position == 2 )&& isRotate == true){
+                    Toast.makeText(MainActivity.this, "disable icons", Toast.LENGTH_SHORT).show();
+                    disableIcons();
+                }
                 // Scale up animation
                 ScaleAnimation expand =  new ScaleAnimation(0.2f, 1f, 0.2f, 1f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
                 expand.setDuration(100);     // animation duration in milliseconds
@@ -240,6 +247,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void disableIcons() {
+        isRotate = ViewAnimation.rotateFab(btnFABView,!isRotate,binding.btnFAB);
+        if(isRotate){
+            ViewAnimation.showIn(binding.fabTop);
+            ViewAnimation.showIn(binding.fabBottom);
+            ViewAnimation.showIn(binding.fabShoes);
+            ViewAnimation.showIn(binding.fabAdd);
 
+        }else{
+            ViewAnimation.showOut(binding.fabTop);
+            ViewAnimation.showOut(binding.fabBottom);
+            ViewAnimation.showOut(binding.fabShoes);
+            ViewAnimation.showOut(binding.fabAdd);
+        }
 
+    }
 }

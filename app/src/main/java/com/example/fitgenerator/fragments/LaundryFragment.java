@@ -71,6 +71,20 @@ public class LaundryFragment extends Fragment {
 
     }
 
+    public void washAllItems(){
+        for(ClothingItem dirtyItem : laundryBasket){
+            dirtyItem.setWorn(false);
+            dirtyItem.saveInBackground();
+        }
+        laundryBasket.clear();
+        closetAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        queryCleanItems();
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

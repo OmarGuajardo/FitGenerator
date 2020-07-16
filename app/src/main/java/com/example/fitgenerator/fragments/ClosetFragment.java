@@ -1,5 +1,6 @@
 package com.example.fitgenerator.fragments;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.os.Bundle;
 
@@ -47,6 +48,8 @@ public class ClosetFragment extends Fragment {
     List<String> closet;
     List<ClothingItem> items;
     String currentClass;
+
+    public onPauseListener listener;
 
 
     public ClosetFragment(){
@@ -155,5 +158,31 @@ public class ClosetFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_closet, container, false);
     }
 
+    //Attaches the function from TimeLineActivity to this Fragment
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        try {
+            listener = (onPauseListener) context;
+        } catch (Exception e) {
+            Log.e("ComposeDialog", "compose dialog error : ", e);
+        }
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        listener.disableIcons();
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        listener.disableIcons();
+    }
+
+    public interface onPauseListener{
+        void disableIcons();
+    }
 
 }
