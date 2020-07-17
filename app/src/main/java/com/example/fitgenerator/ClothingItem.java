@@ -48,6 +48,10 @@ public class ClothingItem extends ParseObject {
         put(KEY_TYPE, type);
     }
 
+    public void addUses(){
+        increment(KEY_USES);
+    }
+
     public void setStyle(String style) {
         put(KEY_STYLE, style);
     }

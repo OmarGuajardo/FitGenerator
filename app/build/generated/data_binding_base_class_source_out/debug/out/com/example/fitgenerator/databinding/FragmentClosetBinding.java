@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,10 +20,15 @@ public final class FragmentClosetBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
+  public final ProgressBar closetLoadingBar;
+
+  @NonNull
   public final RecyclerView rvCloset;
 
-  private FragmentClosetBinding(@NonNull FrameLayout rootView, @NonNull RecyclerView rvCloset) {
+  private FragmentClosetBinding(@NonNull FrameLayout rootView,
+      @NonNull ProgressBar closetLoadingBar, @NonNull RecyclerView rvCloset) {
     this.rootView = rootView;
+    this.closetLoadingBar = closetLoadingBar;
     this.rvCloset = rvCloset;
   }
 
@@ -53,13 +59,19 @@ public final class FragmentClosetBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.closetLoadingBar;
+      ProgressBar closetLoadingBar = rootView.findViewById(id);
+      if (closetLoadingBar == null) {
+        break missingId;
+      }
+
       id = R.id.rvCloset;
       RecyclerView rvCloset = rootView.findViewById(id);
       if (rvCloset == null) {
         break missingId;
       }
 
-      return new FragmentClosetBinding((FrameLayout) rootView, rvCloset);
+      return new FragmentClosetBinding((FrameLayout) rootView, closetLoadingBar, rvCloset);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.example.fitgenerator.Closet;
 import com.example.fitgenerator.ClosetAdapter;
@@ -31,18 +33,16 @@ public class LaundryFragment extends Fragment {
     RecyclerView rvLaundry;
     List<ClothingItem> laundryBasket;
     ClosetAdapter closetAdapter;
+    ProgressBar progressBar;
+    Boolean showProgressBar = false;
 
-    public LaundryFragment() {
-        // Required empty public constructor
-    }
-
+    // Required empty public constructor
+    public LaundryFragment() {}
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         laundryBasket = new ArrayList<>();
-
-
         rvLaundry = view.findViewById(R.id.rvLaundry);
 
         //Setting up the Recycler View with the Adapter
@@ -50,11 +50,13 @@ public class LaundryFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rvLaundry.setAdapter(closetAdapter);
         rvLaundry.setLayoutManager(linearLayoutManager);
+        progressBar = view.findViewById(R.id.laundryLoadingBar);
         queryCleanItems();
         closetAdapter.notifyDataSetChanged();
     }
 
     public void queryCleanItems(){
+        toggleLoading();
         Closet userCloset = (Closet) ParseUser.getCurrentUser().get("UserCloset");
         ParseRelation<ClothingItem> relation = userCloset.getRelation(Closet.KEY_ALL_ITEMS);
         ParseQuery query = relation.getQuery();
@@ -62,13 +64,18 @@ public class LaundryFragment extends Fragment {
         query.findInBackground(new FindCallback<ClothingItem>() {
             @Override
             public void done(List<ClothingItem> objects, ParseException e) {
+                toggleLoading();
                 laundryBasket.clear();
                 laundryBasket.addAll(objects);
                 closetAdapter.notifyDataSetChanged();
             }
         });
+    }
 
-
+    public void toggleLoading(){
+        progressBar.setVisibility(showProgressBar? View.INVISIBLE: View.VISIBLE);
+        rvLaundry.setVisibility(showProgressBar? View.VISIBLE: View.INVISIBLE);
+        showProgressBar = !showProgressBar;
     }
 
     public void washAllItems(){
@@ -85,16 +92,15 @@ public class LaundryFragment extends Fragment {
         super.onStart();
         queryCleanItems();
     }
+    
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_laundry, container, false);
     }

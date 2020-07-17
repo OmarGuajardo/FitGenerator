@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -24,16 +25,20 @@ public final class ActivityItemDetailsBinding implements ViewBinding {
   public final FloatingActionButton btnEdit;
 
   @NonNull
+  public final ProgressBar imageProgressBar;
+
+  @NonNull
   public final ImageView ivItemPic;
 
   @NonNull
   public final RecyclerView rvDetails;
 
   private ActivityItemDetailsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull FloatingActionButton btnEdit, @NonNull ImageView ivItemPic,
-      @NonNull RecyclerView rvDetails) {
+      @NonNull FloatingActionButton btnEdit, @NonNull ProgressBar imageProgressBar,
+      @NonNull ImageView ivItemPic, @NonNull RecyclerView rvDetails) {
     this.rootView = rootView;
     this.btnEdit = btnEdit;
+    this.imageProgressBar = imageProgressBar;
     this.ivItemPic = ivItemPic;
     this.rvDetails = rvDetails;
   }
@@ -71,6 +76,12 @@ public final class ActivityItemDetailsBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.imageProgressBar;
+      ProgressBar imageProgressBar = rootView.findViewById(id);
+      if (imageProgressBar == null) {
+        break missingId;
+      }
+
       id = R.id.ivItemPic;
       ImageView ivItemPic = rootView.findViewById(id);
       if (ivItemPic == null) {
@@ -83,8 +94,8 @@ public final class ActivityItemDetailsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityItemDetailsBinding((ConstraintLayout) rootView, btnEdit, ivItemPic,
-          rvDetails);
+      return new ActivityItemDetailsBinding((ConstraintLayout) rootView, btnEdit, imageProgressBar,
+          ivItemPic, rvDetails);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

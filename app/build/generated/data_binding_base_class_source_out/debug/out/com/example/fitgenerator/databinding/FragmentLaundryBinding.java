@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,10 +20,15 @@ public final class FragmentLaundryBinding implements ViewBinding {
   private final FrameLayout rootView;
 
   @NonNull
+  public final ProgressBar laundryLoadingBar;
+
+  @NonNull
   public final RecyclerView rvLaundry;
 
-  private FragmentLaundryBinding(@NonNull FrameLayout rootView, @NonNull RecyclerView rvLaundry) {
+  private FragmentLaundryBinding(@NonNull FrameLayout rootView,
+      @NonNull ProgressBar laundryLoadingBar, @NonNull RecyclerView rvLaundry) {
     this.rootView = rootView;
+    this.laundryLoadingBar = laundryLoadingBar;
     this.rvLaundry = rvLaundry;
   }
 
@@ -53,13 +59,19 @@ public final class FragmentLaundryBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.laundryLoadingBar;
+      ProgressBar laundryLoadingBar = rootView.findViewById(id);
+      if (laundryLoadingBar == null) {
+        break missingId;
+      }
+
       id = R.id.rvLaundry;
       RecyclerView rvLaundry = rootView.findViewById(id);
       if (rvLaundry == null) {
         break missingId;
       }
 
-      return new FragmentLaundryBinding((FrameLayout) rootView, rvLaundry);
+      return new FragmentLaundryBinding((FrameLayout) rootView, laundryLoadingBar, rvLaundry);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fitgenerator.Closet;
 import com.example.fitgenerator.ClosetAdapter;
@@ -74,7 +75,10 @@ public class FitsFragment extends Fragment {
                 tvInsufficientItems.setVisibility(View.VISIBLE);
                 tvInsufficientItems.setText("Enjoy your fit!");
                 for(ClothingItem fitItem : fit){
-                    fitItem.setWorn(true);
+                    if(!fitItem.getClassString().equals("Shoes")){
+                        fitItem.setWorn(true);
+                    }
+                    fitItem.addUses();
                     fitItem.saveInBackground();
                 }
             }
@@ -157,5 +161,10 @@ public class FitsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_fits, container, false);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
     }
 }

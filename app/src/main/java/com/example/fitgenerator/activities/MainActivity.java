@@ -96,33 +96,22 @@ public class MainActivity extends AppCompatActivity implements ClosetFragment.on
             public void onClick(View view) {
                 fabListener(binding.viewPager.getCurrentItem(),view);
                 btnFABView = view;
-
             }
         });
-
-
 
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(final TabLayout.Tab tab) {
+                if(tab.getPosition() == 2){
+                    laundryFragment.onStart();
+                }
                 animateFab(tab.getPosition());
-
             }
-
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
+            public void onTabUnselected(TabLayout.Tab tab) { }
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
+            public void onTabReselected(TabLayout.Tab tab) { }
         });
-
-
-
-
     }
 
 
@@ -140,7 +129,6 @@ public class MainActivity extends AppCompatActivity implements ClosetFragment.on
         startActivity(i);
         finish();
         return super.onOptionsItemSelected(item);
-
     }
 
     public void fabListener(int position, View view){
@@ -201,6 +189,7 @@ public class MainActivity extends AppCompatActivity implements ClosetFragment.on
                 return;
         }
     }
+
     public void openCreateItem(){
         Intent intent = new Intent(MainActivity.this,CreateItemActivity.class);
         startActivity(intent);
@@ -244,7 +233,6 @@ public class MainActivity extends AppCompatActivity implements ClosetFragment.on
         });
         fab.startAnimation(shrink);
     }
-
 
     @Override
     public void disableIcons() {
