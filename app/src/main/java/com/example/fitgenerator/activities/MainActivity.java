@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements ClosetFragment.on
     protected void animateFab(final int position) {
 
 //        final int[] colorIntArray = {R.color.walking,R.color.running,R.color.biking,R.color.paddling,R.color.golfing};
-        final int[] iconIntArray = {R.drawable.ic_baseline_view_module_24,R.drawable.ic_baseline_rotate_right_24,R.drawable.ic_baseline_restore_from_trash_24};
+        final int[] iconIntArray = {R.drawable.ic_baseline_view_module_24,R.drawable.ic_baseline_rotate_right_24,R.drawable.noun_laundry_2976228};
         fab.clearAnimation();
         // Scale down animation
         ScaleAnimation shrink =  new ScaleAnimation(1f, 0.2f, 1f, 0.2f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);

@@ -102,7 +102,7 @@ public class ClosetFragment extends Fragment {
         public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
             new RecyclerViewSwipeDecorator.Builder(getContext(),c,rvCloset,viewHolder,dX,dY,actionState,isCurrentlyActive)
                     .addSwipeRightBackgroundColor(R.color.colorPrimary)
-                    .addSwipeRightActionIcon(R.drawable.ic_baseline_restore_from_trash_24)
+                    .addSwipeRightActionIcon(R.drawable.ic_baseline_delete_24)
                     .create()
                     .decorate();
             super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
