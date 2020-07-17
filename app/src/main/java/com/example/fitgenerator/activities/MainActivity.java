@@ -102,8 +102,16 @@ public class MainActivity extends AppCompatActivity implements ClosetFragment.on
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(final TabLayout.Tab tab) {
-                if(tab.getPosition() == 2){
-                    laundryFragment.onStart();
+                switch (tab.getPosition()){
+                    case 0:
+                        closetFragment.onStart();
+                        break;
+                    case 1:
+                        fitsFragment.onStart();
+                        break;
+                    case 2:
+                        laundryFragment.onStart();
+                        break;
                 }
                 animateFab(tab.getPosition());
             }
@@ -135,7 +143,6 @@ public class MainActivity extends AppCompatActivity implements ClosetFragment.on
         //Defining different events depending on what tab the user is in
         switch(position){
             case 0:
-//                openCreateItem();
                 binding.fabAdd.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
@@ -145,14 +152,12 @@ public class MainActivity extends AppCompatActivity implements ClosetFragment.on
                 binding.fabTop.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        //TODO: Query Top
                         closetFragment.queryCleanItems(Closet.KEY_TOP);
                     }
                 });
                 binding.fabBottom.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        //TODO: Query Bottom
                         closetFragment.queryCleanItems(Closet.KEY_BOTTOM);
 
                     }
@@ -160,9 +165,7 @@ public class MainActivity extends AppCompatActivity implements ClosetFragment.on
                 binding.fabShoes.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        //TODO: Query Shoes
                         closetFragment.queryCleanItems(Closet.KEY_SHOES);
-
                     }
                 });
                 isRotate = ViewAnimation.rotateFab(view,!isRotate,binding.btnFAB);

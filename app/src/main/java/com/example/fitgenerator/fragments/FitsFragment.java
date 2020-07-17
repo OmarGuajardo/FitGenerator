@@ -166,5 +166,8 @@ public class FitsFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        if(fit.isEmpty()){
+        generateOutfit();
+        }
     }
 }

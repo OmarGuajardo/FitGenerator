@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fitgenerator.Closet;
@@ -35,6 +36,8 @@ public class LaundryFragment extends Fragment {
     ClosetAdapter closetAdapter;
     ProgressBar progressBar;
     Boolean showProgressBar = false;
+    TextView tvInsufficientItems;
+
 
     // Required empty public constructor
     public LaundryFragment() {}
@@ -51,6 +54,7 @@ public class LaundryFragment extends Fragment {
         rvLaundry.setAdapter(closetAdapter);
         rvLaundry.setLayoutManager(linearLayoutManager);
         progressBar = view.findViewById(R.id.laundryLoadingBar);
+        tvInsufficientItems = view.findViewById(R.id.tvInsufficientItems);
         queryCleanItems();
         closetAdapter.notifyDataSetChanged();
     }
@@ -64,6 +68,8 @@ public class LaundryFragment extends Fragment {
         query.findInBackground(new FindCallback<ClothingItem>() {
             @Override
             public void done(List<ClothingItem> objects, ParseException e) {
+
+                tvInsufficientItems.setVisibility(objects.isEmpty()? View.VISIBLE : View.INVISIBLE);
                 toggleLoading();
                 laundryBasket.clear();
                 laundryBasket.addAll(objects);

@@ -4,6 +4,7 @@ package com.example.fitgenerator.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -19,14 +20,19 @@ public final class DetailsItemBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final LinearLayout itemDetailsContainer;
+
+  @NonNull
   public final TextView tvDescriptionBody;
 
   @NonNull
   public final TextView tvDescriptionTitle;
 
   private DetailsItemBinding(@NonNull ConstraintLayout rootView,
-      @NonNull TextView tvDescriptionBody, @NonNull TextView tvDescriptionTitle) {
+      @NonNull LinearLayout itemDetailsContainer, @NonNull TextView tvDescriptionBody,
+      @NonNull TextView tvDescriptionTitle) {
     this.rootView = rootView;
+    this.itemDetailsContainer = itemDetailsContainer;
     this.tvDescriptionBody = tvDescriptionBody;
     this.tvDescriptionTitle = tvDescriptionTitle;
   }
@@ -58,6 +64,12 @@ public final class DetailsItemBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.itemDetailsContainer;
+      LinearLayout itemDetailsContainer = rootView.findViewById(id);
+      if (itemDetailsContainer == null) {
+        break missingId;
+      }
+
       id = R.id.tvDescriptionBody;
       TextView tvDescriptionBody = rootView.findViewById(id);
       if (tvDescriptionBody == null) {
@@ -70,8 +82,8 @@ public final class DetailsItemBinding implements ViewBinding {
         break missingId;
       }
 
-      return new DetailsItemBinding((ConstraintLayout) rootView, tvDescriptionBody,
-          tvDescriptionTitle);
+      return new DetailsItemBinding((ConstraintLayout) rootView, itemDetailsContainer,
+          tvDescriptionBody, tvDescriptionTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

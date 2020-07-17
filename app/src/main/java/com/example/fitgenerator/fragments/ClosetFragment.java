@@ -16,6 +16,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fitgenerator.Closet;
@@ -43,7 +44,9 @@ public class ClosetFragment extends Fragment {
     String currentClass;
     public onPauseListener listener;
     Boolean showProgressBar = false;
+    Boolean showInsufficientItems = false;
     ProgressBar progressBar;
+    TextView tvInsufficientItems;
 
     public ClosetFragment(){
     }
@@ -63,6 +66,7 @@ public class ClosetFragment extends Fragment {
 
         //Getting the data
         progressBar = view.findViewById(R.id.closetLoadingBar);
+        tvInsufficientItems = view.findViewById(R.id.tvInsufficientItems);
         queryCleanItems(Closet.KEY_TOP);
 
         //Swipe to delete
@@ -106,7 +110,7 @@ public class ClosetFragment extends Fragment {
     };
 
     //Getting the clean items for a specific class of item and populating the RV
-    public void queryCleanItems(String key){
+    public void queryCleanItems(final String key){
         toggleLoading();
         Closet userCloset = (Closet) ParseUser.getCurrentUser().get("UserCloset");
         ParseRelation<ClothingItem> relation = userCloset.getRelation(key);
@@ -115,6 +119,8 @@ public class ClosetFragment extends Fragment {
         query.findInBackground(new FindCallback<ClothingItem>() {
             @Override
             public void done(List<ClothingItem> objects, ParseException e) {
+                tvInsufficientItems.setVisibility(objects.isEmpty()? View.VISIBLE : View.INVISIBLE);
+                tvInsufficientItems.setText("No " + key +" In Closet");
                 toggleLoading();
                 items.clear();
                 items.addAll(objects);
@@ -128,6 +134,10 @@ public class ClosetFragment extends Fragment {
         progressBar.setVisibility(showProgressBar? View.INVISIBLE: View.VISIBLE);
         rvCloset.setVisibility(showProgressBar? View.VISIBLE: View.INVISIBLE);
         showProgressBar = !showProgressBar;
+    }
+    public void toggleInsufficientItems(){
+        tvInsufficientItems.setVisibility(showInsufficientItems? View.INVISIBLE: View.VISIBLE);
+        showInsufficientItems = !showInsufficientItems;
     }
 
     @Override

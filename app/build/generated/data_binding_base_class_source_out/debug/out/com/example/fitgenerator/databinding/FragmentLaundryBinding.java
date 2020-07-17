@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,11 +26,16 @@ public final class FragmentLaundryBinding implements ViewBinding {
   @NonNull
   public final RecyclerView rvLaundry;
 
+  @NonNull
+  public final TextView tvInsufficientItems;
+
   private FragmentLaundryBinding(@NonNull FrameLayout rootView,
-      @NonNull ProgressBar laundryLoadingBar, @NonNull RecyclerView rvLaundry) {
+      @NonNull ProgressBar laundryLoadingBar, @NonNull RecyclerView rvLaundry,
+      @NonNull TextView tvInsufficientItems) {
     this.rootView = rootView;
     this.laundryLoadingBar = laundryLoadingBar;
     this.rvLaundry = rvLaundry;
+    this.tvInsufficientItems = tvInsufficientItems;
   }
 
   @Override
@@ -71,7 +77,14 @@ public final class FragmentLaundryBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentLaundryBinding((FrameLayout) rootView, laundryLoadingBar, rvLaundry);
+      id = R.id.tvInsufficientItems;
+      TextView tvInsufficientItems = rootView.findViewById(id);
+      if (tvInsufficientItems == null) {
+        break missingId;
+      }
+
+      return new FragmentLaundryBinding((FrameLayout) rootView, laundryLoadingBar, rvLaundry,
+          tvInsufficientItems);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

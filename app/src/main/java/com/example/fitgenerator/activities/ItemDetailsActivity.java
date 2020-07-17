@@ -87,7 +87,6 @@ public class ItemDetailsActivity extends AppCompatActivity {
                     .into(binding.ivItemPic);
         }
 
-
         //Information template
         String[][] dummyInfo = new String[][]{{
             "Class",clothingItem.getClassString()},
@@ -96,7 +95,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
                 {"Type",clothingItem.getType()},
                 {"Style",clothingItem.getStyle()},
                 {"Number of Wears",String.valueOf(clothingItem.getUses())},
-                {"Clean",String.valueOf(!clothingItem.getWorn())}};
+                {clothingItem.getWorn()? "Dirty" : "Clean","  "}};
         //Setting up Recycler View
         detailsAdapter = new DetailsAdapter(getApplicationContext(),dummyInfo);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());

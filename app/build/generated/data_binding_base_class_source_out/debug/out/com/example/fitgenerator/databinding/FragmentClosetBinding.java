@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,11 +26,16 @@ public final class FragmentClosetBinding implements ViewBinding {
   @NonNull
   public final RecyclerView rvCloset;
 
+  @NonNull
+  public final TextView tvInsufficientItems;
+
   private FragmentClosetBinding(@NonNull FrameLayout rootView,
-      @NonNull ProgressBar closetLoadingBar, @NonNull RecyclerView rvCloset) {
+      @NonNull ProgressBar closetLoadingBar, @NonNull RecyclerView rvCloset,
+      @NonNull TextView tvInsufficientItems) {
     this.rootView = rootView;
     this.closetLoadingBar = closetLoadingBar;
     this.rvCloset = rvCloset;
+    this.tvInsufficientItems = tvInsufficientItems;
   }
 
   @Override
@@ -71,7 +77,14 @@ public final class FragmentClosetBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentClosetBinding((FrameLayout) rootView, closetLoadingBar, rvCloset);
+      id = R.id.tvInsufficientItems;
+      TextView tvInsufficientItems = rootView.findViewById(id);
+      if (tvInsufficientItems == null) {
+        break missingId;
+      }
+
+      return new FragmentClosetBinding((FrameLayout) rootView, closetLoadingBar, rvCloset,
+          tvInsufficientItems);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

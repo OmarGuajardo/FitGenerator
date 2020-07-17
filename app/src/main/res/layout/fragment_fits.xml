@@ -31,6 +31,7 @@
                 android:id="@+id/rvFits"/>
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
         <TextView
+            android:visibility="invisible"
             android:id="@+id/tvInsufficientItems"
             android:fontFamily="@font/poppins_light"
             android:textSize="18dp"

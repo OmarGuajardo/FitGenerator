@@ -1618,6 +1618,7 @@ id info
 id invisible
 id italic
 id itemCardView
+id itemDetailsContainer
 id item_touch_helper_previous_elevation
 id ivItemIcon
 id ivItemPic

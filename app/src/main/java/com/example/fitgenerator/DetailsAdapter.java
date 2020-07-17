@@ -4,9 +4,11 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -39,18 +41,25 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        LinearLayout itemDetailsContainer;
         TextView tvDescriptionTitle;
         TextView tvDescriptionBody;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvDescriptionBody = itemView.findViewById(R.id.tvDescriptionBody);
             tvDescriptionTitle = itemView.findViewById(R.id.tvDescriptionTitle);
+            itemDetailsContainer = itemView.findViewById(R.id.itemDetailsContainer);
         }
 
         public void bind(String[] itemInfo) {
             if(!itemInfo[1].isEmpty()){
-                tvDescriptionTitle.setText(itemInfo[0]+":");
+                tvDescriptionTitle.setText(itemInfo[0]);
                 tvDescriptionBody.setText(itemInfo[1]);
+
+            }
+            else
+            {
+                itemDetailsContainer.setVisibility(View.GONE);
             }
 
         }
