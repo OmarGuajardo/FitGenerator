@@ -1391,7 +1391,6 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable fab_bg_mini
 drawable fab_bg_normal
-drawable fab_label_background
 drawable fit_generator_icon
 drawable ic_baseline_add_24
 drawable ic_baseline_attach_file_24
@@ -1399,7 +1398,6 @@ drawable ic_baseline_bathtub_24
 drawable ic_baseline_check_24
 drawable ic_baseline_create_24
 drawable ic_baseline_delete_24
-drawable ic_baseline_restore_from_trash_24
 drawable ic_baseline_rotate_right_24
 drawable ic_baseline_save_24
 drawable ic_baseline_view_module_24
@@ -1411,14 +1409,12 @@ drawable ic_keyboard_arrow_right_black_24dp
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_launching_icon_fg
-drawable ic_laundry_machine
 drawable ic_menu_arrow_down_black_24dp
 drawable ic_menu_arrow_up_black_24dp
 drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
-drawable ic_noun_washing_machine_2707525
 drawable mtrl_dialog_background
 drawable mtrl_dropdown_arrow
 drawable mtrl_ic_arrow_drop_down
@@ -1443,7 +1439,6 @@ drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
 drawable noun_laundry_2976228
 drawable pants_icon
-drawable rounded_button
 drawable shirt_icon
 drawable shoes_icon
 drawable test_custom_background
@@ -2722,7 +2717,6 @@ style Widget_MaterialComponents_Toolbar_Primary
 style Widget_MaterialComponents_Toolbar_PrimarySurface
 style Widget_MaterialComponents_Toolbar_Surface
 style Widget_Support_CoordinatorLayout
-style customFab
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
 styleable ActionMenuItemView android_minWidth

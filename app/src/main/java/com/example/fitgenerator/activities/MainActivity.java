@@ -1,8 +1,10 @@
 package com.example.fitgenerator.activities;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -59,9 +61,10 @@ public class MainActivity extends AppCompatActivity implements ClosetFragment.on
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
+        toolbar = (Toolbar)findViewById(R.id.topAppBar);
+
 
         //Toolbar set up
-        toolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(toolbar);
 
         //Defining Views

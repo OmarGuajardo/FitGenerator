@@ -8,12 +8,12 @@
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/fragment_fits.xml"
     },
     {
-        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_shoes_icon.xml.flat",
-        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/shoes_icon.xml"
-    },
-    {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/font_poppins.ttf.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/font/poppins.ttf"
+    },
+    {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_shoes_icon.xml.flat",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/shoes_icon.xml"
     },
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_fit_generator_round.xml.flat",
@@ -48,16 +48,8 @@
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/activity_main.xml"
     },
     {
-        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_noun_washing_machine_2707525.png.flat",
-        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/generated/res/pngs/debug/drawable-mdpi/ic_noun_washing_machine_2707525.png"
-    },
-    {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_fit_generator.png.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/mipmap-hdpi/ic_launcher_fit_generator.png"
-    },
-    {
-        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_ic_laundry_machine.xml.flat",
-        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/ic_laundry_machine.xml"
     },
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/layout_main_toolbar.xml.flat",
@@ -100,28 +92,12 @@
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/mipmap-xhdpi/ic_launcher_fit_generator.png"
     },
     {
-        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_noun_washing_machine_2707525.png.flat",
-        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_noun_washing_machine_2707525.png"
-    },
-    {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/layout_dropdown_menu_popup_item.xml.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/dropdown_menu_popup_item.xml"
     },
     {
-        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_noun_washing_machine_2707525.png.flat",
-        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_noun_washing_machine_2707525.png"
-    },
-    {
-        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable-ldpi_ic_noun_washing_machine_2707525.png.flat",
-        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/generated/res/pngs/debug/drawable-ldpi/ic_noun_washing_machine_2707525.png"
-    },
-    {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/font_poppins_light.ttf.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/font/poppins_light.ttf"
-    },
-    {
-        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_noun_washing_machine_2707525.png.flat",
-        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_noun_washing_machine_2707525.png"
     },
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_ic_baseline_delete_24.xml.flat",
@@ -134,10 +110,6 @@
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/layout_activity_toolbar.xml.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/activity_toolbar.xml"
-    },
-    {
-        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_fab_label_background.xml.flat",
-        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/fab_label_background.xml"
     },
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_fit_generator_round.png.flat",
@@ -188,10 +160,6 @@
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/ic_baseline_create_24.xml"
     },
     {
-        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_noun_washing_machine_2707525.png.flat",
-        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/generated/res/pngs/debug/drawable-hdpi/ic_noun_washing_machine_2707525.png"
-    },
-    {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_fit_generator.png.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/mipmap-mdpi/ic_launcher_fit_generator.png"
     },
@@ -230,10 +198,6 @@
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_ic_baseline_view_module_24.xml.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/ic_baseline_view_module_24.xml"
-    },
-    {
-        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_ic_baseline_restore_from_trash_24.xml.flat",
-        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/ic_baseline_restore_from_trash_24.xml"
     },
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_foreground.png.flat",
@@ -302,14 +266,6 @@
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.png.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/mipmap-xhdpi/ic_launcher.png"
-    },
-    {
-        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_rounded_button.xml.flat",
-        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/rounded_button.xml"
-    },
-    {
-        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable-anydpi-v24_ic_noun_washing_machine_2707525.xml.flat",
-        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/generated/res/pngs/debug/drawable-anydpi-v24/ic_noun_washing_machine_2707525.xml"
     },
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/layout_clothing_item.xml.flat",
