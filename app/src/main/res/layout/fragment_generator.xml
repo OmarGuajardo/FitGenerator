@@ -18,7 +18,28 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/white" />
+
     </LinearLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btnFAB"
+        style="@style/AppTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:borderWidth="0dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="18dp"
+        android:layout_marginBottom="18dp"
+        android:backgroundTint="@color/secondaryColor"
+        android:layout_gravity="bottom|right"
+        android:clickable="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_baseline_view_module_24"
+        android:tint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:rippleColor="@color/secondaryDarkColor"
+        app:tint="@android:color/white" />
 
 
 </FrameLayout>
