@@ -8,12 +8,12 @@
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/fragment_fits.xml"
     },
     {
-        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/font_poppins.ttf.flat",
-        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/font/poppins.ttf"
-    },
-    {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_shoes_icon.xml.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/shoes_icon.xml"
+    },
+    {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/font_poppins.ttf.flat",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/font/poppins.ttf"
     },
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_fit_generator_round.xml.flat",
@@ -24,8 +24,16 @@
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
     },
     {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/menu_drawer_view.xml.flat",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/menu/drawer_view.xml"
+    },
+    {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_fit_generator_round.png.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/mipmap-xhdpi/ic_launcher_fit_generator_round.png"
+    },
+    {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/layout_fragment_generator.xml.flat",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/fragment_generator.xml"
     },
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
@@ -196,6 +204,10 @@
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png"
     },
     {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_ic_baseline_dehaze_24.xml.flat",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/ic_baseline_dehaze_24.xml"
+    },
+    {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_ic_baseline_view_module_24.xml.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/ic_baseline_view_module_24.xml"
     },
@@ -222,6 +234,10 @@
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.png.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/mipmap-hdpi/ic_launcher_round.png"
+    },
+    {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/layout_activity_navigation.xml.flat",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/activity_navigation.xml"
     },
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_fit_generator_round.png.flat",

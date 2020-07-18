@@ -11,88 +11,98 @@
 9-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.INTERNET" />
-11-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:5:5-66
+11-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:5:5-67
 11-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:5:22-64
 12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 12-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:6:5-79
 12-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:6:22-76
 13
 14    <application
-14-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:8:5-43:19
+14-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:8:5-51:19
 15        android:name="com.example.fitgenerator.ParseApplication"
-15-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:14:9-41
+15-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:9:9-41
 16        android:allowBackup="true"
-16-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:9:9-35
+16-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:10:9-35
 17        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 17-->[androidx.core:core:1.2.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/ccb20ed30836142a5a66c164bb92a0ce/core-1.2.0/AndroidManifest.xml:24:18-86
 18        android:debuggable="true"
 19        android:icon="@drawable/ic_launching_icon_fg"
-19-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:10:9-54
+19-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:11:9-54
 20        android:label="@string/app_name"
-20-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:11:9-41
+20-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:12:9-41
 21        android:roundIcon="@drawable/ic_launching_icon_fg"
-21-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:12:9-59
+21-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:13:9-59
 22        android:supportsRtl="true"
-22-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:13:9-35
+22-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:14:9-35
 23        android:testOnly="true"
 24        android:theme="@style/AppTheme" >
 24-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:15:9-40
-25
-26        <!-- Used for taking pictures -->
-27        <provider
-27-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:18:9-26:20
-28            android:name="androidx.core.content.FileProvider"
-28-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:19:13-62
-29            android:authorities="com.codepath.fileprovider.fitgenerator"
-29-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:20:13-73
-30            android:exported="false"
-30-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:21:13-37
-31            android:grantUriPermissions="true" >
-31-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:22:13-47
-32            <meta-data
-32-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:23:13-25:56
-33                android:name="android.support.FILE_PROVIDER_PATHS"
-33-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:24:17-67
-34                android:resource="@xml/fileprovider" />
-34-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:25:17-53
-35        </provider>
-36
-37        <activity android:name="com.example.fitgenerator.activities.ItemDetailsActivity" />
-37-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:28:9-77
-37-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:28:19-65
-38        <activity android:name="com.example.fitgenerator.activities.CreateItemActivity" />
-38-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:29:9-67
-38-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:29:19-64
-39        <activity android:name="com.example.fitgenerator.activities.RegisterActivity" />
-39-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:30:9-65
-39-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:30:19-62
-40        <activity android:name="com.example.fitgenerator.activities.WelcomeActivity" >
-40-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:31:9-37:20
-40-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:31:19-61
-41            <intent-filter>
-41-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:32:13-36:29
-42                <action android:name="android.intent.action.MAIN" />
-42-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:33:17-69
-42-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:33:25-66
-43
-44                <category android:name="android.intent.category.LAUNCHER" />
-44-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:35:17-77
-44-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:35:27-74
-45            </intent-filter>
-46        </activity>
-47        <activity android:name="com.example.fitgenerator.activities.LoginActivity" />
-47-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:38:9-61
-47-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:38:19-59
-48        <activity android:name="com.example.fitgenerator.activities.MainActivity" />
-48-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:39:9-60
-48-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:39:19-58
-49
-50        <meta-data
-50-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:40:9-42:57
-51            android:name="preloaded_fonts"
-51-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:41:13-43
-52            android:resource="@array/preloaded_fonts" />
-52-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:42:13-54
-53    </application>
-54
-55</manifest>
+25        <activity android:name="com.example.fitgenerator.activities.NavigationActivity" >
+25-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:16:9-23:20
+25-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:16:19-64
+26            <intent-filter>
+26-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:17:13-21:29
+27                <action android:name="android.intent.action.MAIN" />
+27-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:18:17-69
+27-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:18:25-66
+28
+29                <category android:name="android.intent.category.LAUNCHER" />
+29-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:20:17-77
+29-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:20:27-74
+30            </intent-filter>
+31        </activity>
+32        <!-- Used for taking pictures -->
+33        <provider
+33-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:25:9-33:20
+34            android:name="androidx.core.content.FileProvider"
+34-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:26:13-62
+35            android:authorities="com.codepath.fileprovider.fitgenerator"
+35-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:27:13-73
+36            android:exported="false"
+36-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:28:13-37
+37            android:grantUriPermissions="true" >
+37-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:29:13-47
+38            <meta-data
+38-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:30:13-32:56
+39                android:name="android.support.FILE_PROVIDER_PATHS"
+39-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:31:17-67
+40                android:resource="@xml/fileprovider" />
+40-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:32:17-53
+41        </provider>
+42
+43        <activity android:name="com.example.fitgenerator.activities.ItemDetailsActivity" />
+43-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:35:9-68
+43-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:35:19-65
+44        <activity android:name="com.example.fitgenerator.activities.CreateItemActivity" />
+44-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:36:9-67
+44-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:36:19-64
+45        <activity android:name="com.example.fitgenerator.activities.RegisterActivity" />
+45-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:37:9-65
+45-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:37:19-62
+46        <activity android:name="com.example.fitgenerator.activities.WelcomeActivity" >
+46-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:38:9-44:20
+46-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:38:19-61
+47
+48            <!-- <intent-filter> -->
+49            <!-- <action android:name="android.intent.action.MAIN" /> -->
+50
+51
+52            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+53            <!-- </intent-filter> -->
+54        </activity>
+55        <activity android:name="com.example.fitgenerator.activities.LoginActivity" />
+55-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:45:9-62
+55-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:45:19-59
+56        <activity android:name="com.example.fitgenerator.activities.MainActivity" />
+56-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:46:9-61
+56-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:46:19-58
+57
+58        <meta-data
+58-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:48:9-50:57
+59            android:name="preloaded_fonts"
+59-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:49:13-43
+60            android:resource="@array/preloaded_fonts" />
+60-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:50:13-54
+61    </application>
+62
+63</manifest>

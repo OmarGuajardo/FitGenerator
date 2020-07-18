@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-45:12
-INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-45:12
-INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-45:12
-INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-45:12
+ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-53:12
+INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-53:12
+INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-53:12
+INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-53:12
 MERGED from [androidx.databinding:viewbinding:4.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/fbee8d91505582d78dab4b49b9cc403a/jetified-viewbinding-4.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.getbase:floatingactionbutton:1.10.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/acee842695cab7efef36e08f4215b328/jetified-floatingactionbutton-1.10.1/AndroidManifest.xml:2:1-14:12
 MERGED from [com.google.android.material:material:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/081958b85be993b26123dd5b1125e07f/material-1.1.0/AndroidManifest.xml:17:1-24:12
@@ -48,25 +48,25 @@ MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/omarguajardo/.gradle/c
 MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/ed8cc0ac00b11c0234ef1e5a578c70c1/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/df4d09f70e3f533a2fede8f96085147c/lifecycle-livedata-core-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c16c855844b564ee7204d4d6005470fb/core-runtime-2.0.0/AndroidManifest.xml:17:1-22:12
-INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-45:12
-INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-45:12
-INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-45:12
+INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-53:12
+INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-53:12
+INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-53:12
 	package
 		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:3:5-39
 		INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml
 		INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-45:12
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-53:12
 		INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-45:12
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-53:12
 		INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:5:5-66
+ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:5:5-67
 MERGED from [com.github.parse-community.Parse-SDK-Android:parse:1.24.2] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/d452394597db9368ffdb10fa971ab714/jetified-parse-1.24.2/AndroidManifest.xml:19:5-67
 MERGED from [com.github.parse-community.Parse-SDK-Android:parse:1.24.2] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/d452394597db9368ffdb10fa971ab714/jetified-parse-1.24.2/AndroidManifest.xml:19:5-67
 	android:name
@@ -78,7 +78,7 @@ MERGED from [com.github.parse-community.Parse-SDK-Android:parse:1.24.2] /Users/o
 	android:name
 		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:6:22-76
 application
-ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:8:5-43:19
+ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:8:5-51:19
 MERGED from [com.getbase:floatingactionbutton:1.10.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/acee842695cab7efef36e08f4215b328/jetified-floatingactionbutton-1.10.1/AndroidManifest.xml:12:5-20
 MERGED from [com.getbase:floatingactionbutton:1.10.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/acee842695cab7efef36e08f4215b328/jetified-floatingactionbutton-1.10.1/AndroidManifest.xml:12:5-20
 MERGED from [com.google.android.material:material:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/081958b85be993b26123dd5b1125e07f/material-1.1.0/AndroidManifest.xml:22:5-20
@@ -98,75 +98,79 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/omar
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.2.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/ccb20ed30836142a5a66c164bb92a0ce/core-1.2.0/AndroidManifest.xml:24:18-86
 	android:supportsRtl
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:13:9-35
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:14:9-35
 	android:label
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:11:9-41
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:12:9-41
 	android:roundIcon
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:12:9-59
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:13:9-59
 	android:icon
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:10:9-54
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:11:9-54
 	android:allowBackup
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:9:9-35
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:10:9-35
 	android:theme
 		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:15:9-40
 	android:name
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:14:9-41
-provider#androidx.core.content.FileProvider
-ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:18:9-26:20
-	android:grantUriPermissions
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:22:13-47
-	android:authorities
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:20:13-73
-	android:exported
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:21:13-37
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:9:9-41
+activity#com.example.fitgenerator.activities.NavigationActivity
+ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:16:9-23:20
 	android:name
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:19:13-62
-meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:23:13-25:56
-	android:resource
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:25:17-53
-	android:name
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:24:17-67
-activity#com.example.fitgenerator.activities.ItemDetailsActivity
-ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:28:9-77
-	android:name
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:28:19-65
-activity#com.example.fitgenerator.activities.CreateItemActivity
-ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:29:9-67
-	android:name
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:29:19-64
-activity#com.example.fitgenerator.activities.RegisterActivity
-ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:30:9-65
-	android:name
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:30:19-62
-activity#com.example.fitgenerator.activities.WelcomeActivity
-ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:31:9-37:20
-	android:name
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:31:19-61
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:16:19-64
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:32:13-36:29
+ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:17:13-21:29
 action#android.intent.action.MAIN
-ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:33:17-69
+ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:18:17-69
 	android:name
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:33:25-66
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:18:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:35:17-77
+ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:20:17-77
 	android:name
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:35:27-74
-activity#com.example.fitgenerator.activities.LoginActivity
-ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:38:9-61
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:20:27-74
+provider#androidx.core.content.FileProvider
+ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:25:9-33:20
+	android:grantUriPermissions
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:29:13-47
+	android:authorities
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:27:13-73
+	android:exported
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:28:13-37
 	android:name
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:38:19-59
-activity#com.example.fitgenerator.activities.MainActivity
-ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:39:9-60
-	android:name
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:39:19-58
-meta-data#preloaded_fonts
-ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:40:9-42:57
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:26:13-62
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:30:13-32:56
 	android:resource
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:42:13-54
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:32:17-53
 	android:name
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:41:13-43
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:31:17-67
+activity#com.example.fitgenerator.activities.ItemDetailsActivity
+ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:35:9-68
+	android:name
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:35:19-65
+activity#com.example.fitgenerator.activities.CreateItemActivity
+ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:36:9-67
+	android:name
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:36:19-64
+activity#com.example.fitgenerator.activities.RegisterActivity
+ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:37:9-65
+	android:name
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:37:19-62
+activity#com.example.fitgenerator.activities.WelcomeActivity
+ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:38:9-44:20
+	android:name
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:38:19-61
+activity#com.example.fitgenerator.activities.LoginActivity
+ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:45:9-62
+	android:name
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:45:19-59
+activity#com.example.fitgenerator.activities.MainActivity
+ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:46:9-61
+	android:name
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:46:19-58
+meta-data#preloaded_fonts
+ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:48:9-50:57
+	android:resource
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:50:13-54
+	android:name
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:49:13-43
 uses-sdk
 INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml

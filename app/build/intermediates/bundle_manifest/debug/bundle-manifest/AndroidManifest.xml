@@ -22,7 +22,13 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.fitgenerator.activities.NavigationActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <!-- Used for taking pictures -->
         <provider
             android:name="androidx.core.content.FileProvider"
@@ -38,11 +44,13 @@
         <activity android:name="com.example.fitgenerator.activities.CreateItemActivity" />
         <activity android:name="com.example.fitgenerator.activities.RegisterActivity" />
         <activity android:name="com.example.fitgenerator.activities.WelcomeActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name="com.example.fitgenerator.activities.LoginActivity" />
         <activity android:name="com.example.fitgenerator.activities.MainActivity" />

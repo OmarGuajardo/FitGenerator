@@ -84,8 +84,8 @@ public class MainActivity extends AppCompatActivity implements ClosetFragment.on
         pagerAdapter.addFragment(laundryFragment,"Laundry");
         binding.viewPager.setAdapter(pagerAdapter);
         binding.viewPager.setCurrentItem(1);
-        animateFab(1);
 
+        animateFab(1);
         ViewAnimation.init(binding.fabTop);
         ViewAnimation.init(binding.fabBottom);
         ViewAnimation.init(binding.fabShoes);

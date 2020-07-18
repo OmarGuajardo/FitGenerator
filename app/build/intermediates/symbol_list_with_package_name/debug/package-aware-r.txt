@@ -1397,6 +1397,7 @@ drawable ic_baseline_attach_file_24
 drawable ic_baseline_bathtub_24
 drawable ic_baseline_check_24
 drawable ic_baseline_create_24
+drawable ic_baseline_dehaze_24
 drawable ic_baseline_delete_24
 drawable ic_baseline_rotate_right_24
 drawable ic_baseline_save_24
@@ -1576,6 +1577,7 @@ id dimensions
 id direct
 id disableHome
 id down
+id drawer_layout
 id dropdown_menu
 id edit_query
 id end
@@ -1599,6 +1601,7 @@ id filled
 id filter_chip
 id fitToContents
 id fixed
+id flContent
 id forever
 id ghost_view
 id ghost_view_holder
@@ -1663,6 +1666,10 @@ id mtrl_picker_text_input_range_end
 id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id multiply
+id navFitGenerator
+id navPastFits
+id navSettings
+id navShop
 id navigation_header_container
 id never
 id noScroll
@@ -1671,6 +1678,7 @@ id normal
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id nvView
 id off
 id on
 id outline
@@ -1797,6 +1805,7 @@ id up
 id useLogo
 id viewPager
 id view_offset_helper
+id viewpager
 id visible
 id withText
 id wrap
@@ -1865,6 +1874,7 @@ layout activity_create_item
 layout activity_item_details
 layout activity_login
 layout activity_main
+layout activity_navigation
 layout activity_register
 layout activity_toolbar
 layout activity_welcome
@@ -1889,6 +1899,7 @@ layout details_item
 layout dropdown_menu_popup_item
 layout fragment_closet
 layout fragment_fits
+layout fragment_generator
 layout fragment_laundry
 layout main_toolbar
 layout mtrl_alert_dialog
@@ -1950,6 +1961,7 @@ layout text_view_with_line_height_from_layout
 layout text_view_with_line_height_from_style
 layout text_view_with_theme_line_height
 layout text_view_without_line_height
+menu drawer_view
 menu menu_main
 mipmap ic_launcher
 mipmap ic_launcher_fit_generator
