@@ -144,6 +144,7 @@ public class ClosetFragment extends Fragment {
     public void onStart() {
         super.onStart();
         queryCleanItems(currentClass);
+        Toast.makeText(getContext(), "View Created!", Toast.LENGTH_SHORT).show();
 
     }
 
@@ -154,6 +155,7 @@ public class ClosetFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_closet, container, false);
     }
@@ -172,7 +174,7 @@ public class ClosetFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        listener.disableIcons();
+//        listener.disableIcons();
     }
 
     public interface onPauseListener{

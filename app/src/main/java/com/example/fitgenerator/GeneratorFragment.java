@@ -65,7 +65,7 @@ public class GeneratorFragment extends Fragment {
         pagerAdapter.addFragment(laundryFragment,"Laundry");
         viewPager.setAdapter(pagerAdapter);
 
-        return inflater.inflate(R.layout.fragment_generator, container, false);
+        return view;
     }
 
     @Override
