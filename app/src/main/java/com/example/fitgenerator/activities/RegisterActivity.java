@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.example.fitgenerator.Closet;
+import com.example.fitgenerator.models.Closet;
 import com.example.fitgenerator.databinding.ActivityRegisterBinding;
 import com.parse.ParseException;
 import com.parse.ParseUser;

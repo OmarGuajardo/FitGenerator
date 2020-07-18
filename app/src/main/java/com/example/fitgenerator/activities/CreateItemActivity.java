@@ -8,8 +8,6 @@ import androidx.core.content.FileProvider;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -21,21 +19,16 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.fitgenerator.Closet;
-import com.example.fitgenerator.ClothingItem;
+import com.example.fitgenerator.models.Closet;
+import com.example.fitgenerator.models.ClothingItem;
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.databinding.ActivityCreateItemBinding;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.parse.ParseException;
 import com.parse.ParseFile;
-import com.parse.ParseObject;
-import com.parse.ParseRelation;
-import com.parse.ParseUser;
 import com.parse.SaveCallback;
 
 import org.json.JSONException;
@@ -43,9 +36,6 @@ import org.json.JSONObject;
 import org.parceler.Parcels;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 
 public class CreateItemActivity extends AppCompatActivity {
 

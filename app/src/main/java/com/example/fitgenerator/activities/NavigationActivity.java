@@ -8,10 +8,13 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.fitgenerator.GeneratorFragment;
+import com.example.fitgenerator.fragments.nav_fragments.GeneratorFragment;
 import com.example.fitgenerator.R;
+import com.example.fitgenerator.fragments.nav_fragments.HistoryFragment;
+import com.example.fitgenerator.fragments.nav_fragments.ShopFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class NavigationActivity extends AppCompatActivity {
@@ -54,23 +57,22 @@ public class NavigationActivity extends AppCompatActivity {
         // Create a new fragment and specify the fragment to show based on nav item clicked
         Fragment fragment = null;
         Class fragmentClass;
-//        switch(menuItem.getItemId()) {
-//            case R.id.navFitGenerator:
-//                fragmentClass = FirstFragment.class;
-//                break;
-//            case R.id.navPastFits:
-//                fragmentClass = SecondFragment.class;
-//                break;
-//            case R.id.navSettings:
-//                fragmentClass = ThirdFragment.class;
-//                break;
-//            case R.id.navShop:
-//                fragmentClass = ThirdFragment.class;
-//                break;
-//            default:
-//                fragmentClass = FirstFragment.class;
-//        }
-        fragmentClass = GeneratorFragment.class;
+        switch(menuItem.getItemId()) {
+            case R.id.navFitGenerator:
+                fragmentClass = GeneratorFragment.class;
+                break;
+            case R.id.navPastFits:
+                fragmentClass = HistoryFragment.class;
+                break;
+            case R.id.navShop:
+                fragmentClass = ShopFragment.class;
+                break;
+            case R.id.navSettings:
+                fragmentClass = GeneratorFragment.class;
+                break;
+            default:
+                fragmentClass = GeneratorFragment.class;
+        }
 
         try {
             fragment = (Fragment) fragmentClass.newInstance();

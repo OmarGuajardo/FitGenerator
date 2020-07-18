@@ -1,36 +1,28 @@
 package com.example.fitgenerator.activities;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.ScaleAnimation;
-import android.widget.Button;
-import android.widget.Toast;
 
-import com.example.fitgenerator.Closet;
+import com.example.fitgenerator.models.Closet;
 import com.example.fitgenerator.R;
-import com.example.fitgenerator.ViewAnimation;
+import com.example.fitgenerator.models.ViewAnimation;
+import com.example.fitgenerator.adapters.PagerAdapter;
 import com.example.fitgenerator.databinding.ActivityMainBinding;
-import com.example.fitgenerator.fragments.ClosetFragment;
-import com.example.fitgenerator.fragments.FitsFragment;
-import com.example.fitgenerator.fragments.LaundryFragment;
+import com.example.fitgenerator.fragments.generator_fragments.ClosetFragment;
+import com.example.fitgenerator.fragments.generator_fragments.FitsFragment;
+import com.example.fitgenerator.fragments.generator_fragments.LaundryFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.tabs.TabItem;
 import com.google.android.material.tabs.TabLayout;
 import com.parse.ParseUser;
 

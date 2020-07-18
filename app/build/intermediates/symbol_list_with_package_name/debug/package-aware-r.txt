@@ -1900,7 +1900,9 @@ layout dropdown_menu_popup_item
 layout fragment_closet
 layout fragment_fits
 layout fragment_generator
+layout fragment_history
 layout fragment_laundry
+layout fragment_shop
 layout main_toolbar
 layout mtrl_alert_dialog
 layout mtrl_alert_dialog_actions

@@ -12,7 +12,6 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import com.bumptech.glide.Glide;
@@ -20,8 +19,8 @@ import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
-import com.example.fitgenerator.ClothingItem;
-import com.example.fitgenerator.DetailsAdapter;
+import com.example.fitgenerator.models.ClothingItem;
+import com.example.fitgenerator.adapters.DetailsAdapter;
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.databinding.ActivityItemDetailsBinding;
 
