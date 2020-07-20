@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.generator_fragments.FitsFragment">
+
+    <LinearLayout
+        android:layout_marginLeft="@dimen/marginLeft"
+        android:layout_marginRight="@dimen/marginLeft"
+        android:layout_marginTop="32dp"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="match_parent">
+        <TextView
+            android:fontFamily="@font/poppins_light"
+            android:textSize="30dp"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="FIT FOR THE DAY"/>
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/rvFits"/>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        <TextView
+            android:visibility="invisible"
+            android:id="@+id/tvInsufficientItems"
+            android:fontFamily="@font/poppins_light"
+            android:textSize="18dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Not enough clean items :("/>
+        <com.google.android.material.button.MaterialButton
+            style="@style/Widget.MaterialComponents.Button"
+            android:id="@+id/btnUseFit"
+            android:visibility="invisible"
+            app:rippleColor="@color/secondaryDarkColor"
+            android:backgroundTint="@color/secondaryColor"
+            android:textColor="@color/primaryTextColor2"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Love it!"/>
+    </LinearLayout>
+
+</FrameLayout>

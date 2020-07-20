@@ -59,8 +59,8 @@ public class GeneratorFragment extends Fragment {
         closetFragment = new ClosetFragment();
         fitsFragment = new FitsFragment();
         laundryFragment = new LaundryFragment();
-        pagerAdapter.addFragment(closetFragment,"Closet");
         pagerAdapter.addFragment(fitsFragment,"Fits");
+        pagerAdapter.addFragment(closetFragment,"Closet");
         pagerAdapter.addFragment(laundryFragment,"Laundry");
         viewPager.setAdapter(pagerAdapter);
 

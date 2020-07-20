@@ -44,10 +44,6 @@ public class MainActivity extends AppCompatActivity implements ClosetFragment.on
 
     View btnFABView;
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -71,8 +67,8 @@ public class MainActivity extends AppCompatActivity implements ClosetFragment.on
         closetFragment = new ClosetFragment();
         fitsFragment = new FitsFragment();
         laundryFragment = new LaundryFragment();
-        pagerAdapter.addFragment(closetFragment,"Closet");
         pagerAdapter.addFragment(fitsFragment,"Fits");
+        pagerAdapter.addFragment(closetFragment,"Closet");
         pagerAdapter.addFragment(laundryFragment,"Laundry");
         binding.viewPager.setAdapter(pagerAdapter);
         binding.viewPager.setCurrentItem(1);

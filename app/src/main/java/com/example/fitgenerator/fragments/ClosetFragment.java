@@ -69,45 +69,12 @@ public class ClosetFragment extends Fragment {
         tvInsufficientItems = view.findViewById(R.id.tvInsufficientItems);
         queryCleanItems(Closet.KEY_TOP);
 
-        //Swipe to delete
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
-        itemTouchHelper.attachToRecyclerView(rvCloset);
-
 
     }
 
 
 
-    ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.RIGHT) {
-        @Override
-        public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-            return false;
-        }
 
-        @Override
-        public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
-           int position = viewHolder.getAdapterPosition();
-           ClothingItem itemRemove = items.get(position);
-            try {
-                itemRemove.delete();
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            items.remove(position);
-           closetAdapter.notifyDataSetChanged();
-           Closet.getUserCloset().saveInBackground();
-        }
-
-        @Override
-        public void onChildDraw(@NonNull Canvas c, @NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, float dX, float dY, int actionState, boolean isCurrentlyActive) {
-            new RecyclerViewSwipeDecorator.Builder(getContext(),c,rvCloset,viewHolder,dX,dY,actionState,isCurrentlyActive)
-                    .addSwipeRightBackgroundColor(R.color.colorPrimary)
-                    .addSwipeRightActionIcon(R.drawable.ic_baseline_delete_24)
-                    .create()
-                    .decorate();
-            super.onChildDraw(c, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
-        }
-    };
 
     //Getting the clean items for a specific class of item and populating the RV
     public void queryCleanItems(final String key){

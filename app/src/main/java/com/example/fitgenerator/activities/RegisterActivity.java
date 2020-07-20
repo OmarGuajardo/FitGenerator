@@ -41,7 +41,7 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void goHomePage(){
-        Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+        Intent intent = new Intent(RegisterActivity.this, NavigationActivity.class);
         startActivity(intent);
         finish();
     }
