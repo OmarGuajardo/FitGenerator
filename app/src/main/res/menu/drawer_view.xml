@@ -3,6 +3,7 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:checked="true"
             android:id="@+id/navFitGenerator"
             android:icon="@drawable/ic_baseline_add_24"
             android:title="Fit Generator" />

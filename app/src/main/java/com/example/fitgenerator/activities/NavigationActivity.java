@@ -38,6 +38,9 @@ public class NavigationActivity extends AppCompatActivity implements BottomSheet
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation);
+        generatorFragment = new GeneratorFragment();
+        historyFragment = new HistoryFragment();
+        shopFragment = new ShopFragment();
         // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.topAppBar);
         setSupportActionBar(toolbar);
@@ -53,12 +56,11 @@ public class NavigationActivity extends AppCompatActivity implements BottomSheet
         // Setup drawer view
         setupDrawerContent(nvDrawer);
 
-         generatorFragment = new GeneratorFragment();
-         historyFragment = new HistoryFragment();
-         shopFragment = new ShopFragment();
+
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
+        selectDrawerItem(navigationView.getCheckedItem());
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
                     @Override
@@ -69,44 +71,49 @@ public class NavigationActivity extends AppCompatActivity implements BottomSheet
                 });
     }
 
-    public void selectDrawerItem(MenuItem menuItem) {
-        // Create a new fragment and specify the fragment to show based on nav item clicked
-        Fragment fragment = null;
-        Class fragmentClass;
-        switch(menuItem.getItemId()) {
-            case R.id.navFitGenerator:
-                fragment = generatorFragment;
-                break;
-            case R.id.navPastFits:
-                fragment = historyFragment;
-                break;
-            case R.id.navShop:
-                fragment = shopFragment;
-                break;
-            case R.id.navSettings:
-                fragmentClass = GeneratorFragment.class;
-                break;
-            default:
-                fragmentClass = GeneratorFragment.class;
+        public void selectDrawerItem(MenuItem menuItem) {
+            // Create a new fragment and specify the fragment to show based on nav item clicked
+            Fragment fragment = null;
+            Class fragmentClass;
+            switch(menuItem.getItemId()) {
+                case R.id.navFitGenerator:
+                    fragmentClass = GeneratorFragment.class;
+                    break;
+                case R.id.navPastFits:
+                    fragmentClass = HistoryFragment.class;
+                    break;
+                case R.id.navShop:
+                    fragmentClass = ShopFragment.class;
+                    break;
+                case R.id.navSettings:
+                    fragmentClass = GeneratorFragment.class;
+                    break;
+                default:
+                    fragmentClass = GeneratorFragment.class;
+            }
+
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+                //TODO: Fix this line because this is bad code
+                generatorFragment = (GeneratorFragment) fragment;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            // Insert the fragment by replacing any existing fragment
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
+
+            // Highlight the selected item has been done by NavigationView
+            menuItem.setChecked(true);
+            // Set action bar title
+            setTitle(menuItem.getTitle());
+            // Close the navigation drawer
+            mDrawer.closeDrawers();
         }
 
-//        try {
-//            fragment = (Fragment) fragmentClass.newInstance();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
 
-        // Insert the fragment by replacing any existing fragment
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.flContent, fragment).commit();
 
-        // Highlight the selected item has been done by NavigationView
-        menuItem.setChecked(true);
-        // Set action bar title
-        setTitle(menuItem.getTitle());
-        // Close the navigation drawer
-        mDrawer.closeDrawers();
-    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // The action bar home/up action should open or close the drawer.

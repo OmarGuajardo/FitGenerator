@@ -29,6 +29,8 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
     public BottomSheetDialog(ClothingItem item){
         this.item = item;
     }
+
+
     @Nullable
     @Override
     public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {

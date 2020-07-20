@@ -1,5 +1,6 @@
 package com.example.fitgenerator.fragments;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.os.Bundle;
 
@@ -10,6 +11,7 @@ import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -129,12 +131,9 @@ public class LaundryFragment extends Fragment {
         closetAdapter.notifyDataSetChanged();
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-//        queryCleanItems();
-    }
-    
+
+
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

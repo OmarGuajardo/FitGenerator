@@ -114,7 +114,6 @@ public class GeneratorFragment extends Fragment {
 
     public void refreshCloset(){
         closetFragment.onStart();
-        Log.d(TAG, "refreshCloset: ");
     }
 
 

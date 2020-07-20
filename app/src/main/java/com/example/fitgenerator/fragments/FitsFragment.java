@@ -63,7 +63,6 @@ public class FitsFragment extends Fragment {
         rvFits.setLayoutManager(linearLayoutManager);
         rvFits.setAdapter(closetAdapter);
 
-        generateOutfit();
         btnUseFit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -81,6 +80,9 @@ public class FitsFragment extends Fragment {
             }
         });
 
+        if(fit.isEmpty()){
+            generateOutfit();
+        }
     }
 
     @Override
@@ -161,8 +163,6 @@ public class FitsFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        if(fit.isEmpty()){
-            generateOutfit();
-        }
+
     }
 }
