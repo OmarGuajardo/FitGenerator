@@ -9,12 +9,15 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.fitgenerator.fragments.BottomSheetDialog;
 import com.example.fitgenerator.models.ClothingItem;
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.activities.ItemDetailsActivity;
+import com.parse.ParseException;
 
 import org.parceler.Parcels;
 
@@ -48,6 +51,8 @@ public class ClosetAdapter extends RecyclerView.Adapter<ClosetAdapter.ViewHolder
         return closet.size();
     }
 
+
+
     public class ViewHolder extends RecyclerView.ViewHolder {
         CardView itemCardView;
         ImageView ivItemIcon;
@@ -65,6 +70,16 @@ public class ClosetAdapter extends RecyclerView.Adapter<ClosetAdapter.ViewHolder
 
         public void bind(final ClothingItem item) {
             tvItemName.setText(item.getString(ClothingItem.KEY_NAME));
+            itemCardView.setOnLongClickListener(new View.OnLongClickListener() {
+                @Override
+                public boolean onLongClick(View view) {
+
+                    BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(item);
+                    bottomSheetDialog.show(((AppCompatActivity) context).getSupportFragmentManager()
+                            ,"bottomSheetDialog");
+                    return false;
+                }
+            });
             itemCardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

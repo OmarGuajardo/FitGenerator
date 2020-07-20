@@ -13,8 +13,8 @@
         app:cardBackgroundColor="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:rippleColor="@color/colorPrimaryDark"
         app:layout_constraintStart_toStartOf="parent"
+        app:rippleColor="@color/colorPrimaryDark"
         android:clickable="true"
         android:focusable="true"
 

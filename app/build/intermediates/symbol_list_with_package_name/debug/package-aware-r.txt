@@ -1401,6 +1401,7 @@ drawable ic_baseline_dehaze_24
 drawable ic_baseline_delete_24
 drawable ic_baseline_rotate_right_24
 drawable ic_baseline_save_24
+drawable ic_baseline_share_24
 drawable ic_baseline_view_module_24
 drawable ic_calendar_black_24dp
 drawable ic_clear_black_24dp
@@ -1564,6 +1565,9 @@ id coordinatorLayout
 id custom
 id customPanel
 id cut
+id cvDelete
+id cvEdit
+id cvShare
 id date_picker_actions
 id decor_content_parent
 id default_activity_button
@@ -1878,6 +1882,7 @@ layout activity_navigation
 layout activity_register
 layout activity_toolbar
 layout activity_welcome
+layout bottom_sheet_layout
 layout clothing_item
 layout custom_dialog
 layout design_bottom_navigation_item

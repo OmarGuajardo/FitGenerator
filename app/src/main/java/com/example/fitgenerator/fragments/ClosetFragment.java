@@ -36,7 +36,7 @@ import java.util.List;
 import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator;
 
 
-public class ClosetFragment extends Fragment {
+public class ClosetFragment extends Fragment{
 
     public static final String TAG = "ClosetFragment";
     RecyclerView rvCloset;
@@ -56,7 +56,7 @@ public class ClosetFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)  {
         super.onViewCreated(view, savedInstanceState);
 
         //Attaching views
@@ -81,6 +81,7 @@ public class ClosetFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 queryCleanItems(Closet.KEY_TOP);
+
             }
         });
         fabBottom.setOnClickListener(new View.OnClickListener() {
@@ -163,6 +164,7 @@ public class ClosetFragment extends Fragment {
         super.onPause();
 //        listener.disableIcons();
     }
+
 
 
 }
