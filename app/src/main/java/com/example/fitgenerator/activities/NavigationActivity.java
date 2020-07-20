@@ -10,21 +10,28 @@ import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.fitgenerator.fragments.BottomSheetDialog;
 import com.example.fitgenerator.fragments.nav_fragments.GeneratorFragment;
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.fragments.nav_fragments.HistoryFragment;
 import com.example.fitgenerator.fragments.nav_fragments.ShopFragment;
+import com.example.fitgenerator.models.ClothingItem;
 import com.google.android.material.navigation.NavigationView;
 import com.parse.ParseUser;
 
-public class NavigationActivity extends AppCompatActivity {
+public class NavigationActivity extends AppCompatActivity implements BottomSheetDialog.BottomSheetListener {
 
+    private static final String TAG = "NavigationActivity";
     private Toolbar toolbar;
     private NavigationView nvDrawer;
     private DrawerLayout mDrawer;
+    GeneratorFragment generatorFragment;
+    HistoryFragment historyFragment;
+    ShopFragment shopFragment;
 
 
     @Override
@@ -45,10 +52,11 @@ public class NavigationActivity extends AppCompatActivity {
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
         // Setup drawer view
         setupDrawerContent(nvDrawer);
+
+         generatorFragment = new GeneratorFragment();
+         historyFragment = new HistoryFragment();
+         shopFragment = new ShopFragment();
     }
-
-
-
 
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
@@ -67,13 +75,13 @@ public class NavigationActivity extends AppCompatActivity {
         Class fragmentClass;
         switch(menuItem.getItemId()) {
             case R.id.navFitGenerator:
-                fragmentClass = GeneratorFragment.class;
+                fragment = generatorFragment;
                 break;
             case R.id.navPastFits:
-                fragmentClass = HistoryFragment.class;
+                fragment = historyFragment;
                 break;
             case R.id.navShop:
-                fragmentClass = ShopFragment.class;
+                fragment = shopFragment;
                 break;
             case R.id.navSettings:
                 fragmentClass = GeneratorFragment.class;
@@ -82,11 +90,11 @@ public class NavigationActivity extends AppCompatActivity {
                 fragmentClass = GeneratorFragment.class;
         }
 
-        try {
-            fragment = (Fragment) fragmentClass.newInstance();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            fragment = (Fragment) fragmentClass.newInstance();
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getSupportFragmentManager();
@@ -109,5 +117,12 @@ public class NavigationActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    @Override
+    public void handleOnDelete(ClothingItem item) {
+        generatorFragment.refreshCloset();
+        Log.d(TAG, "handleOnDelete: ");
     }
 }

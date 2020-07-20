@@ -52,8 +52,7 @@ public class ClosetFragment extends Fragment{
     FloatingActionButton fabShoes;
 
 
-    public ClosetFragment(){
-    }
+    public ClosetFragment(){ }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)  {
@@ -81,7 +80,6 @@ public class ClosetFragment extends Fragment{
             @Override
             public void onClick(View view) {
                 queryCleanItems(Closet.KEY_TOP);
-
             }
         });
         fabBottom.setOnClickListener(new View.OnClickListener() {
@@ -98,10 +96,6 @@ public class ClosetFragment extends Fragment{
         });
 
     }
-
-
-
-
 
     //Getting the clean items for a specific class of item and populating the RV
     public void queryCleanItems(final String key){
@@ -129,6 +123,7 @@ public class ClosetFragment extends Fragment{
         rvCloset.setVisibility(showProgressBar? View.VISIBLE: View.INVISIBLE);
         showProgressBar = !showProgressBar;
     }
+
     public void toggleInsufficientItems(){
         tvInsufficientItems.setVisibility(showInsufficientItems? View.INVISIBLE: View.VISIBLE);
         showInsufficientItems = !showInsufficientItems;
@@ -145,26 +140,11 @@ public class ClosetFragment extends Fragment{
         super.onCreate(savedInstanceState);
     }
 
+    // Inflate the layout for this fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_closet, container, false);
     }
-
-    //Attaches the function from TimeLineActivity to this Fragment
-    @Override
-    public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
-
-    }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-//        listener.disableIcons();
-    }
-
 
 
 }

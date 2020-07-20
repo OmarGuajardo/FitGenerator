@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ import com.google.android.material.tabs.TabLayout;
 
 public class GeneratorFragment extends Fragment {
 
+    private static final String TAG = "GeneratorFragment";
     //Global Vals
     TabLayout tabLayout;
     ClosetFragment closetFragment;
@@ -110,6 +112,12 @@ public class GeneratorFragment extends Fragment {
         }
     }
 
+    public void refreshCloset(){
+        closetFragment.onStart();
+        Log.d(TAG, "refreshCloset: ");
+    }
+
+
     // Required empty public constructor
     public GeneratorFragment() { }
 
@@ -164,5 +172,6 @@ public class GeneratorFragment extends Fragment {
         super.onResume();
         getActivity().findViewById(R.id.tabBar).setVisibility(View.VISIBLE);
     }
+
 
 }

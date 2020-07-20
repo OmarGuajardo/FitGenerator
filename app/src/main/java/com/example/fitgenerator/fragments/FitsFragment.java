@@ -96,7 +96,6 @@ public class FitsFragment extends Fragment {
         getCleanItems(Closet.KEY_TOP,cleanTop);
         getCleanItems(Closet.KEY_BOTTOM,cleanBottom);
         getCleanItems(Closet.KEY_SHOES,cleanShoes);
-
     }
     public void designOutfit(){
         //TODO: Rules of Algorithm
@@ -144,7 +143,6 @@ public class FitsFragment extends Fragment {
                 handleInsufficientItems();
             }
         });
-
     }
 
     public void handleInsufficientItems(){
@@ -163,10 +161,8 @@ public class FitsFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        Log.d(TAG, "onStart: fit size " + fit.size());
         if(fit.isEmpty()){
-            Log.d(TAG, "fit is empty ");
-        generateOutfit();
+            generateOutfit();
         }
     }
 }

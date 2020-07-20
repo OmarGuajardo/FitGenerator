@@ -31,7 +31,7 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
     }
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull final LayoutInflater inflater, @Nullable final ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.bottom_sheet_layout,container,false);
         MaterialCardView cvShare = v.findViewById(R.id.cvShare);
         MaterialCardView cvEdit = v.findViewById(R.id.cvEdit);
@@ -40,8 +40,13 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
             @Override
             public void onClick(View view) {
                 //TODO: Delete item from list
-//                listener.handleOnDelete(item);
-                dismiss();
+                try {
+                    item.delete();
+                    listener.handleOnDelete(item);
+                    dismiss();
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
             }
         });
         cvEdit.setOnClickListener(new View.OnClickListener() {
