@@ -1399,9 +1399,12 @@ drawable ic_baseline_check_24
 drawable ic_baseline_create_24
 drawable ic_baseline_dehaze_24
 drawable ic_baseline_delete_24
+drawable ic_baseline_history_24
 drawable ic_baseline_rotate_right_24
 drawable ic_baseline_save_24
+drawable ic_baseline_settings_24
 drawable ic_baseline_share_24
+drawable ic_baseline_shopping_cart_24
 drawable ic_baseline_view_module_24
 drawable ic_calendar_black_24dp
 drawable ic_clear_black_24dp
@@ -1937,6 +1940,7 @@ layout mtrl_picker_header_title_text
 layout mtrl_picker_header_toggle
 layout mtrl_picker_text_input_date
 layout mtrl_picker_text_input_date_range
+layout nav_header
 layout notification_action
 layout notification_action_tombstone
 layout notification_media_action

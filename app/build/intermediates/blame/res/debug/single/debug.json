@@ -8,12 +8,12 @@
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/fragment_fits.xml"
     },
     {
-        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_shoes_icon.xml.flat",
-        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/shoes_icon.xml"
-    },
-    {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/font_poppins.ttf.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/font/poppins.ttf"
+    },
+    {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_shoes_icon.xml.flat",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/shoes_icon.xml"
     },
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_fit_generator_round.xml.flat",
@@ -56,12 +56,20 @@
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/activity_main.xml"
     },
     {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_ic_baseline_history_24.xml.flat",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/ic_baseline_history_24.xml"
+    },
+    {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_fit_generator.png.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/mipmap-hdpi/ic_launcher_fit_generator.png"
     },
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/layout_fragment_history.xml.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/fragment_history.xml"
+    },
+    {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_ic_baseline_shopping_cart_24.xml.flat",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml"
     },
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/layout_main_toolbar.xml.flat",
@@ -86,6 +94,10 @@
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/layout_activity_item_details.xml.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/activity_item_details.xml"
+    },
+    {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_ic_baseline_settings_24.xml.flat",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/ic_baseline_settings_24.xml"
     },
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_fit_generator.png.flat",
@@ -278,6 +290,10 @@
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_ic_baseline_check_24.xml.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/ic_baseline_check_24.xml"
+    },
+    {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/layout_nav_header.xml.flat",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/nav_header.xml"
     },
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_ic_baseline_save_24.xml.flat",
