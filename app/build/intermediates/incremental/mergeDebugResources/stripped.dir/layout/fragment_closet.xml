@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.generator_fragments.ClosetFragment">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.ClosetFragment">
 
    <androidx.coordinatorlayout.widget.CoordinatorLayout
        android:layout_width="match_parent"
@@ -21,6 +22,70 @@
           android:layout_height="wrap_content"
           android:layout_gravity="center"
          tools:text="No Tops In Closet"/>
+      <LinearLayout
+          android:layout_width="match_parent"
+          android:layout_height="match_parent"
+         android:orientation="vertical">
+         <LinearLayout
+             android:gravity="center"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabTop"
+                style="@style/AppTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:borderWidth="0dp"
+                android:layout_centerInParent="true"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/secondaryColor"
+                android:clickable="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/shirt_icon"
+                android:tint="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:rippleColor="@color/secondaryDarkColor"
+                app:fabSize="mini"
+                app:tint="@android:color/white" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabBottom"
+                style="@style/AppTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:borderWidth="0dp"
+                android:layout_centerInParent="true"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/secondaryColor"
+                android:clickable="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/pants_icon"
+                android:tint="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:rippleColor="@color/secondaryDarkColor"
+                app:fabSize="mini"
+                app:tint="@android:color/white" />
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabShoes"
+                style="@style/AppTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:borderWidth="0dp"
+                android:layout_centerInParent="true"
+                android:layout_margin="10dp"
+                android:backgroundTint="@color/secondaryColor"
+                android:clickable="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/shoes_icon"
+                android:tint="@color/colorPrimary"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:rippleColor="@color/secondaryDarkColor"
+                app:fabSize="mini"
+                app:tint="@android:color/white" />
+         </LinearLayout>
    <androidx.recyclerview.widget.RecyclerView
        android:layout_marginTop="8dp"
        android:layout_marginLeft="16dp"
@@ -28,5 +93,6 @@
        android:layout_width="match_parent"
        android:layout_height="match_parent"
        android:id="@+id/rvCloset"/>
+      </LinearLayout>
    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </FrameLayout>

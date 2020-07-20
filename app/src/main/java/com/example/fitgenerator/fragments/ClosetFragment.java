@@ -23,6 +23,7 @@ import com.example.fitgenerator.models.Closet;
 import com.example.fitgenerator.adapters.ClosetAdapter;
 import com.example.fitgenerator.models.ClothingItem;
 import com.example.fitgenerator.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
@@ -42,11 +43,14 @@ public class ClosetFragment extends Fragment {
     ClosetAdapter closetAdapter;
     List<ClothingItem> items;
     String currentClass;
-    public onPauseListener listener;
     Boolean showProgressBar = false;
     Boolean showInsufficientItems = false;
     ProgressBar progressBar;
     TextView tvInsufficientItems;
+    FloatingActionButton fabTop;
+    FloatingActionButton fabBottom;
+    FloatingActionButton fabShoes;
+
 
     public ClosetFragment(){
     }
@@ -55,6 +59,10 @@ public class ClosetFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        //Attaching views
+        fabTop = view.findViewById(R.id.fabTop);
+        fabBottom = view.findViewById(R.id.fabBottom);
+        fabShoes = view.findViewById(R.id.fabShoes);
 
         //Setting up the Recycler View with the Adapter
         items = new ArrayList<>();
@@ -69,6 +77,24 @@ public class ClosetFragment extends Fragment {
         tvInsufficientItems = view.findViewById(R.id.tvInsufficientItems);
         queryCleanItems(Closet.KEY_TOP);
 
+        fabTop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                queryCleanItems(Closet.KEY_TOP);
+            }
+        });
+        fabBottom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                queryCleanItems(Closet.KEY_BOTTOM);
+            }
+        });
+        fabShoes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                queryCleanItems(Closet.KEY_SHOES);
+            }
+        });
 
     }
 
@@ -129,11 +155,7 @@ public class ClosetFragment extends Fragment {
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
-        try {
-            listener = (onPauseListener) context;
-        } catch (Exception e) {
-            Log.e("ComposeDialog", "compose dialog error : ", e);
-        }
+
     }
 
     @Override
@@ -142,8 +164,5 @@ public class ClosetFragment extends Fragment {
 //        listener.disableIcons();
     }
 
-    public interface onPauseListener{
-        void disableIcons();
-    }
 
 }

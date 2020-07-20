@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,7 +47,7 @@ public class FitsFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
+        Log.d(TAG, "onViewCreated");
         cleanTop = new ArrayList<>();
         cleanBottom = new ArrayList<>();
         cleanShoes = new ArrayList<>();
@@ -162,7 +163,9 @@ public class FitsFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        Log.d(TAG, "onStart: fit size " + fit.size());
         if(fit.isEmpty()){
+            Log.d(TAG, "fit is empty ");
         generateOutfit();
         }
     }

@@ -1,5 +1,6 @@
 package com.example.fitgenerator.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
@@ -7,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,6 +18,7 @@ import com.example.fitgenerator.R;
 import com.example.fitgenerator.fragments.nav_fragments.HistoryFragment;
 import com.example.fitgenerator.fragments.nav_fragments.ShopFragment;
 import com.google.android.material.navigation.NavigationView;
+import com.parse.ParseUser;
 
 public class NavigationActivity extends AppCompatActivity {
 
@@ -43,6 +46,10 @@ public class NavigationActivity extends AppCompatActivity {
         // Setup drawer view
         setupDrawerContent(nvDrawer);
     }
+
+
+
+
     private void setupDrawerContent(NavigationView navigationView) {
         navigationView.setNavigationItemSelectedListener(
                 new NavigationView.OnNavigationItemSelectedListener() {
@@ -53,6 +60,7 @@ public class NavigationActivity extends AppCompatActivity {
                     }
                 });
     }
+
     public void selectDrawerItem(MenuItem menuItem) {
         // Create a new fragment and specify the fragment to show based on nav item clicked
         Fragment fragment = null;

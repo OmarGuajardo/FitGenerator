@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewbinding.ViewBinding;
 import com.example.fitgenerator.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -24,16 +25,29 @@ public final class FragmentClosetBinding implements ViewBinding {
   public final ProgressBar closetLoadingBar;
 
   @NonNull
+  public final FloatingActionButton fabBottom;
+
+  @NonNull
+  public final FloatingActionButton fabShoes;
+
+  @NonNull
+  public final FloatingActionButton fabTop;
+
+  @NonNull
   public final RecyclerView rvCloset;
 
   @NonNull
   public final TextView tvInsufficientItems;
 
   private FragmentClosetBinding(@NonNull FrameLayout rootView,
-      @NonNull ProgressBar closetLoadingBar, @NonNull RecyclerView rvCloset,
-      @NonNull TextView tvInsufficientItems) {
+      @NonNull ProgressBar closetLoadingBar, @NonNull FloatingActionButton fabBottom,
+      @NonNull FloatingActionButton fabShoes, @NonNull FloatingActionButton fabTop,
+      @NonNull RecyclerView rvCloset, @NonNull TextView tvInsufficientItems) {
     this.rootView = rootView;
     this.closetLoadingBar = closetLoadingBar;
+    this.fabBottom = fabBottom;
+    this.fabShoes = fabShoes;
+    this.fabTop = fabTop;
     this.rvCloset = rvCloset;
     this.tvInsufficientItems = tvInsufficientItems;
   }
@@ -71,6 +85,24 @@ public final class FragmentClosetBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.fabBottom;
+      FloatingActionButton fabBottom = rootView.findViewById(id);
+      if (fabBottom == null) {
+        break missingId;
+      }
+
+      id = R.id.fabShoes;
+      FloatingActionButton fabShoes = rootView.findViewById(id);
+      if (fabShoes == null) {
+        break missingId;
+      }
+
+      id = R.id.fabTop;
+      FloatingActionButton fabTop = rootView.findViewById(id);
+      if (fabTop == null) {
+        break missingId;
+      }
+
       id = R.id.rvCloset;
       RecyclerView rvCloset = rootView.findViewById(id);
       if (rvCloset == null) {
@@ -83,8 +115,8 @@ public final class FragmentClosetBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentClosetBinding((FrameLayout) rootView, closetLoadingBar, rvCloset,
-          tvInsufficientItems);
+      return new FragmentClosetBinding((FrameLayout) rootView, closetLoadingBar, fabBottom,
+          fabShoes, fabTop, rvCloset, tvInsufficientItems);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

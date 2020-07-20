@@ -132,7 +132,7 @@ public class LaundryFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
-        queryCleanItems();
+//        queryCleanItems();
     }
     
 

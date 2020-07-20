@@ -26,7 +26,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.parse.ParseUser;
 
-public class MainActivity extends AppCompatActivity implements ClosetFragment.onPauseListener{
+public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     ActivityMainBinding binding;
@@ -210,9 +210,9 @@ public class MainActivity extends AppCompatActivity implements ClosetFragment.on
                 // Change FAB color and icon
 //                fab.setBackgroundTintList(getResources().getColorStateList(colorIntArray[position]));
                 fab.setImageDrawable(getResources().getDrawable(iconIntArray[position], null));
-                if((position == 1 || position == 2 )&& isRotate == true){
-                    disableIcons();
-                }
+//                if((position == 1 || position == 2 )&& isRotate == true){
+//                    disableIcons();
+//                }
                 // Scale up animation
                 ScaleAnimation expand =  new ScaleAnimation(0.2f, 1f, 0.2f, 1f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
                 expand.setDuration(100);     // animation duration in milliseconds
@@ -228,17 +228,17 @@ public class MainActivity extends AppCompatActivity implements ClosetFragment.on
         fab.startAnimation(shrink);
     }
 
-    @Override
-    public void disableIcons() {
-
-        if(isRotate) {
-            isRotate = false;
-            ViewAnimation.rotateFab(btnFABView,false,binding.btnFAB);
-            ViewAnimation.showOut(binding.fabTop);
-            ViewAnimation.showOut(binding.fabBottom);
-            ViewAnimation.showOut(binding.fabShoes);
-            ViewAnimation.showOut(binding.fabAdd);
-
-        }
-    }
+//    @Override
+//    public void disableIcons() {
+//
+//        if(isRotate) {
+//            isRotate = false;
+//            ViewAnimation.rotateFab(btnFABView,false,binding.btnFAB);
+//            ViewAnimation.showOut(binding.fabTop);
+//            ViewAnimation.showOut(binding.fabBottom);
+//            ViewAnimation.showOut(binding.fabShoes);
+//            ViewAnimation.showOut(binding.fabAdd);
+//
+//        }
+//    }
 }

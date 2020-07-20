@@ -75,10 +75,10 @@ public class GeneratorFragment extends Fragment {
             public void onTabSelected(final TabLayout.Tab tab) {
                 switch (tab.getPosition()){
                     case 0:
-                        closetFragment.onStart();
+                        fitsFragment.onStart();
                         break;
                     case 1:
-                        fitsFragment.onStart();
+                        closetFragment.onStart();
                         break;
                     case 2:
                         laundryFragment.onStart();
@@ -97,10 +97,10 @@ public class GeneratorFragment extends Fragment {
         //Defining different events depending on what tab the user is in
         switch(position){
             case 0:
-                openCreateItem();
+                fitsFragment.generateOutfit();
                 return;
             case 1:
-                fitsFragment.generateOutfit();
+                openCreateItem();
                 return;
             case 2:
                 laundryFragment.washAllItems();
@@ -128,7 +128,7 @@ public class GeneratorFragment extends Fragment {
 
     //Handles the animation of the icons between tabs
     protected void animateFab(final int position) {
-        final int[] iconIntArray = {R.drawable.ic_baseline_view_module_24,R.drawable.ic_baseline_rotate_right_24,R.drawable.noun_laundry_2976228};
+        final int[] iconIntArray = {R.drawable.ic_baseline_rotate_right_24,R.drawable.ic_baseline_add_24,R.drawable.noun_laundry_2976228};
         fab.clearAnimation();
         // Scale down animation
         ScaleAnimation shrink =  new ScaleAnimation(1f, 0.2f, 1f, 0.2f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
