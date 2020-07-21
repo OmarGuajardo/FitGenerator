@@ -8,6 +8,7 @@ MERGED from [androidx.databinding:viewbinding:4.0.0] /Users/omarguajardo/.gradle
 MERGED from [com.getbase:floatingactionbutton:1.10.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/acee842695cab7efef36e08f4215b328/jetified-floatingactionbutton-1.10.1/AndroidManifest.xml:2:1-14:12
 MERGED from [com.google.android.material:material:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/081958b85be993b26123dd5b1125e07f/material-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.libraries.places:places:2.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6df79d8dcdbf36cf06db860234dca242/jetified-places-2.3.0/AndroidManifest.xml:2:1-23:12
+MERGED from [com.codepath.libraries:asynchttpclient:0.0.9] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/d7a4cdaa19949017370de989e7a3f081/jetified-asynchttpclient-0.0.9/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c2c5fa787d66aaf40578b3071f4d283f/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/28120aa98d624ce8fee0a8087788fd91/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/2fb8103c62e3ee1e6e4cc337dd696441/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -60,6 +61,8 @@ MERGED from [androidx.lifecycle:lifecycle-livedata:2.1.0] /Users/omarguajardo/.g
 MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/d9143d5fb766579ba5099f005b20a9e9/lifecycle-livedata-core-2.1.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/de7b0c2f4705e3cb372b76d33c6f36f6/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/8a52da53b02a83b08615debb9b2e109c/jetified-savedstate-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.facebook.stetho:stetho-okhttp3:1.5.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/e6c863086cd2b98d5f17237ce37bf935/jetified-stetho-okhttp3-1.5.1/AndroidManifest.xml:2:1-13:12
+MERGED from [com.facebook.stetho:stetho:1.5.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/682f3d1f272fdfa5f2aa78721b2649d0/jetified-stetho-1.5.1/AndroidManifest.xml:2:1-13:12
 MERGED from [com.android.volley:volley:1.1.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/21ac2313d13763e146818310a9e6c722/jetified-volley-1.1.1/AndroidManifest.xml:2:1-11:12
 MERGED from [com.google.android.datatransport:transport-api:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/720fb50e268c858b1fb00f034a0895b4/jetified-transport-api-2.1.0/AndroidManifest.xml:15:1-22:12
 INJECTED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:2:1-58:12
@@ -151,6 +154,10 @@ MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/omar
 MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/3c1a5ebf565097fe10667d6b9a2c1703/versionedparcelable-1.1.0/AndroidManifest.xml:24:5-25:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/16c4d94856b3783d9c330aa1a8801d49/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:22:5-28:19
 MERGED from [androidx.lifecycle:lifecycle-process:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/16c4d94856b3783d9c330aa1a8801d49/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:22:5-28:19
+MERGED from [com.facebook.stetho:stetho-okhttp3:1.5.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/e6c863086cd2b98d5f17237ce37bf935/jetified-stetho-okhttp3-1.5.1/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.stetho:stetho-okhttp3:1.5.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/e6c863086cd2b98d5f17237ce37bf935/jetified-stetho-okhttp3-1.5.1/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.stetho:stetho:1.5.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/682f3d1f272fdfa5f2aa78721b2649d0/jetified-stetho-1.5.1/AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.stetho:stetho:1.5.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/682f3d1f272fdfa5f2aa78721b2649d0/jetified-stetho-1.5.1/AndroidManifest.xml:11:5-20
 MERGED from [com.android.volley:volley:1.1.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/21ac2313d13763e146818310a9e6c722/jetified-volley-1.1.1/AndroidManifest.xml:9:5-20
 MERGED from [com.android.volley:volley:1.1.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/21ac2313d13763e146818310a9e6c722/jetified-volley-1.1.1/AndroidManifest.xml:9:5-20
 	android:appComponentFactory
@@ -241,6 +248,8 @@ MERGED from [com.google.android.material:material:1.1.0] /Users/omarguajardo/.gr
 MERGED from [com.google.android.material:material:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/081958b85be993b26123dd5b1125e07f/material-1.1.0/AndroidManifest.xml:20:5-44
 MERGED from [com.google.android.libraries.places:places:2.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6df79d8dcdbf36cf06db860234dca242/jetified-places-2.3.0/AndroidManifest.xml:7:5-44
 MERGED from [com.google.android.libraries.places:places:2.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6df79d8dcdbf36cf06db860234dca242/jetified-places-2.3.0/AndroidManifest.xml:7:5-44
+MERGED from [com.codepath.libraries:asynchttpclient:0.0.9] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/d7a4cdaa19949017370de989e7a3f081/jetified-asynchttpclient-0.0.9/AndroidManifest.xml:7:5-9:41
+MERGED from [com.codepath.libraries:asynchttpclient:0.0.9] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/d7a4cdaa19949017370de989e7a3f081/jetified-asynchttpclient-0.0.9/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c2c5fa787d66aaf40578b3071f4d283f/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c2c5fa787d66aaf40578b3071f4d283f/appcompat-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/28120aa98d624ce8fee0a8087788fd91/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
@@ -345,6 +354,10 @@ MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/omarguajardo/.gradle/
 MERGED from [androidx.arch.core:core-runtime:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/de7b0c2f4705e3cb372b76d33c6f36f6/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/8a52da53b02a83b08615debb9b2e109c/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.savedstate:savedstate:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/8a52da53b02a83b08615debb9b2e109c/jetified-savedstate-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.facebook.stetho:stetho-okhttp3:1.5.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/e6c863086cd2b98d5f17237ce37bf935/jetified-stetho-okhttp3-1.5.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.stetho:stetho-okhttp3:1.5.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/e6c863086cd2b98d5f17237ce37bf935/jetified-stetho-okhttp3-1.5.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.stetho:stetho:1.5.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/682f3d1f272fdfa5f2aa78721b2649d0/jetified-stetho-1.5.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.stetho:stetho:1.5.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/682f3d1f272fdfa5f2aa78721b2649d0/jetified-stetho-1.5.1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.volley:volley:1.1.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/21ac2313d13763e146818310a9e6c722/jetified-volley-1.1.1/AndroidManifest.xml:7:5-43
 MERGED from [com.android.volley:volley:1.1.1] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/21ac2313d13763e146818310a9e6c722/jetified-volley-1.1.1/AndroidManifest.xml:7:5-43
 MERGED from [com.google.android.datatransport:transport-api:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/720fb50e268c858b1fb00f034a0895b4/jetified-transport-api-2.1.0/AndroidManifest.xml:18:5-20:41

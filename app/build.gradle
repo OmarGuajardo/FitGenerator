@@ -79,5 +79,8 @@ dependencies {
     //Places SDK
     implementation 'com.google.android.libraries.places:places:2.3.0'
 
+    //Async
+    implementation 'com.codepath.libraries:asynchttpclient:0.0.9'
+
 
 }
