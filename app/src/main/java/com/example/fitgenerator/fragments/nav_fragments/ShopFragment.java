@@ -64,13 +64,9 @@ public class ShopFragment extends Fragment {
 
 
         fetchShopsNearMe("26.314947,-98.216675");
-//
 
     }
 
-    public void readResults(){
-
-    }
     public void fetchShopsNearMe(String userLocation){
         final List<Shop> shopList = new ArrayList<>();
         AsyncHttpClient client = new AsyncHttpClient();
