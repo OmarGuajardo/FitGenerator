@@ -17,10 +17,12 @@ android {
 
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
         // should correspond to key/value pairs inside the file
         buildConfigField("String", "APP_ID", apikeyProperties['APP_ID'])
         buildConfigField("String", "MASTER_KEY", apikeyProperties['MASTER_KEY'])
         buildConfigField("String", "SERVER_URL", apikeyProperties['SERVER_URL'])
+        buildConfigField("String", "GOOGLE_API_KEY", apikeyProperties['GOOGLE_API_KEY'])
     }
     buildFeatures {
         viewBinding true
@@ -73,6 +75,9 @@ dependencies {
 
     //More options from FAB Library
     compile 'com.getbase:floatingactionbutton:1.10.1'
+
+    //Places SDK
+    implementation 'com.google.android.libraries.places:places:2.3.0'
 
 
 }
