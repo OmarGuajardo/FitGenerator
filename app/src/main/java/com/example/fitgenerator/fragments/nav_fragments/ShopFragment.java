@@ -11,6 +11,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,9 +25,11 @@ import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.example.fitgenerator.BuildConfig;
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.activities.MainActivity;
+import com.example.fitgenerator.adapters.ShopsAdapter;
 import com.example.fitgenerator.models.Shop;
 import com.example.fitgenerator.models.ShopResults;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
@@ -50,25 +54,64 @@ public class ShopFragment extends Fragment {
     private static final String NEARBY_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json";
     public  String TAG = "ShopFragment";
     List<Shop> shopList;
+    RecyclerView rvShop;
+    ShopsAdapter shopsAdapter;
+
 
     @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        shopList = new ArrayList<>();
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         // Initialize the SDK
         Places.initialize(getActivity().getApplicationContext(), BuildConfig.GOOGLE_API_KEY);
-
         // Create a new PlacesClient instance
         PlacesClient placesClient = Places.createClient(getContext());
 
+        //Setting up the Recycler View
+        shopList = new ArrayList<>();
+        rvShop = view.findViewById(R.id.rvShop);
+        shopsAdapter = new ShopsAdapter(shopList,getContext());
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+        rvShop.setAdapter(shopsAdapter);
+        rvShop.setLayoutManager(linearLayoutManager);
 
-        fetchShopsNearMe("26.314947,-98.216675");
+
+        queryShops(placesClient);
 
     }
 
+    public void queryShops(PlacesClient placesClient){
+        // Use fields to define the data types to return.
+        List<Place.Field> placeFields = Collections.singletonList(Place.Field.LAT_LNG);
+        // Use the builder to create a FindCurrentPlaceRequest.
+        FindCurrentPlaceRequest request = FindCurrentPlaceRequest.newInstance(placeFields);
+
+        // Call findCurrentPlace and handle the response (first check that the user has granted permission).
+        if (ContextCompat.checkSelfPermission(getContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            Task<FindCurrentPlaceResponse> placeResponse = placesClient.findCurrentPlace(request);
+            placeResponse.addOnCompleteListener(new OnCompleteListener<FindCurrentPlaceResponse>() {
+                @Override
+                public void onComplete(@NonNull Task<FindCurrentPlaceResponse> task) {
+                    if (task.isSuccessful()){
+                        FindCurrentPlaceResponse response = task.getResult();
+                        LatLng lat_lng = response.getPlaceLikelihoods().get(0).getPlace().getLatLng();
+                        fetchShopsNearMe(lat_lng.latitude +","+ lat_lng.longitude);
+                    } else {
+                        Exception exception = task.getException();
+                        if (exception instanceof ApiException) {
+                            ApiException apiException = (ApiException) exception;
+                            Log.e(TAG, "Place not found: " + apiException.getStatusCode());
+                        }
+                    }
+                }
+            });
+        }
+        else{
+            Log.i(TAG, "not granted asking for permission");
+            getLocationPermission();
+        }
+    }
+
     public void fetchShopsNearMe(String userLocation){
-        final List<Shop> shopList = new ArrayList<>();
         AsyncHttpClient client = new AsyncHttpClient();
         EndPoint newEndPoint = new EndPoint(NEARBY_URL);
         newEndPoint.addParam("key", BuildConfig.GOOGLE_API_KEY);
@@ -80,13 +123,10 @@ public class ShopFragment extends Fragment {
             public void onSuccess(int statusCode, Headers headers, JSON json) {
                 JSONObject jsonObject = json.jsonObject;
                 try {
-                    Shop newShop = new Shop(jsonObject.getJSONArray("results").getJSONObject(0));
-                    Log.i(TAG, "newShop "+ newShop.getName());
                     shopList.clear();
                     shopList.addAll(Shop.fromJSONArray(jsonObject.getJSONArray("results")));
-                    for(Shop shop : shopList){
-                        Log.d(TAG, "Name: "+shop.getName()+", Vicinity " + shop.getVicinity());
-                    }
+                    Log.d(TAG, "onSuccess: " + shopList.size());
+                    shopsAdapter.notifyDataSetChanged();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -148,7 +188,6 @@ public class ShopFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_shop, container, false);
     }
-
 
     public class EndPoint{
         String request_url;
