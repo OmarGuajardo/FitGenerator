@@ -4,6 +4,7 @@ package com.example.fitgenerator.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
@@ -28,12 +29,16 @@ public final class MainToolbarBinding implements ViewBinding {
   @NonNull
   public final Toolbar topAppBar;
 
+  @NonNull
+  public final TextView tvToolBarTitle;
+
   private MainToolbarBinding(@NonNull AppBarLayout rootView, @NonNull AppBarLayout appBarLayout,
-      @NonNull TabLayout tabBar, @NonNull Toolbar topAppBar) {
+      @NonNull TabLayout tabBar, @NonNull Toolbar topAppBar, @NonNull TextView tvToolBarTitle) {
     this.rootView = rootView;
     this.appBarLayout = appBarLayout;
     this.tabBar = tabBar;
     this.topAppBar = topAppBar;
+    this.tvToolBarTitle = tvToolBarTitle;
   }
 
   @Override
@@ -77,7 +82,14 @@ public final class MainToolbarBinding implements ViewBinding {
         break missingId;
       }
 
-      return new MainToolbarBinding((AppBarLayout) rootView, appBarLayout, tabBar, topAppBar);
+      id = R.id.tvToolBarTitle;
+      TextView tvToolBarTitle = rootView.findViewById(id);
+      if (tvToolBarTitle == null) {
+        break missingId;
+      }
+
+      return new MainToolbarBinding((AppBarLayout) rootView, appBarLayout, tabBar, topAppBar,
+          tvToolBarTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

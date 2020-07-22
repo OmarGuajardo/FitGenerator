@@ -56,7 +56,7 @@ public class ShopFragment extends Fragment {
     List<Shop> shopList;
     RecyclerView rvShop;
     ShopsAdapter shopsAdapter;
-
+    private PlacesClient placesClient;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -64,7 +64,7 @@ public class ShopFragment extends Fragment {
         // Initialize the SDK
         Places.initialize(getActivity().getApplicationContext(), BuildConfig.GOOGLE_API_KEY);
         // Create a new PlacesClient instance
-        PlacesClient placesClient = Places.createClient(getContext());
+        placesClient = Places.createClient(getContext());
 
         //Setting up the Recycler View
         shopList = new ArrayList<>();
@@ -75,11 +75,11 @@ public class ShopFragment extends Fragment {
         rvShop.setLayoutManager(linearLayoutManager);
 
 
-        queryShops(placesClient);
+        queryShops();
 
     }
 
-    public void queryShops(PlacesClient placesClient){
+    public void queryShops(){
         // Use fields to define the data types to return.
         List<Place.Field> placeFields = Collections.singletonList(Place.Field.LAT_LNG);
         // Use the builder to create a FindCurrentPlaceRequest.
@@ -141,12 +141,15 @@ public class ShopFragment extends Fragment {
     private void getLocationPermission() {
         if(shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION)){
             new AlertDialog.Builder(getContext())
-                    .setTitle("Permission Needed")
+                    .setTitle("Location Permission Needed")
                     .setMessage("This permission is needed to use the Shop feature")
                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
                             ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.ACCESS_FINE_LOCATION},PackageManager.PERMISSION_GRANTED);
+                            queryShops();
+
                         }
                     })
                     .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -159,8 +162,9 @@ public class ShopFragment extends Fragment {
 
         }else{
             ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.ACCESS_FINE_LOCATION},PackageManager.PERMISSION_GRANTED);
-
+            queryShops();
         }
+
     }
 
     @Override

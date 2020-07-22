@@ -6,6 +6,7 @@
     tools:context=".fragments.nav_fragments.ShopFragment">
 
    <androidx.recyclerview.widget.RecyclerView
+       android:layout_margin="16dp"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
        android:id="@+id/rvShop"/>

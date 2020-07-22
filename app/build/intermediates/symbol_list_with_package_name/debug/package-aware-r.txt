@@ -2286,6 +2286,7 @@ id tvItemName
 id tvName
 id tvPassword
 id tvStyle
+id tvToolBarTitle
 id tvType
 id tvUserName
 id unchecked

@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.fitgenerator.BuildConfig;
 import com.example.fitgenerator.fragments.BottomSheetDialog;
@@ -34,7 +35,7 @@ public class NavigationActivity extends AppCompatActivity implements BottomSheet
     GeneratorFragment generatorFragment;
     HistoryFragment historyFragment;
     ShopFragment shopFragment;
-
+    Fragment fragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,31 +75,17 @@ public class NavigationActivity extends AppCompatActivity implements BottomSheet
 
         public void selectDrawerItem(MenuItem menuItem) {
             // Create a new fragment and specify the fragment to show based on nav item clicked
-            Fragment fragment = null;
+            fragment = null;
             Class fragmentClass;
             switch(menuItem.getItemId()) {
                 case R.id.navFitGenerator:
                     fragmentClass = GeneratorFragment.class;
-                    try {
-                        fragment = (Fragment) fragmentClass.newInstance();
-                        //TODO: Fix this line because this is bad code
-                        generatorFragment = (GeneratorFragment) fragment;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
                     break;
                 case R.id.navPastFits:
                     fragmentClass = HistoryFragment.class;
                     break;
                 case R.id.navShop:
                     fragmentClass = ShopFragment.class;
-                    try {
-                        fragment = (Fragment) fragmentClass.newInstance();
-                        //TODO: Fix this line because this is bad code
-                        shopFragment = (ShopFragment) fragment;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
                     break;
                 case R.id.navSettings:
                     fragmentClass = GeneratorFragment.class;
@@ -107,13 +94,11 @@ public class NavigationActivity extends AppCompatActivity implements BottomSheet
                     fragmentClass = GeneratorFragment.class;
             }
 
-//            try {
-//                fragment = (Fragment) fragmentClass.newInstance();
-//                //TODO: Fix this line because this is bad code
-//                generatorFragment = (GeneratorFragment) fragment;
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
             // Insert the fragment by replacing any existing fragment
             FragmentManager fragmentManager = getSupportFragmentManager();
@@ -122,7 +107,8 @@ public class NavigationActivity extends AppCompatActivity implements BottomSheet
             // Highlight the selected item has been done by NavigationView
             menuItem.setChecked(true);
             // Set action bar title
-            setTitle(menuItem.getTitle());
+            TextView tvToolBarTitle = findViewById(R.id.tvToolBarTitle);
+            tvToolBarTitle.setText(menuItem.getTitle());
             // Close the navigation drawer
             mDrawer.closeDrawers();
         }
@@ -144,6 +130,7 @@ public class NavigationActivity extends AppCompatActivity implements BottomSheet
 
     @Override
     public void handleOnDelete(ClothingItem item) {
+        generatorFragment = (GeneratorFragment)fragment;
         generatorFragment.refreshCloset();
         Log.d(TAG, "handleOnDelete: ");
     }

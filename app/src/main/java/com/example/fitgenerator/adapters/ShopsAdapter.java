@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -32,7 +33,7 @@ public class ShopsAdapter extends RecyclerView.Adapter<ShopsAdapter.ViewHolder> 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View movieView = inflater.inflate(R.layout.shop_item,parent,false);
+        View movieView = inflater.inflate(R.layout.clothing_item,parent,false);
         return new ViewHolder(movieView);
     }
 
@@ -50,14 +51,21 @@ public class ShopsAdapter extends RecyclerView.Adapter<ShopsAdapter.ViewHolder> 
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView tvName;
+        TextView tvSubName;
+        ImageView icon;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.tvName);
+            tvName = itemView.findViewById(R.id.tvItemName);
+            tvSubName = itemView.findViewById(R.id.tvItemClass);
+            icon = itemView.findViewById(R.id.ivItemIcon);
         }
 
         public void bind(Shop newShop) {
             Log.d(TAG, "bind: " + newShop.getName());
             tvName.setText(newShop.getName());
+            tvSubName.setText(newShop.getVicinity());
+            icon.setImageResource(R.drawable.ic_baseline_shopping_cart_24);
+
         }
     }
 }
