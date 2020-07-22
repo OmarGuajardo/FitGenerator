@@ -88,8 +88,13 @@ public class NavigationActivity extends AppCompatActivity implements BottomSheet
                     fragmentClass = ShopFragment.class;
                     break;
                 case R.id.navSettings:
-                    fragmentClass = GeneratorFragment.class;
-                    break;
+//                    ParseUser.logOut();
+//                    Intent i = new Intent(NavigationActivity.this,LoginActivity.class);
+//                    startActivity(i);
+//                    finish();
+                    Intent i = new Intent(NavigationActivity.this,SettingsActivity.class);
+                    startActivity(i);
+                    return;
                 default:
                     fragmentClass = GeneratorFragment.class;
             }
