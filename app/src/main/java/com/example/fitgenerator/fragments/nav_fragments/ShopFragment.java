@@ -68,8 +68,8 @@ public class ShopFragment extends Fragment {
         placesClient = Places.createClient(getContext());
 
         //Setting up the Recycler View
-        shopList = new ArrayList<>();
         rvShop = view.findViewById(R.id.rvShop);
+        shopList = new ArrayList<>();
         shopsAdapter = new ShopsAdapter(shopList,getContext());
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rvShop.setAdapter(shopsAdapter);
@@ -177,20 +177,6 @@ public class ShopFragment extends Fragment {
         }
     }
 
-    public ShopFragment() {
-        // Required empty public constructor
-    }
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    // Inflate the layout for this fragment
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_shop, container, false);
-    }
-
     public class EndPoint{
         String request_url;
         Boolean first = false;
@@ -210,5 +196,20 @@ public class ShopFragment extends Fragment {
             }
         }
     }
+
+    // Required empty public constructor
+    public ShopFragment() {}
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
+    // Inflate the layout for this fragment
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_shop, container, false);
+    }
+
 
 }

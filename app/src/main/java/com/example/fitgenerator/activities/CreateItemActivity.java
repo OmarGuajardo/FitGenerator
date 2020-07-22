@@ -141,8 +141,6 @@ public class CreateItemActivity extends AppCompatActivity {
             }
         });
 
-
-
         binding.btnPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -155,16 +153,9 @@ public class CreateItemActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String chosenClass = binding.tvClass.getText().toString();
                 checkForm(chosenClass);
-
             }
         });
-
-
-
     }
-
-
-
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -183,7 +174,6 @@ public class CreateItemActivity extends AppCompatActivity {
         binding.btnPicture.setIcon(getDrawable(R.drawable.ic_baseline_check_24));
         binding.btnPicture.setText("Picture Received!");
         setOptions(retreivedItem.getClassString());
-
     }
 
     public void autoFillName() throws JSONException {
@@ -251,7 +241,6 @@ public class CreateItemActivity extends AppCompatActivity {
             e.printStackTrace();
         }
         //Filling out the item with the form information if new
-
         if(retreivedItem == null){
             clothingItemSubmit = new ClothingItem();
         }
@@ -297,7 +286,6 @@ public class CreateItemActivity extends AppCompatActivity {
         binding.btnPicture.setEnabled(enable);
         binding.btnFAB.setEnabled(enable);
         binding.btnFAB.setVisibility(enable? View.VISIBLE : View.GONE);
-//        binding.progressBar.setVisibility(enable? View.GONE : View.VISIBLE);
     }
 
     public void resetForm(){
@@ -452,7 +440,6 @@ public class CreateItemActivity extends AppCompatActivity {
             // Start the image capture intent to take photo
             startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
         }
-
     }
 
     private File getPhotoFileUri(String fileName) {
@@ -465,10 +452,8 @@ public class CreateItemActivity extends AppCompatActivity {
         if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
             Log.d(TAG, "failed to create directory");
         }
-
         // Return the file target for the photo based on filename
         return new File(mediaStorageDir.getPath() + File.separator + fileName);
-
     }
 
     @Override
