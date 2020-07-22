@@ -1324,6 +1324,7 @@ color quantum_yellowA100
 color quantum_yellowA200
 color quantum_yellowA400
 color quantum_yellowA700
+color red
 color ripple_material_dark
 color ripple_material_light
 color secondaryColor
@@ -1344,7 +1345,6 @@ color test_mtrl_calendar_day
 color test_mtrl_calendar_day_selected
 color tooltip_background_dark
 color tooltip_background_light
-color white
 dimen abc_action_bar_content_inset_material
 dimen abc_action_bar_content_inset_with_nav
 dimen abc_action_bar_default_height_material
@@ -2022,6 +2022,7 @@ id cut
 id cvDelete
 id cvEdit
 id cvShare
+id cvShopItem
 id dark
 id date_picker_actions
 id decor_content_parent
@@ -2182,6 +2183,7 @@ id progressBar
 id progress_circular
 id progress_horizontal
 id radio
+id ratingBar
 id right
 id right_icon
 id right_side
@@ -2285,6 +2287,9 @@ id tvItemClass
 id tvItemName
 id tvName
 id tvPassword
+id tvShopName
+id tvShopOpen
+id tvShopVicinity
 id tvStyle
 id tvToolBarTitle
 id tvType

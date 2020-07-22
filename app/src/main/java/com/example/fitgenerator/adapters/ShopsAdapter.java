@@ -8,10 +8,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fitgenerator.R;
@@ -36,7 +38,7 @@ public class ShopsAdapter extends RecyclerView.Adapter<ShopsAdapter.ViewHolder> 
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(context);
-        View movieView = inflater.inflate(R.layout.clothing_item,parent,false);
+        View movieView = inflater.inflate(R.layout.shop_item,parent,false);
         return new ViewHolder(movieView);
     }
 
@@ -53,28 +55,35 @@ public class ShopsAdapter extends RecyclerView.Adapter<ShopsAdapter.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView tvName;
-        TextView tvSubName;
-        ImageView icon;
+        TextView tvShopName;
+        TextView tvShopVicinity;
+        TextView tvShopOpen;
+        RatingBar ratingBar;
+        CardView cvShopItem;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvName = itemView.findViewById(R.id.tvItemName);
-            tvSubName = itemView.findViewById(R.id.tvItemClass);
-            icon = itemView.findViewById(R.id.ivItemIcon);
+            tvShopName = itemView.findViewById(R.id.tvShopName);
+            tvShopVicinity= itemView.findViewById(R.id.tvShopVicinity);
+            tvShopOpen= itemView.findViewById(R.id.tvShopOpen);
+            ratingBar = itemView.findViewById(R.id.ratingBar);
+            cvShopItem = itemView.findViewById(R.id.cvShopItem);
 
 
         }
 
         public void bind(final Shop newShop) {
             Log.d(TAG, "bind: " + newShop.getName());
-            tvName.setText(newShop.getName());
-            tvSubName.setText(newShop.getVicinity());
-            icon.setImageResource(R.drawable.ic_baseline_shopping_cart_24);
+            tvShopName.setText(newShop.getName());
+            tvShopVicinity.setText(newShop.getVicinity());
+            ratingBar.setRating(Float.valueOf((float) newShop.getRating()));
 
+            tvShopOpen.setText(newShop.getOpen_now()? "OPEN":"CLOSED");
+            tvShopOpen.setTextColor(newShop.getOpen_now()?context.getResources().getColor(R.color.primaryTextColor)
+                    :context.getResources().getColor(R.color.red));
             //This onClickListener will redirect the user to Google Maps
             //where it will start a navigation from where the user is currently located at
             //to the address they selected
-            icon.setOnClickListener(new View.OnClickListener() {
+            cvShopItem.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + Uri.encode(newShop.getVicinity()));

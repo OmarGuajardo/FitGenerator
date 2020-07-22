@@ -4,9 +4,11 @@ package com.example.fitgenerator.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import com.example.fitgenerator.R;
@@ -19,11 +21,29 @@ public final class ShopItemBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final TextView tvName;
+  public final CardView cvShopItem;
 
-  private ShopItemBinding(@NonNull ConstraintLayout rootView, @NonNull TextView tvName) {
+  @NonNull
+  public final RatingBar ratingBar;
+
+  @NonNull
+  public final TextView tvShopName;
+
+  @NonNull
+  public final TextView tvShopOpen;
+
+  @NonNull
+  public final TextView tvShopVicinity;
+
+  private ShopItemBinding(@NonNull ConstraintLayout rootView, @NonNull CardView cvShopItem,
+      @NonNull RatingBar ratingBar, @NonNull TextView tvShopName, @NonNull TextView tvShopOpen,
+      @NonNull TextView tvShopVicinity) {
     this.rootView = rootView;
-    this.tvName = tvName;
+    this.cvShopItem = cvShopItem;
+    this.ratingBar = ratingBar;
+    this.tvShopName = tvShopName;
+    this.tvShopOpen = tvShopOpen;
+    this.tvShopVicinity = tvShopVicinity;
   }
 
   @Override
@@ -53,13 +73,38 @@ public final class ShopItemBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.tvName;
-      TextView tvName = rootView.findViewById(id);
-      if (tvName == null) {
+      id = R.id.cvShopItem;
+      CardView cvShopItem = rootView.findViewById(id);
+      if (cvShopItem == null) {
         break missingId;
       }
 
-      return new ShopItemBinding((ConstraintLayout) rootView, tvName);
+      id = R.id.ratingBar;
+      RatingBar ratingBar = rootView.findViewById(id);
+      if (ratingBar == null) {
+        break missingId;
+      }
+
+      id = R.id.tvShopName;
+      TextView tvShopName = rootView.findViewById(id);
+      if (tvShopName == null) {
+        break missingId;
+      }
+
+      id = R.id.tvShopOpen;
+      TextView tvShopOpen = rootView.findViewById(id);
+      if (tvShopOpen == null) {
+        break missingId;
+      }
+
+      id = R.id.tvShopVicinity;
+      TextView tvShopVicinity = rootView.findViewById(id);
+      if (tvShopVicinity == null) {
+        break missingId;
+      }
+
+      return new ShopItemBinding((ConstraintLayout) rootView, cvShopItem, ratingBar, tvShopName,
+          tvShopOpen, tvShopVicinity);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

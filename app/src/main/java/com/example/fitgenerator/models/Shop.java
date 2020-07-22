@@ -13,14 +13,12 @@ public class Shop {
     String place_id;
     String name;
     String vicinity;
-    int price_level;
     double rating;
     Boolean open_now;
 
     public Shop(JSONObject jsonObject) throws JSONException {
         this.id = jsonObject.getString("id");
         this.place_id = jsonObject.getString("place_id");
-//        this.price_level = jsonObject.getInt("price_level");
         this.name = jsonObject.getString("name");
         this.vicinity = jsonObject.getString("vicinity");
         this.rating = jsonObject.getDouble("rating");
@@ -41,10 +39,6 @@ public class Shop {
 
     public String getPlace_id() {
         return place_id;
-    }
-
-    public int getPrice_level() {
-        return price_level;
     }
 
     public String getName() {

@@ -10,10 +10,10 @@
     <com.google.android.material.card.MaterialCardView
         android:paddingLeft="4dp"
         android:id="@+id/itemCardView"
-        app:cardBackgroundColor="@color/colorPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
+        app:cardBackgroundColor="@color/colorPrimary"
         app:rippleColor="@color/colorPrimaryDark"
         android:clickable="true"
         android:focusable="true"

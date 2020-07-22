@@ -91,6 +91,7 @@ public class ShopFragment extends Fragment {
             placeResponse.addOnCompleteListener(new OnCompleteListener<FindCurrentPlaceResponse>() {
                 @Override
                 public void onComplete(@NonNull Task<FindCurrentPlaceResponse> task) {
+                    //Getting the users location so that we can query for shops nearby
                     if (task.isSuccessful()){
                         FindCurrentPlaceResponse response = task.getResult();
                         LatLng lat_lng = response.getPlaceLikelihoods().get(0).getPlace().getLatLng();
