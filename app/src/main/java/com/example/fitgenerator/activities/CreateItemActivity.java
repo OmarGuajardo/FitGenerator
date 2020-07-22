@@ -58,8 +58,6 @@ public class CreateItemActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
 
-
-
         // Adding back button to the Tool Bar
         toolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(toolbar);
@@ -105,7 +103,6 @@ public class CreateItemActivity extends AppCompatActivity {
             }
             buildForm();
         }
-
 
         ArrayAdapter<String> classAdapter = new ArrayAdapter<>(
                 getApplicationContext(),
@@ -413,9 +410,7 @@ public class CreateItemActivity extends AppCompatActivity {
             final int finalNum = num;
             viewList[num].addTextChangedListener(new TextWatcher() {
                 @Override
-                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-                }
+                public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) { }
 
                 @Override
                 public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -433,9 +428,7 @@ public class CreateItemActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void afterTextChanged(Editable editable) {
-
-                }
+                public void afterTextChanged(Editable editable) { }
             });
         }
     }

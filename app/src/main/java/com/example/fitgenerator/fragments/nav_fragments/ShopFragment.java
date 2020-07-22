@@ -38,6 +38,7 @@ import com.google.android.libraries.places.api.model.PlaceLikelihood;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceResponse;
 import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -74,9 +75,7 @@ public class ShopFragment extends Fragment {
         rvShop.setAdapter(shopsAdapter);
         rvShop.setLayoutManager(linearLayoutManager);
 
-
         queryShops();
-
     }
 
     public void queryShops(){
@@ -107,7 +106,6 @@ public class ShopFragment extends Fragment {
             });
         }
         else{
-            Log.i(TAG, "not granted asking for permission");
             getLocationPermission();
         }
     }
@@ -141,6 +139,7 @@ public class ShopFragment extends Fragment {
 
     private void getLocationPermission() {
         if(shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION)){
+            Log.d(TAG, "making dialog");
             new AlertDialog.Builder(getContext())
                     .setTitle("Location Permission Needed")
                     .setMessage("This permission is needed to use the Shop feature")
@@ -148,8 +147,7 @@ public class ShopFragment extends Fragment {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.dismiss();
-                            ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.ACCESS_FINE_LOCATION},PackageManager.PERMISSION_GRANTED);
-                            queryShops();
+                            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION},PackageManager.PERMISSION_GRANTED);
 
                         }
                     })
@@ -160,10 +158,8 @@ public class ShopFragment extends Fragment {
                         }
                     })
                     .create().show();
-
         }else{
-            ActivityCompat.requestPermissions(getActivity(),new String[]{Manifest.permission.ACCESS_FINE_LOCATION},PackageManager.PERMISSION_GRANTED);
-            queryShops();
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION},PackageManager.PERMISSION_GRANTED);
         }
 
     }
@@ -172,10 +168,11 @@ public class ShopFragment extends Fragment {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if(requestCode == PackageManager.PERMISSION_GRANTED){
             if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
-                Toast.makeText(getContext(), "Permission Granted", Toast.LENGTH_LONG).show();
+                queryShops();
+                Snackbar.make(getView()," Permission Granted", Snackbar.LENGTH_SHORT).show();
             }
             else{
-                Toast.makeText(getContext(), "Permission Denied", Toast.LENGTH_LONG).show();
+                Snackbar.make(getView()," Permission Denied", Snackbar.LENGTH_SHORT).show();
             }
         }
     }
