@@ -1,12 +1,15 @@
 package com.example.fitgenerator.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -58,14 +61,35 @@ public class ShopsAdapter extends RecyclerView.Adapter<ShopsAdapter.ViewHolder> 
             tvName = itemView.findViewById(R.id.tvItemName);
             tvSubName = itemView.findViewById(R.id.tvItemClass);
             icon = itemView.findViewById(R.id.ivItemIcon);
+
+
         }
 
-        public void bind(Shop newShop) {
+        public void bind(final Shop newShop) {
             Log.d(TAG, "bind: " + newShop.getName());
             tvName.setText(newShop.getName());
             tvSubName.setText(newShop.getVicinity());
             icon.setImageResource(R.drawable.ic_baseline_shopping_cart_24);
 
+            //This onClickListener will redirect the user to Google Maps
+            //where it will start a navigation from where the user is currently located at
+            //to the address they selected
+            icon.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + Uri.encode(newShop.getVicinity()));
+                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                    mapIntent.setPackage("com.google.android.apps.maps");
+                    if (mapIntent.resolveActivity(context.getPackageManager()) != null) {
+                        context.startActivity(mapIntent);
+                    }
+                }
+            });
         }
+
+
+        
+        
     }
+    
 }
