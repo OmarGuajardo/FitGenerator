@@ -18,6 +18,8 @@ import android.widget.TextView;
 
 import com.example.fitgenerator.BuildConfig;
 import com.example.fitgenerator.fragments.BottomSheetDialog;
+import com.example.fitgenerator.fragments.FitsFragment;
+import com.example.fitgenerator.fragments.LaundryFragment;
 import com.example.fitgenerator.fragments.nav_fragments.GeneratorFragment;
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.fragments.nav_fragments.HistoryFragment;
@@ -26,7 +28,11 @@ import com.example.fitgenerator.models.ClothingItem;
 import com.google.android.material.navigation.NavigationView;
 import com.parse.ParseUser;
 
-public class NavigationActivity extends AppCompatActivity implements BottomSheetDialog.BottomSheetListener {
+public class NavigationActivity extends AppCompatActivity
+        implements BottomSheetDialog.BottomSheetListener,
+        FitsFragment.FitsFragmentListener,
+        LaundryFragment.LaundryFragmentListener {
+
 
     private static final String TAG = "NavigationActivity";
     private Toolbar toolbar;
@@ -118,7 +124,11 @@ public class NavigationActivity extends AppCompatActivity implements BottomSheet
             mDrawer.closeDrawers();
         }
 
-
+    public void refreshCloset(){
+        Log.d(TAG, "refreshCloset:");
+        generatorFragment = (GeneratorFragment)fragment;
+        generatorFragment.refreshCloset();
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -135,8 +145,19 @@ public class NavigationActivity extends AppCompatActivity implements BottomSheet
 
     @Override
     public void handleOnDelete(ClothingItem item) {
-        generatorFragment = (GeneratorFragment)fragment;
-        generatorFragment.refreshCloset();
-        Log.d(TAG, "handleOnDelete: ");
+        Log.d(TAG, "handleOnDelete:");
+        refreshCloset();
+    }
+
+    @Override
+    public void handleOnLoveIt() {
+        Log.d(TAG, "handleOnLoveIt: ");
+        refreshCloset();
+    }
+
+    @Override
+    public void handleWashItem() {
+        Log.d(TAG, "handleWashItem: ");
+        refreshCloset();
     }
 }

@@ -1,5 +1,6 @@
 package com.example.fitgenerator.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -34,6 +35,7 @@ import java.util.Random;
 public class FitsFragment extends Fragment {
 
     private static final String TAG = "FitsFragment";
+    FitsFragmentListener listener;
     List<ClothingItem> fit;
     List<ClothingItem> cleanTop;
     List<ClothingItem> cleanBottom;
@@ -79,6 +81,7 @@ public class FitsFragment extends Fragment {
                     fitItem.addUses();
                     fitItem.saveInBackground();
                 }
+                listener.handleOnLoveIt();
             }
         });
 
@@ -93,6 +96,7 @@ public class FitsFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
     }
+
 
     public void generateOutfit(){
         cleanTop.clear();
@@ -170,8 +174,18 @@ public class FitsFragment extends Fragment {
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        try {
+            listener = (FitsFragmentListener) context;
 
+        } catch (Exception e) {
+            Log.e("FitsFragment", "onAttach: ",e);
+        }
+
+    }
+
+    public interface FitsFragmentListener{
+        void handleOnLoveIt();
     }
 }

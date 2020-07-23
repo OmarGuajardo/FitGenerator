@@ -36,6 +36,7 @@ import it.xabaras.android.recyclerview.swipedecorator.RecyclerViewSwipeDecorator
 
 public class LaundryFragment extends Fragment {
 
+    LaundryFragmentListener listener;
     RecyclerView rvLaundry;
     List<ClothingItem> laundryBasket;
     ClosetAdapter closetAdapter;
@@ -83,6 +84,7 @@ public class LaundryFragment extends Fragment {
             laundryBasket.remove(position);
             closetAdapter.notifyDataSetChanged();
             itemRemove.saveInBackground();
+            listener.handleWashItem();
         }
 
         @Override
@@ -129,10 +131,24 @@ public class LaundryFragment extends Fragment {
         tvInsufficientItems.setVisibility(View.VISIBLE);
         laundryBasket.clear();
         closetAdapter.notifyDataSetChanged();
+        listener.handleWashItem();
     }
 
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        try {
+            listener = (LaundryFragmentListener) context;
 
+        } catch (Exception e) {
+            Log.e("LaundryFragment", "onAttach: ",e);
+        }
 
+    }
+
+    public interface LaundryFragmentListener{
+        void handleWashItem();
+    }
 
 
     @Override

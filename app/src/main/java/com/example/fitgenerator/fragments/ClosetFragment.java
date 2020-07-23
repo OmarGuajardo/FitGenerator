@@ -42,7 +42,7 @@ public class ClosetFragment extends Fragment{
     RecyclerView rvCloset;
     ClosetAdapter closetAdapter;
     List<ClothingItem> items;
-    String currentClass;
+    String currentClass = "";
     Boolean showProgressBar = false;
     Boolean showInsufficientItems = false;
     ProgressBar progressBar;
@@ -56,8 +56,9 @@ public class ClosetFragment extends Fragment{
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)  {
+        
         super.onViewCreated(view, savedInstanceState);
-
+        Log.d(TAG, "onViewCreated: Closet Fragment");
         //Attaching views
         fabTop = view.findViewById(R.id.fabTop);
         fabBottom = view.findViewById(R.id.fabBottom);
@@ -74,7 +75,7 @@ public class ClosetFragment extends Fragment{
         //Getting the data
         progressBar = view.findViewById(R.id.closetLoadingBar);
         tvInsufficientItems = view.findViewById(R.id.tvInsufficientItems);
-        queryCleanItems(Closet.KEY_TOP);
+        queryCleanItems(currentClass.isEmpty() ? Closet.KEY_TOP : currentClass);
 
         fabTop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,10 +130,14 @@ public class ClosetFragment extends Fragment{
         showInsufficientItems = !showInsufficientItems;
     }
 
+
+
     @Override
-    public void onStart() {
-        super.onStart();
-        queryCleanItems(currentClass);
+    public void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: ");
+        Log.d(TAG, "querying this " + (currentClass.isEmpty() ? Closet.KEY_TOP : currentClass));
+        queryCleanItems(currentClass.isEmpty() ? Closet.KEY_TOP : currentClass);
     }
 
     @Override

@@ -113,7 +113,7 @@ public class GeneratorFragment extends Fragment {
     }
 
     public void refreshCloset(){
-        closetFragment.onStart();
+        closetFragment.onResume();
     }
 
 
