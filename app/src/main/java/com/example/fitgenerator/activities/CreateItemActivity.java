@@ -165,6 +165,7 @@ public class CreateItemActivity extends AppCompatActivity {
     }
 
     public void buildForm(){
+
         binding.tvClass.setText(retreivedItem.getClassString());
         binding.tvColor.setText(retreivedItem.getColor());
         binding.tvFit.setText(retreivedItem.getFit());
@@ -176,7 +177,7 @@ public class CreateItemActivity extends AppCompatActivity {
             binding.btnPicture.setIcon(getDrawable(R.drawable.ic_baseline_check_24));
             binding.btnPicture.setText("Picture Received!");
         }
-        setOptions(retreivedItem.getClassString());
+        refreshOptions(retreivedItem.getClassString());
     }
 
     public void autoFillName() throws JSONException {
@@ -314,7 +315,6 @@ public class CreateItemActivity extends AppCompatActivity {
 
         switch (classItem){
             case "Layer":
-
                 listOptions = new String[][]{Color,emptyList,TypeLayer,StyleTop};
                 break;
             case "Top":
@@ -341,50 +341,13 @@ public class CreateItemActivity extends AppCompatActivity {
             else{
                 viewListContainer[i].setVisibility(View.GONE);
             }
+            if(retreivedItem == null){
                 viewList[i].setText("");
+            }
         }
-        binding.tvName.setText("");
-
-    }
-
-    //Method to set options in the event that we are calling the activity
-    //to EDIT rather than CREATE and item of clothing
-    public void setOptions(String classItem){
-        String[] FitTop = new String[]{"Short Sleeve", "Long Sleeve", "Tank Top"};
-        String[] Color = new String[]{"Red", "Blue", "Green","Grey", "Purple", "Yellow", "Black", "Brown", "White", "Pink", "Tan", "Orange"};
-        String[] TypeTop = new String[]{"Button Up", "Tee Shirt", "V-Neck", "Crop Top", "Off The Shoulder", "Blouse"};
-        String[] StyleTop = new String[]{"Basic", "Graphic", "Patterned", "Floral", "Horizontal Stripes", "Vertical Stripes"};
-        String[] FitBottom = new String[]{"Straight", "Skinny", "Slim", "Baggy"};
-        String[] TypeBottom = new String[]{"Pristine", "High Waisted", "Ripped"};
-        String[] StyleBottom = new String[]{"Jeans", "Slacks", "Shorts", "Joggers", "Chinos", "Skirt", "Leggings", "Sweatpants"};
-        String[][] listOptions = new String[][]{};
-
-        switch (classItem){
-            case "Top":
-                listOptions = new String[][]{Color,FitTop,TypeTop,StyleTop};
-                break;
-            case "Bottom":
-                listOptions = new String[][]{Color,FitBottom,TypeBottom,StyleBottom};
-                break;
-            case "Shoes":
-                binding.containerType.setVisibility(View.GONE);
-                binding.containerStyle.setVisibility(View.GONE);
-                binding.containerFit.setVisibility(View.GONE);
-
-                return;
-            default:
-
+        if(retreivedItem == null){
+            binding.tvName.setText("");
         }
-        for (int i = 0; i < viewList.length; i++) {
-            ArrayAdapter<String> newAdapter = new ArrayAdapter<>(
-                    getApplicationContext(),
-                    R.layout.dropdown_menu_popup_item,
-                    listOptions[i]);
-            viewList[i].setAdapter(newAdapter);
-        }
-        binding.containerType.setVisibility(View.VISIBLE);
-        binding.containerStyle.setVisibility(View.VISIBLE);
-        binding.containerFit.setVisibility(View.VISIBLE);
     }
 
     //As the user fills out the options they will be saved in a json object
