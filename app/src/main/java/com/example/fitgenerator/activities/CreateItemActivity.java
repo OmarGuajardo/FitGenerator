@@ -171,8 +171,10 @@ public class CreateItemActivity extends AppCompatActivity {
         binding.tvStyle.setText(retreivedItem.getStyle());
         binding.tvName.setText(retreivedItem.getName());
 
-        binding.btnPicture.setIcon(getDrawable(R.drawable.ic_baseline_check_24));
-        binding.btnPicture.setText("Picture Received!");
+        if(!retreivedItem.getImageURL().isEmpty()){
+            binding.btnPicture.setIcon(getDrawable(R.drawable.ic_baseline_check_24));
+            binding.btnPicture.setText("Picture Received!");
+        }
         setOptions(retreivedItem.getClassString());
     }
 
@@ -303,8 +305,6 @@ public class CreateItemActivity extends AppCompatActivity {
         binding.btnPicture.setIcon(getDrawable(R.drawable.ic_baseline_attach_file_24));
         binding.btnPicture.setText("Attach Picture");
         photoFile = null;
-        Log.d(TAG, "resetForm: form vals " + form.toString() );
-
     }
 
     //If the users changes Class from Top to Bottom to Shoes there should be unique options
@@ -408,7 +408,6 @@ public class CreateItemActivity extends AppCompatActivity {
                     try {
                         form.put(key,value);
                         autoFillName();
-                        Log.d(TAG, "key = " + key + " value = "+value);
                     } catch (JSONException e) {
                         Log.d(TAG, "error occured "+e);
                         e.printStackTrace();

@@ -145,19 +145,16 @@ public class NavigationActivity extends AppCompatActivity
 
     @Override
     public void handleOnDelete(ClothingItem item) {
-        Log.d(TAG, "handleOnDelete:");
         refreshCloset();
     }
 
     @Override
     public void handleOnLoveIt() {
-        Log.d(TAG, "handleOnLoveIt: ");
         refreshCloset();
     }
 
     @Override
     public void handleWashItem() {
-        Log.d(TAG, "handleWashItem: ");
         refreshCloset();
     }
 }

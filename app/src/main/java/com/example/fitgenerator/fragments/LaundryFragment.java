@@ -85,6 +85,9 @@ public class LaundryFragment extends Fragment {
             closetAdapter.notifyDataSetChanged();
             itemRemove.saveInBackground();
             listener.handleWashItem();
+            if(laundryBasket.isEmpty()){
+                tvInsufficientItems.setVisibility(View.VISIBLE);
+            }
         }
 
         @Override

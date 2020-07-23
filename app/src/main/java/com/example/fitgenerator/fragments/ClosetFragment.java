@@ -58,7 +58,6 @@ public class ClosetFragment extends Fragment{
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState)  {
         
         super.onViewCreated(view, savedInstanceState);
-        Log.d(TAG, "onViewCreated: Closet Fragment");
         //Attaching views
         fabTop = view.findViewById(R.id.fabTop);
         fabBottom = view.findViewById(R.id.fabBottom);
@@ -135,8 +134,6 @@ public class ClosetFragment extends Fragment{
     @Override
     public void onResume() {
         super.onResume();
-        Log.d(TAG, "onResume: ");
-        Log.d(TAG, "querying this " + (currentClass.isEmpty() ? Closet.KEY_TOP : currentClass));
         queryCleanItems(currentClass.isEmpty() ? Closet.KEY_TOP : currentClass);
     }
 
