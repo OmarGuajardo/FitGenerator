@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fitgenerator.models.Closet;
 import com.example.fitgenerator.adapters.ClosetAdapter;
@@ -81,8 +82,8 @@ public class FitsFragment extends Fragment {
             }
         });
 
-
         if(fit.isEmpty()){
+            Log.d(TAG, "MAKING NEW FIT");
             generateOutfit();
         }
     }
@@ -102,10 +103,12 @@ public class FitsFragment extends Fragment {
         getCleanItems(Closet.KEY_SHOES,cleanShoes);
     }
     public void designOutfit(){
+        Log.d(TAG, "attempting to desing fit");
         //TODO: Rules of Algorithm
         //TODO: Rule #1 There must be at least one item in each category
         //TODO: Rule #2 The Top color must not match the Bottom color
         if(!cleanTop.isEmpty()&&!cleanBottom.isEmpty()&&!cleanShoes.isEmpty()){
+            Log.d(TAG, "enough items for fit");
             fit.clear();
             ClothingItem selectedTop = getRandomElement(cleanTop);
             ClothingItem selectedBottom = getRandomElement(cleanBottom);
@@ -125,12 +128,17 @@ public class FitsFragment extends Fragment {
             rvFits.setVisibility(View.VISIBLE);
             tvInsufficientItems.setVisibility(View.INVISIBLE);
         }
+        else{
+            Log.d(TAG, "NOT enough items for fit");
+
+        }
     }
+    
     public ClothingItem getRandomElement(List<ClothingItem> list){
         Random rand = new Random();
         return list.get(rand.nextInt(list.size()));
     }
-    public void getCleanItems(String key, final List<ClothingItem> list){
+    public void getCleanItems(final String key, final List<ClothingItem> list){
         Closet userCloset = (Closet) ParseUser.getCurrentUser().get("UserCloset");
         ParseRelation<ClothingItem> relation = userCloset.getRelation(key);
         ParseQuery query = relation.getQuery();
@@ -139,7 +147,6 @@ public class FitsFragment extends Fragment {
             @Override
             public void done(List<ClothingItem> objects, ParseException e) {
                 if(!objects.isEmpty()){
-                    list.clear();
                     list.addAll(objects);
                     designOutfit();
                     return;

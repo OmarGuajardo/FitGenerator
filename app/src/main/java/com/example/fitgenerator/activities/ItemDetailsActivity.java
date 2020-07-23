@@ -63,27 +63,17 @@ public class ItemDetailsActivity extends AppCompatActivity {
         if(!clothingItem.getImageURL().isEmpty()){
             Glide.with(getApplicationContext())
                     .load(clothingItem.getImageURL())
-                    .listener(new RequestListener<Drawable>() {
-                        @Override
-                        public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
-                            imageProgressBar.setVisibility(View.GONE);
-                            return false;
-                        }
 
-                        @Override
-                        public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                            imageProgressBar.setVisibility(View.GONE);
-                            return false;
-                        }
-                    })
                     .circleCrop()
                     .into(binding.ivItemPic);
         }
         else{
+            imageProgressBar.setVisibility(View.GONE);
             Glide.with(getApplicationContext())
                     .load(R.drawable.fit_generator_icon)
                     .circleCrop()
                     .into(binding.ivItemPic);
+
         }
 
         //Information template
