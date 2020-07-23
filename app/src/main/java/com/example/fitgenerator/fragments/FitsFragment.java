@@ -27,6 +27,7 @@ import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,9 +80,13 @@ public class FitsFragment extends Fragment {
                         fitItem.setWorn(true);
                     }
                     fitItem.addUses();
-                    fitItem.saveInBackground();
+                    fitItem.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            listener.handleOnLoveIt();
+                        }
+                    });
                 }
-                listener.handleOnLoveIt();
             }
         });
 
@@ -99,6 +104,7 @@ public class FitsFragment extends Fragment {
 
 
     public void generateOutfit(){
+
         cleanTop.clear();
         cleanBottom.clear();
         cleanShoes.clear();
@@ -107,12 +113,7 @@ public class FitsFragment extends Fragment {
         getCleanItems(Closet.KEY_SHOES,cleanShoes);
     }
     public void designOutfit(){
-        Log.d(TAG, "attempting to desing fit");
-        //TODO: Rules of Algorithm
-        //TODO: Rule #1 There must be at least one item in each category
-        //TODO: Rule #2 The Top color must not match the Bottom color
         if(!cleanTop.isEmpty()&&!cleanBottom.isEmpty()&&!cleanShoes.isEmpty()){
-            Log.d(TAG, "enough items for fit");
             fit.clear();
             ClothingItem selectedTop = getRandomElement(cleanTop);
             ClothingItem selectedBottom = getRandomElement(cleanBottom);
@@ -131,10 +132,6 @@ public class FitsFragment extends Fragment {
             btnUseFit.setVisibility(View.VISIBLE);
             rvFits.setVisibility(View.VISIBLE);
             tvInsufficientItems.setVisibility(View.INVISIBLE);
-        }
-        else{
-            Log.d(TAG, "NOT enough items for fit");
-
         }
     }
     

@@ -27,6 +27,7 @@ import com.parse.ParseException;
 import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
+import com.parse.SaveCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -83,8 +84,12 @@ public class LaundryFragment extends Fragment {
             itemRemove.setWorn(false);
             laundryBasket.remove(position);
             closetAdapter.notifyDataSetChanged();
-            itemRemove.saveInBackground();
-            listener.handleWashItem();
+            itemRemove.saveInBackground(new SaveCallback() {
+                @Override
+                public void done(ParseException e) {
+                listener.handleWashItem();
+                }
+            });
             if(laundryBasket.isEmpty()){
                 tvInsufficientItems.setVisibility(View.VISIBLE);
             }
