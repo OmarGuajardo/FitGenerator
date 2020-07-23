@@ -47,6 +47,7 @@ public class ClosetFragment extends Fragment{
     Boolean showInsufficientItems = false;
     ProgressBar progressBar;
     TextView tvInsufficientItems;
+    FloatingActionButton fabLayer;
     FloatingActionButton fabTop;
     FloatingActionButton fabBottom;
     FloatingActionButton fabShoes;
@@ -59,6 +60,7 @@ public class ClosetFragment extends Fragment{
         
         super.onViewCreated(view, savedInstanceState);
         //Attaching views
+        fabLayer = view.findViewById(R.id.fabLayer);
         fabTop = view.findViewById(R.id.fabTop);
         fabBottom = view.findViewById(R.id.fabBottom);
         fabShoes = view.findViewById(R.id.fabShoes);
@@ -76,6 +78,13 @@ public class ClosetFragment extends Fragment{
         tvInsufficientItems = view.findViewById(R.id.tvInsufficientItems);
         queryCleanItems(currentClass.isEmpty() ? Closet.KEY_TOP : currentClass);
 
+
+        fabLayer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                queryCleanItems(Closet.KEY_LAYER);
+            }
+        });
         fabTop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

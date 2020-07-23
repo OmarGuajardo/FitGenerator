@@ -89,7 +89,10 @@ public class ClosetAdapter extends RecyclerView.Adapter<ClosetAdapter.ViewHolder
                 }
             });
             tvItemClass.setText(item.getClassString());
-            if(item.getClassString().equals("Top")){
+            if(item.getClassString().equals("Layer")){
+                ivItemIcon.setImageResource(R.drawable.jacket_icon);
+            }
+            else if(item.getClassString().equals("Top")){
                 ivItemIcon.setImageResource(R.drawable.shirt_icon);
             }
             else if(item.getClassString().equals("Bottom")){

@@ -1929,6 +1929,7 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable jacket_icon
 drawable mtrl_dialog_background
 drawable mtrl_dropdown_arrow
 drawable mtrl_ic_arrow_drop_down
@@ -2118,6 +2119,7 @@ id expand_activities_button
 id expanded_menu
 id fabAdd
 id fabBottom
+id fabLayer
 id fabShoes
 id fabTop
 id fab_expand_menu_button
