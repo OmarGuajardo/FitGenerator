@@ -10,7 +10,7 @@
         <item
             android:id="@+id/navPastFits"
             android:icon="@drawable/ic_baseline_history_24"
-            android:title="Past Fits" />
+            android:title="Scheduled Fits" />
         <item
             android:id="@+id/navShop"
             android:icon="@drawable/ic_baseline_shopping_cart_24"
