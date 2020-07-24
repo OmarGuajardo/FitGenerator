@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.fitgenerator.databinding.ActivityLoginBinding;
+import com.google.android.material.snackbar.Snackbar;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
@@ -31,7 +32,12 @@ public class LoginActivity extends AppCompatActivity {
                 ParseUser.logInInBackground(username, password, new LogInCallback() {
                     @Override
                     public void done(ParseUser user, ParseException e) {
-                        goHomePage();
+                        if (user != null) {
+                            goHomePage();
+                        } else {
+                            Snackbar.make(binding.tvUserName,"Wrong Username/Password", Snackbar.LENGTH_SHORT).show();
+
+                        }
                     }
                 });
             }
