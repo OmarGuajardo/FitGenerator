@@ -18,6 +18,7 @@ import android.view.animation.DecelerateInterpolator;
 import android.view.animation.ScaleAnimation;
 
 import com.example.fitgenerator.R;
+import com.example.fitgenerator.activities.ChooseCategory;
 import com.example.fitgenerator.activities.CreateItemActivity;
 import com.example.fitgenerator.activities.MainActivity;
 import com.example.fitgenerator.adapters.PagerAdapter;

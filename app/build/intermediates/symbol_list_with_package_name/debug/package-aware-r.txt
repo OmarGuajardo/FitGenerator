@@ -2060,6 +2060,10 @@ id btnUseFit
 id buttonPanel
 id cancel_action
 id cancel_button
+id categoryFavorite
+id categoryOccasion
+id categoryRandom
+id categorySeason
 id center
 id center_horizontal
 id center_vertical
@@ -2089,6 +2093,7 @@ id coordinatorLayout
 id custom
 id customPanel
 id cut
+id cvCategory
 id cvDelete
 id cvEdit
 id cvShare
@@ -2157,6 +2162,7 @@ id italic
 id itemCardView
 id itemDetailsContainer
 id item_touch_helper_previous_elevation
+id ivCategoryIcon
 id ivItemIcon
 id ivItemPic
 id labeled
@@ -2353,6 +2359,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id tvCategoryName
 id tvClass
 id tvColor
 id tvDescriptionBody
@@ -2445,6 +2452,9 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activities_toolbar
+layout activity_choose_category
+layout activity_choose_fit
 layout activity_create_item
 layout activity_item_details
 layout activity_login
@@ -2454,6 +2464,7 @@ layout activity_register
 layout activity_toolbar
 layout activity_welcome
 layout bottom_sheet_layout
+layout category_item
 layout clothing_item
 layout custom_dialog
 layout design_bottom_navigation_item
