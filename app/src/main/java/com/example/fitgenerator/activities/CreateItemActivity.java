@@ -81,7 +81,7 @@ public class CreateItemActivity extends AppCompatActivity {
         }
 
         //Setting the Options for Class and Color since they are always going to be there
-        String[] Class = new String[]{Closet.KEY_TOP, Closet.KEY_BOTTOM, Closet.KEY_SHOES};
+        String[] Class = new String[]{Closet.KEY_LAYER,Closet.KEY_TOP, Closet.KEY_BOTTOM, Closet.KEY_SHOES};
         String[] Color = new String[]{"Red", "Blue", "Green","Grey", "Purple", "Yellow", "Black", "Brown", "White", "Pink", "Tan", "Orange"};
 
         //Setting default options and setting up listeners
@@ -153,6 +153,7 @@ public class CreateItemActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String chosenClass = binding.tvClass.getText().toString();
                 checkForm(chosenClass);
+
             }
         });
     }
@@ -164,6 +165,7 @@ public class CreateItemActivity extends AppCompatActivity {
     }
 
     public void buildForm(){
+
         binding.tvClass.setText(retreivedItem.getClassString());
         binding.tvColor.setText(retreivedItem.getColor());
         binding.tvFit.setText(retreivedItem.getFit());
@@ -175,7 +177,7 @@ public class CreateItemActivity extends AppCompatActivity {
             binding.btnPicture.setIcon(getDrawable(R.drawable.ic_baseline_check_24));
             binding.btnPicture.setText("Picture Received!");
         }
-        setOptions(retreivedItem.getClassString());
+        refreshOptions(retreivedItem.getClassString());
     }
 
     public void autoFillName() throws JSONException {
@@ -198,23 +200,14 @@ public class CreateItemActivity extends AppCompatActivity {
     public void checkForm(String chosenClass){
         Boolean formReady = true;
         String name = binding.tvName.getText().toString();
-        if(chosenClass.equals("Top")||chosenClass.equals("Bottom")){
+        if(!chosenClass.isEmpty()){
             for(TextInputLayout container : viewListContainer){
-                if(container.getEditText().getText().toString().isEmpty()){
-                    container.setError("Missing " + container.getHint());
-                    formReady = false;
+                if(container.getVisibility() == View.VISIBLE){
+                    if(container.getEditText().getText().toString().isEmpty()){
+                        container.setError("Missing " + container.getHint());
+                        formReady = false;
+                    }
                 }
-                if(name.isEmpty()){
-                    formReady = false;
-                    binding.containerName.setError("Missing Name");
-                }
-            }
-        }
-        else if (chosenClass.equals("Shoes")){
-            String color = binding.tvColor.getText().toString();
-            if(color.isEmpty()){
-                formReady = false;
-                binding.containerColor.setError("Missing Color");
             }
             if(name.isEmpty()){
                 formReady = false;
@@ -227,8 +220,8 @@ public class CreateItemActivity extends AppCompatActivity {
         }
         if(formReady){
            formEnable(false);
-            submitClothingItem();
-            Snackbar.make(binding.coordinatorLayout, "Saving item...", Snackbar.LENGTH_LONG)
+           submitClothingItem();
+           Snackbar.make(binding.coordinatorLayout, "Saving item...", Snackbar.LENGTH_LONG)
                     .show();
         }
     }
@@ -250,7 +243,6 @@ public class CreateItemActivity extends AppCompatActivity {
             clothingItemSubmit = retreivedItem;
         }
         clothingItemSubmit.setInfoFromJSON(form);
-
 
         //Checking to see if user took a picture of the Item
         if(photoFile != null){
@@ -307,19 +299,24 @@ public class CreateItemActivity extends AppCompatActivity {
         photoFile = null;
     }
 
-    //If the users changes Class from Top to Bottom to Shoes there should be unique options
+    //If the users changes Class from Layer to Top to Bottom to Shoes there should be unique options
     //per class
     public void refreshOptions(String classItem){
-        String[] FitTop = new String[]{"Short Sleeve", "Long Sleeve", "Tank Top"};
         String[] Color = new String[]{"Red", "Blue", "Green","Grey", "Purple", "Yellow", "Black", "Brown", "White", "Pink", "Tan", "Orange"};
+        String[] TypeLayer = new String[]{"Wind Breaker","Jacket","Coat","Sweater","Hoodie","Vest","Cardigan"};
+        String[] FitTop = new String[]{"Short Sleeve", "Long Sleeve", "Tank Top"};
         String[] TypeTop = new String[]{"Button Up", "Tee Shirt", "V-Neck", "Crop Top", "Off The Shoulder", "Blouse"};
-        String[] StyleTop = new String[]{"Basic", "Graphic", "Patterned", "Floral", "Horizontal Stripes", "Vertical Stripes"};
+        String[] StyleTop = new String[]{"Basic", "Graphic", "Patterned","Horizontal Stripes", "Vertical Stripes"};
         String[] FitBottom = new String[]{"Straight", "Skinny", "Slim", "Baggy"};
         String[] TypeBottom = new String[]{"Pristine", "High Waisted", "Ripped"};
         String[] StyleBottom = new String[]{"Jeans", "Slacks", "Shorts", "Joggers", "Chinos", "Skirt", "Leggings", "Sweatpants"};
+        String[] emptyList = new String[]{};
         String[][] listOptions = new String[][]{};
 
         switch (classItem){
+            case "Layer":
+                listOptions = new String[][]{Color,emptyList,TypeLayer,StyleTop};
+                break;
             case "Top":
                 listOptions = new String[][]{Color,FitTop,TypeTop,StyleTop};
                 break;
@@ -327,68 +324,30 @@ public class CreateItemActivity extends AppCompatActivity {
                 listOptions = new String[][]{Color,FitBottom,TypeBottom,StyleBottom};
                 break;
             case "Shoes":
-                binding.containerType.setVisibility(View.GONE);
-                binding.containerStyle.setVisibility(View.GONE);
-                binding.containerFit.setVisibility(View.GONE);
-                binding.tvStyle.setText("");
-                binding.tvType.setText("");
-                binding.tvFit.setText("");
-                return;
+                listOptions = new String[][]{Color,emptyList,emptyList,emptyList};
+                break;
             default:
 
         }
-        for (int i = 0; i < viewList.length; i++) {
-            ArrayAdapter<String> newAdapter = new ArrayAdapter<>(
-                    getApplicationContext(),
-                    R.layout.dropdown_menu_popup_item,
-                    listOptions[i]);
-            viewList[i].setAdapter(newAdapter);
-            viewList[i].setText("");
+        for (int i = 0; i < viewListContainer.length; i++) {
+            if(listOptions[i].length != 0){
+                ArrayAdapter<String> newAdapter = new ArrayAdapter<>(
+                        getApplicationContext(),
+                        R.layout.dropdown_menu_popup_item,
+                        listOptions[i]);
+                viewList[i].setAdapter(newAdapter);
+                viewListContainer[i].setVisibility(View.VISIBLE);
+            }
+            else{
+                viewListContainer[i].setVisibility(View.GONE);
+            }
+            if(retreivedItem == null){
+                viewList[i].setText("");
+            }
         }
-        binding.tvName.setText("");
-        binding.containerType.setVisibility(View.VISIBLE);
-        binding.containerStyle.setVisibility(View.VISIBLE);
-        binding.containerFit.setVisibility(View.VISIBLE);
-    }
-
-    //Method to set options in the event that we are calling the activity
-    //to EDIT rather than CREATE and item of clothing
-    public void setOptions(String classItem){
-        String[] FitTop = new String[]{"Short Sleeve", "Long Sleeve", "Tank Top"};
-        String[] Color = new String[]{"Red", "Blue", "Green","Grey", "Purple", "Yellow", "Black", "Brown", "White", "Pink", "Tan", "Orange"};
-        String[] TypeTop = new String[]{"Button Up", "Tee Shirt", "V-Neck", "Crop Top", "Off The Shoulder", "Blouse"};
-        String[] StyleTop = new String[]{"Basic", "Graphic", "Patterned", "Floral", "Horizontal Stripes", "Vertical Stripes"};
-        String[] FitBottom = new String[]{"Straight", "Skinny", "Slim", "Baggy"};
-        String[] TypeBottom = new String[]{"Pristine", "High Waisted", "Ripped"};
-        String[] StyleBottom = new String[]{"Jeans", "Slacks", "Shorts", "Joggers", "Chinos", "Skirt", "Leggings", "Sweatpants"};
-        String[][] listOptions = new String[][]{};
-
-        switch (classItem){
-            case "Top":
-                listOptions = new String[][]{Color,FitTop,TypeTop,StyleTop};
-                break;
-            case "Bottom":
-                listOptions = new String[][]{Color,FitBottom,TypeBottom,StyleBottom};
-                break;
-            case "Shoes":
-                binding.containerType.setVisibility(View.GONE);
-                binding.containerStyle.setVisibility(View.GONE);
-                binding.containerFit.setVisibility(View.GONE);
-
-                return;
-            default:
-
+        if(retreivedItem == null){
+            binding.tvName.setText("");
         }
-        for (int i = 0; i < viewList.length; i++) {
-            ArrayAdapter<String> newAdapter = new ArrayAdapter<>(
-                    getApplicationContext(),
-                    R.layout.dropdown_menu_popup_item,
-                    listOptions[i]);
-            viewList[i].setAdapter(newAdapter);
-        }
-        binding.containerType.setVisibility(View.VISIBLE);
-        binding.containerStyle.setVisibility(View.VISIBLE);
-        binding.containerFit.setVisibility(View.VISIBLE);
     }
 
     //As the user fills out the options they will be saved in a json object

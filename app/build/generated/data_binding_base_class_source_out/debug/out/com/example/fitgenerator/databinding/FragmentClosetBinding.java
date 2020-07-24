@@ -28,6 +28,9 @@ public final class FragmentClosetBinding implements ViewBinding {
   public final FloatingActionButton fabBottom;
 
   @NonNull
+  public final FloatingActionButton fabLayer;
+
+  @NonNull
   public final FloatingActionButton fabShoes;
 
   @NonNull
@@ -41,11 +44,13 @@ public final class FragmentClosetBinding implements ViewBinding {
 
   private FragmentClosetBinding(@NonNull FrameLayout rootView,
       @NonNull ProgressBar closetLoadingBar, @NonNull FloatingActionButton fabBottom,
-      @NonNull FloatingActionButton fabShoes, @NonNull FloatingActionButton fabTop,
-      @NonNull RecyclerView rvCloset, @NonNull TextView tvInsufficientItems) {
+      @NonNull FloatingActionButton fabLayer, @NonNull FloatingActionButton fabShoes,
+      @NonNull FloatingActionButton fabTop, @NonNull RecyclerView rvCloset,
+      @NonNull TextView tvInsufficientItems) {
     this.rootView = rootView;
     this.closetLoadingBar = closetLoadingBar;
     this.fabBottom = fabBottom;
+    this.fabLayer = fabLayer;
     this.fabShoes = fabShoes;
     this.fabTop = fabTop;
     this.rvCloset = rvCloset;
@@ -91,6 +96,12 @@ public final class FragmentClosetBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.fabLayer;
+      FloatingActionButton fabLayer = rootView.findViewById(id);
+      if (fabLayer == null) {
+        break missingId;
+      }
+
       id = R.id.fabShoes;
       FloatingActionButton fabShoes = rootView.findViewById(id);
       if (fabShoes == null) {
@@ -116,7 +127,7 @@ public final class FragmentClosetBinding implements ViewBinding {
       }
 
       return new FragmentClosetBinding((FrameLayout) rootView, closetLoadingBar, fabBottom,
-          fabShoes, fabTop, rvCloset, tvInsufficientItems);
+          fabLayer, fabShoes, fabTop, rvCloset, tvInsufficientItems);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

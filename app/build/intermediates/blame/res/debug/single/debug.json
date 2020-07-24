@@ -204,6 +204,10 @@
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/app_icon.xml"
     },
     {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/drawable_jacket_icon.xml.flat",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/drawable/jacket_icon.xml"
+    },
+    {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/res/merged/debug/xml_fileprovider.xml.flat",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/xml/fileprovider.xml"
     },

@@ -8,6 +8,7 @@ import com.parse.ParseUser;
 @ParseClassName("Closet")
 public class Closet extends ParseObject {
     public static final String KEY_USER = "User";
+    public static final String KEY_LAYER= "Layer";
     public static final String KEY_TOP = "Top";
     public static final String KEY_BOTTOM= "Bottom";
     public static final String KEY_SHOES= "Shoes";

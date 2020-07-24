@@ -9,6 +9,10 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+<<<<<<< HEAD
         android:text="past fits" />
+=======
+        android:text="Scheduled Fits" />
+>>>>>>> adding_layer_class
 
 </FrameLayout>
