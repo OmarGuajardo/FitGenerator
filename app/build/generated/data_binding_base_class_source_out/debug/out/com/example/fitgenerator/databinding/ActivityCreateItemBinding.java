@@ -30,6 +30,9 @@ public final class ActivityCreateItemBinding implements ViewBinding {
   public final MaterialButton btnPicture;
 
   @NonNull
+  public final TextInputLayout containerCategory;
+
+  @NonNull
   public final TextInputLayout containerClass;
 
   @NonNull
@@ -54,6 +57,9 @@ public final class ActivityCreateItemBinding implements ViewBinding {
   public final ProgressBar progressBar;
 
   @NonNull
+  public final AutoCompleteTextView tvCategory;
+
+  @NonNull
   public final AutoCompleteTextView tvClass;
 
   @NonNull
@@ -73,16 +79,18 @@ public final class ActivityCreateItemBinding implements ViewBinding {
 
   private ActivityCreateItemBinding(@NonNull CoordinatorLayout rootView,
       @NonNull FloatingActionButton btnFAB, @NonNull MaterialButton btnPicture,
-      @NonNull TextInputLayout containerClass, @NonNull TextInputLayout containerColor,
-      @NonNull TextInputLayout containerFit, @NonNull TextInputLayout containerName,
-      @NonNull TextInputLayout containerStyle, @NonNull TextInputLayout containerType,
-      @NonNull CoordinatorLayout coordinatorLayout, @NonNull ProgressBar progressBar,
+      @NonNull TextInputLayout containerCategory, @NonNull TextInputLayout containerClass,
+      @NonNull TextInputLayout containerColor, @NonNull TextInputLayout containerFit,
+      @NonNull TextInputLayout containerName, @NonNull TextInputLayout containerStyle,
+      @NonNull TextInputLayout containerType, @NonNull CoordinatorLayout coordinatorLayout,
+      @NonNull ProgressBar progressBar, @NonNull AutoCompleteTextView tvCategory,
       @NonNull AutoCompleteTextView tvClass, @NonNull AutoCompleteTextView tvColor,
       @NonNull AutoCompleteTextView tvFit, @NonNull TextInputEditText tvName,
       @NonNull AutoCompleteTextView tvStyle, @NonNull AutoCompleteTextView tvType) {
     this.rootView = rootView;
     this.btnFAB = btnFAB;
     this.btnPicture = btnPicture;
+    this.containerCategory = containerCategory;
     this.containerClass = containerClass;
     this.containerColor = containerColor;
     this.containerFit = containerFit;
@@ -91,6 +99,7 @@ public final class ActivityCreateItemBinding implements ViewBinding {
     this.containerType = containerType;
     this.coordinatorLayout = coordinatorLayout;
     this.progressBar = progressBar;
+    this.tvCategory = tvCategory;
     this.tvClass = tvClass;
     this.tvColor = tvColor;
     this.tvFit = tvFit;
@@ -138,6 +147,12 @@ public final class ActivityCreateItemBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.containerCategory;
+      TextInputLayout containerCategory = rootView.findViewById(id);
+      if (containerCategory == null) {
+        break missingId;
+      }
+
       id = R.id.containerClass;
       TextInputLayout containerClass = rootView.findViewById(id);
       if (containerClass == null) {
@@ -182,6 +197,12 @@ public final class ActivityCreateItemBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvCategory;
+      AutoCompleteTextView tvCategory = rootView.findViewById(id);
+      if (tvCategory == null) {
+        break missingId;
+      }
+
       id = R.id.tvClass;
       AutoCompleteTextView tvClass = rootView.findViewById(id);
       if (tvClass == null) {
@@ -219,9 +240,9 @@ public final class ActivityCreateItemBinding implements ViewBinding {
       }
 
       return new ActivityCreateItemBinding((CoordinatorLayout) rootView, btnFAB, btnPicture,
-          containerClass, containerColor, containerFit, containerName, containerStyle,
-          containerType, coordinatorLayout, progressBar, tvClass, tvColor, tvFit, tvName, tvStyle,
-          tvType);
+          containerCategory, containerClass, containerColor, containerFit, containerName,
+          containerStyle, containerType, coordinatorLayout, progressBar, tvCategory, tvClass,
+          tvColor, tvFit, tvName, tvStyle, tvType);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -24,6 +24,7 @@ public class ClothingItem extends ParseObject {
     public static final String KEY_STYLE = "Style";
     public static final String KEY_WORN = "Worn";
     public static final String KEY_USES = "Uses";
+    public static final String KEY_CATEGORY = "Category";
     public static final String KEY_PICTURE = "Picture";
 
 
@@ -99,6 +100,9 @@ public class ClothingItem extends ParseObject {
 
     public String getStyle() {
         return getString(KEY_STYLE);
+    }
+    public String getCategory() {
+        return getString(KEY_CATEGORY);
     }
 
     public String getImageURL(){

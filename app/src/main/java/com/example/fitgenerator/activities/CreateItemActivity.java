@@ -66,8 +66,8 @@ public class CreateItemActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         //Setting up the form
-        viewList = new AutoCompleteTextView[]{binding.tvColor,binding.tvFit,binding.tvType,binding.tvStyle};
-        viewListContainer = new TextInputLayout[]{binding.containerColor,binding.containerFit,binding.containerType,binding.containerStyle};
+        viewList = new AutoCompleteTextView[]{binding.tvColor,binding.tvFit,binding.tvType,binding.tvStyle,binding.tvCategory};
+        viewListContainer = new TextInputLayout[]{binding.containerColor,binding.containerFit,binding.containerType,binding.containerStyle,binding.containerCategory};
         form = new JSONObject();
         try {
             form.put("Name","");
@@ -76,6 +76,7 @@ public class CreateItemActivity extends AppCompatActivity {
             form.put("Fit","");
             form.put("Type","");
             form.put("Style","");
+            form.put("Category","");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -291,6 +292,7 @@ public class CreateItemActivity extends AppCompatActivity {
             form.put("Fit","");
             form.put("Type","");
             form.put("Style","");
+            form.put("Category","");
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -303,6 +305,7 @@ public class CreateItemActivity extends AppCompatActivity {
     //per class
     public void refreshOptions(String classItem){
         String[] Color = new String[]{"Red", "Blue", "Green","Grey", "Purple", "Yellow", "Black", "Brown", "White", "Pink", "Tan", "Orange"};
+        String[] Category = new String[]{"Casual","Semi Formal","Formal"};
         String[] TypeLayer = new String[]{"Wind Breaker","Jacket","Coat","Sweater","Hoodie","Vest","Cardigan"};
         String[] FitTop = new String[]{"Short Sleeve", "Long Sleeve", "Tank Top"};
         String[] TypeTop = new String[]{"Button Up", "Tee Shirt", "V-Neck", "Crop Top", "Off The Shoulder", "Blouse"};
@@ -315,16 +318,16 @@ public class CreateItemActivity extends AppCompatActivity {
 
         switch (classItem){
             case "Layer":
-                listOptions = new String[][]{Color,emptyList,TypeLayer,StyleTop};
+                listOptions = new String[][]{Color,emptyList,TypeLayer,StyleTop,Category};
                 break;
             case "Top":
-                listOptions = new String[][]{Color,FitTop,TypeTop,StyleTop};
+                listOptions = new String[][]{Color,FitTop,TypeTop,StyleTop,Category};
                 break;
             case "Bottom":
-                listOptions = new String[][]{Color,FitBottom,TypeBottom,StyleBottom};
+                listOptions = new String[][]{Color,FitBottom,TypeBottom,StyleBottom,Category};
                 break;
             case "Shoes":
-                listOptions = new String[][]{Color,emptyList,emptyList,emptyList};
+                listOptions = new String[][]{Color,emptyList,emptyList,emptyList,Category};
                 break;
             default:
 

@@ -16,6 +16,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.ScaleAnimation;
+import android.widget.Toast;
 
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.activities.ChooseCategory;
@@ -29,6 +30,11 @@ import com.example.fitgenerator.models.Closet;
 import com.example.fitgenerator.models.ViewAnimation;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
+import com.parse.FunctionCallback;
+import com.parse.ParseCloud;
+
+import java.text.ParseException;
+import java.util.HashMap;
 
 
 public class GeneratorFragment extends Fragment {
@@ -94,6 +100,18 @@ public class GeneratorFragment extends Fragment {
             @Override
             public void onTabReselected(TabLayout.Tab tab) { }
         });
+
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        params.put("movie", "The Matrix");
+        ParseCloud.callFunctionInBackground("hello", params, new FunctionCallback<String>() {
+            @Override
+            public void done(String object, com.parse.ParseException e) {
+                Log.d(TAG, "done: message " + object);
+                Toast.makeText(getContext(), "message: " +object, Toast.LENGTH_SHORT).show();
+            }
+
+        });
+
     }
 
     public void fabListener(int position, View view){

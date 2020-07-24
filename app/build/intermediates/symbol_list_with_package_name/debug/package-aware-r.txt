@@ -2079,6 +2079,7 @@ id closetLoadingBar
 id collapseActionView
 id confirm_button
 id container
+id containerCategory
 id containerClass
 id containerColor
 id containerFit
@@ -2362,6 +2363,7 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id tvCategory
 id tvCategoryName
 id tvClass
 id tvColor

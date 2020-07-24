@@ -84,6 +84,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
                 {"Fit",clothingItem.getFit()},
                 {"Type",clothingItem.getType()},
                 {"Style",clothingItem.getStyle()},
+                {"Category",clothingItem.getCategory()},
                 {"Number of Wears",String.valueOf(clothingItem.getUses())},
                 {clothingItem.getWorn()? "Dirty" : "Clean","  "}};
         //Setting up Recycler View
