@@ -100,7 +100,7 @@ public class GeneratorFragment extends Fragment {
         //Defining different events depending on what tab the user is in
         switch(position){
             case 0:
-                fitsFragment.generateOutfit();
+                generateOutfit();
                 return;
             case 1:
                 openCreateItem();
@@ -117,6 +117,10 @@ public class GeneratorFragment extends Fragment {
         closetFragment.onResume();
     }
 
+    public void generateOutfit(){
+        Intent intent = new Intent(getContext(),ChooseCategory.class);
+        startActivity(intent);
+    }
 
     // Required empty public constructor
     public GeneratorFragment() { }

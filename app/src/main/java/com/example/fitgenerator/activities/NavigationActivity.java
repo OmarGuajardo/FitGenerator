@@ -30,7 +30,6 @@ import com.parse.ParseUser;
 
 public class NavigationActivity extends AppCompatActivity
         implements BottomSheetDialog.BottomSheetListener,
-        FitsFragment.FitsFragmentListener,
         LaundryFragment.LaundryFragmentListener {
 
 
@@ -121,7 +120,6 @@ public class NavigationActivity extends AppCompatActivity
         }
 
     public void refreshCloset(){
-        Log.d(TAG, "refreshCloset:");
         generatorFragment = (GeneratorFragment)fragment;
         generatorFragment.refreshCloset();
     }
@@ -144,10 +142,6 @@ public class NavigationActivity extends AppCompatActivity
         refreshCloset();
     }
 
-    @Override
-    public void handleOnLoveIt() {
-        refreshCloset();
-    }
 
     @Override
     public void handleWashItem() {

@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 return;
             case 1:
-                fitsFragment.generateOutfit();
+//                fitsFragment.generateOutfit();
                 return;
             case 2:
                 laundryFragment.washAllItems();

@@ -2056,7 +2056,6 @@ id btnLogOut
 id btnPicture
 id btnRegister
 id btnReturn
-id btnUseFit
 id buttonPanel
 id cancel_action
 id cancel_button
