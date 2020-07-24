@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Layout;
 import android.view.MenuItem;
@@ -31,6 +32,8 @@ public class ChooseCategory extends AppCompatActivity {
         getSupportActionBar().setTitle("Add New Item");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        TextView tvToolBarTitle = toolbar.findViewById(R.id.tvToolBarTitle);
+        tvToolBarTitle.setText("Choose Category");
 
         binding.categoryFavorite.tvCategoryName.setText("Favorite");
         binding.categoryOccasion.tvCategoryName.setText("Occasion");
@@ -66,12 +69,14 @@ public class ChooseCategory extends AppCompatActivity {
 
 
     }
+    public void chooseFit(){
+        Intent intent = new Intent(this,ChooseFit.class);
+        startActivity(intent);
+    }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         finish();
         return super.onOptionsItemSelected(item);
-    }
-    public void chooseFit(){
-
     }
 }
