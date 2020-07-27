@@ -8,13 +8,20 @@ import androidx.cardview.widget.CardView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.Layout;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.databinding.ActivityChooseCategoryBinding;
+import com.example.fitgenerator.models.Closet;
+import com.parse.FunctionCallback;
+import com.parse.ParseCloud;
+
+import java.util.HashMap;
 
 public class ChooseCategory extends AppCompatActivity {
 
@@ -66,9 +73,17 @@ public class ChooseCategory extends AppCompatActivity {
         });
 
 
+        updateLists();
 
 
     }
+
+    public void updateLists(){
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("currentUserCloset", Closet.getUserCloset().getObjectId());
+        ParseCloud.callFunctionInBackground("updateLists",params);
+    }
+
     public void chooseFit(){
         Intent intent = new Intent(this,ChooseFit.class);
         startActivity(intent);

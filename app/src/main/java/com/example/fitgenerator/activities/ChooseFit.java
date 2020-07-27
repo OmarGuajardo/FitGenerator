@@ -5,18 +5,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.databinding.ActivityChooseFitBinding;
+import com.example.fitgenerator.models.Closet;
+import com.example.fitgenerator.models.ClothingItem;
+import com.parse.FunctionCallback;
+import com.parse.ParseCloud;
+import com.parse.ParseException;
+
+import java.util.HashMap;
+import java.util.List;
 
 public class ChooseFit extends AppCompatActivity {
 
+    private static final String TAG = "ChooseFit";
     Toolbar toolbar;
     ActivityChooseFitBinding binding;
+    List<List<ClothingItem>> generatedOutfits;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +61,26 @@ public class ChooseFit extends AppCompatActivity {
                 .fitCenter()
                 .into(binding.ivShoes);
 
+        getOutfits();
+
+    }
+    public void getOutfits() {
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        params.put("weather", 100);
+        ParseCloud.callFunctionInBackground("generateOutfits", params, new FunctionCallback<Object>() {
+            @Override
+            public void done(Object object, ParseException e) {
+                if(e==null){
+                    generatedOutfits = (List<List<ClothingItem>>)object;
+                    Log.d(TAG, "generated Outfits first item layer name " +generatedOutfits.get(0).get(0).getName());
+                    Log.d(TAG, "generated Outfits first item top name " +generatedOutfits.get(0).get(1).getName());
+                    Log.d(TAG, "generated Outfits first item bottom name " +generatedOutfits.get(0).get(2).getName());
+                    Log.d(TAG, "generated Outfits first item shoes name " +generatedOutfits.get(0).get(3).getName());
+                    return;
+                }
+                Log.e(TAG, "error in getting OutFits", e );
+            }
+        });
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

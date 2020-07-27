@@ -115,8 +115,8 @@ public class GeneratorFragment extends Fragment {
         //Defining different events depending on what tab the user is in
         switch(position){
             case 0:
-//                generateOutfit();
-                updateLists();
+                generateOutfit();
+//                updateLists();
                 return;
             case 1:
                 openCreateItem();
@@ -137,23 +137,6 @@ public class GeneratorFragment extends Fragment {
             public void done(String response, com.parse.ParseException e) {
                 if(e == null){
                     Log.d(TAG, "done: response =  " +response);
-                    cloudFunction();
-                    return;
-                }
-                Toast.makeText(getContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
-                Log.e(TAG, "error in getting string", e);
-            }
-
-        });
-    }
-    public void cloudFunction(){
-        HashMap<String, Object> params = new HashMap<String, Object>();
-        params.put("currentUserCloset", Closet.getUserCloset().getObjectId());
-        ParseCloud.callFunctionInBackground("numOfTops", params, new FunctionCallback<String>() {
-            @Override
-            public void done(String response, com.parse.ParseException e) {
-                if(e == null){
-                    Log.d(TAG, "response of numOfTops = " + response);
                     return;
                 }
                 Toast.makeText(getContext(), "Something went wrong", Toast.LENGTH_SHORT).show();

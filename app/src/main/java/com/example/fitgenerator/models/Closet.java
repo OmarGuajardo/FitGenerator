@@ -1,9 +1,16 @@
 package com.example.fitgenerator.models;
 
+import android.util.Log;
+import android.widget.Toast;
+
+import com.parse.FunctionCallback;
 import com.parse.ParseClassName;
+import com.parse.ParseCloud;
 import com.parse.ParseObject;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
+
+import java.util.HashMap;
 
 @ParseClassName("Closet")
 public class Closet extends ParseObject {
@@ -28,6 +35,8 @@ public class Closet extends ParseObject {
         relation.add(item);
         relationAll.add(item);
     }
+
+
 
 
 
