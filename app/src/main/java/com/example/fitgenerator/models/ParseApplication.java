@@ -38,6 +38,6 @@ public class ParseApplication extends Application {
                 .applicationId(BuildConfig.APP_ID) // should correspond to APP_ID env variable
                 .clientKey(BuildConfig.MASTER_KEY)  // set explicitly unless clientKey is explicitly configured on Parse server
                 .clientBuilder(builder)
-                .server(BuildConfig.SERVER_URL).build());
+                .server(BuildConfig.DEV_SERVER_URL).build());
     }
 }

@@ -23,6 +23,7 @@ android {
         buildConfigField("String", "MASTER_KEY", apikeyProperties['MASTER_KEY'])
         buildConfigField("String", "SERVER_URL", apikeyProperties['SERVER_URL'])
         buildConfigField("String", "GOOGLE_API_KEY", apikeyProperties['GOOGLE_API_KEY'])
+        buildConfigField("String", "DEV_SERVER_URL", apikeyProperties['DEV_SERVER_URL'])
     }
     buildFeatures {
         viewBinding true

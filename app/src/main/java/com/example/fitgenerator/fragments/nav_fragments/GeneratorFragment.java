@@ -27,14 +27,18 @@ import com.example.fitgenerator.fragments.ClosetFragment;
 import com.example.fitgenerator.fragments.FitsFragment;
 import com.example.fitgenerator.fragments.LaundryFragment;
 import com.example.fitgenerator.models.Closet;
+import com.example.fitgenerator.models.ClothingItem;
 import com.example.fitgenerator.models.ViewAnimation;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.tabs.TabLayout;
 import com.parse.FunctionCallback;
 import com.parse.ParseCloud;
+import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 import java.text.ParseException;
 import java.util.HashMap;
+import java.util.List;
 
 
 public class GeneratorFragment extends Fragment {
@@ -101,16 +105,9 @@ public class GeneratorFragment extends Fragment {
             public void onTabReselected(TabLayout.Tab tab) { }
         });
 
-        HashMap<String, Object> params = new HashMap<String, Object>();
-        params.put("movie", "The Matrix");
-        ParseCloud.callFunctionInBackground("hello", params, new FunctionCallback<String>() {
-            @Override
-            public void done(String object, com.parse.ParseException e) {
-                Log.d(TAG, "done: message " + object);
-                Toast.makeText(getContext(), "message: " +object, Toast.LENGTH_SHORT).show();
-            }
 
-        });
+
+
 
     }
 
@@ -118,7 +115,8 @@ public class GeneratorFragment extends Fragment {
         //Defining different events depending on what tab the user is in
         switch(position){
             case 0:
-                generateOutfit();
+//                generateOutfit();
+                updateLists();
                 return;
             case 1:
                 openCreateItem();
@@ -129,6 +127,40 @@ public class GeneratorFragment extends Fragment {
             default:
                 return;
         }
+    }
+
+    public void updateLists(){
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        params.put("currentUserCloset", Closet.getUserCloset().getObjectId());
+        ParseCloud.callFunctionInBackground("updateLists", params, new FunctionCallback<String>() {
+            @Override
+            public void done(String response, com.parse.ParseException e) {
+                if(e == null){
+                    Log.d(TAG, "done: response =  " +response);
+                    cloudFunction();
+                    return;
+                }
+                Toast.makeText(getContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "error in getting string", e);
+            }
+
+        });
+    }
+    public void cloudFunction(){
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        params.put("currentUserCloset", Closet.getUserCloset().getObjectId());
+        ParseCloud.callFunctionInBackground("numOfTops", params, new FunctionCallback<String>() {
+            @Override
+            public void done(String response, com.parse.ParseException e) {
+                if(e == null){
+                    Log.d(TAG, "response of numOfTops = " + response);
+                    return;
+                }
+                Toast.makeText(getContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                Log.e(TAG, "error in getting string", e);
+            }
+
+        });
     }
 
     public void refreshCloset(){
