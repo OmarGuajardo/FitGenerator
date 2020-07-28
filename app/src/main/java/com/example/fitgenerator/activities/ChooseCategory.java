@@ -61,6 +61,7 @@ public class ChooseCategory extends AppCompatActivity {
     ActivityChooseCategoryBinding binding;
     Toolbar toolbar;
     Boolean toggle = false;
+    int currentTemp;
     private PlacesClient placesClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,9 +94,16 @@ public class ChooseCategory extends AppCompatActivity {
                 chooseFit();
             }
         });
+        binding.categoryRandom.cvCategory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                chooseFit();
+            }
+        });
         binding.categoryOccasion.cvCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+            updateLists(currentTemp);
             HashMap<String, Object> params = new HashMap<String, Object>();
             params.put("occasion", "Formal");
             ParseCloud.callFunctionInBackground("categoryOccasion", params, new FunctionCallback<Boolean>() {
@@ -120,31 +128,42 @@ public class ChooseCategory extends AppCompatActivity {
                 //TODO: Get current User's season
                 HashMap<String, Object> params = new HashMap<String, Object>();
                 params.put("season", "Summer");
-                ParseCloud.callFunctionInBackground("categorySeason", params, new FunctionCallback<Boolean>() {
-                    @Override
-                    public void done(Boolean response, ParseException e) {
-                        if(e==null){
-                            if(response == true){
-                                chooseFit();
-                                return;
-                            }
-                            Toast.makeText(ChooseCategory.this, "Not enough clean items", Toast.LENGTH_SHORT).show();
-                        }
-                        Log.e(TAG, "error in getting OutFits", e );
-                    }
-                });
+                chooseCategory("categorySeason",params);
             }
         });
-        binding.categoryRandom.cvCategory.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                chooseFit();
-            }
-        });
+
 
         getWeather();
 
 
+    }
+
+    public void chooseCategory(final String cloudFunctionName, final HashMap<String,Object> cloudParams){
+        toggleForm();
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("currentUserCloset", Closet.getUserCloset().getObjectId());
+        params.put("temp", currentTemp);
+        ParseCloud.callFunctionInBackground("updateLists", params, new FunctionCallback<Object>() {
+            @Override
+            public void done(Object object, ParseException e) {
+                if(e==null){
+                    toggleForm();
+                    ParseCloud.callFunctionInBackground(cloudFunctionName, cloudParams, new FunctionCallback<Boolean>() {
+                        @Override
+                        public void done(Boolean response, ParseException e) {
+                            if(e==null){
+                                if(response == true){
+                                    chooseFit();
+                                    return;
+                                }
+                                Toast.makeText(ChooseCategory.this, "Not enough clean items", Toast.LENGTH_SHORT).show();
+                            }
+                            Log.e(TAG, "error in getting OutFits", e );
+                        }
+                    });
+                }
+            }
+        });
     }
 
     public void toggleForm(){
@@ -158,11 +177,10 @@ public class ChooseCategory extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
+        getWeather();
     }
     
     public void getWeather(){
-        toggleForm();
         // Use fields to define the data types to return.
         List<Place.Field> placeFields = Collections.singletonList(Place.Field.LAT_LNG);
         // Use the builder to create a FindCurrentPlaceRequest.
@@ -189,7 +207,7 @@ public class ChooseCategory extends AppCompatActivity {
                             public void onSuccess(int statusCode, Headers headers, JSON json) {
                                 JSONObject jsonObject = json.jsonObject;
                                 try {
-                                    int currentTemp = jsonObject.getJSONObject("main").getInt("temp");
+                                    currentTemp = jsonObject.getJSONObject("main").getInt("temp");
                                     updateLists(currentTemp);
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -214,7 +232,20 @@ public class ChooseCategory extends AppCompatActivity {
             getLocationPermission();
         }
     }
-    
+
+    public void updateLists(int temp){
+        toggleForm();
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("currentUserCloset", Closet.getUserCloset().getObjectId());
+        params.put("temp", temp);
+        ParseCloud.callFunctionInBackground("updateLists", params, new FunctionCallback<Object>() {
+            @Override
+            public void done(Object object, ParseException e) {
+                toggleForm();
+            }
+        });
+    }
+
     private void getLocationPermission() {
         requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION},PackageManager.PERMISSION_GRANTED);
     }
@@ -230,39 +261,6 @@ public class ChooseCategory extends AppCompatActivity {
 
             }
         }
-    }
-
-    public class EndPoint{
-        String request_url;
-        Boolean first = false;
-        public EndPoint(String request_url){
-            this.request_url = request_url;
-        }
-        public String getEndPoint(){
-            return request_url;
-        }
-        public void addParam(String key, String val){
-            if(first){
-                request_url = request_url + "&"+key+"="+val;
-            }
-            else{
-                request_url = request_url + "?"+key+"="+val;
-                first = true;
-            }
-        }
-    }
-
-
-    public void updateLists(int temp){
-        HashMap<String, Object> params = new HashMap<>();
-        params.put("currentUserCloset", Closet.getUserCloset().getObjectId());
-        params.put("temp", temp);
-        ParseCloud.callFunctionInBackground("updateLists", params, new FunctionCallback<Object>() {
-            @Override
-            public void done(Object object, ParseException e) {
-                toggleForm();
-            }
-        });
     }
 
     public void chooseFit(){
