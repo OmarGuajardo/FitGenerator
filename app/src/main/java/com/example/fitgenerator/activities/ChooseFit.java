@@ -31,7 +31,9 @@ public class ChooseFit extends AppCompatActivity {
     private static final String TAG = "ChooseFit";
     Toolbar toolbar;
     ActivityChooseFitBinding binding;
-    List<List<ClothingItem>> generatedOutfits;
+    List<ClothingItem> currentOutfit;
+    int currentOutfitIndex = -1;
+    List<HashMap> fitList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +69,34 @@ public class ChooseFit extends AppCompatActivity {
         getOutfits();
 
     }
+
+    public void updateCurrentOutfit(int increment){
+        currentOutfitIndex += increment;
+        if(currentOutfitIndex >= fitList.size()){
+            currentOutfitIndex = 0;
+        }
+        else if(currentOutfitIndex < 0){
+            currentOutfitIndex = fitList.size()-1;
+        }
+        if(fitList.get(currentOutfitIndex).get("Layer") != null){
+            ClothingItem layerChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Layer");
+            ClothingItem topChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Top");
+            ClothingItem bottomChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Bottom");
+            ClothingItem shoesChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Shoes");
+            currentOutfit.add(layerChoice);
+            currentOutfit.add(topChoice);
+            currentOutfit.add(bottomChoice);
+            currentOutfit.add(shoesChoice);
+        }
+        else {
+            ClothingItem topChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Top");
+            ClothingItem bottomChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Bottom");
+            ClothingItem shoesChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Shoes");
+            currentOutfit.add(topChoice);
+            currentOutfit.add(bottomChoice);
+            currentOutfit.add(shoesChoice);
+        }
+    }
     public void getOutfits() {
         HashMap<String, Object> params = new HashMap<String, Object>();
         params.put("temp", 100);
@@ -74,9 +104,7 @@ public class ChooseFit extends AppCompatActivity {
             @Override
             public void done(Object object, ParseException e) {
                 if(e==null){
-                    List<HashMap> fitsListObject = (List<HashMap>) object;
-                    ClothingItem firstTop = (ClothingItem)fitsListObject.get(0).get("Top");
-
+                    fitList= (List<HashMap>) object;
                     return;
                 }
                 Log.e(TAG, "error in getting OutFits", e );

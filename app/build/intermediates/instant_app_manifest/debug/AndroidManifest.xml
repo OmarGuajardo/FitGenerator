@@ -29,7 +29,8 @@
         android:roundIcon="@drawable/ic_launching_icon_fg"
         android:supportsRtl="true"
         android:testOnly="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true" >
         <activity android:name="com.example.fitgenerator.activities.ChooseFit" />
         <activity android:name="com.example.fitgenerator.activities.ChooseCategory" />
         <activity

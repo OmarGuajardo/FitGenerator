@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
@@ -27,6 +28,7 @@ import com.example.fitgenerator.databinding.ActivityItemDetailsBinding;
 import org.parceler.Parcels;
 
 public class ItemDetailsActivity extends AppCompatActivity {
+    private static final String TAG = "ItemDetailsActivity";
     Toolbar toolbar;
     RecyclerView rvDetails;
     DetailsAdapter detailsAdapter;
@@ -60,7 +62,9 @@ public class ItemDetailsActivity extends AppCompatActivity {
             }
         });
 
+        imageProgressBar.setVisibility(View.VISIBLE);
         if(!clothingItem.getImageURL().isEmpty()){
+            Log.d(TAG, "image url not empty " + clothingItem.getImageURL());
             Glide.with(getApplicationContext())
                     .load(clothingItem.getImageURL())
                     .circleCrop()
@@ -69,6 +73,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
 
         }
         else{
+            Log.d(TAG, "image url IS empty ");
             imageProgressBar.setVisibility(View.GONE);
             Glide.with(getApplicationContext())
                     .load(R.drawable.fit_generator_icon)

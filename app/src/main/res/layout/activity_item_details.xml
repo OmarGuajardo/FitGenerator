@@ -27,8 +27,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="16dp"
                 android:layout_centerInParent="true"
-
-                app:srcCompat="@drawable/ic_launcher_background"/>
+            tools:srcCompat="@tools:sample/avatars" />
 
             <ProgressBar
                 android:id="@+id/imageProgressBar"

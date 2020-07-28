@@ -87,6 +87,7 @@ public class ChooseCategory extends AppCompatActivity {
         binding.categoryFavorite.cvCategory.setEnabled(toggle);
         toggle = !toggle;
     }
+
     public void updateLists(){
         HashMap<String, Object> params = new HashMap<>();
         params.put("currentUserCloset", Closet.getUserCloset().getObjectId());
