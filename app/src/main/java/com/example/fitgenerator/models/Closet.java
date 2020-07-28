@@ -15,6 +15,7 @@ import java.util.HashMap;
 @ParseClassName("Closet")
 public class Closet extends ParseObject {
     public static final String KEY_USER = "User";
+    public static final String KEY_USER_FITS= "UserFits";
     public static final String KEY_LAYER= "Layer";
     public static final String KEY_TOP = "Top";
     public static final String KEY_BOTTOM= "Bottom";
@@ -34,6 +35,12 @@ public class Closet extends ParseObject {
         ParseRelation<ParseObject> relationAll = userCloset.getRelation(KEY_ALL_ITEMS);
         relation.add(item);
         relationAll.add(item);
+    }
+
+    public void addFit(Fit fit){
+        Closet userCloset = Closet.getUserCloset();
+        ParseRelation<ParseObject> relation = userCloset.getRelation(KEY_USER_FITS);
+        relation.add(fit);
     }
 
 

@@ -17,9 +17,11 @@ import com.example.fitgenerator.R;
 import com.example.fitgenerator.databinding.ActivityChooseFitBinding;
 import com.example.fitgenerator.models.Closet;
 import com.example.fitgenerator.models.ClothingItem;
+import com.example.fitgenerator.models.Fit;
 import com.parse.FunctionCallback;
 import com.parse.ParseCloud;
 import com.parse.ParseException;
+import com.parse.SaveCallback;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -51,22 +53,22 @@ public class ChooseFit extends AppCompatActivity {
         TextView tvToolBarTitle = toolbar.findViewById(R.id.tvToolBarTitle);
         tvToolBarTitle.setText("Choose Fit");
 
-        Glide.with(getApplicationContext())
-                .load("https://lp2.hm.com/hmgoepprod?set=quality[79],source[/c1/b1/c1b1bbc63a23984e66f3e32f1ce5b45ad8b0956f.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/main]")
-                .fitCenter()
-                .into(binding.ivTop);
-        Glide.with(getApplicationContext())
-                .load("https://lp2.hm.com/hmgoepprod?set=quality[79],source[/b9/fc/b9fc3df031aa5903d876dad04d3cbd462d43b726.jpg],origin[dam],category[men_trousers_chinos_skinny_all],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/main]")
-                .fitCenter()
-                .into(binding.ivBottom);
-        Glide.with(getApplicationContext())
-                .load("https://lp2.hm.com/hmgoepprod?set=quality[79],source[/bb/2c/bb2cc7a85ae612d153a031e2657821cca6da474c.jpg],origin[dam],category[men_jacketscoats_bikerjackets],type[LOOKBOOK],res[s],hmver[1]&call=url[file:/product/main]")
-                .fitCenter()
-                .into(binding.ivLayer);
-        Glide.with(getApplicationContext())
-                .load("https://lp2.hm.com/hmgoepprod?set=quality[79],source[/9c/41/9c4105e213f927ca3430ab502e1de5edabeb9263.jpg],origin[dam],category[],type[DESCRIPTIVESTILLLIFE],res[s],hmver[1]&call=url[file:/product/main]")
-                .fitCenter()
-                .into(binding.ivShoes);
+//        Glide.with(getApplicationContext())
+//                .load("https://lp2.hm.com/hmgoepprod?set=quality[79],source[/c1/b1/c1b1bbc63a23984e66f3e32f1ce5b45ad8b0956f.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/main]")
+//                .fitCenter()
+//                .into(binding.ivTop);
+//        Glide.with(getApplicationContext())
+//                .load("https://lp2.hm.com/hmgoepprod?set=quality[79],source[/b9/fc/b9fc3df031aa5903d876dad04d3cbd462d43b726.jpg],origin[dam],category[men_trousers_chinos_skinny_all],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/main]")
+//                .fitCenter()
+//                .into(binding.ivBottom);
+//        Glide.with(getApplicationContext())
+//                .load("https://lp2.hm.com/hmgoepprod?set=quality[79],source[/bb/2c/bb2cc7a85ae612d153a031e2657821cca6da474c.jpg],origin[dam],category[men_jacketscoats_bikerjackets],type[LOOKBOOK],res[s],hmver[1]&call=url[file:/product/main]")
+//                .fitCenter()
+//                .into(binding.ivLayer);
+//        Glide.with(getApplicationContext())
+//                .load("https://lp2.hm.com/hmgoepprod?set=quality[79],source[/9c/41/9c4105e213f927ca3430ab502e1de5edabeb9263.jpg],origin[dam],category[],type[DESCRIPTIVESTILLLIFE],res[s],hmver[1]&call=url[file:/product/main]")
+//                .fitCenter()
+//                .into(binding.ivShoes);
 
         getOutfits();
 
@@ -81,6 +83,42 @@ public class ChooseFit extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 updateCurrentOutfit(1);
+            }
+        });
+        
+        binding.btnFAB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final Fit newFit = new Fit();
+                for(ClothingItem item : currentOutfit){
+                    item.addUses();
+                    switch (item.getClassString()){
+                        case "Layer":
+                            newFit.setLayer(item);
+                            break;
+                        case "Top":
+                            newFit.setTop(item);
+                            item.setWorn(true);
+                            break;
+                        case "Bottom":
+                            newFit.setBottom(item);
+                            item.setWorn(true);
+                            break;
+                        case "Shoes":
+                            newFit.setShoes(item);
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                newFit.saveInBackground(new SaveCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        Closet.getUserCloset().addFit(newFit);
+                        Closet.getUserCloset().saveInBackground();
+                        Toast.makeText(ChooseFit.this, "done!", Toast.LENGTH_SHORT).show();
+                    }
+                });
             }
         });
     }

@@ -22,6 +22,7 @@ public class ParseApplication extends Application {
         //Registering subclasses
         ParseObject.registerSubclass(Closet.class);
         ParseObject.registerSubclass(ClothingItem.class);
+        ParseObject.registerSubclass(Fit.class);
 
         // Use for monitoring Parse OkHttp traffic
         // Can be Level.BASIC, Level.HEADERS, or Level.BODY
