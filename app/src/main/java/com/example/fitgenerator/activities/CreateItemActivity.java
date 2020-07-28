@@ -99,6 +99,7 @@ public class CreateItemActivity extends AppCompatActivity {
                 form.put("Fit",retreivedItem.getFit());
                 form.put("Type",retreivedItem.getType());
                 form.put("Style",retreivedItem.getStyle());
+                form.put("Category",retreivedItem.getCategory());
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -173,6 +174,7 @@ public class CreateItemActivity extends AppCompatActivity {
         binding.tvType.setText(retreivedItem.getType());
         binding.tvStyle.setText(retreivedItem.getStyle());
         binding.tvName.setText(retreivedItem.getName());
+        binding.tvCategory.setText(retreivedItem.getCategory());
 
         if(!retreivedItem.getImageURL().isEmpty()){
             binding.btnPicture.setIcon(getDrawable(R.drawable.ic_baseline_check_24));

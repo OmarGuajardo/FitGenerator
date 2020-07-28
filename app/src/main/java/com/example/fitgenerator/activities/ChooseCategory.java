@@ -20,6 +20,7 @@ import com.example.fitgenerator.databinding.ActivityChooseCategoryBinding;
 import com.example.fitgenerator.models.Closet;
 import com.parse.FunctionCallback;
 import com.parse.ParseCloud;
+import com.parse.ParseException;
 
 import java.util.HashMap;
 
@@ -27,6 +28,7 @@ public class ChooseCategory extends AppCompatActivity {
 
     ActivityChooseCategoryBinding binding;
     Toolbar toolbar;
+    Boolean toggle = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,16 +74,28 @@ public class ChooseCategory extends AppCompatActivity {
             }
         });
 
-
+        toggleForm();
         updateLists();
 
 
     }
 
+    public void toggleForm(){
+        binding.categoryRandom.cvCategory.setEnabled(toggle);
+        binding.categorySeason.cvCategory.setEnabled(toggle);
+        binding.categoryOccasion.cvCategory.setEnabled(toggle);
+        binding.categoryFavorite.cvCategory.setEnabled(toggle);
+        toggle = !toggle;
+    }
     public void updateLists(){
         HashMap<String, Object> params = new HashMap<>();
         params.put("currentUserCloset", Closet.getUserCloset().getObjectId());
-        ParseCloud.callFunctionInBackground("updateLists",params);
+        ParseCloud.callFunctionInBackground("updateLists", params, new FunctionCallback<Object>() {
+            @Override
+            public void done(Object object, ParseException e) {
+                toggleForm();
+            }
+        });
     }
 
     public void chooseFit(){

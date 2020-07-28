@@ -20,6 +20,9 @@ import com.parse.FunctionCallback;
 import com.parse.ParseCloud;
 import com.parse.ParseException;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -66,16 +69,14 @@ public class ChooseFit extends AppCompatActivity {
     }
     public void getOutfits() {
         HashMap<String, Object> params = new HashMap<String, Object>();
-        params.put("weather", 100);
+        params.put("temp", 100);
         ParseCloud.callFunctionInBackground("generateOutfits", params, new FunctionCallback<Object>() {
             @Override
             public void done(Object object, ParseException e) {
                 if(e==null){
-                    generatedOutfits = (List<List<ClothingItem>>)object;
-                    Log.d(TAG, "generated Outfits first item layer name " +generatedOutfits.get(0).get(0).getName());
-                    Log.d(TAG, "generated Outfits first item top name " +generatedOutfits.get(0).get(1).getName());
-                    Log.d(TAG, "generated Outfits first item bottom name " +generatedOutfits.get(0).get(2).getName());
-                    Log.d(TAG, "generated Outfits first item shoes name " +generatedOutfits.get(0).get(3).getName());
+                    List<HashMap> fitsListObject = (List<HashMap>) object;
+                    ClothingItem firstTop = (ClothingItem)fitsListObject.get(0).get("Top");
+
                     return;
                 }
                 Log.e(TAG, "error in getting OutFits", e );
