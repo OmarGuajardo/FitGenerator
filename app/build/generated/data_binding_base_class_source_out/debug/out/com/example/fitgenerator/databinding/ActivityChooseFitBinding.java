@@ -10,6 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import com.example.fitgenerator.R;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -21,6 +22,12 @@ public final class ActivityChooseFitBinding implements ViewBinding {
 
   @NonNull
   public final FloatingActionButton btnFAB;
+
+  @NonNull
+  public final MaterialButton btnNext;
+
+  @NonNull
+  public final MaterialButton btnPrev;
 
   @NonNull
   public final ImageView ivBottom;
@@ -35,10 +42,13 @@ public final class ActivityChooseFitBinding implements ViewBinding {
   public final ImageView ivTop;
 
   private ActivityChooseFitBinding(@NonNull ConstraintLayout rootView,
-      @NonNull FloatingActionButton btnFAB, @NonNull ImageView ivBottom, @NonNull ImageView ivLayer,
+      @NonNull FloatingActionButton btnFAB, @NonNull MaterialButton btnNext,
+      @NonNull MaterialButton btnPrev, @NonNull ImageView ivBottom, @NonNull ImageView ivLayer,
       @NonNull ImageView ivShoes, @NonNull ImageView ivTop) {
     this.rootView = rootView;
     this.btnFAB = btnFAB;
+    this.btnNext = btnNext;
+    this.btnPrev = btnPrev;
     this.ivBottom = ivBottom;
     this.ivLayer = ivLayer;
     this.ivShoes = ivShoes;
@@ -78,6 +88,18 @@ public final class ActivityChooseFitBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.btnNext;
+      MaterialButton btnNext = rootView.findViewById(id);
+      if (btnNext == null) {
+        break missingId;
+      }
+
+      id = R.id.btnPrev;
+      MaterialButton btnPrev = rootView.findViewById(id);
+      if (btnPrev == null) {
+        break missingId;
+      }
+
       id = R.id.ivBottom;
       ImageView ivBottom = rootView.findViewById(id);
       if (ivBottom == null) {
@@ -102,8 +124,8 @@ public final class ActivityChooseFitBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityChooseFitBinding((ConstraintLayout) rootView, btnFAB, ivBottom, ivLayer,
-          ivShoes, ivTop);
+      return new ActivityChooseFitBinding((ConstraintLayout) rootView, btnFAB, btnNext, btnPrev,
+          ivBottom, ivLayer, ivShoes, ivTop);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

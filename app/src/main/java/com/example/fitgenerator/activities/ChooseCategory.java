@@ -18,14 +18,17 @@ import android.widget.Toast;
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.databinding.ActivityChooseCategoryBinding;
 import com.example.fitgenerator.models.Closet;
+import com.google.android.material.button.MaterialButton;
 import com.parse.FunctionCallback;
 import com.parse.ParseCloud;
 import com.parse.ParseException;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class ChooseCategory extends AppCompatActivity {
 
+    private static final String TAG = "ChooseCategory";
     ActivityChooseCategoryBinding binding;
     Toolbar toolbar;
     Boolean toggle = false;
@@ -58,13 +61,43 @@ public class ChooseCategory extends AppCompatActivity {
         binding.categoryOccasion.cvCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chooseFit();
+            HashMap<String, Object> params = new HashMap<String, Object>();
+            params.put("occasion", "Formal");
+            ParseCloud.callFunctionInBackground("categoryOccasion", params, new FunctionCallback<Boolean>() {
+                @Override
+                public void done(Boolean response, ParseException e) {
+                    if(e==null){
+                        if(response == true){
+                            chooseFit();
+                            return;
+                        }
+                        Toast.makeText(ChooseCategory.this, "Not enough clean items", Toast.LENGTH_SHORT).show();
+
+                    }
+                    Log.e(TAG, "error in getting OutFits", e );
+                }
+            });
             }
         });
         binding.categorySeason.cvCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chooseFit();
+                //TODO: Get current User's season
+                HashMap<String, Object> params = new HashMap<String, Object>();
+                params.put("season", "Summer");
+                ParseCloud.callFunctionInBackground("categorySeason", params, new FunctionCallback<Boolean>() {
+                    @Override
+                    public void done(Boolean response, ParseException e) {
+                        if(e==null){
+                            if(response == true){
+                                chooseFit();
+                                return;
+                            }
+                            Toast.makeText(ChooseCategory.this, "Not enough clean items", Toast.LENGTH_SHORT).show();
+                        }
+                        Log.e(TAG, "error in getting OutFits", e );
+                    }
+                });
             }
         });
         binding.categoryRandom.cvCategory.setOnClickListener(new View.OnClickListener() {
@@ -91,6 +124,7 @@ public class ChooseCategory extends AppCompatActivity {
     public void updateLists(){
         HashMap<String, Object> params = new HashMap<>();
         params.put("currentUserCloset", Closet.getUserCloset().getObjectId());
+        params.put("temp", 20);
         ParseCloud.callFunctionInBackground("updateLists", params, new FunctionCallback<Object>() {
             @Override
             public void done(Object object, ParseException e) {

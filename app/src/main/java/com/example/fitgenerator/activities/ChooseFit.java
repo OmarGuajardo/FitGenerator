@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import com.parse.ParseException;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -39,7 +41,7 @@ public class ChooseFit extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityChooseFitBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        currentOutfit = new ArrayList<>();
         // Adding back button to the Tool Bar
         toolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(toolbar);
@@ -68,10 +70,25 @@ public class ChooseFit extends AppCompatActivity {
 
         getOutfits();
 
+        binding.btnPrev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateCurrentOutfit(-1);
+            }
+        });
+
+        binding.btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateCurrentOutfit(1);
+            }
+        });
     }
 
     public void updateCurrentOutfit(int increment){
+        currentOutfit.clear();
         currentOutfitIndex += increment;
+        Log.d(TAG, "currentOutFitIndex " + currentOutfitIndex);
         if(currentOutfitIndex >= fitList.size()){
             currentOutfitIndex = 0;
         }
@@ -80,31 +97,43 @@ public class ChooseFit extends AppCompatActivity {
         }
         if(fitList.get(currentOutfitIndex).get("Layer") != null){
             ClothingItem layerChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Layer");
-            ClothingItem topChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Top");
-            ClothingItem bottomChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Bottom");
-            ClothingItem shoesChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Shoes");
             currentOutfit.add(layerChoice);
-            currentOutfit.add(topChoice);
-            currentOutfit.add(bottomChoice);
-            currentOutfit.add(shoesChoice);
         }
-        else {
-            ClothingItem topChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Top");
-            ClothingItem bottomChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Bottom");
-            ClothingItem shoesChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Shoes");
-            currentOutfit.add(topChoice);
-            currentOutfit.add(bottomChoice);
-            currentOutfit.add(shoesChoice);
+        ClothingItem topChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Top");
+        ClothingItem bottomChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Bottom");
+        ClothingItem shoesChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Shoe");
+        currentOutfit.add(topChoice);
+        currentOutfit.add(bottomChoice);
+        currentOutfit.add(shoesChoice);
+       displayOutfit();
+    }
+    public void displayOutfit(){
+        List<ImageView> ivViewList = new ArrayList<>();
+        if(currentOutfit.size() > 3){
+            ivViewList.add(binding.ivLayer);
         }
+        else{
+            binding.ivLayer.setVisibility(View.GONE);
+        }
+        ivViewList.add(binding.ivTop);
+        ivViewList.add(binding.ivBottom);
+        ivViewList.add(binding.ivShoes);
+        for(int i = 0; i < currentOutfit.size();i++){
+            Glide.with(getApplicationContext())
+                    .load(currentOutfit.get(i).getImageURL())
+                    .fitCenter()
+                    .into(ivViewList.get(i));
+        }
+
     }
     public void getOutfits() {
         HashMap<String, Object> params = new HashMap<String, Object>();
-        params.put("temp", 100);
         ParseCloud.callFunctionInBackground("generateOutfits", params, new FunctionCallback<Object>() {
             @Override
             public void done(Object object, ParseException e) {
                 if(e==null){
                     fitList= (List<HashMap>) object;
+                    updateCurrentOutfit(1);
                     return;
                 }
                 Log.e(TAG, "error in getting OutFits", e );

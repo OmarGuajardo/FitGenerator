@@ -2053,7 +2053,9 @@ id btnFAB
 id btnGetStarted
 id btnLogIn
 id btnLogOut
+id btnNext
 id btnPicture
+id btnPrev
 id btnRegister
 id btnReturn
 id buttonPanel
