@@ -177,7 +177,7 @@ public class ShopFragment extends Fragment {
         }
     }
 
-    public class EndPoint{
+    public static class EndPoint{
         String request_url;
         Boolean first = false;
         public EndPoint(String request_url){

@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.fitgenerator"
-        minSdkVersion 21
+        minSdkVersion 23
         targetSdkVersion 30
         versionCode 1
         versionName "1.0"
@@ -24,6 +24,7 @@ android {
         buildConfigField("String", "SERVER_URL", apikeyProperties['SERVER_URL'])
         buildConfigField("String", "GOOGLE_API_KEY", apikeyProperties['GOOGLE_API_KEY'])
         buildConfigField("String", "DEV_SERVER_URL", apikeyProperties['DEV_SERVER_URL'])
+        buildConfigField("String", "WEATHER_API_KEY", apikeyProperties['WEATHER_API_KEY'])
     }
     buildFeatures {
         viewBinding true

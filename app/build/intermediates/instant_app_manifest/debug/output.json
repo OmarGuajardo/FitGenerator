@@ -21,7 +21,7 @@
       "properties": {
         "packageId": "com.example.fitgenerator",
         "split": "",
-        "minSdkVersion": "21"
+        "minSdkVersion": "23"
       }
     }
   ]
