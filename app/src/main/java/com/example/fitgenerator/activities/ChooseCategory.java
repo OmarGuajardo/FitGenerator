@@ -1,24 +1,18 @@
 package com.example.fitgenerator.activities;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.DialogFragment;
 
 import android.Manifest;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
-import android.text.Layout;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,9 +21,9 @@ import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.example.fitgenerator.BuildConfig;
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.databinding.ActivityChooseCategoryBinding;
+import com.example.fitgenerator.fragments.SingleChoiceDialogFragment;
 import com.example.fitgenerator.fragments.nav_fragments.ShopFragment;
 import com.example.fitgenerator.models.Closet;
-import com.example.fitgenerator.models.Shop;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -39,8 +33,6 @@ import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceResponse;
 import com.google.android.libraries.places.api.net.PlacesClient;
-import com.google.android.material.button.MaterialButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.parse.FunctionCallback;
 import com.parse.ParseCloud;
 import com.parse.ParseException;
@@ -54,7 +46,7 @@ import java.util.List;
 
 import okhttp3.Headers;
 
-public class ChooseCategory extends AppCompatActivity {
+public class ChooseCategory extends AppCompatActivity implements SingleChoiceDialogFragment.SingleChoiceListener {
 
     private static final String TAG = "ChooseCategory";
     private static final String WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather";
@@ -62,6 +54,7 @@ public class ChooseCategory extends AppCompatActivity {
     Toolbar toolbar;
     Boolean toggle = false;
     int currentTemp;
+    String category;
     private PlacesClient placesClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,51 +84,42 @@ public class ChooseCategory extends AppCompatActivity {
         binding.categoryFavorite.cvCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //TODO: Query from the Favorites Column in Closet
                 chooseFit();
             }
         });
         binding.categoryRandom.cvCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                chooseFit();
+                HashMap<String, Object> params = new HashMap<String, Object>();
+                chooseCategory("categoryRandom",params);
             }
         });
         binding.categoryOccasion.cvCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-            updateLists(currentTemp);
-            HashMap<String, Object> params = new HashMap<String, Object>();
-            params.put("occasion", "Formal");
-            ParseCloud.callFunctionInBackground("categoryOccasion", params, new FunctionCallback<Boolean>() {
-                @Override
-                public void done(Boolean response, ParseException e) {
-                    if(e==null){
-                        if(response == true){
-                            chooseFit();
-                            return;
-                        }
-                        Toast.makeText(ChooseCategory.this, "Not enough clean items", Toast.LENGTH_SHORT).show();
-
-                    }
-                    Log.e(TAG, "error in getting OutFits", e );
-                }
-            });
+                String[] choices = new String[]{"Casual","Semi Formal", "Formal"};
+                category = "occasion";
+                showOptions("Choose Occasion",choices);
             }
         });
         binding.categorySeason.cvCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: Get current User's season
-                HashMap<String, Object> params = new HashMap<String, Object>();
-                params.put("season", "Summer");
-                chooseCategory("categorySeason",params);
+                String[] choices = new String[]{"Winter","Spring", "Summer","Fall"};
+                category = "season";
+                showOptions("Choose Season",choices);
             }
         });
 
-
         getWeather();
 
+    }
 
+    public void showOptions(String title, String[] choices){
+        DialogFragment singleChoiceDialog = new SingleChoiceDialogFragment(choices);
+        singleChoiceDialog.setCancelable(false);
+        singleChoiceDialog.show(getSupportFragmentManager(), title);
     }
 
     public void chooseCategory(final String cloudFunctionName, final HashMap<String,Object> cloudParams){
@@ -272,5 +256,21 @@ public class ChooseCategory extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         finish();
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onPositiveButtonClicked(String[] list, int position) {
+        HashMap<String, Object> params = new HashMap<String, Object>();
+        params.put(category, list[position]);
+        if(category.equals("occasion")){
+            chooseCategory("categoryOccasion",params);
+        }
+        else{
+            chooseCategory("categorySeason",params);
+        }
+    }
+
+    @Override
+    public void onNegativeButtonClicked() {
     }
 }

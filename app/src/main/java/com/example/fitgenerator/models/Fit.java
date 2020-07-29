@@ -11,6 +11,7 @@ public class Fit extends ParseObject {
     public static final String KEY_BOTTOM = "Bottom";
     public static final String KEY_SHOES = "Shoes";
     public static final String KEY_FAVORITE = "Favorite";
+    public static final String KEY_CATEGORY = "Category";
 
     public void setLayer(ClothingItem layer) {
         put(KEY_LAYER, layer);
@@ -23,6 +24,9 @@ public class Fit extends ParseObject {
     }
     public void setShoes(ClothingItem shoes){
         put(KEY_SHOES,shoes);
+    }
+    public void setCategory(String category){
+        put(KEY_CATEGORY,category);
     }
 
 }

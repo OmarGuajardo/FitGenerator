@@ -19,6 +19,7 @@ import com.example.fitgenerator.models.Closet;
 import com.example.fitgenerator.models.ClothingItem;
 import com.example.fitgenerator.models.Fit;
 import com.parse.FunctionCallback;
+import com.parse.Parse;
 import com.parse.ParseCloud;
 import com.parse.ParseException;
 import com.parse.SaveCallback;
@@ -38,6 +39,7 @@ public class ChooseFit extends AppCompatActivity {
     List<ClothingItem> currentOutfit;
     int currentOutfitIndex = -1;
     List<HashMap> fitList;
+    String category;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,23 +54,6 @@ public class ChooseFit extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         TextView tvToolBarTitle = toolbar.findViewById(R.id.tvToolBarTitle);
         tvToolBarTitle.setText("Choose Fit");
-
-//        Glide.with(getApplicationContext())
-//                .load("https://lp2.hm.com/hmgoepprod?set=quality[79],source[/c1/b1/c1b1bbc63a23984e66f3e32f1ce5b45ad8b0956f.jpg],origin[dam],category[men_tshirtstanks_shortsleeve],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/main]")
-//                .fitCenter()
-//                .into(binding.ivTop);
-//        Glide.with(getApplicationContext())
-//                .load("https://lp2.hm.com/hmgoepprod?set=quality[79],source[/b9/fc/b9fc3df031aa5903d876dad04d3cbd462d43b726.jpg],origin[dam],category[men_trousers_chinos_skinny_all],type[LOOKBOOK],res[m],hmver[1]&call=url[file:/product/main]")
-//                .fitCenter()
-//                .into(binding.ivBottom);
-//        Glide.with(getApplicationContext())
-//                .load("https://lp2.hm.com/hmgoepprod?set=quality[79],source[/bb/2c/bb2cc7a85ae612d153a031e2657821cca6da474c.jpg],origin[dam],category[men_jacketscoats_bikerjackets],type[LOOKBOOK],res[s],hmver[1]&call=url[file:/product/main]")
-//                .fitCenter()
-//                .into(binding.ivLayer);
-//        Glide.with(getApplicationContext())
-//                .load("https://lp2.hm.com/hmgoepprod?set=quality[79],source[/9c/41/9c4105e213f927ca3430ab502e1de5edabeb9263.jpg],origin[dam],category[],type[DESCRIPTIVESTILLLIFE],res[s],hmver[1]&call=url[file:/product/main]")
-//                .fitCenter()
-//                .into(binding.ivShoes);
 
         getOutfits();
 
@@ -111,12 +96,16 @@ public class ChooseFit extends AppCompatActivity {
                             break;
                     }
                 }
+                newFit.setCategory(category);
                 newFit.saveInBackground(new SaveCallback() {
                     @Override
                     public void done(ParseException e) {
-                        Closet.getUserCloset().addFit(newFit);
-                        Closet.getUserCloset().saveInBackground();
-                        Toast.makeText(ChooseFit.this, "done!", Toast.LENGTH_SHORT).show();
+                        if(e == null){
+                            Closet.getUserCloset().addFit(newFit);
+                            Closet.getUserCloset().saveInBackground();
+                            Toast.makeText(ChooseFit.this, "done!", Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 });
             }
@@ -164,13 +153,16 @@ public class ChooseFit extends AppCompatActivity {
         }
 
     }
+
     public void getOutfits() {
         HashMap<String, Object> params = new HashMap<String, Object>();
-        ParseCloud.callFunctionInBackground("generateOutfits", params, new FunctionCallback<Object>() {
+        ParseCloud.callFunctionInBackground("generateOutfits", params, new FunctionCallback<HashMap>() {
             @Override
-            public void done(Object object, ParseException e) {
+            public void done(HashMap map, ParseException e) {
                 if(e==null){
-                    fitList= (List<HashMap>) object;
+                    category = (String)map.get("Category");
+                    fitList = (List<HashMap>)map.get("Fits");
+//                    fitList= (List<HashMap>) object;
                     updateCurrentOutfit(1);
                     return;
                 }

@@ -31,8 +31,12 @@
         android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
-        <activity android:name="com.example.fitgenerator.activities.ChooseFit" />
-        <activity android:name="com.example.fitgenerator.activities.ChooseCategory" />
+        <activity
+            android:name="com.example.fitgenerator.activities.ChooseFit"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fitgenerator.activities.ChooseCategory"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.example.fitgenerator.activities.SettingsActivity"
             android:label="@string/title_activity_settings" />
@@ -50,10 +54,18 @@
                 android:resource="@xml/fileprovider" />
         </provider>
 
-        <activity android:name="com.example.fitgenerator.activities.ItemDetailsActivity" />
-        <activity android:name="com.example.fitgenerator.activities.CreateItemActivity" />
-        <activity android:name="com.example.fitgenerator.activities.RegisterActivity" />
-        <activity android:name="com.example.fitgenerator.activities.WelcomeActivity" >
+        <activity
+            android:name="com.example.fitgenerator.activities.ItemDetailsActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fitgenerator.activities.CreateItemActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fitgenerator.activities.RegisterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.fitgenerator.activities.WelcomeActivity"
+            android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
