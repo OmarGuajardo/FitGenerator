@@ -21,6 +21,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Toast;
 
+import com.example.fitgenerator.fragments.LoadingDialog;
 import com.example.fitgenerator.models.Closet;
 import com.example.fitgenerator.models.ClothingItem;
 import com.example.fitgenerator.R;
@@ -46,6 +47,7 @@ public class CreateItemActivity extends AppCompatActivity {
     AutoCompleteTextView[] viewList;
     TextInputLayout[] viewListContainer;
     ClothingItem retreivedItem;
+    LoadingDialog loadingDialog;
 
     //Vars for taking picture
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 42;
@@ -224,8 +226,9 @@ public class CreateItemActivity extends AppCompatActivity {
         if(formReady){
            formEnable(false);
            submitClothingItem();
-           Snackbar.make(binding.coordinatorLayout, "Saving item...", Snackbar.LENGTH_LONG)
-                    .show();
+            loadingDialog = new LoadingDialog(CreateItemActivity.this);
+            loadingDialog.startLoadingDialog();
+
         }
     }
 
@@ -263,7 +266,7 @@ public class CreateItemActivity extends AppCompatActivity {
                     String classString = form.getString("Class");
                     Closet.getUserCloset().addItem(clothingItemSubmit,classString);
                     Closet.getUserCloset().saveInBackground();
-
+                    loadingDialog.dismissDialog();
                     Snackbar.make(binding.coordinatorLayout, "Item Saved!", Snackbar.LENGTH_SHORT)
                             .show();
                 } catch (JSONException ex) {

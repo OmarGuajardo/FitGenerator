@@ -29,4 +29,11 @@ public class Fit extends ParseObject {
         put(KEY_CATEGORY,category);
     }
 
+    public String getCategory(){
+        return getString(KEY_CATEGORY);
+    }
+
+    public Boolean getFavorite(){
+        return getBoolean(KEY_FAVORITE);
+    }
 }

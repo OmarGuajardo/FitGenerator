@@ -37,6 +37,7 @@ public class FitsFragment extends Fragment {
 
     private static final String TAG = "FitsFragment";
 
+
     public FitsFragment() {
         // Required empty public constructor
     }
