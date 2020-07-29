@@ -2,7 +2,6 @@ package com.example.fitgenerator.models;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
-import com.saber.stickyheader.stickyData.StickyMainData;
 
 @ParseClassName("Fit")
 public class Fit extends ParseObject{

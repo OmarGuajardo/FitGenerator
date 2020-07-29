@@ -85,12 +85,5 @@ dependencies {
     //Async
     implementation 'com.codepath.libraries:asynchttpclient:0.0.9'
 
-    //Sticky Header
-    implementation 'com.saber:stickyheader:1.0'
-
-
-    
-    implementation 'com.jakewharton:butterknife:10.0.0'
-    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
 
 }
