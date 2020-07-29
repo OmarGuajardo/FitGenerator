@@ -1908,6 +1908,8 @@ drawable ic_baseline_check_24
 drawable ic_baseline_create_24
 drawable ic_baseline_dehaze_24
 drawable ic_baseline_delete_24
+drawable ic_baseline_favorite_24
+drawable ic_baseline_favorite_border_24
 drawable ic_baseline_history_24
 drawable ic_baseline_rotate_right_24
 drawable ic_baseline_save_24
@@ -2050,6 +2052,7 @@ id blocking
 id bottom
 id btnEdit
 id btnFAB
+id btnFavorite
 id btnGetStarted
 id btnLogIn
 id btnLogOut
@@ -2071,6 +2074,7 @@ id center_vertical
 id chains
 id checkbox
 id checked
+id childRecyclerView
 id chip
 id chip_group
 id chronometer
@@ -2298,6 +2302,7 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id sectionNameTextView
 id seekbar
 id seekbar_value
 id select_dialog_listview
@@ -2373,6 +2378,7 @@ id tvDescriptionBody
 id tvDescriptionTitle
 id tvEmail
 id tvFit
+id tvFitCategory
 id tvInsufficientItems
 id tvItemClass
 id tvItemName
@@ -2492,12 +2498,14 @@ layout design_text_input_start_icon
 layout details_item
 layout dropdown_menu_popup_item
 layout expand_button
+layout fit_item
 layout fragment_closet
 layout fragment_fits
 layout fragment_generator
 layout fragment_history
 layout fragment_laundry
 layout fragment_shop
+layout header_fit_item
 layout image_frame
 layout main_toolbar
 layout mtrl_alert_dialog

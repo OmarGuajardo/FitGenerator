@@ -2,9 +2,10 @@ package com.example.fitgenerator.models;
 
 import com.parse.ParseClassName;
 import com.parse.ParseObject;
+import com.saber.stickyheader.stickyData.StickyMainData;
 
 @ParseClassName("Fit")
-public class Fit extends ParseObject {
+public class Fit extends ParseObject{
 
     public static final String KEY_LAYER = "Layer";
     public static final String KEY_TOP = "Top";

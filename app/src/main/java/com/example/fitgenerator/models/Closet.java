@@ -21,6 +21,7 @@ public class Closet extends ParseObject {
     public static final String KEY_BOTTOM= "Bottom";
     public static final String KEY_SHOES= "Shoes";
     public static final String KEY_ALL_ITEMS= "allItems";
+    public static final String KEY_CREATED_AT= "createdAt";
 
     public void setUser(ParseUser user){
         put(KEY_USER,user);
