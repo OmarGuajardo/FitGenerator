@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.viewbinding.ViewBinding;
 import com.example.fitgenerator.R;
 import com.google.android.material.button.MaterialButton;
@@ -18,7 +18,7 @@ import java.lang.String;
 
 public final class ActivityChooseFitBinding implements ViewBinding {
   @NonNull
-  private final ConstraintLayout rootView;
+  private final CoordinatorLayout rootView;
 
   @NonNull
   public final FloatingActionButton btnFAB;
@@ -28,6 +28,9 @@ public final class ActivityChooseFitBinding implements ViewBinding {
 
   @NonNull
   public final MaterialButton btnPrev;
+
+  @NonNull
+  public final CoordinatorLayout coordinatorLayout;
 
   @NonNull
   public final ImageView ivBottom;
@@ -41,14 +44,16 @@ public final class ActivityChooseFitBinding implements ViewBinding {
   @NonNull
   public final ImageView ivTop;
 
-  private ActivityChooseFitBinding(@NonNull ConstraintLayout rootView,
+  private ActivityChooseFitBinding(@NonNull CoordinatorLayout rootView,
       @NonNull FloatingActionButton btnFAB, @NonNull MaterialButton btnNext,
-      @NonNull MaterialButton btnPrev, @NonNull ImageView ivBottom, @NonNull ImageView ivLayer,
-      @NonNull ImageView ivShoes, @NonNull ImageView ivTop) {
+      @NonNull MaterialButton btnPrev, @NonNull CoordinatorLayout coordinatorLayout,
+      @NonNull ImageView ivBottom, @NonNull ImageView ivLayer, @NonNull ImageView ivShoes,
+      @NonNull ImageView ivTop) {
     this.rootView = rootView;
     this.btnFAB = btnFAB;
     this.btnNext = btnNext;
     this.btnPrev = btnPrev;
+    this.coordinatorLayout = coordinatorLayout;
     this.ivBottom = ivBottom;
     this.ivLayer = ivLayer;
     this.ivShoes = ivShoes;
@@ -57,7 +62,7 @@ public final class ActivityChooseFitBinding implements ViewBinding {
 
   @Override
   @NonNull
-  public ConstraintLayout getRoot() {
+  public CoordinatorLayout getRoot() {
     return rootView;
   }
 
@@ -100,6 +105,8 @@ public final class ActivityChooseFitBinding implements ViewBinding {
         break missingId;
       }
 
+      CoordinatorLayout coordinatorLayout = (CoordinatorLayout) rootView;
+
       id = R.id.ivBottom;
       ImageView ivBottom = rootView.findViewById(id);
       if (ivBottom == null) {
@@ -124,8 +131,8 @@ public final class ActivityChooseFitBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityChooseFitBinding((ConstraintLayout) rootView, btnFAB, btnNext, btnPrev,
-          ivBottom, ivLayer, ivShoes, ivTop);
+      return new ActivityChooseFitBinding((CoordinatorLayout) rootView, btnFAB, btnNext, btnPrev,
+          coordinatorLayout, ivBottom, ivLayer, ivShoes, ivTop);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

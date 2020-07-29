@@ -56,6 +56,7 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
     int currentTemp;
     String category;
     private PlacesClient placesClient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -92,23 +93,23 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
             @Override
             public void onClick(View view) {
                 HashMap<String, Object> params = new HashMap<String, Object>();
-                chooseCategory("categoryRandom",params);
+                chooseCategory("categoryRandom", params);
             }
         });
         binding.categoryOccasion.cvCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String[] choices = new String[]{"Casual","Semi Formal", "Formal"};
+                String[] choices = new String[]{"Casual", "Semi Formal", "Formal"};
                 category = "occasion";
-                showOptions("Choose Occasion",choices);
+                showOptions("Choose Occasion", choices);
             }
         });
         binding.categorySeason.cvCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String[] choices = new String[]{"Winter","Spring", "Summer","Fall"};
+                String[] choices = new String[]{"Winter", "Spring", "Summer", "Fall"};
                 category = "season";
-                showOptions("Choose Season",choices);
+                showOptions("Choose Season", choices);
             }
         });
 
@@ -116,13 +117,13 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
 
     }
 
-    public void showOptions(String title, String[] choices){
+    public void showOptions(String title, String[] choices) {
         DialogFragment singleChoiceDialog = new SingleChoiceDialogFragment(choices);
         singleChoiceDialog.setCancelable(false);
         singleChoiceDialog.show(getSupportFragmentManager(), title);
     }
 
-    public void chooseCategory(final String cloudFunctionName, final HashMap<String,Object> cloudParams){
+    public void chooseCategory(final String cloudFunctionName, final HashMap<String, Object> cloudParams) {
         toggleForm();
         HashMap<String, Object> params = new HashMap<>();
         params.put("currentUserCloset", Closet.getUserCloset().getObjectId());
@@ -130,19 +131,19 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
         ParseCloud.callFunctionInBackground("updateLists", params, new FunctionCallback<Object>() {
             @Override
             public void done(Object object, ParseException e) {
-                if(e==null){
+                if (e == null) {
                     toggleForm();
                     ParseCloud.callFunctionInBackground(cloudFunctionName, cloudParams, new FunctionCallback<Boolean>() {
                         @Override
                         public void done(Boolean response, ParseException e) {
-                            if(e==null){
-                                if(response == true){
+                            if (e == null) {
+                                if (response == true) {
                                     chooseFit();
                                     return;
                                 }
                                 Toast.makeText(ChooseCategory.this, "Not enough clean items", Toast.LENGTH_SHORT).show();
                             }
-                            Log.e(TAG, "error in getting OutFits", e );
+                            Log.e(TAG, "error in getting OutFits", e);
                         }
                     });
                 }
@@ -150,7 +151,7 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
         });
     }
 
-    public void toggleForm(){
+    public void toggleForm() {
         binding.categoryRandom.cvCategory.setEnabled(toggle);
         binding.categorySeason.cvCategory.setEnabled(toggle);
         binding.categoryOccasion.cvCategory.setEnabled(toggle);
@@ -158,13 +159,9 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
         toggle = !toggle;
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        getWeather();
-    }
-    
-    public void getWeather(){
+
+
+    public void getWeather() {
         // Use fields to define the data types to return.
         List<Place.Field> placeFields = Collections.singletonList(Place.Field.LAT_LNG);
         // Use the builder to create a FindCurrentPlaceRequest.
@@ -177,15 +174,15 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
                 @Override
                 public void onComplete(@NonNull Task<FindCurrentPlaceResponse> task) {
                     //Getting the users location so that we can query for shops nearby
-                    if (task.isSuccessful()){
+                    if (task.isSuccessful()) {
                         FindCurrentPlaceResponse response = task.getResult();
                         LatLng lat_lng = response.getPlaceLikelihoods().get(0).getPlace().getLatLng();
                         AsyncHttpClient client = new AsyncHttpClient();
                         ShopFragment.EndPoint newEndPoint = new ShopFragment.EndPoint(WEATHER_URL);
                         newEndPoint.addParam("appid", BuildConfig.WEATHER_API_KEY);
-                        newEndPoint.addParam("lat",String.valueOf(lat_lng.latitude));
-                        newEndPoint.addParam("lon",String.valueOf(lat_lng.longitude));
-                        newEndPoint.addParam("units","imperial");
+                        newEndPoint.addParam("lat", String.valueOf(lat_lng.latitude));
+                        newEndPoint.addParam("lon", String.valueOf(lat_lng.longitude));
+                        newEndPoint.addParam("units", "imperial");
                         client.get(newEndPoint.getEndPoint(), new JsonHttpResponseHandler() {
                             @Override
                             public void onSuccess(int statusCode, Headers headers, JSON json) {
@@ -197,9 +194,10 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
                                     e.printStackTrace();
                                 }
                             }
+
                             @Override
                             public void onFailure(int statusCode, Headers headers, String response, Throwable throwable) {
-                                Log.e(TAG, "onFailure: "+response, throwable);
+                                Log.e(TAG, "onFailure: " + response, throwable);
                             }
                         });
                     } else {
@@ -211,13 +209,12 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
                     }
                 }
             });
-        }
-        else{
+        } else {
             getLocationPermission();
         }
     }
 
-    public void updateLists(int temp){
+    public void updateLists(int temp) {
         toggleForm();
         HashMap<String, Object> params = new HashMap<>();
         params.put("currentUserCloset", Closet.getUserCloset().getObjectId());
@@ -231,25 +228,30 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
     }
 
     private void getLocationPermission() {
-        requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION},PackageManager.PERMISSION_GRANTED);
+        requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, PackageManager.PERMISSION_GRANTED);
+    }
+
+    public void chooseFit() {
+        Intent intent = new Intent(this, ChooseFit.class);
+        startActivity(intent);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getWeather();
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if(requestCode == PackageManager.PERMISSION_GRANTED){
-            if(grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
+        if (requestCode == PackageManager.PERMISSION_GRANTED) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 Toast.makeText(this, "Permission Granted", Toast.LENGTH_SHORT).show();
-            }
-            else{
+            } else {
                 Toast.makeText(this, "Permission NOT Granted", Toast.LENGTH_SHORT).show();
 
             }
         }
-    }
-
-    public void chooseFit(){
-        Intent intent = new Intent(this,ChooseFit.class);
-        startActivity(intent);
     }
 
     @Override
@@ -262,11 +264,10 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
     public void onPositiveButtonClicked(String[] list, int position) {
         HashMap<String, Object> params = new HashMap<String, Object>();
         params.put(category, list[position]);
-        if(category.equals("occasion")){
-            chooseCategory("categoryOccasion",params);
-        }
-        else{
-            chooseCategory("categorySeason",params);
+        if (category.equals("occasion")) {
+            chooseCategory("categoryOccasion", params);
+        } else {
+            chooseCategory("categorySeason", params);
         }
     }
 

@@ -4,7 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,9 +18,11 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.databinding.ActivityChooseFitBinding;
+import com.example.fitgenerator.fragments.LoadingDialog;
 import com.example.fitgenerator.models.Closet;
 import com.example.fitgenerator.models.ClothingItem;
 import com.example.fitgenerator.models.Fit;
+import com.google.android.material.snackbar.Snackbar;
 import com.parse.FunctionCallback;
 import com.parse.Parse;
 import com.parse.ParseCloud;
@@ -49,7 +54,6 @@ public class ChooseFit extends AppCompatActivity {
         // Adding back button to the Tool Bar
         toolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Add New Item");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         TextView tvToolBarTitle = toolbar.findViewById(R.id.tvToolBarTitle);
@@ -74,6 +78,8 @@ public class ChooseFit extends AppCompatActivity {
         binding.btnFAB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                final LoadingDialog loadingDialog = new LoadingDialog(ChooseFit.this);
+                loadingDialog.startLoadingDialog();
                 final Fit newFit = new Fit();
                 for(ClothingItem item : currentOutfit){
                     item.addUses();
@@ -101,9 +107,24 @@ public class ChooseFit extends AppCompatActivity {
                     @Override
                     public void done(ParseException e) {
                         if(e == null){
+                            loadingDialog.dismissDialog();
                             Closet.getUserCloset().addFit(newFit);
                             Closet.getUserCloset().saveInBackground();
-                            Toast.makeText(ChooseFit.this, "done!", Toast.LENGTH_SHORT).show();
+                            Snackbar.make(binding.coordinatorLayout, "Outfit Selected!", Snackbar.LENGTH_SHORT)
+                                    .show();
+                            final Handler handler = new Handler();
+                            handler.postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Intent intent = new Intent(ChooseFit.this,NavigationActivity.class);
+                                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            }, 500);
+
+
+
                         }
 
                     }
@@ -162,7 +183,6 @@ public class ChooseFit extends AppCompatActivity {
                 if(e==null){
                     category = (String)map.get("Category");
                     fitList = (List<HashMap>)map.get("Fits");
-//                    fitList= (List<HashMap>) object;
                     updateCurrentOutfit(1);
                     return;
                 }
