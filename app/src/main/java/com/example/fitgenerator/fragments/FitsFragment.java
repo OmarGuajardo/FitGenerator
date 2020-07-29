@@ -26,7 +26,9 @@ import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class FitsFragment extends Fragment {
@@ -54,10 +56,7 @@ public class FitsFragment extends Fragment {
         rvFits.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         rvFits.setLayoutManager(layoutManager);
 
-
         queryData();
-
-
     }
 
 
@@ -80,7 +79,12 @@ public class FitsFragment extends Fragment {
     }
 
     public void displayData(){
-        String sectionOneName = listFits.get(0).getCreatedAt().toString();
+        Date date = listFits.get(0).getCreatedAt();
+//        SimpleDateFormat DateFor = new SimpleDateFormat("dd MMMM yyyy");
+        SimpleDateFormat DateFor = new SimpleDateFormat("EEE MMM d yyyy");
+
+        String stringDate = DateFor.format(date);
+        String sectionOneName = stringDate;
         List<Fit> sectionOneItems = new ArrayList<>();
        sectionOneItems.addAll(listFits);
 
