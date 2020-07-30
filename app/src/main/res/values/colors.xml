@@ -13,4 +13,5 @@
     <color name="primaryTextColor2">#353745</color>
     <color name="secondaryTextColor">#000000</color>
     <color name = "red">#96000d</color>
+    <color name = "facebook_blue">#4267B2</color>
 </resources>

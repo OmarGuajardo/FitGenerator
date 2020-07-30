@@ -56,12 +56,12 @@
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/activity_create_item.xml"
     },
     {
-        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_history.xml",
-        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/fragment_history.xml"
-    },
-    {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_fit_details.xml",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/activity_fit_details.xml"
+    },
+    {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/fragment_history.xml",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/fragment_history.xml"
     },
     {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_main.xml",

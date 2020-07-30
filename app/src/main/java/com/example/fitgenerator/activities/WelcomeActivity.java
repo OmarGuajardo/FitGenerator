@@ -7,6 +7,9 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.fitgenerator.databinding.ActivityWelcomeBinding;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+
 
 public class WelcomeActivity extends AppCompatActivity {
 
@@ -24,5 +27,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+
     }
 }

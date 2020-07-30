@@ -25,6 +25,7 @@ android {
         buildConfigField("String", "GOOGLE_API_KEY", apikeyProperties['GOOGLE_API_KEY'])
         buildConfigField("String", "DEV_SERVER_URL", apikeyProperties['DEV_SERVER_URL'])
         buildConfigField("String", "WEATHER_API_KEY", apikeyProperties['WEATHER_API_KEY'])
+        buildConfigField("String", "FACEBOOK_APP_ID", apikeyProperties['FACEBOOK_APP_ID'])
     }
     buildFeatures {
         viewBinding true
@@ -85,5 +86,10 @@ dependencies {
     //Async
     implementation 'com.codepath.libraries:asynchttpclient:0.0.9'
 
+    //Facebook SDK
+    implementation 'com.facebook.android:facebook-android-sdk:[5,6)'
+
+    //Parse Facebook SDK
+    implementation "com.github.parse-community.Parse-SDK-Android:facebook:1.25.0"
 
 }
