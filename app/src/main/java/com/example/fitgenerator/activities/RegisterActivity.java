@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
@@ -33,22 +34,6 @@ public class RegisterActivity extends AppCompatActivity {
     ActivityRegisterBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-//        try {
-////            PackageInfo info = getPackageManager().getPackageInfo(
-////                    "com.example.packagename",
-////                    PackageManager.GET_SIGNATURES);
-////            for (Signature signature : info.signatures) {
-////                MessageDigest md = MessageDigest.getInstance("SHA");
-////                md.update(signature.toByteArray());
-////                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-////            }
-////        }
-////        catch (NameNotFoundException e) {
-////        }
-////        catch (NoSuchAlgorithmException e) {
-////        }
-
 
         binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         super.onCreate(savedInstanceState);
@@ -83,13 +68,24 @@ public class RegisterActivity extends AppCompatActivity {
     public void logInWithFacebook(Collection<String> permissions){
         ParseFacebookUtils.logInWithReadPermissionsInBackground(this, permissions, new LogInCallback() {
             @Override
-            public void done(ParseUser user, ParseException err) {
+            public void done(final ParseUser user, ParseException err) {
                 if (user == null) {
                     Log.d("MyApp", "Uh oh. The user cancelled the Facebook login.");
                 } else if (user.isNew()) {
+                    final Closet newCloset = new Closet();
+                    newCloset.setUser(user);
+                    newCloset.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            user.put("UserCloset",newCloset);
+                            user.saveInBackground();
+                            goHomePage();
+                        }
+                    });
                     Log.d("MyApp", "User signed up and logged in through Facebook!");
                 } else {
                     Log.d("MyApp", "User logged in through Facebook!");
+                    goHomePage();
                 }
             }
         });
