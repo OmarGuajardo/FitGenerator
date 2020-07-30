@@ -67,7 +67,8 @@ public class ItemDetailsActivity extends AppCompatActivity {
             Log.d(TAG, "image url not empty " + clothingItem.getImageURL());
             Glide.with(getApplicationContext())
                     .load(clothingItem.getImageURL())
-                    .circleCrop()
+//                    .circleCrop()
+                    .dontTransform()
                     .into(binding.ivItemPic);
             imageProgressBar.setVisibility(View.GONE);
 

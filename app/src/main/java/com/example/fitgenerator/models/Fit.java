@@ -1,9 +1,18 @@
 package com.example.fitgenerator.models;
 
+import android.util.Log;
+
+import com.parse.GetCallback;
 import com.parse.ParseClassName;
+import com.parse.ParseException;
 import com.parse.ParseObject;
 
+import org.parceler.Parcel;
+
+import java.util.Objects;
+
 @ParseClassName("Fit")
+@Parcel(analyze = Fit.class)
 public class Fit extends ParseObject{
 
     public static final String KEY_LAYER = "Layer";
@@ -12,6 +21,7 @@ public class Fit extends ParseObject{
     public static final String KEY_SHOES = "Shoes";
     public static final String KEY_FAVORITE = "Favorite";
     public static final String KEY_CATEGORY = "Category";
+    private static final String TAG = "Fit.java";
 
     public void setLayer(ClothingItem layer) {
         put(KEY_LAYER, layer);
@@ -36,4 +46,11 @@ public class Fit extends ParseObject{
     public Boolean getFavorite(){
         return getBoolean(KEY_FAVORITE);
     }
+
+    public void setFavorite(Boolean state){
+        put(KEY_FAVORITE,state);
+
+    }
+
+
 }

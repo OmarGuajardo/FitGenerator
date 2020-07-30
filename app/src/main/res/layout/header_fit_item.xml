@@ -7,11 +7,11 @@
 
 
     <TextView
+        android:paddingTop="8dp"
         android:id="@+id/sectionNameTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
-        android:padding="8dp"
         android:text="Sunday, June 28 2020"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintEnd_toEndOf="parent"

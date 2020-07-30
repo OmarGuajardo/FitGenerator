@@ -23,12 +23,16 @@ public final class FitItemBinding implements ViewBinding {
   public final ImageButton btnFavorite;
 
   @NonNull
+  public final ConstraintLayout layoutFitItem;
+
+  @NonNull
   public final TextView tvFitCategory;
 
   private FitItemBinding(@NonNull ConstraintLayout rootView, @NonNull ImageButton btnFavorite,
-      @NonNull TextView tvFitCategory) {
+      @NonNull ConstraintLayout layoutFitItem, @NonNull TextView tvFitCategory) {
     this.rootView = rootView;
     this.btnFavorite = btnFavorite;
+    this.layoutFitItem = layoutFitItem;
     this.tvFitCategory = tvFitCategory;
   }
 
@@ -65,13 +69,16 @@ public final class FitItemBinding implements ViewBinding {
         break missingId;
       }
 
+      ConstraintLayout layoutFitItem = (ConstraintLayout) rootView;
+
       id = R.id.tvFitCategory;
       TextView tvFitCategory = rootView.findViewById(id);
       if (tvFitCategory == null) {
         break missingId;
       }
 
-      return new FitItemBinding((ConstraintLayout) rootView, btnFavorite, tvFitCategory);
+      return new FitItemBinding((ConstraintLayout) rootView, btnFavorite, layoutFitItem,
+          tvFitCategory);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

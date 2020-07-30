@@ -17,9 +17,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activities.FitDetailsActivity"></activity>
         <activity
             android:name=".activities.ChooseFit"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activities.ChooseCategory"
             android:screenOrientation="portrait" />

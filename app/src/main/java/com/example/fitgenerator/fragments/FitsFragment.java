@@ -51,7 +51,7 @@ public class FitsFragment extends Fragment {
         //Setting up the Recycler View
         listFits = new ArrayList<>();
         rvFits = view.findViewById(R.id.rvFits);
-        fitsMainAdapter = new FitsMainAdapter(sectionList);
+        fitsMainAdapter = new FitsMainAdapter(sectionList,getContext());
         layoutManager = new LinearLayoutManager(getContext());
         rvFits.setAdapter(fitsMainAdapter);
         rvFits.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
@@ -81,6 +81,7 @@ public class FitsFragment extends Fragment {
     }
 
     public void displayData() {
+        sectionList.clear();
         SimpleDateFormat DateFor = new SimpleDateFormat("EEE MMM d yyyy");
         List<Fit> sectionItems = new ArrayList<>();
         String sectionDate = DateFor.format(listFits.get(0).getCreatedAt());

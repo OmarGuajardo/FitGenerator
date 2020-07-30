@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:id="@+id/layoutFitItem"
     xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
@@ -29,11 +30,12 @@
             android:layout_weight="1"
             />
         <ImageButton
+            android:src="@drawable/state_like"
             android:id="@+id/btnFavorite"
             android:backgroundTint="@android:color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_baseline_favorite_border_24"/>
+            />
 
     </LinearLayout>
 

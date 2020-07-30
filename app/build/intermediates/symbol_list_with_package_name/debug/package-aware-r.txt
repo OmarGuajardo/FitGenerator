@@ -1966,6 +1966,7 @@ drawable quantum_ic_cloud_off_vd_theme_24
 drawable quantum_ic_search_grey600_24
 drawable shirt_icon
 drawable shoes_icon
+drawable state_like
 drawable test_custom_background
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -2178,6 +2179,7 @@ id ivTop
 id labeled
 id largeLabel
 id laundryLoadingBar
+id layoutFitItem
 id left
 id light
 id line1
@@ -2469,6 +2471,7 @@ layout activities_toolbar
 layout activity_choose_category
 layout activity_choose_fit
 layout activity_create_item
+layout activity_fit_details
 layout activity_item_details
 layout activity_login
 layout activity_main

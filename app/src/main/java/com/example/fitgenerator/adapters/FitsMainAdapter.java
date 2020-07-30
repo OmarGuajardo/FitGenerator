@@ -1,5 +1,6 @@
 package com.example.fitgenerator.adapters;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +18,11 @@ import java.util.List;
 public class FitsMainAdapter extends RecyclerView.Adapter<FitsMainAdapter.ViewHolder> {
 
     List<Section> sectionList;
+    Context context;
 
-    public FitsMainAdapter(List<Section> sectionList) {
+    public FitsMainAdapter(List<Section> sectionList, Context context) {
         this.sectionList = sectionList;
+        this.context = context;
     }
 
     @NonNull
@@ -38,7 +41,7 @@ public class FitsMainAdapter extends RecyclerView.Adapter<FitsMainAdapter.ViewHo
 
         holder.sectionNameTextView.setText(sectionName);
 
-        ChildRecyclerAdapter childRecyclerAdapter = new ChildRecyclerAdapter(items);
+        ChildRecyclerAdapter childRecyclerAdapter = new ChildRecyclerAdapter(items,context);
         holder.childRecyclerView.setAdapter(childRecyclerAdapter);
     }
 
