@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -69,7 +70,8 @@ public class FitsFragment extends Fragment {
         query.findInBackground(new FindCallback<Fit>() {
             @Override
             public void done(List<Fit> fits, ParseException e) {
-               if(e==null){
+               if(e==null && !fits.isEmpty()){
+                   listFits.clear();
                    listFits.addAll(fits);
                    displayData();
                }
@@ -78,17 +80,22 @@ public class FitsFragment extends Fragment {
         });
     }
 
-    public void displayData(){
-        Date date = listFits.get(0).getCreatedAt();
-//        SimpleDateFormat DateFor = new SimpleDateFormat("dd MMMM yyyy");
+    public void displayData() {
         SimpleDateFormat DateFor = new SimpleDateFormat("EEE MMM d yyyy");
-
-        String stringDate = DateFor.format(date);
-        String sectionOneName = stringDate;
-        List<Fit> sectionOneItems = new ArrayList<>();
-       sectionOneItems.addAll(listFits);
-
-        sectionList.add(new Section(sectionOneName, sectionOneItems));
+        List<Fit> sectionItems = new ArrayList<>();
+        String sectionDate = DateFor.format(listFits.get(0).getCreatedAt());
+        for (Fit fit : listFits) {
+            String fitDate = DateFor.format(fit.getCreatedAt());
+            if (!fitDate.equals(sectionDate)) {
+                List<Fit> auxSectionItems = new ArrayList<>();
+                auxSectionItems.addAll(sectionItems);
+                sectionList.add(new Section(sectionDate, auxSectionItems));
+                sectionDate = fitDate;
+                sectionItems.clear();
+            }
+            sectionItems.add(fit);
+        }
+        sectionList.add(new Section(sectionDate, sectionItems));
         fitsMainAdapter.notifyDataSetChanged();
     }
 
