@@ -36,6 +36,10 @@ public class ParseApplication extends Application {
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         builder.networkInterceptors().add(httpLoggingInterceptor);
 
+        //Facebook
+        FacebookSdk.setApplicationId(BuildConfig.FACEBOOK_APP_ID);
+
+
         // set applicationId, and server server based on the values in the Heroku settings.
         // clientKey is not needed unless explicitly configured
         // any network interceptors must be added with the Configuration Builder given this syntax
@@ -46,7 +50,7 @@ public class ParseApplication extends Application {
                 .server(BuildConfig.DEV_SERVER_URL).build());
 
         //Facebook Parse
-        FacebookSdk.setApplicationId(BuildConfig.FACEBOOK_APP_ID);
+
         ParseFacebookUtils.initialize(getApplicationContext());
     }
 }

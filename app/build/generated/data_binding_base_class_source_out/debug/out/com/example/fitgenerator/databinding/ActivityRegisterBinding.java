@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import com.example.fitgenerator.R;
+import com.facebook.login.widget.LoginButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -21,7 +22,7 @@ public final class ActivityRegisterBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final Button btnFacebook;
+  public final LoginButton btnFacebook;
 
   @NonNull
   public final Button btnRegister;
@@ -38,9 +39,9 @@ public final class ActivityRegisterBinding implements ViewBinding {
   @NonNull
   public final EditText tvUserName;
 
-  private ActivityRegisterBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnFacebook,
-      @NonNull Button btnRegister, @NonNull TextView btnReturn, @NonNull EditText tvEmail,
-      @NonNull EditText tvPassword, @NonNull EditText tvUserName) {
+  private ActivityRegisterBinding(@NonNull ConstraintLayout rootView,
+      @NonNull LoginButton btnFacebook, @NonNull Button btnRegister, @NonNull TextView btnReturn,
+      @NonNull EditText tvEmail, @NonNull EditText tvPassword, @NonNull EditText tvUserName) {
     this.rootView = rootView;
     this.btnFacebook = btnFacebook;
     this.btnRegister = btnRegister;
@@ -78,7 +79,7 @@ public final class ActivityRegisterBinding implements ViewBinding {
     int id;
     missingId: {
       id = R.id.btnFacebook;
-      Button btnFacebook = rootView.findViewById(id);
+      LoginButton btnFacebook = rootView.findViewById(id);
       if (btnFacebook == null) {
         break missingId;
       }

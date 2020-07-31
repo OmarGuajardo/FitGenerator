@@ -77,23 +77,23 @@
             android:textColor="@android:color/white"
             android:text="Register" />
 
-        <Button
-            android:fontFamily="@font/poppins_medium"
-            android:layout_marginBottom="16dp"
-            android:layout_gravity="center"
-            android:id="@+id/btnFacebook"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@color/facebook_blue"
-            android:textColor="@android:color/white"
-            android:text="Sign Up With Facebook" />
-<!--        <com.facebook.login.widget.LoginButton-->
+<!--        <Button-->
+<!--            android:fontFamily="@font/poppins_medium"-->
+<!--            android:layout_marginBottom="16dp"-->
+<!--            android:layout_gravity="center"-->
 <!--            android:id="@+id/btnFacebook"-->
 <!--            android:layout_width="wrap_content"-->
 <!--            android:layout_height="wrap_content"-->
-<!--            android:layout_gravity="center_horizontal"-->
-<!--            android:layout_marginTop="30dp"-->
-<!--            android:layout_marginBottom="30dp" />-->
+<!--            android:backgroundTint="@color/facebook_blue"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:text="Sign Up With Facebook" />-->
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/btnFacebook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="30dp" />
 
 
         <TextView

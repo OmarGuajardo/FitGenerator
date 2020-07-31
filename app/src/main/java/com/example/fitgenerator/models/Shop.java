@@ -17,7 +17,7 @@ public class Shop {
     Boolean open_now;
 
     public Shop(JSONObject jsonObject) throws JSONException {
-        this.id = jsonObject.getString("id");
+
         this.place_id = jsonObject.getString("place_id");
         this.name = jsonObject.getString("name");
         this.vicinity = jsonObject.getString("vicinity");
@@ -31,10 +31,6 @@ public class Shop {
             shopList.add(new Shop(jsonArray.getJSONObject(i)));
         }
         return shopList;
-    }
-
-    public String getId() {
-        return id;
     }
 
     public String getPlace_id() {

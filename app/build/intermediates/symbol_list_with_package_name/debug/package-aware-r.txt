@@ -2148,7 +2148,6 @@ id btnFacebook
 id btnFavorite
 id btnGetStarted
 id btnLogIn
-id btnLogOut
 id btnNext
 id btnPicture
 id btnPrev
@@ -2421,6 +2420,7 @@ id seekbar
 id seekbar_value
 id select_dialog_listview
 id selected
+id settings
 id shortcut
 id showCustom
 id showHome
