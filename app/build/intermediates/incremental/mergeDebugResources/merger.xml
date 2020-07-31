@@ -6167,11 +6167,16 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorSecondaryVariant">@color/secondaryDarkColor</item>
     </style><style name="MainButtonStyle" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:textColor">@android:color/white</item>
         <item name="backgroundColor">@color/secondaryColor</item>
         <item name="backgroundTint">@color/secondaryColor</item>
         <item name="fontFamily">@font/poppins_semibold</item>
+    </style><style name="ToolbarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        
+        <item name="colorControlNormal">@color/primaryTextColor2</item>
     </style></file><file path="/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/values/padding_and_margin.xml" qualifiers=""><dimen name="dropDownPadding">8dp</dimen><dimen name="dropDownMargin">8dp</dimen><dimen name="marginLeft">16dp</dimen></file><file path="/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/values/strings.xml" qualifiers=""><string name="app_name">FitGenerator</string><string name="hello_blank_fragment">Hello blank fragment</string><string name="title_activity_settings">SettingsActivity</string><string name="messages_header">Messages</string><string name="sync_header">Sync</string><string name="signature_title">Your signature</string><string name="reply_title">Default reply action</string><string name="sync_title">Sync email periodically</string><string name="attachment_title">Download incoming attachments</string><string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string><string name="attachment_summary_off">Only download attachments when manually requested</string></file><file path="/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/values/preloaded_fonts.xml" qualifiers=""><array name="preloaded_fonts" translatable="false">
         <item>@font/poppins</item>

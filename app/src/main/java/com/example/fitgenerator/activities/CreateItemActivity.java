@@ -19,6 +19,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fitgenerator.fragments.LoadingDialog;
@@ -63,9 +64,10 @@ public class CreateItemActivity extends AppCompatActivity {
         // Adding back button to the Tool Bar
         toolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Add New Item");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        TextView tvToolBarTile = findViewById(R.id.tvToolBarTitle);
+        tvToolBarTile.setText("Create New Item");
 
         //Setting up the form
         viewList = new AutoCompleteTextView[]{binding.tvColor,binding.tvFit,binding.tvType,binding.tvStyle,binding.tvCategory};

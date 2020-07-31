@@ -49,6 +49,7 @@ public class NavigationActivity extends AppCompatActivity
         generatorFragment = new GeneratorFragment();
         historyFragment = new HistoryFragment();
         shopFragment = new ShopFragment();
+
         // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.topAppBar);
         setSupportActionBar(toolbar);
@@ -85,9 +86,6 @@ public class NavigationActivity extends AppCompatActivity
             switch(menuItem.getItemId()) {
                 case R.id.navFitGenerator:
                     fragmentClass = GeneratorFragment.class;
-                    break;
-                case R.id.navPastFits:
-                    fragmentClass = HistoryFragment.class;
                     break;
                 case R.id.navShop:
                     fragmentClass = ShopFragment.class;

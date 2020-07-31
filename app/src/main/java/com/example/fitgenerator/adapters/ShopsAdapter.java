@@ -46,7 +46,6 @@ public class ShopsAdapter extends RecyclerView.Adapter<ShopsAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Shop newShop = shopList.get(position);
         holder.bind(newShop);
-        Log.d(TAG, "onBindViewHolder: ");
     }
 
     @Override
@@ -72,7 +71,6 @@ public class ShopsAdapter extends RecyclerView.Adapter<ShopsAdapter.ViewHolder> 
         }
 
         public void bind(final Shop newShop) {
-            Log.d(TAG, "bind: " + newShop.getName());
             tvShopName.setText(newShop.getName());
             tvShopVicinity.setText(newShop.getVicinity());
             ratingBar.setRating(Float.valueOf((float) newShop.getRating()));

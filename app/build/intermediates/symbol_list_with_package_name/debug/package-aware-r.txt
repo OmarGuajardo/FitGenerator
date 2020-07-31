@@ -2327,7 +2327,6 @@ id mtrl_picker_text_input_range_start
 id mtrl_picker_title_text
 id multiply
 id navFitGenerator
-id navPastFits
 id navSettings
 id navShop
 id navigation_header_container
@@ -3441,6 +3440,7 @@ style ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox
 style ThemeOverlay_MaterialComponents_TextInputEditText_OutlinedBox_Dense
 style ThemeOverlay_MaterialComponents_Toolbar_Primary
 style ThemeOverlay_MaterialComponents_Toolbar_Surface
+style ToolbarTheme
 style Widget_AppCompat_ActionBar
 style Widget_AppCompat_ActionBar_Solid
 style Widget_AppCompat_ActionBar_TabBar

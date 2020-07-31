@@ -58,7 +58,6 @@ public class RegisterActivity extends AppCompatActivity {
         binding.btnFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Collection<String> permissions = null;
                 logInWithFacebook(null);
             }
         });
@@ -78,8 +77,14 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void done(ParseException e) {
                             user.put("UserCloset",newCloset);
-                            user.saveInBackground();
-                            goHomePage();
+                            user.saveInBackground(new SaveCallback() {
+                                @Override
+                                public void done(ParseException e) {
+                                    if(e == null){
+                                        goHomePage();
+                                    }
+                                }
+                            });
                         }
                     });
                     Log.d("MyApp", "User signed up and logged in through Facebook!");

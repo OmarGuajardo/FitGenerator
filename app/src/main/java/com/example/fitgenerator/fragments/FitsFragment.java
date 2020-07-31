@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.fitgenerator.adapters.FitsMainAdapter;
@@ -39,6 +40,7 @@ public class FitsFragment extends Fragment {
     List<Fit> listFits;
     LinearLayoutManager layoutManager;
     FitsMainAdapter fitsMainAdapter;
+    ProgressBar progressBar;
     List<Section> sectionList = new ArrayList<>();
     public FitsFragment() {
         // Required empty public constructor
@@ -56,6 +58,8 @@ public class FitsFragment extends Fragment {
         rvFits.setAdapter(fitsMainAdapter);
         rvFits.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
         rvFits.setLayoutManager(layoutManager);
+
+        progressBar = view.findViewById(R.id.progress_bar);
 
         queryData();
     }
@@ -98,6 +102,7 @@ public class FitsFragment extends Fragment {
         }
         sectionList.add(new Section(sectionDate, sectionItems));
         fitsMainAdapter.notifyDataSetChanged();
+        progressBar.setVisibility(View.GONE);
     }
 
     @Override
