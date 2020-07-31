@@ -6,6 +6,7 @@ import com.example.fitgenerator.BuildConfig;
 import com.example.fitgenerator.models.Closet;
 import com.example.fitgenerator.models.ClothingItem;
 import com.facebook.FacebookSdk;
+import com.google.android.gms.common.server.response.FastJsonResponse;
 import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.facebook.ParseFacebookUtils;
@@ -39,7 +40,6 @@ public class ParseApplication extends Application {
         //Facebook
         FacebookSdk.setApplicationId(BuildConfig.FACEBOOK_APP_ID);
 
-
         // set applicationId, and server server based on the values in the Heroku settings.
         // clientKey is not needed unless explicitly configured
         // any network interceptors must be added with the Configuration Builder given this syntax
@@ -49,8 +49,11 @@ public class ParseApplication extends Application {
                 .clientBuilder(builder)
                 .server(BuildConfig.DEV_SERVER_URL).build());
 
-        //Facebook Parse
 
+
+
+        //Facebook Parse
         ParseFacebookUtils.initialize(getApplicationContext());
+
     }
 }

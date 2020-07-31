@@ -3,6 +3,7 @@ package com.example.fitgenerator.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -22,18 +23,12 @@ import org.w3c.dom.Text;
 
 public class SettingsActivity extends AppCompatActivity {
 
+    private static final String TAG = "SettingsActivity";
     Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings_activity);
-//        final Button btnLogOut = findViewById(R.id.btnLogOut);
-//        btnLogOut.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                 logOut();
-//            }
-//        });
 
         // Adding back button to the Tool Bar
         toolbar = findViewById(R.id.topAppBar);
@@ -43,15 +38,11 @@ public class SettingsActivity extends AppCompatActivity {
         TextView tvToolBarTile = findViewById(R.id.tvToolBarTitle);
         tvToolBarTile.setText("Settings");
 
+        SettingsFragment settingsFragment = new SettingsFragment();
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.settings, new SettingsFragment())
+                .replace(R.id.settings, settingsFragment)
                 .commit();
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
-        }
-
 
     }
 
@@ -59,6 +50,17 @@ public class SettingsActivity extends AppCompatActivity {
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
+
+            Preference button = getPreferenceManager().findPreference("exitLink");
+            button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    ParseUser.logOut();
+                    Intent intent = new Intent(getContext(),WelcomeActivity.class);
+                    startActivity(intent);
+                    return false;
+                }
+            });
 
         }
     }

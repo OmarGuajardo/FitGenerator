@@ -58,7 +58,7 @@ public class RegisterActivity extends AppCompatActivity {
         binding.btnFacebook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Collection<String> permissions = null;
+//                Collection<String> permissions = null;
                 logInWithFacebook(null);
             }
         });

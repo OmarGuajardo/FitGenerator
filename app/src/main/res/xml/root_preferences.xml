@@ -33,7 +33,7 @@
 
     </PreferenceCategory>
     <PreferenceCategory android:title="Settings">
-        <Preference android:title="Log Out" android:key="exitlink"/>
+        <Preference android:title="Log Out" android:key="exitLink"/>
     </PreferenceCategory>
 
 </PreferenceScreen>

@@ -21,6 +21,7 @@
        >
 
         <TextView
+            android:textColor="@color/primaryTextColor2"
             android:id="@+id/tvToolBarTitle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
