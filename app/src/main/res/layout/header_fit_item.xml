@@ -7,13 +7,14 @@
 
 
     <TextView
+        android:textColor="@color/primaryTextColor2"
         android:paddingTop="8dp"
         android:id="@+id/sectionNameTextView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/poppins_bold"
         android:text="Sunday, June 28 2020"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
