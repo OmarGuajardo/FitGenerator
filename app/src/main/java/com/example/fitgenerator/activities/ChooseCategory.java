@@ -33,6 +33,7 @@ import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceResponse;
 import com.google.android.libraries.places.api.net.PlacesClient;
+import com.google.android.material.snackbar.Snackbar;
 import com.parse.FunctionCallback;
 import com.parse.ParseCloud;
 import com.parse.ParseException;
@@ -78,15 +79,20 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
         tvToolBarTitle.setText("Choose Category");
 
         binding.categoryFavorite.tvCategoryName.setText("Favorite");
-        binding.categoryOccasion.tvCategoryName.setText("Occasion");
+        binding.categoryFavorite.ivCategoryIcon.setImageResource(R.drawable.ic_baseline_favorite_24);
+        binding.categoryOccasion.tvCategoryName.setText("Dress Code");
+        binding.categoryOccasion.ivCategoryIcon.setImageResource(R.drawable.ic_baseline_assignment_24);
         binding.categorySeason.tvCategoryName.setText("Season");
+        binding.categorySeason.ivCategoryIcon.setImageResource(R.drawable.ic_baseline_wb_sunny_24);
         binding.categoryRandom.tvCategoryName.setText("Random");
+        binding.categoryRandom.ivCategoryIcon.setImageResource(R.drawable.ic_baseline_shuffle_24);
 
         binding.categoryFavorite.cvCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //TODO: Query from the Favorites Column in Closet
-                chooseFit();
+                HashMap<String, Object> params = new HashMap<String, Object>();
+                chooseCategory("categoryFavorite", params);
             }
         });
         binding.categoryRandom.cvCategory.setOnClickListener(new View.OnClickListener() {
@@ -124,6 +130,7 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
     }
 
     public void chooseCategory(final String cloudFunctionName, final HashMap<String, Object> cloudParams) {
+        Snackbar.make(binding.layoutChooseCategory,"Gathering Data...", Snackbar.LENGTH_INDEFINITE).show();
         toggleForm();
         HashMap<String, Object> params = new HashMap<>();
         params.put("currentUserCloset", Closet.getUserCloset().getObjectId());
@@ -141,7 +148,7 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
                                     chooseFit();
                                     return;
                                 }
-                                Toast.makeText(ChooseCategory.this, "Not enough clean items", Toast.LENGTH_SHORT).show();
+                                Snackbar.make(binding.layoutChooseCategory,"Sorry, not enough items in closet to generate Fit", Snackbar.LENGTH_SHORT).show();
                             }
                             Log.e(TAG, "error in getting OutFits", e);
                         }
@@ -162,6 +169,7 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
 
 
     public void getWeather() {
+        toggleForm();
         // Use fields to define the data types to return.
         List<Place.Field> placeFields = Collections.singletonList(Place.Field.LAT_LNG);
         // Use the builder to create a FindCurrentPlaceRequest.
@@ -189,7 +197,8 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
                                 JSONObject jsonObject = json.jsonObject;
                                 try {
                                     currentTemp = jsonObject.getJSONObject("main").getInt("temp");
-                                    updateLists(currentTemp);
+                                    toggleForm();
+//                                    updateLists(currentTemp);
                                 } catch (JSONException e) {
                                     e.printStackTrace();
                                 }

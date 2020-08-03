@@ -29,14 +29,19 @@ public final class ActivityChooseCategoryBinding implements ViewBinding {
   @NonNull
   public final CategoryItemBinding categorySeason;
 
+  @NonNull
+  public final ConstraintLayout layoutChooseCategory;
+
   private ActivityChooseCategoryBinding(@NonNull ConstraintLayout rootView,
       @NonNull CategoryItemBinding categoryFavorite, @NonNull CategoryItemBinding categoryOccasion,
-      @NonNull CategoryItemBinding categoryRandom, @NonNull CategoryItemBinding categorySeason) {
+      @NonNull CategoryItemBinding categoryRandom, @NonNull CategoryItemBinding categorySeason,
+      @NonNull ConstraintLayout layoutChooseCategory) {
     this.rootView = rootView;
     this.categoryFavorite = categoryFavorite;
     this.categoryOccasion = categoryOccasion;
     this.categoryRandom = categoryRandom;
     this.categorySeason = categorySeason;
+    this.layoutChooseCategory = layoutChooseCategory;
   }
 
   @Override
@@ -94,9 +99,11 @@ public final class ActivityChooseCategoryBinding implements ViewBinding {
       }
       CategoryItemBinding binding_categorySeason = CategoryItemBinding.bind(categorySeason);
 
+      ConstraintLayout layoutChooseCategory = (ConstraintLayout) rootView;
+
       return new ActivityChooseCategoryBinding((ConstraintLayout) rootView,
           binding_categoryFavorite, binding_categoryOccasion, binding_categoryRandom,
-          binding_categorySeason);
+          binding_categorySeason, layoutChooseCategory);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

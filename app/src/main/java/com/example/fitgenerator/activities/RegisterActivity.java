@@ -3,21 +3,38 @@ package com.example.fitgenerator.activities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 
 import com.example.fitgenerator.models.Closet;
 import com.example.fitgenerator.databinding.ActivityRegisterBinding;
+import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SaveCallback;
 import com.parse.SignUpCallback;
+
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
+import com.parse.facebook.ParseFacebookUtils;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.Collection;
+import java.util.Collections;
+
 
 public class RegisterActivity extends AppCompatActivity {
 
     ActivityRegisterBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         binding = ActivityRegisterBinding.inflate(getLayoutInflater());
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
@@ -36,6 +53,45 @@ public class RegisterActivity extends AppCompatActivity {
                 Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+        binding.btnFacebook.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                logInWithFacebook(null);
+            }
+        });
+    }
+    
+
+    public void logInWithFacebook(Collection<String> permissions){
+        ParseFacebookUtils.logInWithReadPermissionsInBackground(this, permissions, new LogInCallback() {
+            @Override
+            public void done(final ParseUser user, ParseException err) {
+                if (user == null) {
+                    Log.d("MyApp", "Uh oh. The user cancelled the Facebook login.");
+                } else if (user.isNew()) {
+                    final Closet newCloset = new Closet();
+                    newCloset.setUser(user);
+                    newCloset.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            user.put("UserCloset",newCloset);
+                            user.saveInBackground(new SaveCallback() {
+                                @Override
+                                public void done(ParseException e) {
+                                    if(e == null){
+                                        goHomePage();
+                                    }
+                                }
+                            });
+                        }
+                    });
+                    Log.d("MyApp", "User signed up and logged in through Facebook!");
+                } else {
+                    Log.d("MyApp", "User logged in through Facebook!");
+                    goHomePage();
+                }
             }
         });
     }
@@ -66,5 +122,10 @@ public class RegisterActivity extends AppCompatActivity {
                 });
             }
         });
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        ParseFacebookUtils.onActivityResult(requestCode, resultCode, data);
     }
 }

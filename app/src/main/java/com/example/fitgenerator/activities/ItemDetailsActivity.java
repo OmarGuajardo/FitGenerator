@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
@@ -48,9 +49,10 @@ public class ItemDetailsActivity extends AppCompatActivity {
 
         // Adding back button to the Tool Bar
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Name of Item");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        TextView tvToolBarTile = findViewById(R.id.tvToolBarTitle);
+        tvToolBarTile.setText("Clothing Item");
 
         binding.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override

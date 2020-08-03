@@ -7,10 +7,7 @@
             android:id="@+id/navFitGenerator"
             android:icon="@drawable/ic_baseline_rotate_right_24"
             android:title="Fit Generator" />
-        <item
-            android:id="@+id/navPastFits"
-            android:icon="@drawable/ic_baseline_history_24"
-            android:title="Scheduled Fits" />
+
         <item
             android:id="@+id/navShop"
             android:icon="@drawable/ic_baseline_shopping_cart_24"

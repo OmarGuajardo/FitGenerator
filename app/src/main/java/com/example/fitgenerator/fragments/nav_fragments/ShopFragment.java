@@ -18,6 +18,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
@@ -57,6 +58,7 @@ public class ShopFragment extends Fragment {
     List<Shop> shopList;
     RecyclerView rvShop;
     ShopsAdapter shopsAdapter;
+    ProgressBar progressBar;
     private PlacesClient placesClient;
 
     @Override
@@ -74,6 +76,8 @@ public class ShopFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         rvShop.setAdapter(shopsAdapter);
         rvShop.setLayoutManager(linearLayoutManager);
+
+        progressBar = view.findViewById(R.id.progress_bar);
 
         queryShops();
     }
@@ -122,6 +126,7 @@ public class ShopFragment extends Fragment {
             public void onSuccess(int statusCode, Headers headers, JSON json) {
                 JSONObject jsonObject = json.jsonObject;
                 try {
+                    progressBar.setVisibility(View.GONE);
                     shopList.clear();
                     shopList.addAll(Shop.fromJSONArray(jsonObject.getJSONArray("results")));
                     Log.d(TAG, "onSuccess: " + shopList.size());

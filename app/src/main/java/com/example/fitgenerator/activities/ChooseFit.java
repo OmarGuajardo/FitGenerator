@@ -136,7 +136,6 @@ public class ChooseFit extends AppCompatActivity {
     public void updateCurrentOutfit(int increment){
         currentOutfit.clear();
         currentOutfitIndex += increment;
-        Log.d(TAG, "currentOutFitIndex " + currentOutfitIndex);
         if(currentOutfitIndex >= fitList.size()){
             currentOutfitIndex = 0;
         }

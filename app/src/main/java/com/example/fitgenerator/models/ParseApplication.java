@@ -5,8 +5,11 @@ import android.app.Application;
 import com.example.fitgenerator.BuildConfig;
 import com.example.fitgenerator.models.Closet;
 import com.example.fitgenerator.models.ClothingItem;
+import com.facebook.FacebookSdk;
+import com.google.android.gms.common.server.response.FastJsonResponse;
 import com.parse.Parse;
 import com.parse.ParseObject;
+import com.parse.facebook.ParseFacebookUtils;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
@@ -24,6 +27,8 @@ public class ParseApplication extends Application {
         ParseObject.registerSubclass(ClothingItem.class);
         ParseObject.registerSubclass(Fit.class);
 
+
+
         // Use for monitoring Parse OkHttp traffic
         // Can be Level.BASIC, Level.HEADERS, or Level.BODY
         // See http://square.github.io/okhttp/3.x/logging-interceptor/ to see the options.
@@ -31,6 +36,9 @@ public class ParseApplication extends Application {
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
         builder.networkInterceptors().add(httpLoggingInterceptor);
+
+        //Facebook
+        FacebookSdk.setApplicationId(BuildConfig.FACEBOOK_APP_ID);
 
         // set applicationId, and server server based on the values in the Heroku settings.
         // clientKey is not needed unless explicitly configured
@@ -40,5 +48,12 @@ public class ParseApplication extends Application {
                 .clientKey(BuildConfig.MASTER_KEY)  // set explicitly unless clientKey is explicitly configured on Parse server
                 .clientBuilder(builder)
                 .server(BuildConfig.DEV_SERVER_URL).build());
+
+
+
+
+        //Facebook Parse
+        ParseFacebookUtils.initialize(getApplicationContext());
+
     }
 }

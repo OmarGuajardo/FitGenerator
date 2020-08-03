@@ -2,7 +2,9 @@ package com.example.fitgenerator.models;
 
 import android.util.Log;
 
+import com.parse.GetFileCallback;
 import com.parse.ParseClassName;
+import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.ParseObject;
 
