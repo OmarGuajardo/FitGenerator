@@ -9,62 +9,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="16dp"
-        android:orientation="horizontal">
-
         <LinearLayout
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/ivTop"
-                android:layout_width="wrap_content"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                tools:srcCompat="@tools:sample/avatars" />
+           <include android:id="@+id/rowLayer" layout="@layout/choose_fit_item_row"/>
+           <include android:id="@+id/rowTop" layout="@layout/choose_fit_item_row"/>
+           <include android:id="@+id/rowBottom" layout="@layout/choose_fit_item_row"/>
+           <include android:id="@+id/rowShoes" layout="@layout/choose_fit_item_row"/>
 
-            <ImageView
-                android:id="@+id/ivBottom"
-                android:layout_width="wrap_content"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                tools:srcCompat="@tools:sample/avatars" />
 
         </LinearLayout>
-
-        <LinearLayout
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical">
-
-            <ImageView
-                android:id="@+id/ivLayer"
-                android:layout_width="wrap_content"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                tools:srcCompat="@tools:sample/avatars" />
-
-            <ImageView
-                android:id="@+id/ivShoes"
-                android:layout_width="wrap_content"
-                android:layout_height="150dp"
-                android:layout_gravity="center"
-                tools:srcCompat="@tools:sample/avatars" />
-
-        </LinearLayout>
-
-
-    </LinearLayout>
 
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

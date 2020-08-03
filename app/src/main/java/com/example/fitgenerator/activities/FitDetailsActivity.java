@@ -65,7 +65,6 @@ public class FitDetailsActivity extends AppCompatActivity {
                                 .load(item.getImageURL())
                                 .dontTransform()
                                 .into(imageView);
-                        Log.d(TAG, "showing pic  " + item.getImageURL());
                     }
                 }
                 else{

@@ -129,7 +129,6 @@ public class ShopFragment extends Fragment {
                     progressBar.setVisibility(View.GONE);
                     shopList.clear();
                     shopList.addAll(Shop.fromJSONArray(jsonObject.getJSONArray("results")));
-                    Log.d(TAG, "onSuccess: " + shopList.size());
                     shopsAdapter.notifyDataSetChanged();
                 } catch (JSONException e) {
                     e.printStackTrace();

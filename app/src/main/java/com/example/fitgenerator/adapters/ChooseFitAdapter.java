@@ -5,8 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
 
 import com.bumptech.glide.Glide;
@@ -25,10 +28,10 @@ public class ChooseFitAdapter extends PagerAdapter {
     LayoutInflater layoutInflater;
     List<ClothingItem> currentOutfit;
 
-    ImageView ivTop;
-    ImageView ivBottom;
-    ImageView ivShoes;
-    ImageView ivLayer;
+    LinearLayout layoutTop;
+    LinearLayout layoutBottom;
+    LinearLayout layoutShoes;
+    LinearLayout layoutLayer;
 
     public ChooseFitAdapter(List<HashMap> fitList, Context context) {
         currentOutfit = new ArrayList<>();
@@ -56,32 +59,35 @@ public class ChooseFitAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         View view = layoutInflater.inflate(R.layout.choose_fit_item,container,false);
-        ivTop = view.findViewById(R.id.ivTop);
-        ivBottom = view.findViewById(R.id.ivBottom);
-        ivLayer = view.findViewById(R.id.ivLayer);
-        ivShoes = view.findViewById(R.id.ivShoes);
+        layoutLayer = view.findViewById(R.id.rowLayer);
+        layoutTop = view.findViewById(R.id.rowTop);
+        layoutBottom = view.findViewById(R.id.rowBottom);
+        layoutShoes = view.findViewById(R.id.rowShoes);
         updateCurrentOutfit(position);
         container.addView(view);
         return view;
     }
 
     private void attachPicsToView() {
-        List<ImageView> ivViewList = new ArrayList<>();
+        List<LinearLayout> layoutList = new ArrayList<>();
 
         if(currentOutfit.size() > 3){
-            ivViewList.add(ivLayer);
+            layoutList.add(layoutLayer);
         }
         else{
-            ivLayer.setVisibility(View.GONE);
+            layoutLayer.setVisibility(View.GONE);
         }
-        ivViewList.add(ivTop);
-        ivViewList.add(ivBottom);
-        ivViewList.add(ivShoes);
+        layoutList.add(layoutTop);
+        layoutList.add(layoutBottom);
+        layoutList.add(layoutShoes);
         for(int i = 0; i < currentOutfit.size();i++){
             Glide.with(context)
                     .load(currentOutfit.get(i).getImageURL())
-                    .fitCenter()
-                    .into(ivViewList.get(i));
+                    .circleCrop()
+                    .into((ImageView)layoutList.get(i).findViewById(R.id.ivItemPic));
+
+            TextView tvItemClass = (TextView)layoutList.get(i).findViewById(R.id.tvItemClass);
+            tvItemClass.setText(currentOutfit.get(i).getClassString());
         }
     }
     public void updateCurrentOutfit(int position){
@@ -90,6 +96,7 @@ public class ChooseFitAdapter extends PagerAdapter {
         if(fitList.get(position).get("Layer") != null){
             ClothingItem layerChoice =  (ClothingItem)fitList.get(position).get("Layer");
             currentOutfit.add(layerChoice);
+
         }
         ClothingItem topChoice =  (ClothingItem)fitList.get(position).get("Top");
         ClothingItem bottomChoice =  (ClothingItem)fitList.get(position).get("Bottom");
