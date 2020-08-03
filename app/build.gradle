@@ -92,4 +92,7 @@ dependencies {
     //Parse Facebook SDK
     implementation "com.github.parse-community.Parse-SDK-Android:facebook:1.25.0"
 
+    //Infinite Cycle
+    implementation 'com.github.devlight:infinitecycleviewpager:1.0.2'
+
 }

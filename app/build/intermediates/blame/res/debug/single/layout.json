@@ -100,6 +100,10 @@
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/activity_item_details.xml"
     },
     {
+        "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/choose_fit_item.xml",
+        "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/choose_fit_item.xml"
+    },
+    {
         "merged": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_register.xml",
         "source": "/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/res/layout/activity_register.xml"
     },

@@ -17,11 +17,13 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.fitgenerator.R;
+import com.example.fitgenerator.adapters.ChooseFitAdapter;
 import com.example.fitgenerator.databinding.ActivityChooseFitBinding;
 import com.example.fitgenerator.fragments.LoadingDialog;
 import com.example.fitgenerator.models.Closet;
 import com.example.fitgenerator.models.ClothingItem;
 import com.example.fitgenerator.models.Fit;
+import com.gigamole.infinitecycleviewpager.HorizontalInfiniteCycleViewPager;
 import com.google.android.material.snackbar.Snackbar;
 import com.parse.FunctionCallback;
 import com.parse.Parse;
@@ -41,16 +43,16 @@ public class ChooseFit extends AppCompatActivity {
     private static final String TAG = "ChooseFit";
     Toolbar toolbar;
     ActivityChooseFitBinding binding;
-    List<ClothingItem> currentOutfit;
-    int currentOutfitIndex = -1;
     List<HashMap> fitList;
     String category;
+    ChooseFitAdapter adapter;
+    HorizontalInfiniteCycleViewPager pager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivityChooseFitBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        currentOutfit = new ArrayList<>();
         // Adding back button to the Tool Bar
         toolbar = findViewById(R.id.topAppBar);
         setSupportActionBar(toolbar);
@@ -61,19 +63,20 @@ public class ChooseFit extends AppCompatActivity {
 
         getOutfits();
 
-        binding.btnPrev.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updateCurrentOutfit(-1);
-            }
-        });
 
-        binding.btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                updateCurrentOutfit(1);
-            }
-        });
+//        binding.btnPrev.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                updateCurrentOutfit(-1);
+//            }
+//        });
+//
+//        binding.btnNext.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                updateCurrentOutfit(1);
+//            }
+//        });
         
         binding.btnFAB.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +84,7 @@ public class ChooseFit extends AppCompatActivity {
                 final LoadingDialog loadingDialog = new LoadingDialog(ChooseFit.this);
                 loadingDialog.startLoadingDialog();
                 final Fit newFit = new Fit();
-                for(ClothingItem item : currentOutfit){
+                for(ClothingItem item : getCurrentOutFit()){
                     item.addUses();
                     switch (item.getClassString()){
                         case "Layer":
@@ -133,46 +136,64 @@ public class ChooseFit extends AppCompatActivity {
         });
     }
 
-    public void updateCurrentOutfit(int increment){
-        currentOutfit.clear();
-        currentOutfitIndex += increment;
-        if(currentOutfitIndex >= fitList.size()){
-            currentOutfitIndex = 0;
+    private List<ClothingItem> getCurrentOutFit() {
+        List<ClothingItem> currentOutFit = new ArrayList<>();
+        int position = pager.getRealItem();
+        if(fitList.get(position).get("Layer") != null){
+            ClothingItem layerChoice =  (ClothingItem)fitList.get(position).get("Layer");
+            currentOutFit.add(layerChoice);
         }
-        else if(currentOutfitIndex < 0){
-            currentOutfitIndex = fitList.size()-1;
-        }
-        if(fitList.get(currentOutfitIndex).get("Layer") != null){
-            ClothingItem layerChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Layer");
-            currentOutfit.add(layerChoice);
-        }
-        ClothingItem topChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Top");
-        ClothingItem bottomChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Bottom");
-        ClothingItem shoesChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Shoe");
-        currentOutfit.add(topChoice);
-        currentOutfit.add(bottomChoice);
-        currentOutfit.add(shoesChoice);
-       displayOutfit();
+        ClothingItem topChoice =  (ClothingItem)fitList.get(position).get("Top");
+        ClothingItem bottomChoice =  (ClothingItem)fitList.get(position).get("Bottom");
+        ClothingItem shoesChoice =  (ClothingItem)fitList.get(position).get("Shoe");
+        currentOutFit.add(topChoice);
+        currentOutFit.add(bottomChoice);
+        currentOutFit.add(shoesChoice);
+        return currentOutFit;
     }
-    public void displayOutfit(){
-        List<ImageView> ivViewList = new ArrayList<>();
-        if(currentOutfit.size() > 3){
-            ivViewList.add(binding.ivLayer);
-        }
-        else{
-            binding.ivLayer.setVisibility(View.GONE);
-        }
-        ivViewList.add(binding.ivTop);
-        ivViewList.add(binding.ivBottom);
-        ivViewList.add(binding.ivShoes);
-        for(int i = 0; i < currentOutfit.size();i++){
-            Glide.with(getApplicationContext())
-                    .load(currentOutfit.get(i).getImageURL())
-                    .fitCenter()
-                    .into(ivViewList.get(i));
-        }
 
-    }
+//    public void updateCurrentOutfit(int increment){
+//        currentOutfit.clear();
+//        currentOutfitIndex += increment;
+//        if(currentOutfitIndex >= fitList.size()){
+//            currentOutfitIndex = 0;
+//        }
+//        else if(currentOutfitIndex < 0){
+//            currentOutfitIndex = fitList.size()-1;
+//        }
+//        if(fitList.get(currentOutfitIndex).get("Layer") != null){
+//            ClothingItem layerChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Layer");
+//            currentOutfit.add(layerChoice);
+//        }
+//        ClothingItem topChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Top");
+//        ClothingItem bottomChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Bottom");
+//        ClothingItem shoesChoice =  (ClothingItem)fitList.get(currentOutfitIndex).get("Shoe");
+//        currentOutfit.add(topChoice);
+//        currentOutfit.add(bottomChoice);
+//        currentOutfit.add(shoesChoice);
+////       displayOutfit();
+//    }
+
+
+//    public void displayOutfit(){
+//        List<ImageView> ivViewList = new ArrayList<>();
+//        if(currentOutfit.size() > 3){
+//            ivViewList.add(binding.ivLayer);
+//        }
+//        else{
+//            binding.ivLayer.setVisibility(View.GONE);
+//        }
+//        ivViewList.add(binding.ivTop);
+//        ivViewList.add(binding.ivBottom);
+//        ivViewList.add(binding.ivShoes);
+//        for(int i = 0; i < currentOutfit.size();i++){
+//            Glide.with(getApplicationContext())
+//                    .load(currentOutfit.get(i).getImageURL())
+//                    .fitCenter()
+//                    .into(ivViewList.get(i));
+//        }
+//
+//    }
 
     public void getOutfits() {
         HashMap<String, Object> params = new HashMap<String, Object>();
@@ -182,7 +203,10 @@ public class ChooseFit extends AppCompatActivity {
                 if(e==null){
                     category = (String)map.get("Category");
                     fitList = (List<HashMap>)map.get("Fits");
-                    updateCurrentOutfit(1);
+                    pager = findViewById(R.id.horizontal_cycle);
+                    adapter = new ChooseFitAdapter(fitList,getApplicationContext());
+                    pager.setAdapter(adapter);
+//                    updateCurrentOutfit(1);
                     return;
                 }
                 Log.e(TAG, "error in getting OutFits", e );

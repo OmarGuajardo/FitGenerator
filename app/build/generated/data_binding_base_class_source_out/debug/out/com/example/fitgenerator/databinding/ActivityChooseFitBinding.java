@@ -4,13 +4,12 @@ package com.example.fitgenerator.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.viewbinding.ViewBinding;
 import com.example.fitgenerator.R;
-import com.google.android.material.button.MaterialButton;
+import com.gigamole.infinitecycleviewpager.HorizontalInfiniteCycleViewPager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.lang.NullPointerException;
 import java.lang.Override;
@@ -24,40 +23,18 @@ public final class ActivityChooseFitBinding implements ViewBinding {
   public final FloatingActionButton btnFAB;
 
   @NonNull
-  public final MaterialButton btnNext;
-
-  @NonNull
-  public final MaterialButton btnPrev;
-
-  @NonNull
   public final CoordinatorLayout coordinatorLayout;
 
   @NonNull
-  public final ImageView ivBottom;
-
-  @NonNull
-  public final ImageView ivLayer;
-
-  @NonNull
-  public final ImageView ivShoes;
-
-  @NonNull
-  public final ImageView ivTop;
+  public final HorizontalInfiniteCycleViewPager horizontalCycle;
 
   private ActivityChooseFitBinding(@NonNull CoordinatorLayout rootView,
-      @NonNull FloatingActionButton btnFAB, @NonNull MaterialButton btnNext,
-      @NonNull MaterialButton btnPrev, @NonNull CoordinatorLayout coordinatorLayout,
-      @NonNull ImageView ivBottom, @NonNull ImageView ivLayer, @NonNull ImageView ivShoes,
-      @NonNull ImageView ivTop) {
+      @NonNull FloatingActionButton btnFAB, @NonNull CoordinatorLayout coordinatorLayout,
+      @NonNull HorizontalInfiniteCycleViewPager horizontalCycle) {
     this.rootView = rootView;
     this.btnFAB = btnFAB;
-    this.btnNext = btnNext;
-    this.btnPrev = btnPrev;
     this.coordinatorLayout = coordinatorLayout;
-    this.ivBottom = ivBottom;
-    this.ivLayer = ivLayer;
-    this.ivShoes = ivShoes;
-    this.ivTop = ivTop;
+    this.horizontalCycle = horizontalCycle;
   }
 
   @Override
@@ -93,46 +70,16 @@ public final class ActivityChooseFitBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.btnNext;
-      MaterialButton btnNext = rootView.findViewById(id);
-      if (btnNext == null) {
-        break missingId;
-      }
-
-      id = R.id.btnPrev;
-      MaterialButton btnPrev = rootView.findViewById(id);
-      if (btnPrev == null) {
-        break missingId;
-      }
-
       CoordinatorLayout coordinatorLayout = (CoordinatorLayout) rootView;
 
-      id = R.id.ivBottom;
-      ImageView ivBottom = rootView.findViewById(id);
-      if (ivBottom == null) {
+      id = R.id.horizontal_cycle;
+      HorizontalInfiniteCycleViewPager horizontalCycle = rootView.findViewById(id);
+      if (horizontalCycle == null) {
         break missingId;
       }
 
-      id = R.id.ivLayer;
-      ImageView ivLayer = rootView.findViewById(id);
-      if (ivLayer == null) {
-        break missingId;
-      }
-
-      id = R.id.ivShoes;
-      ImageView ivShoes = rootView.findViewById(id);
-      if (ivShoes == null) {
-        break missingId;
-      }
-
-      id = R.id.ivTop;
-      ImageView ivTop = rootView.findViewById(id);
-      if (ivTop == null) {
-        break missingId;
-      }
-
-      return new ActivityChooseFitBinding((CoordinatorLayout) rootView, btnFAB, btnNext, btnPrev,
-          coordinatorLayout, ivBottom, ivLayer, ivShoes, ivTop);
+      return new ActivityChooseFitBinding((CoordinatorLayout) rootView, btnFAB, coordinatorLayout,
+          horizontalCycle);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
