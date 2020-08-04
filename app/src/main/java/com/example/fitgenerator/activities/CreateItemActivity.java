@@ -23,6 +23,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.fitgenerator.fragments.LoadingDialog;
 import com.example.fitgenerator.models.Closet;
 import com.example.fitgenerator.models.ClothingItem;
@@ -32,20 +33,27 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.ParseUser;
 import com.parse.SaveCallback;
-
+import com.vansuita.pickimage.bean.PickResult;
+import com.vansuita.pickimage.bundle.PickSetup;
+import com.vansuita.pickimage.dialog.PickImageDialog;
+import com.vansuita.pickimage.listeners.IPickResult;
 
 
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.parceler.Parcels;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class CreateItemActivity extends AppCompatActivity {
+public class CreateItemActivity extends AppCompatActivity
+        implements IPickResult
+{
 
     private static final String TAG = "CreateItemActivity";
     ActivityCreateItemBinding binding;
@@ -55,7 +63,7 @@ public class CreateItemActivity extends AppCompatActivity {
     TextInputLayout[] viewListContainer;
     ClothingItem retreivedItem;
     LoadingDialog loadingDialog;
-
+    byte[] bytes;
     //Vars for taking picture
     public final static int CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE = 42;
     public String photoFileName = "photo.jpg";
@@ -156,7 +164,7 @@ public class CreateItemActivity extends AppCompatActivity {
         binding.btnPicture.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                launchCamera();
+                  handleImageSelection();
             }
         });
 
@@ -172,6 +180,28 @@ public class CreateItemActivity extends AppCompatActivity {
 
 
 
+    private void handleImageSelection() {
+        PickSetup pickSetup = new PickSetup().setMaxSize(250);
+        PickImageDialog.build(pickSetup)
+                .show(this);
+    }
+
+    @Override
+    public void onPickResult(PickResult r) {
+        if (r.getError() == null) {
+
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            r.getBitmap().compress(Bitmap.CompressFormat.PNG,100, byteArrayOutputStream);
+            bytes = byteArrayOutputStream.toByteArray();
+            binding.btnPicture.setIcon(getDrawable(R.drawable.ic_baseline_check_24));
+            binding.btnPicture.setText("Picture Taken!");
+
+        } else {
+            binding.btnPicture.setIcon(getDrawable(R.drawable.ic_baseline_attach_file_24));
+            binding.btnPicture.setText("Attach Picture");
+            Toast.makeText(getApplicationContext(), "Picture wasn't taken!", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
@@ -262,8 +292,8 @@ public class CreateItemActivity extends AppCompatActivity {
         clothingItemSubmit.setInfoFromJSON(form);
 
         //Checking to see if user took a picture of the Item
-        if(photoFile != null){
-            clothingItemSubmit.setPicture(new ParseFile(photoFile));
+        if(bytes.length != 0){
+            clothingItemSubmit.setPicture(new ParseFile("clothing_item_picture",bytes));
         }
         clothingItemSubmit.saveInBackground(new SaveCallback() {
             @Override
@@ -278,7 +308,15 @@ public class CreateItemActivity extends AppCompatActivity {
                     resetForm();
                     String classString = form.getString("Class");
                     Closet.getUserCloset().addItem(clothingItemSubmit,classString);
-                    Closet.getUserCloset().saveInBackground();
+                    Closet.getUserCloset().saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if(e == null){
+                                return;
+                            }
+                            Log.e(TAG, "error saving profilePic",e );
+                        }
+                    });
                     loadingDialog.dismissDialog();
                     Snackbar.make(binding.coordinatorLayout, "Item Saved!", Snackbar.LENGTH_SHORT)
                             .show();
@@ -400,41 +438,6 @@ public class CreateItemActivity extends AppCompatActivity {
         }
     }
 
-    //This methods calls and intent to launch the camera, take the picture and save the picture as a file that
-    //we can then use to put in the ImageView
-    private void launchCamera() {
-        // create Intent to take a picture and return control to the calling application
-        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        // Create a File reference for future access
-        photoFile = getPhotoFileUri(photoFileName);
-
-        // wrap File object into a content provider
-        // required for API >= 24
-        // See https://guides.codepath.com/android/Sharing-Content-with-Intents#sharing-files-with-api-24-or-higher
-        Uri fileProvider = FileProvider.getUriForFile(getApplicationContext(), "com.codepath.fileprovider.fitgenerator", photoFile);
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, fileProvider);
-        // If you call startActivityForResult() using an intent that no app can handle, your app will crash.
-        // So as long as the result is not null, it's safe to use the intent.
-        if (intent.resolveActivity(getApplicationContext().getPackageManager()) != null) {
-            // Start the image capture intent to take photo
-            startActivityForResult(intent, CAPTURE_IMAGE_ACTIVITY_REQUEST_CODE);
-        }
-    }
-
-    private File getPhotoFileUri(String fileName) {
-        // Get safe storage directory for photos
-        // Use `getExternalFilesDir` on Context to access package-specific directories.
-        // This way, we don't need to request external read/write runtime permissions.
-        File mediaStorageDir = new File(getApplicationContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES), TAG);
-
-        // Create the storage directory if it does not exist
-        if (!mediaStorageDir.exists() && !mediaStorageDir.mkdirs()){
-            Log.d(TAG, "failed to create directory");
-        }
-        // Return the file target for the photo based on filename
-        return new File(mediaStorageDir.getPath() + File.separator + fileName);
-    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -452,4 +455,6 @@ public class CreateItemActivity extends AppCompatActivity {
             }
         }
     }
+
+
 }

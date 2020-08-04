@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutChooseCategory"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ChooseCategory">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include layout="@layout/activities_toolbar" />
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.github.pwittchen.weathericonview.WeatherIconView
+                    android:id="@+id/my_weather_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    app:weatherIconColor="@color/primaryTextColor2"
+                    app:weatherIconResource="@string/wi_day_sunny_overcast"
+                    app:weatherIconSize="36" />
+
+                <TextView
+                    android:id="@+id/tvTemp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:text="80&#xb0;"
+                    android:textColor="@color/primaryTextColor2"
+                    android:textSize="50dp" />
+
+            </LinearLayout>
+            <TextView
+                android:gravity="center"
+                android:textColor="@color/primaryTextColor2"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+                android:fontFamily="@font/poppins_semibold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tvWeatherDesc"
+                android:text="Sunny Day"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <include
+                    android:id="@+id/categoryFavorite"
+                    layout="@layout/category_item" />
+
+                <include
+                    android:id="@+id/categoryOccasion"
+                    layout="@layout/category_item" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <include
+                    android:id="@+id/categorySeason"
+                    layout="@layout/category_item" />
+
+                <include
+                    android:id="@+id/categoryRandom"
+                    layout="@layout/category_item" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

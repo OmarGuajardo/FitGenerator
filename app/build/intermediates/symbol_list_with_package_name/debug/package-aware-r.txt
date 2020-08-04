@@ -878,6 +878,7 @@ color browser_actions_text_color
 color browser_actions_title_color
 color button_material_dark
 color button_material_light
+color cancel_selector
 color cardview_dark_background
 color cardview_light_background
 color cardview_shadow_end_color
@@ -1040,6 +1041,10 @@ color mtrl_textinput_hovered_box_stroke_color
 color notification_action_color_filter
 color notification_icon_bg_color
 color notification_material_background_media_default_color
+color option_pressed
+color option_text
+color option_text_pressed
+color option_text_selector
 color places_autocomplete_error_button
 color places_autocomplete_error_message
 color places_autocomplete_fullscreen_background
@@ -1906,6 +1911,7 @@ drawable btn_radio_off_mtrl
 drawable btn_radio_off_to_on_mtrl_animation
 drawable btn_radio_on_mtrl
 drawable btn_radio_on_to_off_mtrl_animation
+drawable camera
 drawable com_facebook_auth_dialog_background
 drawable com_facebook_auth_dialog_cancel_background
 drawable com_facebook_auth_dialog_header_background
@@ -1955,6 +1961,7 @@ drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
 drawable fit_generator_icon
+drawable gallery
 drawable googleg_disabled_color_18
 drawable googleg_standard_color_18
 drawable ic_arrow_down_24dp
@@ -2140,8 +2147,12 @@ id btnRegister
 id btnReturn
 id button
 id buttonPanel
+id buttons_holder
+id camera
+id cancel
 id cancel_action
 id cancel_button
+id card
 id categoryFavorite
 id categoryOccasion
 id categoryRandom
@@ -2228,10 +2239,12 @@ id fill_horizontal
 id fill_vertical
 id filled
 id filter_chip
+id first_layer
 id fitToContents
 id fixed
 id flContent
 id forever
+id gallery
 id ghost_view
 id ghost_view_holder
 id glide_custom_view_target_tag
@@ -2277,6 +2290,7 @@ id line1
 id line3
 id listMode
 id list_item
+id loading_text
 id masked
 id media_actions
 id message
@@ -2404,6 +2418,7 @@ id search_mag_icon
 id search_plate
 id search_src_text
 id search_voice_btn
+id second_layer
 id sectionNameTextView
 id seekbar
 id seekbar_value
@@ -2614,6 +2629,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout details_item
+layout dialog
 layout dropdown_menu_popup_item
 layout expand_button
 layout fit_item
@@ -2728,6 +2744,8 @@ layout text_view_with_theme_line_height
 layout text_view_without_line_height
 menu drawer_view
 menu menu_main
+mipmap camera_colored
+mipmap gallery_colored
 mipmap ic_launcher
 mipmap ic_launcher_fit_generator
 mipmap ic_launcher_fit_generator_round
@@ -2762,16 +2780,20 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string activity_destroyed
 string app_name
 string appbar_scrolling_view_behavior
 string attachment_summary_off
 string attachment_summary_on
 string attachment_title
 string bottom_sheet_behavior
+string camera
+string cancel
 string character_counter_content_description
 string character_counter_overflowed_content_description
 string character_counter_pattern
 string chip_text
+string choose
 string clear_text_end_icon_content_description
 string com_facebook_device_auth_instructions
 string com_facebook_image_download_unknown_error
@@ -2820,9 +2842,13 @@ string expand_button_title
 string exposed_dropdown_menu_content_description
 string fab_transformation_scrim_behavior
 string fab_transformation_sheet_behavior
+string gallery
 string hello_blank_fragment
 string hide_bottom_view_on_scroll_behavior
 string icon_content_description
+string image_content_type
+string image_file_name
+string loading
 string messages_header
 string messenger_send_button_text
 string mtrl_badge_numberless_content_description
@@ -2859,6 +2885,7 @@ string mtrl_picker_toggle_to_calendar_input_mode
 string mtrl_picker_toggle_to_day_selection
 string mtrl_picker_toggle_to_text_input_mode
 string mtrl_picker_toggle_to_year_selection
+string no_providers
 string not_set
 string password_toggle_content_description
 string path_password_eye
@@ -2874,6 +2901,7 @@ string places_powered_by_google
 string places_search_error
 string places_try_again
 string preference_copied
+string provider_package
 string reply_title
 string search_menu_title
 string signature_title
@@ -2884,6 +2912,7 @@ string sync_title
 string title_activity_settings
 string v7_preference_off
 string v7_preference_on
+string video_content_type
 string wi_alien
 string wi_barometer
 string wi_celsius
@@ -3480,6 +3509,7 @@ string wi_yahoo_6
 string wi_yahoo_7
 string wi_yahoo_8
 string wi_yahoo_9
+string wrong_authority
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
 style Animation_AppCompat_Dialog
@@ -4218,6 +4248,7 @@ style com_facebook_button_like
 style com_facebook_button_send
 style com_facebook_button_share
 style com_facebook_loginview_default_style
+style option
 style tooltip_bubble_text
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle
 styleable ActionBarLayout android_layout_gravity
@@ -4335,6 +4366,7 @@ styleable com_facebook_like_view com_facebook_auxiliary_view_position com_facebo
 styleable com_facebook_login_view com_facebook_confirm_logout com_facebook_login_text com_facebook_logout_text com_facebook_tooltip_mode
 styleable com_facebook_profile_picture_view com_facebook_is_cropped com_facebook_preset_size
 xml fileprovider
+xml picker_provider_paths
 xml root_preferences
 xml standalone_badge
 xml standalone_badge_gravity_bottom_end

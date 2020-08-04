@@ -6,7 +6,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Doesn't ask for permission to use location -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".models.ParseApplication"
@@ -31,25 +33,25 @@
             android:name=".activities.NavigationActivity"
             android:screenOrientation="portrait" />
 
-        <provider
-            android:name="androidx.core.content.FileProvider"
-            android:authorities="com.codepath.fileprovider.fitgenerator"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/fileprovider" />
-        </provider>
 <!--        <provider-->
 <!--            android:name="androidx.core.content.FileProvider"-->
-<!--            android:authorities="${applicationId}.com.vansuita.pickimage.provider"-->
+<!--            android:authorities="com.codepath.fileprovider.fitgenerator"-->
 <!--            android:exported="false"-->
-<!--            android:grantUriPermissions="true"-->
-<!--            tools:replace="android:authorities">-->
+<!--            android:grantUriPermissions="true">-->
 <!--            <meta-data-->
 <!--                android:name="android.support.FILE_PROVIDER_PATHS"-->
-<!--                android:resource="@xml/picker_provider_paths" />-->
+<!--                android:resource="@xml/fileprovider" />-->
 <!--        </provider>-->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.com.vansuita.pickimage.provider"
+            android:exported="false"
+            android:grantUriPermissions="true"
+            tools:replace="android:authorities">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/picker_provider_paths" />
+        </provider>
 
         <activity
             android:name=".activities.ItemDetailsActivity"
