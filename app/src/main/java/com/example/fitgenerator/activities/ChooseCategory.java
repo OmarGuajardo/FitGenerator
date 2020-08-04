@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
 import com.example.fitgenerator.BuildConfig;
@@ -29,6 +30,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.libraries.places.api.Places;
+import com.google.android.libraries.places.api.model.AddressComponent;
+import com.google.android.libraries.places.api.model.AddressComponents;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceRequest;
 import com.google.android.libraries.places.api.net.FindCurrentPlaceResponse;
@@ -38,19 +41,22 @@ import com.parse.FunctionCallback;
 import com.parse.ParseCloud;
 import com.parse.ParseException;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import okhttp3.Headers;
 
 public class ChooseCategory extends AppCompatActivity implements SingleChoiceDialogFragment.SingleChoiceListener {
 
     private static final String TAG = "ChooseCategory";
-    private static final String WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather";
+    private static final String WEATHER_URL = "https://api.openweathermap.org/data/2.5/weather";
     ActivityChooseCategoryBinding binding;
     Toolbar toolbar;
     Boolean toggle = false;
@@ -90,7 +96,6 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
         binding.categoryFavorite.cvCategory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TODO: Query from the Favorites Column in Closet
                 HashMap<String, Object> params = new HashMap<String, Object>();
                 chooseCategory("categoryFavorite", params);
             }
@@ -119,6 +124,7 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
             }
         });
 
+
         getWeather();
 
     }
@@ -130,7 +136,8 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
     }
 
     public void chooseCategory(final String cloudFunctionName, final HashMap<String, Object> cloudParams) {
-        Snackbar.make(binding.layoutChooseCategory,"Gathering Data...", Snackbar.LENGTH_INDEFINITE).show();
+        final Snackbar snackbar = Snackbar.make(binding.layoutChooseCategory,"Gathering Data...", Snackbar.LENGTH_INDEFINITE);
+        snackbar.show();
         toggleForm();
         HashMap<String, Object> params = new HashMap<>();
         params.put("currentUserCloset", Closet.getUserCloset().getObjectId());
@@ -145,6 +152,7 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
                         public void done(Boolean response, ParseException e) {
                             if (e == null) {
                                 if (response == true) {
+                                    snackbar.dismiss();
                                     chooseFit();
                                     return;
                                 }
@@ -197,6 +205,10 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
                                 JSONObject jsonObject = json.jsonObject;
                                 try {
                                     currentTemp = jsonObject.getJSONObject("main").getInt("temp");
+                                    JSONObject weatherObject = (JSONObject)jsonObject.getJSONArray("weather").get(0);
+                                    int weatherID = weatherObject.getInt("id");
+                                    String description = weatherObject.getString("description");
+                                    showWeather(weatherID,description);
                                     toggleForm();
 //                                    updateLists(currentTemp);
                                 } catch (JSONException e) {
@@ -221,6 +233,47 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
         } else {
             getLocationPermission();
         }
+    }
+    private String capitalize(String capString){
+        StringBuffer capBuffer = new StringBuffer();
+        Matcher capMatcher = Pattern.compile("([a-z])([a-z]*)", Pattern.CASE_INSENSITIVE).matcher(capString);
+        while (capMatcher.find()){
+            capMatcher.appendReplacement(capBuffer, capMatcher.group(1).toUpperCase() + capMatcher.group(2).toLowerCase());
+        }
+
+        return capMatcher.appendTail(capBuffer).toString();
+    }
+
+    private void showWeather(int weatherID, String description) {
+        binding.tvWeatherDesc.setText(capitalize(description));
+        binding.tvTemp.setText(currentTemp+"\u2109");
+        String iconResource = "";
+        if(weatherID >= 200 && weatherID <= 232){
+            iconResource = getString(R.string.wi_thunderstorm);
+        }
+        else if(weatherID>= 300 && weatherID<=321){
+            iconResource = getString(R.string.wi_showers);
+        }
+        else if(weatherID>= 500 && weatherID<=531){
+            iconResource = getString(R.string.wi_rain);
+        }
+        else if(weatherID>= 600 && weatherID<=622){
+            iconResource = getString(R.string.wi_snow);
+
+        }
+        else if(weatherID>= 701 && weatherID<=781){
+            iconResource = getString(R.string.wi_dust);
+        }
+        else if(weatherID>= 801 && weatherID<=804){
+            iconResource = getString(R.string.wi_cloud);
+        }
+        else{
+            iconResource = getString(R.string.wi_day_sunny);
+        }
+
+
+
+        binding.myWeatherIcon.setIconResource(iconResource);
     }
 
     public void updateLists(int temp) {

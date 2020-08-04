@@ -4,11 +4,13 @@ package com.example.fitgenerator.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewbinding.ViewBinding;
 import com.example.fitgenerator.R;
+import com.github.pwittchen.weathericonview.WeatherIconView;
 import java.lang.NullPointerException;
 import java.lang.Override;
 import java.lang.String;
@@ -32,16 +34,29 @@ public final class ActivityChooseCategoryBinding implements ViewBinding {
   @NonNull
   public final ConstraintLayout layoutChooseCategory;
 
+  @NonNull
+  public final WeatherIconView myWeatherIcon;
+
+  @NonNull
+  public final TextView tvTemp;
+
+  @NonNull
+  public final TextView tvWeatherDesc;
+
   private ActivityChooseCategoryBinding(@NonNull ConstraintLayout rootView,
       @NonNull CategoryItemBinding categoryFavorite, @NonNull CategoryItemBinding categoryOccasion,
       @NonNull CategoryItemBinding categoryRandom, @NonNull CategoryItemBinding categorySeason,
-      @NonNull ConstraintLayout layoutChooseCategory) {
+      @NonNull ConstraintLayout layoutChooseCategory, @NonNull WeatherIconView myWeatherIcon,
+      @NonNull TextView tvTemp, @NonNull TextView tvWeatherDesc) {
     this.rootView = rootView;
     this.categoryFavorite = categoryFavorite;
     this.categoryOccasion = categoryOccasion;
     this.categoryRandom = categoryRandom;
     this.categorySeason = categorySeason;
     this.layoutChooseCategory = layoutChooseCategory;
+    this.myWeatherIcon = myWeatherIcon;
+    this.tvTemp = tvTemp;
+    this.tvWeatherDesc = tvWeatherDesc;
   }
 
   @Override
@@ -101,9 +116,27 @@ public final class ActivityChooseCategoryBinding implements ViewBinding {
 
       ConstraintLayout layoutChooseCategory = (ConstraintLayout) rootView;
 
+      id = R.id.my_weather_icon;
+      WeatherIconView myWeatherIcon = rootView.findViewById(id);
+      if (myWeatherIcon == null) {
+        break missingId;
+      }
+
+      id = R.id.tvTemp;
+      TextView tvTemp = rootView.findViewById(id);
+      if (tvTemp == null) {
+        break missingId;
+      }
+
+      id = R.id.tvWeatherDesc;
+      TextView tvWeatherDesc = rootView.findViewById(id);
+      if (tvWeatherDesc == null) {
+        break missingId;
+      }
+
       return new ActivityChooseCategoryBinding((ConstraintLayout) rootView,
           binding_categoryFavorite, binding_categoryOccasion, binding_categoryRandom,
-          binding_categorySeason, layoutChooseCategory);
+          binding_categorySeason, layoutChooseCategory, myWeatherIcon, tvTemp, tvWeatherDesc);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

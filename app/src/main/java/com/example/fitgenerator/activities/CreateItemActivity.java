@@ -8,6 +8,7 @@ import androidx.core.content.FileProvider;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -33,11 +34,16 @@ import com.parse.ParseException;
 import com.parse.ParseFile;
 import com.parse.SaveCallback;
 
+
+
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.parceler.Parcels;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 public class CreateItemActivity extends AppCompatActivity {
 
@@ -164,6 +170,9 @@ public class CreateItemActivity extends AppCompatActivity {
         });
     }
 
+
+
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         finish();
@@ -260,7 +269,9 @@ public class CreateItemActivity extends AppCompatActivity {
             @Override
             public void done(ParseException e) {
                 if(e != null){
+                    Log.e(TAG, "error ",e );
                     Toast.makeText(CreateItemActivity.this, "something went wrong", Toast.LENGTH_SHORT).show();
+                    return;
                 }
                 try {
                     formEnable(true);
