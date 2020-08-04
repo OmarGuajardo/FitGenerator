@@ -4,25 +4,41 @@ package com.example.fitgenerator.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.viewbinding.ViewBinding;
 import com.example.fitgenerator.R;
 import java.lang.NullPointerException;
 import java.lang.Override;
+import java.lang.String;
 
 public final class NavHeaderBinding implements ViewBinding {
   @NonNull
-  private final LinearLayout rootView;
+  private final CoordinatorLayout rootView;
 
-  private NavHeaderBinding(@NonNull LinearLayout rootView) {
+  @NonNull
+  public final ImageView ivProfilePic;
+
+  @NonNull
+  public final TextView tvUserEmail;
+
+  @NonNull
+  public final TextView tvUserName;
+
+  private NavHeaderBinding(@NonNull CoordinatorLayout rootView, @NonNull ImageView ivProfilePic,
+      @NonNull TextView tvUserEmail, @NonNull TextView tvUserName) {
     this.rootView = rootView;
+    this.ivProfilePic = ivProfilePic;
+    this.tvUserEmail = tvUserEmail;
+    this.tvUserName = tvUserName;
   }
 
   @Override
   @NonNull
-  public LinearLayout getRoot() {
+  public CoordinatorLayout getRoot() {
     return rootView;
   }
 
@@ -43,10 +59,32 @@ public final class NavHeaderBinding implements ViewBinding {
 
   @NonNull
   public static NavHeaderBinding bind(@NonNull View rootView) {
-    if (rootView == null) {
-      throw new NullPointerException("rootView");
-    }
+    // The body of this method is generated in a way you would not otherwise write.
+    // This is done to optimize the compiled bytecode for size and performance.
+    int id;
+    missingId: {
+      id = R.id.ivProfilePic;
+      ImageView ivProfilePic = rootView.findViewById(id);
+      if (ivProfilePic == null) {
+        break missingId;
+      }
 
-    return new NavHeaderBinding((LinearLayout) rootView);
+      id = R.id.tvUserEmail;
+      TextView tvUserEmail = rootView.findViewById(id);
+      if (tvUserEmail == null) {
+        break missingId;
+      }
+
+      id = R.id.tvUserName;
+      TextView tvUserName = rootView.findViewById(id);
+      if (tvUserName == null) {
+        break missingId;
+      }
+
+      return new NavHeaderBinding((CoordinatorLayout) rootView, ivProfilePic, tvUserEmail,
+          tvUserName);
+    }
+    String missingId = rootView.getResources().getResourceName(id);
+    throw new NullPointerException("Missing required view with ID: ".concat(missingId));
   }
 }

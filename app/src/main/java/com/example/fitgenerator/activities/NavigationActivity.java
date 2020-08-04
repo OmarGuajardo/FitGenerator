@@ -14,8 +14,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.fitgenerator.BuildConfig;
 import com.example.fitgenerator.fragments.BottomSheetDialog;
 import com.example.fitgenerator.fragments.FitsFragment;
@@ -64,6 +67,19 @@ public class NavigationActivity extends AppCompatActivity
         nvDrawer = (NavigationView) findViewById(R.id.nvView);
         // Setup drawer view
         setupDrawerContent(nvDrawer);
+
+        View headView = nvDrawer.getHeaderView(0);
+        ImageView ivProfilePic = headView.findViewById(R.id.ivProfilePic);
+        Glide.with(getApplicationContext())
+                .load(R.drawable.fit_generator_icon)
+                .circleCrop()
+                .into(ivProfilePic);
+        ivProfilePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //TODO: show options for either taking a picture or uploading
+            }
+        });
 
     }
 

@@ -74,7 +74,6 @@ public class ItemDetailsActivity extends AppCompatActivity {
 
         }
         else{
-            Log.d(TAG, "image url IS empty ");
             imageProgressBar.setVisibility(View.GONE);
             Glide.with(getApplicationContext())
                     .load(R.drawable.fit_generator_icon)

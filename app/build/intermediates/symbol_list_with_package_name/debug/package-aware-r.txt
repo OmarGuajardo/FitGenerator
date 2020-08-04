@@ -2262,6 +2262,7 @@ id ivCategoryIcon
 id ivItemIcon
 id ivItemPic
 id ivLayer
+id ivProfilePic
 id ivShoes
 id ivTop
 id labeled
@@ -2494,6 +2495,7 @@ id tvStyle
 id tvTemp
 id tvToolBarTitle
 id tvType
+id tvUserEmail
 id tvUserName
 id tvWeatherDesc
 id unchecked

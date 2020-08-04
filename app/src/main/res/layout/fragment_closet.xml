@@ -43,7 +43,6 @@
                 android:clickable="true"
                 android:scaleType="fitCenter"
                 android:src="@drawable/jacket_icon"
-                android:tint="@color/colorPrimary"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:rippleColor="@color/secondaryDarkColor"
