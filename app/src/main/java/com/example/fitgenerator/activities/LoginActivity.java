@@ -21,9 +21,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(binding.getRoot());
 
-        if(ParseUser.getCurrentUser() != null){
-            goHomePage();
-        }
+
         binding.btnLogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,10 +49,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
     public void goHomePage(){
         Intent intent = new Intent(LoginActivity.this, NavigationActivity.class);
         startActivity(intent);
         finish();
     }
+
+
 }

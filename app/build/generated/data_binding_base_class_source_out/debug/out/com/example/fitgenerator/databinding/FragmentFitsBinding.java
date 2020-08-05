@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
@@ -25,11 +26,15 @@ public final class FragmentFitsBinding implements ViewBinding {
   @NonNull
   public final RecyclerView rvFits;
 
+  @NonNull
+  public final TextView tvInsufficientItems;
+
   private FragmentFitsBinding(@NonNull FrameLayout rootView, @NonNull ProgressBar progressBar,
-      @NonNull RecyclerView rvFits) {
+      @NonNull RecyclerView rvFits, @NonNull TextView tvInsufficientItems) {
     this.rootView = rootView;
     this.progressBar = progressBar;
     this.rvFits = rvFits;
+    this.tvInsufficientItems = tvInsufficientItems;
   }
 
   @Override
@@ -71,7 +76,14 @@ public final class FragmentFitsBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentFitsBinding((FrameLayout) rootView, progressBar, rvFits);
+      id = R.id.tvInsufficientItems;
+      TextView tvInsufficientItems = rootView.findViewById(id);
+      if (tvInsufficientItems == null) {
+        break missingId;
+      }
+
+      return new FragmentFitsBinding((FrameLayout) rootView, progressBar, rvFits,
+          tvInsufficientItems);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -2270,6 +2270,7 @@ id italic
 id itemCardView
 id itemDetailsContainer
 id item_touch_helper_previous_elevation
+id ivAppIcon
 id ivBottom
 id ivCategoryIcon
 id ivItemIcon
@@ -2596,6 +2597,7 @@ layout activity_choose_fit
 layout activity_create_item
 layout activity_fit_details
 layout activity_item_details
+layout activity_loading
 layout activity_login
 layout activity_main
 layout activity_navigation

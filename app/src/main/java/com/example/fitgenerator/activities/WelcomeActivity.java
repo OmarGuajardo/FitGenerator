@@ -9,6 +9,7 @@ import android.view.View;
 import com.example.fitgenerator.databinding.ActivityWelcomeBinding;
 import com.facebook.FacebookSdk;
 import com.facebook.appevents.AppEventsLogger;
+import com.parse.ParseUser;
 
 
 public class WelcomeActivity extends AppCompatActivity {
@@ -27,7 +28,15 @@ public class WelcomeActivity extends AppCompatActivity {
                 finish();
             }
         });
+        if(ParseUser.getCurrentUser() != null){
+            goHomePage();
+        }
 
 
+    }
+    public void goHomePage(){
+        Intent intent = new Intent(WelcomeActivity.this, NavigationActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

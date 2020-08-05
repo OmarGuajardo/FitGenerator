@@ -12,6 +12,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/progress_bar"/>
 
+    <TextView
+        android:id="@+id/tvInsufficientItems"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/poppins_medium"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:text="You haven't chosen any Fits" />
+
     <LinearLayout
         android:layout_marginLeft="@dimen/marginLeft"
         android:layout_marginRight="@dimen/marginLeft"

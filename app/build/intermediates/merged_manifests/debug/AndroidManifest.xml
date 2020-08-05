@@ -11,7 +11,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- Doesn't ask for permission to use location -->
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -40,6 +39,13 @@
         android:testOnly="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true" >
+        <activity android:name="com.example.fitgenerator.activities.LoadingActivity" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="com.example.fitgenerator.activities.FitDetailsActivity" />
         <activity
             android:name="com.example.fitgenerator.activities.ChooseFit"
@@ -52,9 +58,7 @@
             android:label="@string/title_activity_settings" />
         <activity
             android:name="com.example.fitgenerator.activities.NavigationActivity"
-            android:screenOrientation="portrait" />
-
-        <!-- <provider -->
+            android:screenOrientation="portrait" /> <!-- <provider -->
         <!-- android:name="androidx.core.content.FileProvider" -->
         <!-- android:authorities="com.codepath.fileprovider.fitgenerator" -->
         <!-- android:exported="false" -->
@@ -85,11 +89,6 @@
         <activity
             android:name="com.example.fitgenerator.activities.WelcomeActivity"
             android:screenOrientation="portrait" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name="com.example.fitgenerator.activities.LoginActivity" />
         <activity android:name="com.example.fitgenerator.activities.MainActivity" />

@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fitgenerator.adapters.FitsMainAdapter;
@@ -41,6 +42,7 @@ public class FitsFragment extends Fragment {
     LinearLayoutManager layoutManager;
     FitsMainAdapter fitsMainAdapter;
     ProgressBar progressBar;
+    TextView tvInsufficientItems;
     List<Section> sectionList = new ArrayList<>();
     public FitsFragment() {
         // Required empty public constructor
@@ -53,6 +55,7 @@ public class FitsFragment extends Fragment {
         //Setting up the Recycler View
         listFits = new ArrayList<>();
         rvFits = view.findViewById(R.id.rvFits);
+        tvInsufficientItems = view.findViewById(R.id.tvInsufficientItems);
         fitsMainAdapter = new FitsMainAdapter(sectionList,getContext());
         layoutManager = new LinearLayoutManager(getContext());
         rvFits.setAdapter(fitsMainAdapter);
@@ -78,13 +81,17 @@ public class FitsFragment extends Fragment {
                    listFits.clear();
                    listFits.addAll(fits);
                    displayData();
+                   return;
                }
+                progressBar.setVisibility(View.GONE);
+                tvInsufficientItems.setVisibility(View.VISIBLE);
 
             }
         });
     }
 
     public void displayData() {
+        Log.d(TAG, "displayData: ");
         sectionList.clear();
         SimpleDateFormat DateFor = new SimpleDateFormat("EEE MMM d yyyy");
         List<Fit> sectionItems = new ArrayList<>();
@@ -103,6 +110,7 @@ public class FitsFragment extends Fragment {
         sectionList.add(new Section(sectionDate, sectionItems));
         fitsMainAdapter.notifyDataSetChanged();
         progressBar.setVisibility(View.GONE);
+        tvInsufficientItems.setVisibility(View.GONE);
     }
 
     @Override
