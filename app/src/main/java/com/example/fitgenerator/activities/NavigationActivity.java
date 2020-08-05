@@ -70,6 +70,8 @@ public class NavigationActivity extends AppCompatActivity
     HistoryFragment historyFragment;
     ShopFragment shopFragment;
     ImageView ivProfilePic;
+    TextView tvUserName;
+    TextView tvUserEmail;
     Fragment fragment;
 
     @Override
@@ -97,6 +99,8 @@ public class NavigationActivity extends AppCompatActivity
 
         View headView = nvDrawer.getHeaderView(0);
         ivProfilePic = headView.findViewById(R.id.ivProfilePic);
+        tvUserName = headView.findViewById(R.id.tvUserName);
+        tvUserEmail = headView.findViewById(R.id.tvUserEmail);
         Glide.with(getApplicationContext())
                 .load(R.drawable.fit_generator_icon)
                 .circleCrop()
@@ -108,7 +112,25 @@ public class NavigationActivity extends AppCompatActivity
             }
         });
 
+        setUpProfile();
+
+
     }
+
+    private void setUpProfile() {
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        ParseFile profilePicFile = currentUser.getParseFile("profilePicture");
+        if(profilePicFile != null){
+            Glide.with(getApplicationContext())
+                    .load(profilePicFile.getUrl())
+                    .circleCrop()
+                    .into(ivProfilePic);
+        }
+        tvUserName.setText(currentUser.getUsername());
+        tvUserEmail.setText(currentUser.getEmail() == null ? "" : currentUser.getEmail());
+
+    }
+
 
     private void handleImageSelection() {
         PickSetup pickSetup = new PickSetup().setMaxSize(250);
@@ -122,6 +144,7 @@ public class NavigationActivity extends AppCompatActivity
 
             Glide.with(getApplicationContext())
                     .load(r.getUri())
+                    .circleCrop()
                     .into(ivProfilePic);
 
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -190,7 +213,7 @@ public class NavigationActivity extends AppCompatActivity
         try {
             fragment = (Fragment) fragmentClass.newInstance();
         } catch (Exception e) {
-            e.printStackTrace();
+            Log.e(TAG, "something went wrong trying to make fragment", e);
         }
 
         // Insert the fragment by replacing any existing fragment
@@ -208,7 +231,9 @@ public class NavigationActivity extends AppCompatActivity
 
     public void refreshCloset() {
         generatorFragment = (GeneratorFragment) fragment;
-        generatorFragment.refreshCloset();
+        if(generatorFragment != null){
+            generatorFragment.refreshCloset();
+        }
     }
 
     @Override
