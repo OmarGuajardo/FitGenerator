@@ -18,7 +18,7 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:fontFamily="@font/poppins_semibold"
             android:gravity="center"
             android:text="Fit Generator"
@@ -48,6 +48,16 @@
             android:textColor="@color/primaryTextColor2"
             android:textColorHint="@color/primaryTextColor2"
             android:fontFamily="@font/poppins"
+            android:id="@+id/tvBirthDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="false"
+            android:layout_marginTop="4dp"
+            android:hint="BIRTH DATE" />
+        <EditText
+            android:textColor="@color/primaryTextColor2"
+            android:textColorHint="@color/primaryTextColor2"
+            android:fontFamily="@font/poppins"
             android:id="@+id/tvEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -64,6 +74,16 @@
             android:layout_height="wrap_content"
             android:inputType="textPassword"
             android:hint="PASSWORD" />
+        <EditText
+            android:fontFamily="@font/poppins"
+            android:textColor="@color/primaryTextColor2"
+            android:textColorHint="@color/primaryTextColor2"
+            android:id="@+id/tvConfirmPassword"
+            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="CONFIRM PASSWORD" />
 
         <Button
             android:fontFamily="@font/poppins_medium"

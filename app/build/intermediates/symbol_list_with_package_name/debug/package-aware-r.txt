@@ -2489,10 +2489,12 @@ id transition_layout_save
 id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
+id tvBirthDate
 id tvCategory
 id tvCategoryName
 id tvClass
 id tvColor
+id tvConfirmPassword
 id tvDescriptionBody
 id tvDescriptionTitle
 id tvEmail
@@ -4248,6 +4250,7 @@ style com_facebook_button_like
 style com_facebook_button_send
 style com_facebook_button_share
 style com_facebook_loginview_default_style
+style datePicker
 style option
 style tooltip_bubble_text
 styleable ActionBar background backgroundSplit backgroundStacked contentInsetEnd contentInsetEndWithActions contentInsetLeft contentInsetRight contentInsetStart contentInsetStartWithNavigation customNavigationLayout displayOptions divider elevation height hideOnContentScroll homeAsUpIndicator homeLayout icon indeterminateProgressStyle itemPadding logo navigationMode popupTheme progressBarPadding progressBarStyle subtitle subtitleTextStyle title titleTextStyle

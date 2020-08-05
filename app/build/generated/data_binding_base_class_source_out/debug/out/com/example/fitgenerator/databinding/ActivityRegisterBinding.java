@@ -30,6 +30,12 @@ public final class ActivityRegisterBinding implements ViewBinding {
   public final TextView btnReturn;
 
   @NonNull
+  public final EditText tvBirthDate;
+
+  @NonNull
+  public final EditText tvConfirmPassword;
+
+  @NonNull
   public final EditText tvEmail;
 
   @NonNull
@@ -39,12 +45,15 @@ public final class ActivityRegisterBinding implements ViewBinding {
   public final EditText tvUserName;
 
   private ActivityRegisterBinding(@NonNull ConstraintLayout rootView, @NonNull Button btnFacebook,
-      @NonNull Button btnRegister, @NonNull TextView btnReturn, @NonNull EditText tvEmail,
-      @NonNull EditText tvPassword, @NonNull EditText tvUserName) {
+      @NonNull Button btnRegister, @NonNull TextView btnReturn, @NonNull EditText tvBirthDate,
+      @NonNull EditText tvConfirmPassword, @NonNull EditText tvEmail, @NonNull EditText tvPassword,
+      @NonNull EditText tvUserName) {
     this.rootView = rootView;
     this.btnFacebook = btnFacebook;
     this.btnRegister = btnRegister;
     this.btnReturn = btnReturn;
+    this.tvBirthDate = tvBirthDate;
+    this.tvConfirmPassword = tvConfirmPassword;
     this.tvEmail = tvEmail;
     this.tvPassword = tvPassword;
     this.tvUserName = tvUserName;
@@ -95,6 +104,18 @@ public final class ActivityRegisterBinding implements ViewBinding {
         break missingId;
       }
 
+      id = R.id.tvBirthDate;
+      EditText tvBirthDate = rootView.findViewById(id);
+      if (tvBirthDate == null) {
+        break missingId;
+      }
+
+      id = R.id.tvConfirmPassword;
+      EditText tvConfirmPassword = rootView.findViewById(id);
+      if (tvConfirmPassword == null) {
+        break missingId;
+      }
+
       id = R.id.tvEmail;
       EditText tvEmail = rootView.findViewById(id);
       if (tvEmail == null) {
@@ -114,7 +135,7 @@ public final class ActivityRegisterBinding implements ViewBinding {
       }
 
       return new ActivityRegisterBinding((ConstraintLayout) rootView, btnFacebook, btnRegister,
-          btnReturn, tvEmail, tvPassword, tvUserName);
+          btnReturn, tvBirthDate, tvConfirmPassword, tvEmail, tvPassword, tvUserName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
