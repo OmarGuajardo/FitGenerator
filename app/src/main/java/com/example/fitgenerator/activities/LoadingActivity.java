@@ -33,14 +33,12 @@ public class LoadingActivity extends AppCompatActivity {
         binding.ivAppIcon.setAnimation(topAnim);
         binding.tvSlogan.setAnimation(bottomAnim);
 
-
-
-//        if(ParseUser.getCurrentUser() == null){
-//            goWelcomePage();
-//        }
-//        else{
-//            goNavPage();
-//        }
+        if(ParseUser.getCurrentUser() == null){
+            goWelcomePage();
+        }
+        else{
+            goNavPage();
+        }
     }
 
 

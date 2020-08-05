@@ -244,8 +244,10 @@ MERGED from [com.android.installreferrer:installreferrer:1.0] /Users/omarguajard
 		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:13:9-48
 activity#com.example.fitgenerator.activities.LoadingActivity
 ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:21:9-27:20
+	android:screenOrientation
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:21:19-55
 	android:name
-		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:21:19-61
+		ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:21:56-98
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
 ADDED from /Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:22:13-26:29
 action#android.intent.action.MAIN

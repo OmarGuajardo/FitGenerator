@@ -76,256 +76,259 @@
 40-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:19:9-40
 41        android:usesCleartextTraffic="true" >
 41-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:20:9-44
-42        <activity android:name="com.example.fitgenerator.activities.LoadingActivity" >
+42        <activity
 42-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:21:9-27:20
-42-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:21:19-61
-43            <intent-filter>
-43-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:22:13-26:29
-44                <action android:name="android.intent.action.MAIN" />
-44-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:23:17-69
-44-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:23:25-66
-45
-46                <category android:name="android.intent.category.LAUNCHER" />
-46-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:25:17-77
-46-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:25:27-74
-47            </intent-filter>
-48        </activity>
-49        <activity android:name="com.example.fitgenerator.activities.FitDetailsActivity" />
-49-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:28:9-67
-49-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:28:19-64
-50        <activity
-50-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:29:9-31:52
-51            android:name="com.example.fitgenerator.activities.ChooseFit"
-51-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:30:13-49
-52            android:screenOrientation="portrait" />
-52-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:31:13-49
-53        <activity
-53-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:32:9-34:52
-54            android:name="com.example.fitgenerator.activities.ChooseCategory"
-54-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:33:13-54
-55            android:screenOrientation="portrait" />
-55-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:34:13-49
-56        <activity
-56-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:35:9-37:63
-57            android:name="com.example.fitgenerator.activities.SettingsActivity"
-57-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:36:13-56
-58            android:label="@string/title_activity_settings" />
-58-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:37:13-60
-59        <activity
-59-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:38:9-40:52
-60            android:name="com.example.fitgenerator.activities.NavigationActivity"
-60-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:39:13-58
-61            android:screenOrientation="portrait" /> <!-- <provider -->
-61-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:40:13-49
-62        <!-- android:name="androidx.core.content.FileProvider" -->
-63        <!-- android:authorities="com.codepath.fileprovider.fitgenerator" -->
-64        <!-- android:exported="false" -->
-65        <!-- android:grantUriPermissions="true"> -->
-66        <!-- <meta-data -->
-67        <!-- android:name="android.support.FILE_PROVIDER_PATHS" -->
-68        <!-- android:resource="@xml/fileprovider" /> -->
-69        <!-- </provider> -->
-70        <provider
-71            android:name="androidx.core.content.FileProvider"
-71-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:50:13-62
-72            android:authorities="com.example.fitgenerator.com.vansuita.pickimage.provider"
-72-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:51:13-83
-73            android:exported="false"
-73-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:52:13-37
-74            android:grantUriPermissions="true" >
-74-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:53:13-47
-75            <meta-data
-75-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:55:13-57:65
-76                android:name="android.support.FILE_PROVIDER_PATHS"
-76-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:56:17-67
-77                android:resource="@xml/picker_provider_paths" />
-77-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:57:17-62
-78        </provider>
-79
-80        <activity
-80-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:60:9-62:52
-81            android:name="com.example.fitgenerator.activities.ItemDetailsActivity"
-81-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:61:13-59
-82            android:screenOrientation="portrait" />
-82-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:62:13-49
-83        <activity
-83-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:63:9-65:52
-84            android:name="com.example.fitgenerator.activities.CreateItemActivity"
-84-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:64:13-58
-85            android:screenOrientation="portrait" />
-85-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:65:13-49
-86        <activity
-86-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:66:9-68:52
-87            android:name="com.example.fitgenerator.activities.RegisterActivity"
-87-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:67:13-56
-88            android:screenOrientation="portrait" />
-88-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:68:13-49
-89        <activity
-89-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:69:9-73:20
-90            android:name="com.example.fitgenerator.activities.WelcomeActivity"
-90-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:70:13-55
-91            android:screenOrientation="portrait" >
-91-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:71:13-49
-92        </activity>
-93        <activity android:name="com.example.fitgenerator.activities.LoginActivity" />
-93-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:74:9-62
-93-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:74:19-59
-94        <activity android:name="com.example.fitgenerator.activities.MainActivity" />
-94-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:75:9-61
-94-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:75:19-58
-95
-96        <meta-data
-96-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:77:9-79:57
-97            android:name="preloaded_fonts"
-97-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:78:13-43
-98            android:resource="@array/preloaded_fonts" />
-98-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:79:13-54
-99
-100        <activity
-100-->[com.google.android.libraries.places:places:2.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6df79d8dcdbf36cf06db860234dca242/jetified-places-2.3.0/AndroidManifest.xml:14:9-20:20
-101            android:name="com.google.android.libraries.places.widget.AutocompleteActivity"
-101-->[com.google.android.libraries.places:places:2.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6df79d8dcdbf36cf06db860234dca242/jetified-places-2.3.0/AndroidManifest.xml:15:13-91
-102            android:exported="false"
-102-->[com.google.android.libraries.places:places:2.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6df79d8dcdbf36cf06db860234dca242/jetified-places-2.3.0/AndroidManifest.xml:16:13-37
-103            android:label="@string/places_autocomplete_label"
-103-->[com.google.android.libraries.places:places:2.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6df79d8dcdbf36cf06db860234dca242/jetified-places-2.3.0/AndroidManifest.xml:17:13-62
-104            android:theme="@style/PlacesAutocompleteOverlay"
-104-->[com.google.android.libraries.places:places:2.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6df79d8dcdbf36cf06db860234dca242/jetified-places-2.3.0/AndroidManifest.xml:18:13-61
-105            android:windowSoftInputMode="adjustResize" >
-105-->[com.google.android.libraries.places:places:2.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6df79d8dcdbf36cf06db860234dca242/jetified-places-2.3.0/AndroidManifest.xml:19:13-55
-106        </activity>
-107        <activity
-107-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:30:9-33:66
-108            android:name="com.facebook.FacebookActivity"
-108-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:31:13-57
-109            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-109-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:32:13-96
-110            android:theme="@style/com_facebook_activity_theme" />
-110-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:33:13-63
-111        <activity android:name="com.facebook.CustomTabMainActivity" />
-111-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:34:9-71
-111-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:34:19-68
-112        <activity
-112-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:35:9-49:20
-113            android:name="com.facebook.CustomTabActivity"
-113-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:36:13-58
-114            android:exported="true" >
-114-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:37:13-36
-115            <intent-filter>
-115-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:39:13-48:29
-116                <action android:name="android.intent.action.VIEW" />
-116-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:40:17-69
-116-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:40:25-66
-117
-118                <category android:name="android.intent.category.DEFAULT" />
-118-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:42:17-76
-118-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:42:27-73
-119                <category android:name="android.intent.category.BROWSABLE" />
-119-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:43:17-78
-119-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:43:27-75
-120
-121                <data
-121-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:45:17-47:50
-122                    android:host="cct.com.example.fitgenerator"
-122-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:46:21-56
-123                    android:scheme="fbconnect" />
-123-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:47:21-47
-124            </intent-filter>
-125        </activity> <!-- Needs to be explicitly declared on P+ -->
-126        <uses-library
-126-->[com.google.android.gms:play-services-maps:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/a839635d2d496b87b8285f48671776f3/jetified-play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
-127            android:name="org.apache.http.legacy"
-127-->[com.google.android.gms:play-services-maps:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/a839635d2d496b87b8285f48671776f3/jetified-play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
-128            android:required="false" />
-128-->[com.google.android.gms:play-services-maps:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/a839635d2d496b87b8285f48671776f3/jetified-play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
-129
-130        <activity
-130-->[com.google.android.gms:play-services-base:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6a27f052584ba14e1bf3f0754d910342/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
-131            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-131-->[com.google.android.gms:play-services-base:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6a27f052584ba14e1bf3f0754d910342/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
-132            android:exported="false"
-132-->[com.google.android.gms:play-services-base:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6a27f052584ba14e1bf3f0754d910342/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
-133            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-133-->[com.google.android.gms:play-services-base:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6a27f052584ba14e1bf3f0754d910342/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
-134
-135        <meta-data
-135-->[com.google.android.gms:play-services-basement:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/85cfff5691f363e5417071a3d3b6c15f/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
-136            android:name="com.google.android.gms.version"
-136-->[com.google.android.gms:play-services-basement:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/85cfff5691f363e5417071a3d3b6c15f/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
-137            android:value="@integer/google_play_services_version" />
-137-->[com.google.android.gms:play-services-basement:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/85cfff5691f363e5417071a3d3b6c15f/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
-138        <!--
-139         The initialization ContentProvider will call FacebookSdk.sdkInitialize automatically
-140         with the application context. This config is merged in with the host app's manifest,
-141         but there can only be one provider with the same authority activated at any given
-142         point; so if the end user has two or more different apps that use Facebook SDK, only the
-143         first one will be able to use the provider. To work around this problem, we use the
-144         following placeholder in the authority to identify each host application as if it was
-145         a completely different provider.
-146        -->
-147        <provider
-147-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:39:9-42:40
-148            android:name="com.facebook.internal.FacebookInitProvider"
-148-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:40:13-70
-149            android:authorities="com.example.fitgenerator.FacebookInitProvider"
-149-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:41:13-72
-150            android:exported="false" />
-150-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:42:13-37
-151
-152        <receiver
-152-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:44:9-50:20
-153            android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver"
-153-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:45:13-86
-154            android:exported="false" >
-154-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:46:13-37
-155            <intent-filter>
-155-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:47:13-49:29
-156                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED" />
-156-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:48:17-95
-156-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:48:25-92
-157            </intent-filter>
-158        </receiver>
-159
-160        <service
-160-->[com.google.android.datatransport:transport-backend-cct:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/ded3a7de9841944bc0d915a9e72501bc/jetified-transport-backend-cct-2.1.0/AndroidManifest.xml:29:9-35:19
-161            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
-161-->[com.google.android.datatransport:transport-backend-cct:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/ded3a7de9841944bc0d915a9e72501bc/jetified-transport-backend-cct-2.1.0/AndroidManifest.xml:30:13-103
-162            android:exported="false" >
-162-->[com.google.android.datatransport:transport-backend-cct:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/ded3a7de9841944bc0d915a9e72501bc/jetified-transport-backend-cct-2.1.0/AndroidManifest.xml:31:13-37
-163            <meta-data
-163-->[com.google.android.datatransport:transport-backend-cct:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/ded3a7de9841944bc0d915a9e72501bc/jetified-transport-backend-cct-2.1.0/AndroidManifest.xml:32:13-34:39
-164                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
-164-->[com.google.android.datatransport:transport-backend-cct:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/ded3a7de9841944bc0d915a9e72501bc/jetified-transport-backend-cct-2.1.0/AndroidManifest.xml:33:17-94
-165                android:value="cct" />
-165-->[com.google.android.datatransport:transport-backend-cct:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/ded3a7de9841944bc0d915a9e72501bc/jetified-transport-backend-cct-2.1.0/AndroidManifest.xml:34:17-36
-166        </service>
-167        <service
-167-->[com.google.android.datatransport:transport-runtime:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c4a2be90d9b107bd5422804ee22c7cec/jetified-transport-runtime-2.1.0/AndroidManifest.xml:26:9-30:19
-168            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
-168-->[com.google.android.datatransport:transport-runtime:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c4a2be90d9b107bd5422804ee22c7cec/jetified-transport-runtime-2.1.0/AndroidManifest.xml:27:13-117
-169            android:exported="false"
-169-->[com.google.android.datatransport:transport-runtime:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c4a2be90d9b107bd5422804ee22c7cec/jetified-transport-runtime-2.1.0/AndroidManifest.xml:28:13-37
-170            android:permission="android.permission.BIND_JOB_SERVICE" >
-170-->[com.google.android.datatransport:transport-runtime:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c4a2be90d9b107bd5422804ee22c7cec/jetified-transport-runtime-2.1.0/AndroidManifest.xml:29:13-69
-171        </service>
-172
-173        <receiver
-173-->[com.google.android.datatransport:transport-runtime:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c4a2be90d9b107bd5422804ee22c7cec/jetified-transport-runtime-2.1.0/AndroidManifest.xml:32:9-34:40
-174            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
-174-->[com.google.android.datatransport:transport-runtime:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c4a2be90d9b107bd5422804ee22c7cec/jetified-transport-runtime-2.1.0/AndroidManifest.xml:33:13-132
-175            android:exported="false" />
-175-->[com.google.android.datatransport:transport-runtime:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c4a2be90d9b107bd5422804ee22c7cec/jetified-transport-runtime-2.1.0/AndroidManifest.xml:34:13-37
-176
-177        <provider
-177-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/16c4d94856b3783d9c330aa1a8801d49/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:23:9-27:43
-178            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-178-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/16c4d94856b3783d9c330aa1a8801d49/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:24:13-79
-179            android:authorities="com.example.fitgenerator.lifecycle-process"
-179-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/16c4d94856b3783d9c330aa1a8801d49/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:25:13-69
-180            android:exported="false"
-180-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/16c4d94856b3783d9c330aa1a8801d49/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:26:13-37
-181            android:multiprocess="true" />
-181-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/16c4d94856b3783d9c330aa1a8801d49/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:27:13-40
-182    </application>
-183
-184</manifest>
+43            android:name="com.example.fitgenerator.activities.LoadingActivity"
+43-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:21:56-98
+44            android:screenOrientation="portrait" >
+44-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:21:19-55
+45            <intent-filter>
+45-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:22:13-26:29
+46                <action android:name="android.intent.action.MAIN" />
+46-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:23:17-69
+46-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:23:25-66
+47
+48                <category android:name="android.intent.category.LAUNCHER" />
+48-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:25:17-77
+48-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:25:27-74
+49            </intent-filter>
+50        </activity>
+51        <activity android:name="com.example.fitgenerator.activities.FitDetailsActivity" />
+51-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:28:9-67
+51-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:28:19-64
+52        <activity
+52-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:29:9-31:52
+53            android:name="com.example.fitgenerator.activities.ChooseFit"
+53-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:30:13-49
+54            android:screenOrientation="portrait" />
+54-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:31:13-49
+55        <activity
+55-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:32:9-34:52
+56            android:name="com.example.fitgenerator.activities.ChooseCategory"
+56-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:33:13-54
+57            android:screenOrientation="portrait" />
+57-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:34:13-49
+58        <activity
+58-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:35:9-37:63
+59            android:name="com.example.fitgenerator.activities.SettingsActivity"
+59-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:36:13-56
+60            android:label="@string/title_activity_settings" />
+60-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:37:13-60
+61        <activity
+61-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:38:9-40:52
+62            android:name="com.example.fitgenerator.activities.NavigationActivity"
+62-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:39:13-58
+63            android:screenOrientation="portrait" /> <!-- <provider -->
+63-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:40:13-49
+64        <!-- android:name="androidx.core.content.FileProvider" -->
+65        <!-- android:authorities="com.codepath.fileprovider.fitgenerator" -->
+66        <!-- android:exported="false" -->
+67        <!-- android:grantUriPermissions="true"> -->
+68        <!-- <meta-data -->
+69        <!-- android:name="android.support.FILE_PROVIDER_PATHS" -->
+70        <!-- android:resource="@xml/fileprovider" /> -->
+71        <!-- </provider> -->
+72        <provider
+73            android:name="androidx.core.content.FileProvider"
+73-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:50:13-62
+74            android:authorities="com.example.fitgenerator.com.vansuita.pickimage.provider"
+74-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:51:13-83
+75            android:exported="false"
+75-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:52:13-37
+76            android:grantUriPermissions="true" >
+76-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:53:13-47
+77            <meta-data
+77-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:55:13-57:65
+78                android:name="android.support.FILE_PROVIDER_PATHS"
+78-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:56:17-67
+79                android:resource="@xml/picker_provider_paths" />
+79-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:57:17-62
+80        </provider>
+81
+82        <activity
+82-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:60:9-62:52
+83            android:name="com.example.fitgenerator.activities.ItemDetailsActivity"
+83-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:61:13-59
+84            android:screenOrientation="portrait" />
+84-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:62:13-49
+85        <activity
+85-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:63:9-65:52
+86            android:name="com.example.fitgenerator.activities.CreateItemActivity"
+86-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:64:13-58
+87            android:screenOrientation="portrait" />
+87-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:65:13-49
+88        <activity
+88-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:66:9-68:52
+89            android:name="com.example.fitgenerator.activities.RegisterActivity"
+89-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:67:13-56
+90            android:screenOrientation="portrait" />
+90-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:68:13-49
+91        <activity
+91-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:69:9-73:20
+92            android:name="com.example.fitgenerator.activities.WelcomeActivity"
+92-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:70:13-55
+93            android:screenOrientation="portrait" >
+93-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:71:13-49
+94        </activity>
+95        <activity android:name="com.example.fitgenerator.activities.LoginActivity" />
+95-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:74:9-62
+95-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:74:19-59
+96        <activity android:name="com.example.fitgenerator.activities.MainActivity" />
+96-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:75:9-61
+96-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:75:19-58
+97
+98        <meta-data
+98-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:77:9-79:57
+99            android:name="preloaded_fonts"
+99-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:78:13-43
+100            android:resource="@array/preloaded_fonts" />
+100-->/Users/omarguajardo/AndroidStudioProjects/FitGenerator/app/src/main/AndroidManifest.xml:79:13-54
+101
+102        <activity
+102-->[com.google.android.libraries.places:places:2.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6df79d8dcdbf36cf06db860234dca242/jetified-places-2.3.0/AndroidManifest.xml:14:9-20:20
+103            android:name="com.google.android.libraries.places.widget.AutocompleteActivity"
+103-->[com.google.android.libraries.places:places:2.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6df79d8dcdbf36cf06db860234dca242/jetified-places-2.3.0/AndroidManifest.xml:15:13-91
+104            android:exported="false"
+104-->[com.google.android.libraries.places:places:2.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6df79d8dcdbf36cf06db860234dca242/jetified-places-2.3.0/AndroidManifest.xml:16:13-37
+105            android:label="@string/places_autocomplete_label"
+105-->[com.google.android.libraries.places:places:2.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6df79d8dcdbf36cf06db860234dca242/jetified-places-2.3.0/AndroidManifest.xml:17:13-62
+106            android:theme="@style/PlacesAutocompleteOverlay"
+106-->[com.google.android.libraries.places:places:2.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6df79d8dcdbf36cf06db860234dca242/jetified-places-2.3.0/AndroidManifest.xml:18:13-61
+107            android:windowSoftInputMode="adjustResize" >
+107-->[com.google.android.libraries.places:places:2.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6df79d8dcdbf36cf06db860234dca242/jetified-places-2.3.0/AndroidManifest.xml:19:13-55
+108        </activity>
+109        <activity
+109-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:30:9-33:66
+110            android:name="com.facebook.FacebookActivity"
+110-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:31:13-57
+111            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+111-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:32:13-96
+112            android:theme="@style/com_facebook_activity_theme" />
+112-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:33:13-63
+113        <activity android:name="com.facebook.CustomTabMainActivity" />
+113-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:34:9-71
+113-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:34:19-68
+114        <activity
+114-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:35:9-49:20
+115            android:name="com.facebook.CustomTabActivity"
+115-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:36:13-58
+116            android:exported="true" >
+116-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:37:13-36
+117            <intent-filter>
+117-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:39:13-48:29
+118                <action android:name="android.intent.action.VIEW" />
+118-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:40:17-69
+118-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:40:25-66
+119
+120                <category android:name="android.intent.category.DEFAULT" />
+120-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:42:17-76
+120-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:42:27-73
+121                <category android:name="android.intent.category.BROWSABLE" />
+121-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:43:17-78
+121-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:43:27-75
+122
+123                <data
+123-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:45:17-47:50
+124                    android:host="cct.com.example.fitgenerator"
+124-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:46:21-56
+125                    android:scheme="fbconnect" />
+125-->[com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/390b111cfe2ed7fb7bb98db5c382f0ad/jetified-facebook-common-6.3.0/AndroidManifest.xml:47:21-47
+126            </intent-filter>
+127        </activity> <!-- Needs to be explicitly declared on P+ -->
+128        <uses-library
+128-->[com.google.android.gms:play-services-maps:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/a839635d2d496b87b8285f48671776f3/jetified-play-services-maps-17.0.0/AndroidManifest.xml:33:9-35:40
+129            android:name="org.apache.http.legacy"
+129-->[com.google.android.gms:play-services-maps:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/a839635d2d496b87b8285f48671776f3/jetified-play-services-maps-17.0.0/AndroidManifest.xml:34:13-50
+130            android:required="false" />
+130-->[com.google.android.gms:play-services-maps:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/a839635d2d496b87b8285f48671776f3/jetified-play-services-maps-17.0.0/AndroidManifest.xml:35:13-37
+131
+132        <activity
+132-->[com.google.android.gms:play-services-base:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6a27f052584ba14e1bf3f0754d910342/jetified-play-services-base-17.0.0/AndroidManifest.xml:23:9-26:75
+133            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+133-->[com.google.android.gms:play-services-base:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6a27f052584ba14e1bf3f0754d910342/jetified-play-services-base-17.0.0/AndroidManifest.xml:24:13-79
+134            android:exported="false"
+134-->[com.google.android.gms:play-services-base:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6a27f052584ba14e1bf3f0754d910342/jetified-play-services-base-17.0.0/AndroidManifest.xml:25:13-37
+135            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+135-->[com.google.android.gms:play-services-base:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/6a27f052584ba14e1bf3f0754d910342/jetified-play-services-base-17.0.0/AndroidManifest.xml:26:13-72
+136
+137        <meta-data
+137-->[com.google.android.gms:play-services-basement:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/85cfff5691f363e5417071a3d3b6c15f/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+138            android:name="com.google.android.gms.version"
+138-->[com.google.android.gms:play-services-basement:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/85cfff5691f363e5417071a3d3b6c15f/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+139            android:value="@integer/google_play_services_version" />
+139-->[com.google.android.gms:play-services-basement:17.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/85cfff5691f363e5417071a3d3b6c15f/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+140        <!--
+141         The initialization ContentProvider will call FacebookSdk.sdkInitialize automatically
+142         with the application context. This config is merged in with the host app's manifest,
+143         but there can only be one provider with the same authority activated at any given
+144         point; so if the end user has two or more different apps that use Facebook SDK, only the
+145         first one will be able to use the provider. To work around this problem, we use the
+146         following placeholder in the authority to identify each host application as if it was
+147         a completely different provider.
+148        -->
+149        <provider
+149-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:39:9-42:40
+150            android:name="com.facebook.internal.FacebookInitProvider"
+150-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:40:13-70
+151            android:authorities="com.example.fitgenerator.FacebookInitProvider"
+151-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:41:13-72
+152            android:exported="false" />
+152-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:42:13-37
+153
+154        <receiver
+154-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:44:9-50:20
+155            android:name="com.facebook.CurrentAccessTokenExpirationBroadcastReceiver"
+155-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:45:13-86
+156            android:exported="false" >
+156-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:46:13-37
+157            <intent-filter>
+157-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:47:13-49:29
+158                <action android:name="com.facebook.sdk.ACTION_CURRENT_ACCESS_TOKEN_CHANGED" />
+158-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:48:17-95
+158-->[com.facebook.android:facebook-core:6.3.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b6cba7067fc4426d5ecd7c59045e1a03/jetified-facebook-core-6.3.0/AndroidManifest.xml:48:25-92
+159            </intent-filter>
+160        </receiver>
+161
+162        <service
+162-->[com.google.android.datatransport:transport-backend-cct:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/ded3a7de9841944bc0d915a9e72501bc/jetified-transport-backend-cct-2.1.0/AndroidManifest.xml:29:9-35:19
+163            android:name="com.google.android.datatransport.runtime.backends.TransportBackendDiscovery"
+163-->[com.google.android.datatransport:transport-backend-cct:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/ded3a7de9841944bc0d915a9e72501bc/jetified-transport-backend-cct-2.1.0/AndroidManifest.xml:30:13-103
+164            android:exported="false" >
+164-->[com.google.android.datatransport:transport-backend-cct:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/ded3a7de9841944bc0d915a9e72501bc/jetified-transport-backend-cct-2.1.0/AndroidManifest.xml:31:13-37
+165            <meta-data
+165-->[com.google.android.datatransport:transport-backend-cct:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/ded3a7de9841944bc0d915a9e72501bc/jetified-transport-backend-cct-2.1.0/AndroidManifest.xml:32:13-34:39
+166                android:name="backend:com.google.android.datatransport.cct.CctBackendFactory"
+166-->[com.google.android.datatransport:transport-backend-cct:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/ded3a7de9841944bc0d915a9e72501bc/jetified-transport-backend-cct-2.1.0/AndroidManifest.xml:33:17-94
+167                android:value="cct" />
+167-->[com.google.android.datatransport:transport-backend-cct:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/ded3a7de9841944bc0d915a9e72501bc/jetified-transport-backend-cct-2.1.0/AndroidManifest.xml:34:17-36
+168        </service>
+169        <service
+169-->[com.google.android.datatransport:transport-runtime:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c4a2be90d9b107bd5422804ee22c7cec/jetified-transport-runtime-2.1.0/AndroidManifest.xml:26:9-30:19
+170            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.JobInfoSchedulerService"
+170-->[com.google.android.datatransport:transport-runtime:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c4a2be90d9b107bd5422804ee22c7cec/jetified-transport-runtime-2.1.0/AndroidManifest.xml:27:13-117
+171            android:exported="false"
+171-->[com.google.android.datatransport:transport-runtime:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c4a2be90d9b107bd5422804ee22c7cec/jetified-transport-runtime-2.1.0/AndroidManifest.xml:28:13-37
+172            android:permission="android.permission.BIND_JOB_SERVICE" >
+172-->[com.google.android.datatransport:transport-runtime:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c4a2be90d9b107bd5422804ee22c7cec/jetified-transport-runtime-2.1.0/AndroidManifest.xml:29:13-69
+173        </service>
+174
+175        <receiver
+175-->[com.google.android.datatransport:transport-runtime:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c4a2be90d9b107bd5422804ee22c7cec/jetified-transport-runtime-2.1.0/AndroidManifest.xml:32:9-34:40
+176            android:name="com.google.android.datatransport.runtime.scheduling.jobscheduling.AlarmManagerSchedulerBroadcastReceiver"
+176-->[com.google.android.datatransport:transport-runtime:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c4a2be90d9b107bd5422804ee22c7cec/jetified-transport-runtime-2.1.0/AndroidManifest.xml:33:13-132
+177            android:exported="false" />
+177-->[com.google.android.datatransport:transport-runtime:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c4a2be90d9b107bd5422804ee22c7cec/jetified-transport-runtime-2.1.0/AndroidManifest.xml:34:13-37
+178
+179        <provider
+179-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/16c4d94856b3783d9c330aa1a8801d49/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:23:9-27:43
+180            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+180-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/16c4d94856b3783d9c330aa1a8801d49/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:24:13-79
+181            android:authorities="com.example.fitgenerator.lifecycle-process"
+181-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/16c4d94856b3783d9c330aa1a8801d49/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:25:13-69
+182            android:exported="false"
+182-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/16c4d94856b3783d9c330aa1a8801d49/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:26:13-37
+183            android:multiprocess="true" />
+183-->[androidx.lifecycle:lifecycle-process:2.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/16c4d94856b3783d9c330aa1a8801d49/jetified-lifecycle-process-2.1.0/AndroidManifest.xml:27:13-40
+184    </application>
+185
+186</manifest>

@@ -9,12 +9,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
+import androidx.fragment.app.Fragment;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
@@ -27,6 +29,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     private static final String TAG = "SettingsActivity";
     Toolbar toolbar;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +54,6 @@ public class SettingsActivity extends AppCompatActivity {
     public static class SettingsFragment extends PreferenceFragmentCompat {
 
 
-
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
@@ -64,12 +66,16 @@ public class SettingsActivity extends AppCompatActivity {
                     Intent intent = new Intent(getContext(),WelcomeActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
+                    getActivity().finish();
 
                     return false;
                 }
             });
 
+
+
         }
+
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

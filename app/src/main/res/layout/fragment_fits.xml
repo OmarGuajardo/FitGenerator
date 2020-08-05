@@ -20,7 +20,7 @@
         android:fontFamily="@font/poppins_medium"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:text="You haven't chosen any Fits" />
+        android:text="You haven't generated any Fits" />
 
     <LinearLayout
         android:layout_marginLeft="@dimen/marginLeft"

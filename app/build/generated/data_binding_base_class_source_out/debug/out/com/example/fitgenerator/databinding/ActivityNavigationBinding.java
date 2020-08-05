@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.RevealLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -28,13 +29,22 @@ public final class ActivityNavigationBinding implements ViewBinding {
   @NonNull
   public final NavigationView nvView;
 
+  @NonNull
+  public final RevealLayout revealLayout;
+
+  @NonNull
+  public final View revealView;
+
   private ActivityNavigationBinding(@NonNull DrawerLayout rootView,
       @NonNull DrawerLayout drawerLayout, @NonNull FrameLayout flContent,
-      @NonNull NavigationView nvView) {
+      @NonNull NavigationView nvView, @NonNull RevealLayout revealLayout,
+      @NonNull View revealView) {
     this.rootView = rootView;
     this.drawerLayout = drawerLayout;
     this.flContent = flContent;
     this.nvView = nvView;
+    this.revealLayout = revealLayout;
+    this.revealView = revealView;
   }
 
   @Override
@@ -78,8 +88,20 @@ public final class ActivityNavigationBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityNavigationBinding((DrawerLayout) rootView, drawerLayout, flContent,
-          nvView);
+      id = R.id.reveal_layout;
+      RevealLayout revealLayout = rootView.findViewById(id);
+      if (revealLayout == null) {
+        break missingId;
+      }
+
+      id = R.id.reveal_view;
+      View revealView = rootView.findViewById(id);
+      if (revealView == null) {
+        break missingId;
+      }
+
+      return new ActivityNavigationBinding((DrawerLayout) rootView, drawerLayout, flContent, nvView,
+          revealLayout, revealView);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

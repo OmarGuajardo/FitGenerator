@@ -18,7 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activities.LoadingActivity">
+        <activity android:screenOrientation="portrait" android:name=".activities.LoadingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

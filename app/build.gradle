@@ -92,10 +92,12 @@ dependencies {
     //Infinite Cycle
     implementation 'com.github.devlight:infinitecycleviewpager:1.0.2'
 
-//    Allows the user to select between Camera or Gallery
+    //Allows the user to select between Camera or Gallery
     implementation 'com.github.jrvansuita:PickImage:+'
 
+    //Weather Icons
     implementation 'com.github.pwittchen:weathericonview:1.1.0'
+
 
 
 }
