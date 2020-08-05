@@ -11,6 +11,7 @@ anim abc_slide_out_bottom
 anim abc_slide_out_top
 anim abc_tooltip_enter
 anim abc_tooltip_exit
+anim bottom_animation
 anim btn_checkbox_to_checked_box_inner_merged_animation
 anim btn_checkbox_to_checked_box_outer_merged_animation
 anim btn_checkbox_to_checked_icon_null_animation
@@ -30,6 +31,7 @@ anim design_snackbar_out
 anim mtrl_bottom_sheet_slide_in
 anim mtrl_bottom_sheet_slide_out
 anim mtrl_card_lowers_interpolator
+anim top_animation
 animator design_appbar_state_list_animator
 animator design_fab_hide_motion_spec
 animator design_fab_show_motion_spec
@@ -2509,6 +2511,7 @@ id tvPassword
 id tvShopName
 id tvShopOpen
 id tvShopVicinity
+id tvSlogan
 id tvStyle
 id tvTemp
 id tvToolBarTitle
@@ -3812,6 +3815,7 @@ style PreferenceSummaryTextStyle
 style PreferenceThemeOverlay
 style PreferenceThemeOverlay_v14
 style PreferenceThemeOverlay_v14_Material
+style RatingBar
 style RtlOverlay_DialogWindowTitle_AppCompat
 style RtlOverlay_Widget_AppCompat_ActionBar_TitleItem
 style RtlOverlay_Widget_AppCompat_DialogTitle_Icon

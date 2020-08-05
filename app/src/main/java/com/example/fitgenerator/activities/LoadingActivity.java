@@ -6,36 +6,41 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.WindowManager;
 import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 
 import com.example.fitgenerator.R;
+import com.example.fitgenerator.databinding.ActivityLoadingBinding;
 import com.parse.ParseUser;
 
 public class LoadingActivity extends AppCompatActivity {
 
-
+    ActivityLoadingBinding binding;
+    Animation topAnim,bottomAnim;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_loading);
+        binding = ActivityLoadingBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        RotateAnimation rotate = new RotateAnimation(0, 180, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
-        rotate.setDuration(1000);
-        rotate.setInterpolator(new LinearInterpolator());
+        topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation);
+        bottomAnim = AnimationUtils.loadAnimation(this,R.anim.bottom_animation);
 
-        ImageView ivAppIcon= (ImageView) findViewById(R.id.ivAppIcon);
+        binding.ivAppIcon.setAnimation(topAnim);
+        binding.tvSlogan.setAnimation(bottomAnim);
 
-        ivAppIcon.startAnimation(rotate);
 
-        if(ParseUser.getCurrentUser() == null){
-            goWelcomePage();
-        }
-        else{
-            goNavPage();
-        }
+
+//        if(ParseUser.getCurrentUser() == null){
+//            goWelcomePage();
+//        }
+//        else{
+//            goNavPage();
+//        }
     }
 
 
@@ -50,7 +55,7 @@ public class LoadingActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 1000);
+        }, 2000);
     }
     public void goNavPage(){
         final Handler handler = new Handler();
@@ -63,6 +68,6 @@ public class LoadingActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             }
-        }, 1000);
+        }, 2000);
     }
 }

@@ -21,13 +21,15 @@
             android:src="@drawable/fit_generator_icon" />
 
         <TextView
-            android:layout_marginTop="32dp"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
-            android:fontFamily="@font/poppins_light"
-            android:gravity="center"
+            android:textSize="20dp"
+            android:id="@+id/tvSlogan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Loading"/>
+            android:layout_marginTop="32dp"
+            android:fontFamily="@font/poppins_light"
+            android:gravity="center"
+            android:text="The smart closet you always needed"
+            android:textStyle="italic" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

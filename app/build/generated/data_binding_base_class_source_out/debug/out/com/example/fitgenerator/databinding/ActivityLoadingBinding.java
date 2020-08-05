@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -21,9 +22,14 @@ public final class ActivityLoadingBinding implements ViewBinding {
   @NonNull
   public final ImageView ivAppIcon;
 
-  private ActivityLoadingBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView ivAppIcon) {
+  @NonNull
+  public final TextView tvSlogan;
+
+  private ActivityLoadingBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView ivAppIcon,
+      @NonNull TextView tvSlogan) {
     this.rootView = rootView;
     this.ivAppIcon = ivAppIcon;
+    this.tvSlogan = tvSlogan;
   }
 
   @Override
@@ -59,7 +65,13 @@ public final class ActivityLoadingBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ActivityLoadingBinding((ConstraintLayout) rootView, ivAppIcon);
+      id = R.id.tvSlogan;
+      TextView tvSlogan = rootView.findViewById(id);
+      if (tvSlogan == null) {
+        break missingId;
+      }
+
+      return new ActivityLoadingBinding((ConstraintLayout) rootView, ivAppIcon, tvSlogan);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));
