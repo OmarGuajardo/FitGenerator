@@ -25,9 +25,11 @@ import org.parceler.Parcels;
 public class BottomSheetDialog extends BottomSheetDialogFragment {
 
     BottomSheetListener listener;
+    int position;
     ClothingItem item;
-    public BottomSheetDialog(ClothingItem item){
+    public BottomSheetDialog(ClothingItem item, int position){
         this.item = item;
+        this.position = position;
     }
 
 
@@ -44,7 +46,7 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
                 //TODO: Delete item from list
                 try {
                     item.delete();
-                    listener.handleOnDelete(item);
+                    listener.handleOnDelete(item,position);
                     dismiss();
                 } catch (ParseException e) {
                     e.printStackTrace();
@@ -57,6 +59,7 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
                 //TODO: Wrap the post selected and start a new CreateItem activity
                 Intent intent = new Intent(getContext(), CreateItemActivity.class);
                 intent.putExtra("clothingItemEdit", Parcels.wrap(item));
+                dismiss();
                 startActivity(intent);
 
             }
@@ -77,6 +80,6 @@ public class BottomSheetDialog extends BottomSheetDialogFragment {
     }
 
     public interface BottomSheetListener{
-        void handleOnDelete(ClothingItem item);
+        void handleOnDelete(ClothingItem item, int position);
     }
 }

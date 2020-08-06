@@ -2388,8 +2388,6 @@ id progress_horizontal
 id radio
 id ratingBar
 id recycler_view
-id reveal_layout
-id reveal_view
 id right
 id right_icon
 id right_side

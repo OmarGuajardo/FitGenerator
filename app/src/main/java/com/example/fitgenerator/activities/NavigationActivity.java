@@ -12,11 +12,7 @@ import androidx.fragment.app.FragmentManager;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.content.pm.PermissionGroupInfo;
-import android.content.res.ColorStateList;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -27,9 +23,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.example.fitgenerator.BuildConfig;
 import com.example.fitgenerator.fragments.BottomSheetDialog;
-import com.example.fitgenerator.fragments.FitsFragment;
 import com.example.fitgenerator.fragments.LaundryFragment;
 import com.example.fitgenerator.fragments.nav_fragments.GeneratorFragment;
 import com.example.fitgenerator.R;
@@ -44,24 +38,16 @@ import com.parse.SaveCallback;
 import com.vansuita.pickimage.bean.PickResult;
 import com.vansuita.pickimage.bundle.PickSetup;
 import com.vansuita.pickimage.dialog.PickImageDialog;
-import com.vansuita.pickimage.listeners.IPickCancel;
 import com.vansuita.pickimage.listeners.IPickResult;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.security.Permission;
 
 public class NavigationActivity extends AppCompatActivity
         implements BottomSheetDialog.BottomSheetListener,
         LaundryFragment.LaundryFragmentListener,
-        IPickResult {
-
-
+        IPickResult
+{
+    
     private static final String TAG = "NavigationActivity";
     private Toolbar toolbar;
     private NavigationView nvDrawer;
@@ -70,8 +56,7 @@ public class NavigationActivity extends AppCompatActivity
     HistoryFragment historyFragment;
     ShopFragment shopFragment;
     ImageView ivProfilePic;
-    TextView tvUserName;
-    TextView tvUserEmail;
+    TextView tvUserName,tvUserEmail;
     Fragment fragment;
 
     @Override
@@ -111,6 +96,9 @@ public class NavigationActivity extends AppCompatActivity
                 handleImageSelection();
             }
         });
+
+      
+
 
         setUpProfile();
 
@@ -178,7 +166,6 @@ public class NavigationActivity extends AppCompatActivity
         }
     }
 
-
     private void setupDrawerContent(NavigationView navigationView) {
         selectDrawerItem(navigationView.getCheckedItem());
         navigationView.setNavigationItemSelectedListener(
@@ -237,7 +224,14 @@ public class NavigationActivity extends AppCompatActivity
     }
 
     @Override
-    public void handleOnDelete(ClothingItem item) { refreshCloset(); }
+    public void handleOnDelete(ClothingItem item, int position) {
+        generatorFragment = (GeneratorFragment) fragment;
+        if(generatorFragment != null){
+            generatorFragment.removeClosetElement(position);
+        }
+
+//        refreshCloset(); 
+    }
 
     @Override
     public void handleWashItem() { refreshCloset(); }
@@ -254,4 +248,5 @@ public class NavigationActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+   
 }

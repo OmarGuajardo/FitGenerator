@@ -47,10 +47,8 @@ public class ClosetFragment extends Fragment{
     Boolean showInsufficientItems = false;
     ProgressBar progressBar;
     TextView tvInsufficientItems;
-    FloatingActionButton fabLayer;
-    FloatingActionButton fabTop;
-    FloatingActionButton fabBottom;
-    FloatingActionButton fabShoes;
+    FloatingActionButton fabLayer,fabTop,fabBottom,fabShoes;
+
 
 
     public ClosetFragment(){ }
@@ -139,6 +137,10 @@ public class ClosetFragment extends Fragment{
     }
 
 
+    public void removeClothingItem(int position){
+        items.remove(position);
+        closetAdapter.notifyItemRemoved(position);
+    }
 
     @Override
     public void onResume() {

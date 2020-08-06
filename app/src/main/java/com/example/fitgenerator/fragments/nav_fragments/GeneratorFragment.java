@@ -1,5 +1,6 @@
 package com.example.fitgenerator.fragments.nav_fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -54,6 +55,7 @@ public class GeneratorFragment extends Fragment {
     ViewPager viewPager;
     FloatingActionButton fab;
 
+
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -105,10 +107,6 @@ public class GeneratorFragment extends Fragment {
             public void onTabReselected(TabLayout.Tab tab) { }
         });
 
-
-
-
-
     }
 
     public void fabListener(int position, View view){
@@ -116,7 +114,6 @@ public class GeneratorFragment extends Fragment {
         switch(position){
             case 0:
                 generateOutfit();
-//                updateLists();
                 return;
             case 1:
                 openCreateItem();
@@ -129,25 +126,12 @@ public class GeneratorFragment extends Fragment {
         }
     }
 
-    public void updateLists(){
-        HashMap<String, Object> params = new HashMap<String, Object>();
-        params.put("currentUserCloset", Closet.getUserCloset().getObjectId());
-        ParseCloud.callFunctionInBackground("updateLists", params, new FunctionCallback<String>() {
-            @Override
-            public void done(String response, com.parse.ParseException e) {
-                if(e == null){
-                    Log.d(TAG, "done: response =  " +response);
-                    return;
-                }
-                Toast.makeText(getContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
-                Log.e(TAG, "error in getting string", e);
-            }
-
-        });
-    }
-
     public void refreshCloset(){
         closetFragment.onResume();
+    }
+
+    public void removeClosetElement(int position){
+        closetFragment.removeClothingItem(position);
     }
 
     public void generateOutfit(){
@@ -204,11 +188,11 @@ public class GeneratorFragment extends Fragment {
         super.onStop();
         getActivity().findViewById(R.id.tabBar).setVisibility(View.GONE);
     }
+
     @Override
     public void onResume() {
         super.onResume();
         getActivity().findViewById(R.id.tabBar).setVisibility(View.VISIBLE);
     }
-
 
 }

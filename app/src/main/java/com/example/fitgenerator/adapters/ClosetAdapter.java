@@ -74,7 +74,7 @@ public class ClosetAdapter extends RecyclerView.Adapter<ClosetAdapter.ViewHolder
                 @Override
                 public boolean onLongClick(View view) {
 
-                    BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(item);
+                    BottomSheetDialog bottomSheetDialog = new BottomSheetDialog(item,getAdapterPosition());
                     bottomSheetDialog.show(((AppCompatActivity) context).getSupportFragmentManager()
                             ,"bottomSheetDialog");
                     return false;
