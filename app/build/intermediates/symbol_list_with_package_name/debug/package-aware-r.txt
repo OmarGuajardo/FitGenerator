@@ -2276,14 +2276,10 @@ id itemCardView
 id itemDetailsContainer
 id item_touch_helper_previous_elevation
 id ivAppIcon
-id ivBottom
 id ivCategoryIcon
 id ivItemIcon
 id ivItemPic
-id ivLayer
 id ivProfilePic
-id ivShoes
-id ivTop
 id labeled
 id large
 id largeLabel

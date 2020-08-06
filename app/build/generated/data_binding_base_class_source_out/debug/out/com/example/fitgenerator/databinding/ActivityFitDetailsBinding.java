@@ -4,7 +4,6 @@ package com.example.fitgenerator.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -19,24 +18,25 @@ public final class ActivityFitDetailsBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
-  public final ImageView ivBottom;
+  public final ChooseFitItemRowBinding rowBottom;
 
   @NonNull
-  public final ImageView ivLayer;
+  public final ChooseFitItemRowBinding rowLayer;
 
   @NonNull
-  public final ImageView ivShoes;
+  public final ChooseFitItemRowBinding rowShoes;
 
   @NonNull
-  public final ImageView ivTop;
+  public final ChooseFitItemRowBinding rowTop;
 
-  private ActivityFitDetailsBinding(@NonNull ConstraintLayout rootView, @NonNull ImageView ivBottom,
-      @NonNull ImageView ivLayer, @NonNull ImageView ivShoes, @NonNull ImageView ivTop) {
+  private ActivityFitDetailsBinding(@NonNull ConstraintLayout rootView,
+      @NonNull ChooseFitItemRowBinding rowBottom, @NonNull ChooseFitItemRowBinding rowLayer,
+      @NonNull ChooseFitItemRowBinding rowShoes, @NonNull ChooseFitItemRowBinding rowTop) {
     this.rootView = rootView;
-    this.ivBottom = ivBottom;
-    this.ivLayer = ivLayer;
-    this.ivShoes = ivShoes;
-    this.ivTop = ivTop;
+    this.rowBottom = rowBottom;
+    this.rowLayer = rowLayer;
+    this.rowShoes = rowShoes;
+    this.rowTop = rowTop;
   }
 
   @Override
@@ -66,32 +66,36 @@ public final class ActivityFitDetailsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
-      id = R.id.ivBottom;
-      ImageView ivBottom = rootView.findViewById(id);
-      if (ivBottom == null) {
+      id = R.id.rowBottom;
+      View rowBottom = rootView.findViewById(id);
+      if (rowBottom == null) {
         break missingId;
       }
+      ChooseFitItemRowBinding binding_rowBottom = ChooseFitItemRowBinding.bind(rowBottom);
 
-      id = R.id.ivLayer;
-      ImageView ivLayer = rootView.findViewById(id);
-      if (ivLayer == null) {
+      id = R.id.rowLayer;
+      View rowLayer = rootView.findViewById(id);
+      if (rowLayer == null) {
         break missingId;
       }
+      ChooseFitItemRowBinding binding_rowLayer = ChooseFitItemRowBinding.bind(rowLayer);
 
-      id = R.id.ivShoes;
-      ImageView ivShoes = rootView.findViewById(id);
-      if (ivShoes == null) {
+      id = R.id.rowShoes;
+      View rowShoes = rootView.findViewById(id);
+      if (rowShoes == null) {
         break missingId;
       }
+      ChooseFitItemRowBinding binding_rowShoes = ChooseFitItemRowBinding.bind(rowShoes);
 
-      id = R.id.ivTop;
-      ImageView ivTop = rootView.findViewById(id);
-      if (ivTop == null) {
+      id = R.id.rowTop;
+      View rowTop = rootView.findViewById(id);
+      if (rowTop == null) {
         break missingId;
       }
+      ChooseFitItemRowBinding binding_rowTop = ChooseFitItemRowBinding.bind(rowTop);
 
-      return new ActivityFitDetailsBinding((ConstraintLayout) rootView, ivBottom, ivLayer, ivShoes,
-          ivTop);
+      return new ActivityFitDetailsBinding((ConstraintLayout) rootView, binding_rowBottom,
+          binding_rowLayer, binding_rowShoes, binding_rowTop);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.os.Bundle;
+import android.text.Layout;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.databinding.ActivityFitDetailsBinding;
+import com.example.fitgenerator.databinding.ChooseFitItemBinding;
+import com.example.fitgenerator.databinding.ChooseFitItemRowBinding;
 import com.example.fitgenerator.models.ClothingItem;
 import com.example.fitgenerator.models.Fit;
 import com.parse.GetCallback;
@@ -46,15 +49,18 @@ public class FitDetailsActivity extends AppCompatActivity {
         fit = Parcels.unwrap(getIntent().getParcelableExtra("fitItem"));
 
         if(fit.getParseObject(Fit.KEY_LAYER) != null){
-            displayImage(binding.ivLayer,Fit.KEY_LAYER);
+            displayImage(binding.rowLayer,Fit.KEY_LAYER);
         }
-        displayImage(binding.ivTop,Fit.KEY_TOP);
-        displayImage(binding.ivBottom,Fit.KEY_BOTTOM);
-        displayImage(binding.ivShoes,Fit.KEY_SHOES);
+        displayImage(binding.rowTop,Fit.KEY_TOP);
+        displayImage(binding.rowBottom,Fit.KEY_BOTTOM);
+        displayImage(binding.rowShoes,Fit.KEY_SHOES);
+
+
 
     }
 
-    public void displayImage(final ImageView imageView, final String itemClass){
+    public void displayImage(final ChooseFitItemRowBinding ref, final String itemClass){
+        ref.ivItemPic.setVisibility(View.VISIBLE);
         fit.getParseObject(itemClass).fetchIfNeededInBackground(new GetCallback<ParseObject>() {
             @Override
             public void done(ParseObject object, ParseException e) {
@@ -64,8 +70,11 @@ public class FitDetailsActivity extends AppCompatActivity {
                         Glide.with(getApplicationContext())
                                 .load(item.getImageURL())
                                 .dontTransform()
-                                .into(imageView);
+                                .into(ref.ivItemPic);
+                        ref.tvItemClass.setText(item.getClassString());
+                        ref.tvItemName.setText(item.getName());
                     }
+
                 }
                 else{
                     Log.d(TAG, "error: ");
