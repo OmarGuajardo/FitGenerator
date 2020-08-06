@@ -21,6 +21,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 public class ChooseFitAdapter extends PagerAdapter {
 
     List<HashMap> fitList;
@@ -28,10 +30,7 @@ public class ChooseFitAdapter extends PagerAdapter {
     LayoutInflater layoutInflater;
     List<ClothingItem> currentOutfit;
 
-    LinearLayout layoutTop;
-    LinearLayout layoutBottom;
-    LinearLayout layoutShoes;
-    LinearLayout layoutLayer;
+    LinearLayout layoutTop,layoutBottom,layoutShoes,layoutLayer;
 
     public ChooseFitAdapter(List<HashMap> fitList, Context context) {
         currentOutfit = new ArrayList<>();
@@ -83,11 +82,14 @@ public class ChooseFitAdapter extends PagerAdapter {
         for(int i = 0; i < currentOutfit.size();i++){
             Glide.with(context)
                     .load(currentOutfit.get(i).getImageURL())
-                    .circleCrop()
+                    .fitCenter()
+                    .transform(new RoundedCornersTransformation(30, 10))
                     .into((ImageView)layoutList.get(i).findViewById(R.id.ivItemPic));
 
-            TextView tvItemClass = (TextView)layoutList.get(i).findViewById(R.id.tvItemClass);
+            TextView tvItemClass = layoutList.get(i).findViewById(R.id.tvItemClass);
+            TextView tvItemName = layoutList.get(i).findViewById(R.id.tvItemName);
             tvItemClass.setText(currentOutfit.get(i).getClassString());
+            tvItemName.setText(currentOutfit.get(i).getName());
         }
     }
     public void updateCurrentOutfit(int position){

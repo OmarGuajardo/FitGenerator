@@ -292,7 +292,7 @@ public class CreateItemActivity extends AppCompatActivity
         clothingItemSubmit.setInfoFromJSON(form);
 
         //Checking to see if user took a picture of the Item
-        if(bytes.length != 0){
+        if(bytes != null && bytes.length != 0){
             clothingItemSubmit.setPicture(new ParseFile("clothing_item_picture",bytes));
         }
         clothingItemSubmit.saveInBackground(new SaveCallback() {

@@ -2,33 +2,56 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    tools:layout_height="wrap_content"
     android:layout_height="0dp"
     android:layout_weight="1"
     xmlns:tools="http://schemas.android.com/tools">
 
 
-
-        <TextView
-            android:paddingLeft="12dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:id="@+id/tvItemClass"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Layer"
-            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline4"
-            />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1" />
-
         <ImageView
+            android:layout_marginLeft="8dp"
             android:id="@+id/ivItemPic"
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_gravity="center"
             tools:srcCompat="@tools:sample/avatars" />
+
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:paddingLeft="8dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:textColor="@color/primaryTextColor2"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:id="@+id/tvItemName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="left"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                    android:text="Grey Short Sleeve Graphic Tee Shirt"
+                    />
+                <TextView
+                    android:textColor="@color/primaryTextColor2"
+                    android:fontFamily="@font/poppins_light"
+                    android:id="@+id/tvItemClass"
+                    android:layout_width="wrap_content"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                    android:layout_height="match_parent"
+                    android:gravity="left"
+                    android:text="Layer"
+                    />
+
+        </LinearLayout>
+
+<!--        <View-->
+<!--            android:id="@+id/dummyView"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="1" />-->
+
+
 
 </LinearLayout>

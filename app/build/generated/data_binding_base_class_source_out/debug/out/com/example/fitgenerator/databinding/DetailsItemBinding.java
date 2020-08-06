@@ -20,6 +20,9 @@ public final class DetailsItemBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final View dummyView;
+
+  @NonNull
   public final LinearLayout itemDetailsContainer;
 
   @NonNull
@@ -28,10 +31,11 @@ public final class DetailsItemBinding implements ViewBinding {
   @NonNull
   public final TextView tvDescriptionTitle;
 
-  private DetailsItemBinding(@NonNull ConstraintLayout rootView,
+  private DetailsItemBinding(@NonNull ConstraintLayout rootView, @NonNull View dummyView,
       @NonNull LinearLayout itemDetailsContainer, @NonNull TextView tvDescriptionBody,
       @NonNull TextView tvDescriptionTitle) {
     this.rootView = rootView;
+    this.dummyView = dummyView;
     this.itemDetailsContainer = itemDetailsContainer;
     this.tvDescriptionBody = tvDescriptionBody;
     this.tvDescriptionTitle = tvDescriptionTitle;
@@ -64,6 +68,12 @@ public final class DetailsItemBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.dummyView;
+      View dummyView = rootView.findViewById(id);
+      if (dummyView == null) {
+        break missingId;
+      }
+
       id = R.id.itemDetailsContainer;
       LinearLayout itemDetailsContainer = rootView.findViewById(id);
       if (itemDetailsContainer == null) {
@@ -82,7 +92,7 @@ public final class DetailsItemBinding implements ViewBinding {
         break missingId;
       }
 
-      return new DetailsItemBinding((ConstraintLayout) rootView, itemDetailsContainer,
+      return new DetailsItemBinding((ConstraintLayout) rootView, dummyView, itemDetailsContainer,
           tvDescriptionBody, tvDescriptionTitle);
     }
     String missingId = rootView.getResources().getResourceName(id);

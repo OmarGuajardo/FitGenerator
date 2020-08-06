@@ -25,11 +25,15 @@ public final class ChooseFitItemRowBinding implements ViewBinding {
   @NonNull
   public final TextView tvItemClass;
 
+  @NonNull
+  public final TextView tvItemName;
+
   private ChooseFitItemRowBinding(@NonNull LinearLayout rootView, @NonNull ImageView ivItemPic,
-      @NonNull TextView tvItemClass) {
+      @NonNull TextView tvItemClass, @NonNull TextView tvItemName) {
     this.rootView = rootView;
     this.ivItemPic = ivItemPic;
     this.tvItemClass = tvItemClass;
+    this.tvItemName = tvItemName;
   }
 
   @Override
@@ -71,7 +75,14 @@ public final class ChooseFitItemRowBinding implements ViewBinding {
         break missingId;
       }
 
-      return new ChooseFitItemRowBinding((LinearLayout) rootView, ivItemPic, tvItemClass);
+      id = R.id.tvItemName;
+      TextView tvItemName = rootView.findViewById(id);
+      if (tvItemName == null) {
+        break missingId;
+      }
+
+      return new ChooseFitItemRowBinding((LinearLayout) rootView, ivItemPic, tvItemClass,
+          tvItemName);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

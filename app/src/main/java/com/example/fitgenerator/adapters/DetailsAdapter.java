@@ -1,6 +1,7 @@
 package com.example.fitgenerator.adapters;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,13 +42,14 @@ public class DetailsAdapter extends RecyclerView.Adapter<DetailsAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         LinearLayout itemDetailsContainer;
-        TextView tvDescriptionTitle;
-        TextView tvDescriptionBody;
+        TextView tvDescriptionTitle, tvDescriptionBody;
+        View dummyView;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tvDescriptionBody = itemView.findViewById(R.id.tvDescriptionBody);
             tvDescriptionTitle = itemView.findViewById(R.id.tvDescriptionTitle);
             itemDetailsContainer = itemView.findViewById(R.id.itemDetailsContainer);
+            dummyView = itemView.findViewById(R.id.dummyView);
         }
 
         public void bind(String[] itemInfo) {

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -68,7 +69,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
         if(!clothingItem.getImageURL().isEmpty()){
             Glide.with(getApplicationContext())
                     .load(clothingItem.getImageURL())
-                    .dontTransform()
+                    .circleCrop()
                     .into(binding.ivItemPic);
             imageProgressBar.setVisibility(View.GONE);
 
@@ -79,7 +80,6 @@ public class ItemDetailsActivity extends AppCompatActivity {
                     .load(R.drawable.fit_generator_icon)
                     .circleCrop()
                     .into(binding.ivItemPic);
-
         }
 
         //Information template
@@ -90,12 +90,14 @@ public class ItemDetailsActivity extends AppCompatActivity {
                 {"Type",clothingItem.getType()},
                 {"Style",clothingItem.getStyle()},
                 {"Category",clothingItem.getCategory()},
-                {"Number of Wears",String.valueOf(clothingItem.getUses())},
+                {"Wears",String.valueOf(clothingItem.getUses())},
                 {clothingItem.getWorn()? "Dirty" : "Clean","  "}};
         //Setting up Recycler View
         detailsAdapter = new DetailsAdapter(getApplicationContext(),dummyInfo);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
         binding.rvDetails.setLayoutManager(linearLayoutManager);
+//        binding.rvDetails.addItemDecoration(new DividerItemDecoration(getApplicationContext(), DividerItemDecoration.VERTICAL));
+
         binding.rvDetails.setAdapter(detailsAdapter);
 
 

@@ -398,6 +398,8 @@ attr foregroundInsidePadding
 attr fragment
 attr gapBetweenBars
 attr goIcon
+attr gpuimage_show_loading
+attr gpuimage_surface_type
 attr headerLayout
 attr height
 attr helperText
@@ -2222,6 +2224,7 @@ id disableHome
 id display_always
 id drawer_layout
 id dropdown_menu
+id dummyView
 id edit_query
 id end
 id end_padder
@@ -2454,6 +2457,7 @@ id status_bar_latest_event_content
 id stretch
 id submenuarrow
 id submit_area
+id surface_view
 id switchWidget
 id tabBar
 id tabMode
@@ -2479,6 +2483,7 @@ id text_input_start_icon
 id textinput_counter
 id textinput_error
 id textinput_helper_text
+id texture_view
 id time
 id title
 id titleDividerNoCustom
@@ -4307,6 +4312,7 @@ styleable FlowLayout itemSpacing lineSpacing
 styleable FontFamily fontProviderAuthority fontProviderCerts fontProviderFetchStrategy fontProviderFetchTimeout fontProviderPackage fontProviderQuery
 styleable FontFamilyFont android_font android_fontWeight android_fontStyle android_ttcIndex android_fontVariationSettings font fontStyle fontVariationSettings fontWeight ttcIndex
 styleable ForegroundLinearLayout android_foreground android_foregroundGravity foregroundInsidePadding
+styleable GPUImageView gpuimage_show_loading gpuimage_surface_type
 styleable GradientColor android_startColor android_endColor android_type android_centerX android_centerY android_gradientRadius android_tileMode android_centerColor android_startX android_startY android_endX android_endY
 styleable GradientColorItem android_color android_offset
 styleable HorizontalInfiniteCycleViewPager icvp_center_page_scale_offset icvp_interpolator icvp_max_page_scale icvp_medium_scaled icvp_min_page_scale icvp_min_page_scale_offset icvp_scroll_duration

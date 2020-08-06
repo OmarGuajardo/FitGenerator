@@ -34,11 +34,13 @@ MERGED from [com.facebook.android:facebook-common:6.3.0] /Users/omarguajardo/.gr
 MERGED from [androidx.appcompat:appcompat:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/c2c5fa787d66aaf40578b3071f4d283f/appcompat-1.1.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/28120aa98d624ce8fee0a8087788fd91/constraintlayout-1.1.3/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/2fb8103c62e3ee1e6e4cc337dd696441/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [jp.wasabeef:glide-transformations:4.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/0fd1c317a19353998589b1b514dfadcf/jetified-glide-transformations-4.1.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.github.bumptech.glide:glide:4.11.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b05b2a738edf8b82097cbcc8ce0cfd69/jetified-glide-4.11.0/AndroidManifest.xml:2:1-12:12
 MERGED from [com.github.parse-community.Parse-SDK-Android:parse:1.25.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/1a2d3c50bb6d69addc2f6fee2f61e8ce/jetified-parse-1.25.0/AndroidManifest.xml:10:1-24:12
 MERGED from [it.xabaras.android:recyclerview-swipedecorator:1.2.3] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/8b1504831a6ad1cf67066578bc7c3b1e/jetified-recyclerview-swipedecorator-1.2.3/AndroidManifest.xml:2:1-11:12
 MERGED from [com.github.jrvansuita:PickImage:2.5] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/cb038e9aa37179fe889ef844d0e8fd0e/jetified-PickImage-2.5/AndroidManifest.xml:2:1-33:12
 MERGED from [com.github.pwittchen:weathericonview:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/9783d231cf0a031a6efd7ab356ab7272/jetified-weathericonview-1.1.0/AndroidManifest.xml:2:1-14:12
+MERGED from [jp.co.cyberagent.android:gpuimage:2.0.4] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/0e7e853446f4a4a7f714981e48d2124b/jetified-gpuimage-2.0.4/AndroidManifest.xml:2:1-11:12
 MERGED from [androidx.browser:browser:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/ee0e2aaf3fce41f1584f18b1d5d839e3/browser-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/51c4c178afaeff173cfa265953a5c82e/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/28174e475fcfd6ae966ed5772f6694ac/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
@@ -356,6 +358,8 @@ MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/omarguajar
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/28120aa98d624ce8fee0a8087788fd91/constraintlayout-1.1.3/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/2fb8103c62e3ee1e6e4cc337dd696441/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/2fb8103c62e3ee1e6e4cc337dd696441/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [jp.wasabeef:glide-transformations:4.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/0fd1c317a19353998589b1b514dfadcf/jetified-glide-transformations-4.1.0/AndroidManifest.xml:5:5-7:41
+MERGED from [jp.wasabeef:glide-transformations:4.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/0fd1c317a19353998589b1b514dfadcf/jetified-glide-transformations-4.1.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.github.bumptech.glide:glide:4.11.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b05b2a738edf8b82097cbcc8ce0cfd69/jetified-glide-4.11.0/AndroidManifest.xml:6:5-8:41
 MERGED from [com.github.bumptech.glide:glide:4.11.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/b05b2a738edf8b82097cbcc8ce0cfd69/jetified-glide-4.11.0/AndroidManifest.xml:6:5-8:41
 MERGED from [com.github.parse-community.Parse-SDK-Android:parse:1.25.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/1a2d3c50bb6d69addc2f6fee2f61e8ce/jetified-parse-1.25.0/AndroidManifest.xml:15:5-17:41
@@ -366,6 +370,8 @@ MERGED from [com.github.jrvansuita:PickImage:2.5] /Users/omarguajardo/.gradle/ca
 MERGED from [com.github.jrvansuita:PickImage:2.5] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/cb038e9aa37179fe889ef844d0e8fd0e/jetified-PickImage-2.5/AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.pwittchen:weathericonview:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/9783d231cf0a031a6efd7ab356ab7272/jetified-weathericonview-1.1.0/AndroidManifest.xml:8:5-10:41
 MERGED from [com.github.pwittchen:weathericonview:1.1.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/9783d231cf0a031a6efd7ab356ab7272/jetified-weathericonview-1.1.0/AndroidManifest.xml:8:5-10:41
+MERGED from [jp.co.cyberagent.android:gpuimage:2.0.4] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/0e7e853446f4a4a7f714981e48d2124b/jetified-gpuimage-2.0.4/AndroidManifest.xml:7:5-9:41
+MERGED from [jp.co.cyberagent.android:gpuimage:2.0.4] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/0e7e853446f4a4a7f714981e48d2124b/jetified-gpuimage-2.0.4/AndroidManifest.xml:7:5-9:41
 MERGED from [androidx.browser:browser:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/ee0e2aaf3fce41f1584f18b1d5d839e3/browser-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.browser:browser:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/ee0e2aaf3fce41f1584f18b1d5d839e3/browser-1.0.0/AndroidManifest.xml:20:5-44
 MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /Users/omarguajardo/.gradle/caches/transforms-2/files-2.1/51c4c178afaeff173cfa265953a5c82e/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
