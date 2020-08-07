@@ -1,5 +1,6 @@
 package com.example.fitgenerator.fragments.nav_fragments;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,6 +11,7 @@ import androidx.preference.EditTextPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +42,7 @@ public class SettingsFragment extends Fragment {
     public static class SettingOptions extends PreferenceFragmentCompat {
 
 
+        ProfileListener listener;
         @Override
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
@@ -56,6 +59,7 @@ public class SettingsFragment extends Fragment {
                     ParseUser.getCurrentUser().setUsername(newValue.toString());
                     ParseUser.getCurrentUser().saveInBackground();
                     preferenceUsername.setText(newValue.toString());
+                    listener.handleProfileUpdate();
                     return false;
                 }
             });
@@ -65,6 +69,7 @@ public class SettingsFragment extends Fragment {
                     ParseUser.getCurrentUser().setEmail(newValue.toString());
                     ParseUser.getCurrentUser().saveInBackground();
                     preferenceEmail.setText(newValue.toString());
+                    listener.handleProfileUpdate();
                     return false;
                 }
             });
@@ -84,7 +89,23 @@ public class SettingsFragment extends Fragment {
                 }
             });
         }
+
+        @Override
+        public void onAttach(@NonNull Context context) {
+            super.onAttach(context);
+            try {
+                listener = (ProfileListener) context;
+
+            } catch (Exception e) {
+                Log.e("BottomSheetDialog", "onAttach: ",e);
+            }
+        }
+
+        public interface ProfileListener{
+            void handleProfileUpdate();
+        }
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

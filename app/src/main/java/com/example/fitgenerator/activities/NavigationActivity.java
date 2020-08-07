@@ -46,7 +46,8 @@ import java.io.ByteArrayOutputStream;
 public class NavigationActivity extends AppCompatActivity
         implements BottomSheetDialog.BottomSheetListener,
         LaundryFragment.LaundryFragmentListener,
-        IPickResult
+        IPickResult,
+        SettingsFragment.SettingOptions.ProfileListener
 {
     
     private static final String TAG = "NavigationActivity";
@@ -119,10 +120,8 @@ public class NavigationActivity extends AppCompatActivity
         }
         tvUserName.setText(currentUser.getUsername());
         tvUserEmail.setText(currentUser.getEmail() == null ? "" : currentUser.getEmail());
-
     }
-
-
+    
     private void handleImageSelection() {
         PickSetup pickSetup = new PickSetup().setMaxSize(250);
         PickImageDialog.build(pickSetup)
@@ -238,7 +237,6 @@ public class NavigationActivity extends AppCompatActivity
             generatorFragment.removeClosetElement(position);
         }
 
-//        refreshCloset(); 
     }
 
     @Override
@@ -256,5 +254,9 @@ public class NavigationActivity extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
-   
+
+    @Override
+    public void handleProfileUpdate() {
+        setUpProfile();
+    }
 }
