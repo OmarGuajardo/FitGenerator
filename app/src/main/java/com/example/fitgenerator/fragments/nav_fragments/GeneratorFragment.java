@@ -1,11 +1,13 @@
 package com.example.fitgenerator.fragments.nav_fragments;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -119,11 +121,30 @@ public class GeneratorFragment extends Fragment {
                 openCreateItem();
                 return;
             case 2:
-                laundryFragment.washAllItems();
+                washItems();
                 return;
             default:
                 return;
         }
+    }
+
+    private void washItems() {
+        new AlertDialog.Builder(getContext())
+                .setTitle("Wash All Items")
+                .setMessage("Are you sure you want to wash all items?")
+
+                // Specifying a listener allows you to take an action before dismissing the dialog.
+                // The dialog is automatically dismissed when a dialog button is clicked.
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        laundryFragment.washAllItems();
+                    }
+                })
+
+                // A null listener allows the button to dismiss the dialog and take no further action.
+                .setNegativeButton(android.R.string.no, null)
+                .setIcon(R.drawable.noun_laundry_2976228)
+                .show();
     }
 
     public void refreshCloset(){

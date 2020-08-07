@@ -26,6 +26,8 @@ import com.parse.ParseObject;
 
 import org.parceler.Parcels;
 
+import jp.wasabeef.glide.transformations.RoundedCornersTransformation;
+
 public class FitDetailsActivity extends AppCompatActivity {
 
     private static final String TAG = "FitDetailsActivity";
@@ -69,7 +71,8 @@ public class FitDetailsActivity extends AppCompatActivity {
                         ClothingItem item = (ClothingItem)object;
                         Glide.with(getApplicationContext())
                                 .load(item.getImageURL())
-                                .dontTransform()
+                                .fitCenter()
+                                .transform(new RoundedCornersTransformation(30, 10))
                                 .into(ref.ivItemPic);
                         ref.tvItemClass.setText(item.getClassString());
                         ref.tvItemName.setText(item.getName());

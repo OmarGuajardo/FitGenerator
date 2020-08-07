@@ -2845,6 +2845,7 @@ string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
 string copy
+string email_title
 string error_icon_content_description
 string expand_button_title
 string exposed_dropdown_menu_content_description
@@ -2910,14 +2911,13 @@ string places_search_error
 string places_try_again
 string preference_copied
 string provider_package
-string reply_title
 string search_menu_title
-string signature_title
 string status_bar_notification_info_overflow
 string summary_collapsed_preference_list
 string sync_header
 string sync_title
 string title_activity_settings
+string username_title
 string v7_preference_off
 string v7_preference_on
 string video_content_type

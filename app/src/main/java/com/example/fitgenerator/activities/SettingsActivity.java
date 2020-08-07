@@ -17,6 +17,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
+import androidx.preference.EditTextPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
@@ -58,6 +59,23 @@ public class SettingsActivity extends AppCompatActivity {
         public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
             setPreferencesFromResource(R.xml.root_preferences, rootKey);
 
+            //Setting the username and email in the preference category
+            final EditTextPreference preferenceUsername = getPreferenceManager().findPreference("username");
+            EditTextPreference preferenceEmail = getPreferenceManager().findPreference("email");
+            preferenceUsername.setText(ParseUser.getCurrentUser().getUsername());
+            preferenceEmail.setText(ParseUser.getCurrentUser().getEmail());
+
+            preferenceUsername.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    ParseUser.getCurrentUser().setUsername(newValue.toString());
+                    ParseUser.getCurrentUser().saveInBackground();
+                    preferenceUsername.setText(newValue.toString());
+                    return false;
+                }
+            });
+
+            //When LogOut button is pressed actively logout user
             Preference button = getPreferenceManager().findPreference("exitLink");
             button.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override

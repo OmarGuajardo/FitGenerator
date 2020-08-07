@@ -216,6 +216,12 @@ public class NavigationActivity extends AppCompatActivity
         mDrawer.closeDrawers();
     }
 
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+        setUpProfile();
+    }
+
     public void refreshCloset() {
         generatorFragment = (GeneratorFragment) fragment;
         if(generatorFragment != null){
