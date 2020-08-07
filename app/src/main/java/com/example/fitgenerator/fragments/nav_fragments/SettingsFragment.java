@@ -1,58 +1,43 @@
-package com.example.fitgenerator.activities;
+package com.example.fitgenerator.fragments.nav_fragments;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.content.ContextCompat;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.preference.EditTextPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragmentCompat;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
 import com.example.fitgenerator.R;
+import com.example.fitgenerator.activities.WelcomeActivity;
 import com.parse.ParseUser;
 
-import org.w3c.dom.Text;
+public class SettingsFragment extends Fragment {
 
-public class SettingsActivity extends AppCompatActivity {
 
-    private static final String TAG = "SettingsActivity";
-    Toolbar toolbar;
-    
+    public SettingsFragment() {
+        // Required empty public constructor
+    }
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.settings_activity);
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
-        // Adding back button to the Tool Bar
-        toolbar = findViewById(R.id.topAppBar);
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        TextView tvToolBarTile = findViewById(R.id.tvToolBarTitle);
-        tvToolBarTile.setText("Settings");
-
-        SettingsFragment settingsFragment = new SettingsFragment();
-        getSupportFragmentManager()
+        SettingOptions settingOptions = new SettingOptions();
+        getActivity().getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.settings, settingsFragment)
+                .replace(R.id.settings,settingOptions )
                 .commit();
 
     }
 
-    public static class SettingsFragment extends PreferenceFragmentCompat {
+    public static class SettingOptions extends PreferenceFragmentCompat {
 
 
         @Override
@@ -61,7 +46,7 @@ public class SettingsActivity extends AppCompatActivity {
 
             //Setting the username and email in the preference category
             final EditTextPreference preferenceUsername = getPreferenceManager().findPreference("username");
-            EditTextPreference preferenceEmail = getPreferenceManager().findPreference("email");
+            final EditTextPreference preferenceEmail = getPreferenceManager().findPreference("email");
             preferenceUsername.setText(ParseUser.getCurrentUser().getUsername());
             preferenceEmail.setText(ParseUser.getCurrentUser().getEmail());
 
@@ -74,6 +59,15 @@ public class SettingsActivity extends AppCompatActivity {
                     return false;
                 }
             });
+            preferenceEmail.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    ParseUser.getCurrentUser().setEmail(newValue.toString());
+                    ParseUser.getCurrentUser().saveInBackground();
+                    preferenceEmail.setText(newValue.toString());
+                    return false;
+                }
+            });
 
             //When LogOut button is pressed actively logout user
             Preference button = getPreferenceManager().findPreference("exitLink");
@@ -81,7 +75,7 @@ public class SettingsActivity extends AppCompatActivity {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
                     ParseUser.logOut();
-                    Intent intent = new Intent(getContext(),WelcomeActivity.class);
+                    Intent intent = new Intent(getContext(), WelcomeActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                     getActivity().finish();
@@ -89,21 +83,19 @@ public class SettingsActivity extends AppCompatActivity {
                     return false;
                 }
             });
-
-
-
         }
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
     }
+
     @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        finish();
-        return super.onOptionsItemSelected(item);
-    }
-    public void logOut(){
-        ParseUser.logOut();
-        Intent i = new Intent(SettingsActivity.this,LoginActivity.class);
-        startActivity(i);
-        finish();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        // Inflate the layout for this fragment
+        return inflater.inflate(R.layout.fragment_settings, container, false);
     }
 }

@@ -33,9 +33,6 @@
             android:name=".activities.ChooseCategory"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activities.SettingsActivity"
-            android:label="@string/title_activity_settings" />
-        <activity
             android:name=".activities.NavigationActivity"
             android:screenOrientation="portrait" /> <!-- <provider -->
         <!-- android:name="androidx.core.content.FileProvider" -->

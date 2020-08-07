@@ -56,9 +56,6 @@
             android:name="com.example.fitgenerator.activities.ChooseCategory"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.example.fitgenerator.activities.SettingsActivity"
-            android:label="@string/title_activity_settings" />
-        <activity
             android:name="com.example.fitgenerator.activities.NavigationActivity"
             android:screenOrientation="portrait" /> <!-- <provider -->
         <!-- android:name="androidx.core.content.FileProvider" -->

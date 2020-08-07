@@ -29,6 +29,7 @@
                 android:orientation="horizontal">
 
                 <com.github.pwittchen.weathericonview.WeatherIconView
+                    android:visibility="invisible"
                     android:id="@+id/my_weather_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -44,7 +45,7 @@
                     android:layout_marginLeft="8dp"
                     android:fontFamily="@font/poppins"
                     android:gravity="center"
-                    android:text="80&#xb0;"
+                    tools:text="80&#xb0;"
                     android:textColor="@color/primaryTextColor2"
                     android:textSize="50dp" />
 
@@ -57,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/tvWeatherDesc"
-                android:text="Sunny Day"/>
+                tools:text="Sunny Day"/>
         </LinearLayout>
 
         <LinearLayout

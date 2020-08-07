@@ -158,6 +158,7 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
                                 }
                                 Snackbar.make(binding.layoutChooseCategory,"Sorry, not enough items in closet to generate Fit", Snackbar.LENGTH_SHORT).show();
                             }
+                            Snackbar.make(binding.layoutChooseCategory,"Error in getting Fits", Snackbar.LENGTH_SHORT).show();
                             Log.e(TAG, "error in getting OutFits", e);
                         }
                     });
@@ -245,6 +246,7 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
     }
 
     private void showWeather(int weatherID, String description) {
+        binding.myWeatherIcon.setVisibility(View.VISIBLE);
         binding.tvWeatherDesc.setText(capitalize(description));
         binding.tvTemp.setText(currentTemp+"\u2109");
         String iconResource = "";
@@ -270,9 +272,6 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
         else{
             iconResource = getString(R.string.wi_day_sunny);
         }
-
-
-
         binding.myWeatherIcon.setIconResource(iconResource);
     }
 

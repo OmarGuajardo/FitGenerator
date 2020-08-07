@@ -31,7 +31,7 @@
                     android:layout_height="match_parent"
                     android:gravity="left"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
-                    android:text="Grey Short Sleeve Graphic Tee Shirt"
+                    tools:text="Grey Short Sleeve Graphic Tee Shirt"
                     />
                 <TextView
                     android:textColor="@color/primaryTextColor2"
@@ -41,7 +41,7 @@
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                     android:layout_height="match_parent"
                     android:gravity="left"
-                    android:text="Layer"
+                    tools:text="Layer"
                     />
 
         </LinearLayout>

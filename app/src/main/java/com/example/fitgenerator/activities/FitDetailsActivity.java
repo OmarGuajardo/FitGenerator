@@ -62,13 +62,17 @@ public class FitDetailsActivity extends AppCompatActivity {
     }
 
     public void displayImage(final ChooseFitItemRowBinding ref, final String itemClass){
+        Log.d(TAG, "getting item " + itemClass);
         ref.ivItemPic.setVisibility(View.VISIBLE);
         fit.getParseObject(itemClass).fetchIfNeededInBackground(new GetCallback<ParseObject>() {
             @Override
             public void done(ParseObject object, ParseException e) {
+                Log.d(TAG, "getting item " + itemClass);
                 if(e == null){
+                    Log.d(TAG, "e is not null");
                     if(object != null){
                         ClothingItem item = (ClothingItem)object;
+                        Log.d(TAG, "item URL " + item.getImageURL());
                         Glide.with(getApplicationContext())
                                 .load(item.getImageURL())
                                 .fitCenter()
@@ -77,9 +81,15 @@ public class FitDetailsActivity extends AppCompatActivity {
                         ref.tvItemClass.setText(item.getClassString());
                         ref.tvItemName.setText(item.getName());
                     }
-
                 }
                 else{
+                    Glide.with(getApplicationContext())
+                            .load("https://westsiderc.org/wp-content/uploads/2019/08/Image-Not-Available.png")
+                            .fitCenter()
+                            .transform(new RoundedCornersTransformation(30, 10))
+                            .into(ref.ivItemPic);
+                    ref.tvItemClass.setText("Item not available");
+                    ref.tvItemName.setText("Deleted");
                     Log.d(TAG, "error: ");
                 }
             }

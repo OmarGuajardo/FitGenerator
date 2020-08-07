@@ -91,7 +91,6 @@ public class FitsFragment extends Fragment {
     }
 
     public void displayData() {
-        Log.d(TAG, "displayData: ");
         sectionList.clear();
         SimpleDateFormat DateFor = new SimpleDateFormat("EEE MMM d yyyy");
         List<Fit> sectionItems = new ArrayList<>();

@@ -28,6 +28,7 @@ import com.example.fitgenerator.fragments.LaundryFragment;
 import com.example.fitgenerator.fragments.nav_fragments.GeneratorFragment;
 import com.example.fitgenerator.R;
 import com.example.fitgenerator.fragments.nav_fragments.HistoryFragment;
+import com.example.fitgenerator.fragments.nav_fragments.SettingsFragment;
 import com.example.fitgenerator.fragments.nav_fragments.ShopFragment;
 import com.example.fitgenerator.models.ClothingItem;
 import com.google.android.material.navigation.NavigationView;
@@ -54,6 +55,7 @@ public class NavigationActivity extends AppCompatActivity
     private DrawerLayout mDrawer;
     GeneratorFragment generatorFragment;
     HistoryFragment historyFragment;
+    SettingsFragment settingsFragment;
     ShopFragment shopFragment;
     ImageView ivProfilePic;
     TextView tvUserName,tvUserEmail;
@@ -66,6 +68,7 @@ public class NavigationActivity extends AppCompatActivity
         generatorFragment = new GeneratorFragment();
         historyFragment = new HistoryFragment();
         shopFragment = new ShopFragment();
+        settingsFragment = new SettingsFragment();
 
         // Set a Toolbar to replace the ActionBar.
         toolbar = (Toolbar) findViewById(R.id.topAppBar);
@@ -190,9 +193,8 @@ public class NavigationActivity extends AppCompatActivity
                 fragmentClass = ShopFragment.class;
                 break;
             case R.id.navSettings:
-                Intent i = new Intent(NavigationActivity.this, SettingsActivity.class);
-                startActivity(i);
-                return;
+                fragmentClass = SettingsFragment.class;
+                break;
             default:
                 fragmentClass = GeneratorFragment.class;
         }
