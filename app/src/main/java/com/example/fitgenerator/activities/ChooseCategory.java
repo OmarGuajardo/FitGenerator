@@ -157,6 +157,39 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
                                     return;
                                 }
                                 Snackbar.make(binding.layoutChooseCategory,"Sorry, not enough items in closet to generate Fit", Snackbar.LENGTH_SHORT).show();
+                                return;
+                            }
+                            Snackbar.make(binding.layoutChooseCategory,"Error in getting Fits", Snackbar.LENGTH_SHORT).show();
+                            Log.e(TAG, "error in getting OutFits", e);
+                        }
+                    });
+                }
+            }
+        });
+    }
+    public void chooseOccasion(final String cloudFunctionName, final HashMap<String, Object> cloudParams) {
+        final Snackbar snackbar = Snackbar.make(binding.layoutChooseCategory,"Gathering Data...", Snackbar.LENGTH_INDEFINITE);
+        snackbar.show();
+        toggleForm();
+        HashMap<String, Object> params = new HashMap<>();
+        params.put("currentUserCloset", Closet.getUserCloset().getObjectId());
+        params.put("temp", 20);
+        ParseCloud.callFunctionInBackground("updateLists", params, new FunctionCallback<Object>() {
+            @Override
+            public void done(Object object, ParseException e) {
+                if (e == null) {
+                    toggleForm();
+                    ParseCloud.callFunctionInBackground(cloudFunctionName, cloudParams, new FunctionCallback<Boolean>() {
+                        @Override
+                        public void done(Boolean response, ParseException e) {
+                            if (e == null) {
+                                if (response == true) {
+                                    snackbar.dismiss();
+                                    chooseFit();
+                                    return;
+                                }
+                                Snackbar.make(binding.layoutChooseCategory,"Sorry, not enough items in closet to generate Fit", Snackbar.LENGTH_SHORT).show();
+                                return;
                             }
                             Snackbar.make(binding.layoutChooseCategory,"Error in getting Fits", Snackbar.LENGTH_SHORT).show();
                             Log.e(TAG, "error in getting OutFits", e);
@@ -325,9 +358,15 @@ public class ChooseCategory extends AppCompatActivity implements SingleChoiceDia
     public void onPositiveButtonClicked(String[] list, int position) {
         HashMap<String, Object> params = new HashMap<String, Object>();
         params.put(category, list[position]);
-        if (category.equals("occasion")) {
+        if (category.equals("occasion") && list[position].equals("Formal")) {
+            chooseOccasion("categoryOccasion", params);
+        }
+        else if( (category.equals("occasion") && list[position].equals("Casual") )|| (category.equals("occasion") && list[position].equals("Semi Formal") )){
+            Log.d(TAG, "category occasion ");
             chooseCategory("categoryOccasion", params);
-        } else {
+
+        }
+        else {
             chooseCategory("categorySeason", params);
         }
     }

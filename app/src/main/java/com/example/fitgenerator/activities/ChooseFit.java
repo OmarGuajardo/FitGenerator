@@ -61,6 +61,8 @@ public class ChooseFit extends AppCompatActivity {
         TextView tvToolBarTitle = toolbar.findViewById(R.id.tvToolBarTitle);
         tvToolBarTitle.setText("Choose Fit");
 
+        fitList = new ArrayList<>();
+
         //Getting outfits from backend
         getOutfits();
 
@@ -149,8 +151,10 @@ public class ChooseFit extends AppCompatActivity {
             @Override
             public void done(HashMap map, ParseException e) {
                 if(e==null){
+                    fitList.clear();
                     category = (String)map.get("Category");
                     fitList = (List<HashMap>)map.get("Fits");
+                    Log.d(TAG, "fitList size " + fitList.size());
                     pager = findViewById(R.id.horizontal_cycle);
                     adapter = new ChooseFitAdapter(fitList,getApplicationContext());
                     pager.setAdapter(adapter);

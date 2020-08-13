@@ -52,6 +52,7 @@ public class FitDetailsActivity extends AppCompatActivity {
 
         if(fit.getParseObject(Fit.KEY_LAYER) != null){
             displayImage(binding.rowLayer,Fit.KEY_LAYER);
+            binding.rowLayer.getRoot().setVisibility(View.VISIBLE);
         }
         displayImage(binding.rowTop,Fit.KEY_TOP);
         displayImage(binding.rowBottom,Fit.KEY_BOTTOM);
@@ -62,17 +63,12 @@ public class FitDetailsActivity extends AppCompatActivity {
     }
 
     public void displayImage(final ChooseFitItemRowBinding ref, final String itemClass){
-        Log.d(TAG, "getting item " + itemClass);
-        ref.ivItemPic.setVisibility(View.VISIBLE);
         fit.getParseObject(itemClass).fetchIfNeededInBackground(new GetCallback<ParseObject>() {
             @Override
             public void done(ParseObject object, ParseException e) {
-                Log.d(TAG, "getting item " + itemClass);
                 if(e == null){
-                    Log.d(TAG, "e is not null");
                     if(object != null){
                         ClothingItem item = (ClothingItem)object;
-                        Log.d(TAG, "item URL " + item.getImageURL());
                         Glide.with(getApplicationContext())
                                 .load(item.getImageURL())
                                 .fitCenter()
@@ -80,6 +76,7 @@ public class FitDetailsActivity extends AppCompatActivity {
                                 .into(ref.ivItemPic);
                         ref.tvItemClass.setText(item.getClassString());
                         ref.tvItemName.setText(item.getName());
+                        binding.progressBar.setVisibility(View.GONE);
                     }
                 }
                 else{

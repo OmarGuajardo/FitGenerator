@@ -4,6 +4,7 @@ package com.example.fitgenerator.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
@@ -18,6 +19,9 @@ public final class ActivityFitDetailsBinding implements ViewBinding {
   private final ConstraintLayout rootView;
 
   @NonNull
+  public final ProgressBar progressBar;
+
+  @NonNull
   public final ChooseFitItemRowBinding rowBottom;
 
   @NonNull
@@ -30,9 +34,11 @@ public final class ActivityFitDetailsBinding implements ViewBinding {
   public final ChooseFitItemRowBinding rowTop;
 
   private ActivityFitDetailsBinding(@NonNull ConstraintLayout rootView,
-      @NonNull ChooseFitItemRowBinding rowBottom, @NonNull ChooseFitItemRowBinding rowLayer,
-      @NonNull ChooseFitItemRowBinding rowShoes, @NonNull ChooseFitItemRowBinding rowTop) {
+      @NonNull ProgressBar progressBar, @NonNull ChooseFitItemRowBinding rowBottom,
+      @NonNull ChooseFitItemRowBinding rowLayer, @NonNull ChooseFitItemRowBinding rowShoes,
+      @NonNull ChooseFitItemRowBinding rowTop) {
     this.rootView = rootView;
+    this.progressBar = progressBar;
     this.rowBottom = rowBottom;
     this.rowLayer = rowLayer;
     this.rowShoes = rowShoes;
@@ -66,6 +72,12 @@ public final class ActivityFitDetailsBinding implements ViewBinding {
     // This is done to optimize the compiled bytecode for size and performance.
     int id;
     missingId: {
+      id = R.id.progress_bar;
+      ProgressBar progressBar = rootView.findViewById(id);
+      if (progressBar == null) {
+        break missingId;
+      }
+
       id = R.id.rowBottom;
       View rowBottom = rootView.findViewById(id);
       if (rowBottom == null) {
@@ -94,8 +106,8 @@ public final class ActivityFitDetailsBinding implements ViewBinding {
       }
       ChooseFitItemRowBinding binding_rowTop = ChooseFitItemRowBinding.bind(rowTop);
 
-      return new ActivityFitDetailsBinding((ConstraintLayout) rootView, binding_rowBottom,
-          binding_rowLayer, binding_rowShoes, binding_rowTop);
+      return new ActivityFitDetailsBinding((ConstraintLayout) rootView, progressBar,
+          binding_rowBottom, binding_rowLayer, binding_rowShoes, binding_rowTop);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

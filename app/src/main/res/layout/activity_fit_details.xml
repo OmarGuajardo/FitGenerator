@@ -6,6 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".activities.FitDetailsActivity">
 
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/progress_bar"/>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -30,6 +38,6 @@
             android:id="@+id/rowShoes"
             layout="@layout/choose_fit_item_row" />
     </LinearLayout>
-
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
